@@ -1,0 +1,51 @@
+[System]
+Name='mamfis'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Sleft'
+Range=[0 3]
+NumMFs=2
+MF1='cerca':'trimf',[-3.14 0.0171 3]
+MF2='lejos':'gauss2mf',[0.599 2.94099799037895 0.184 5.85046511627907]
+
+[Input2]
+Name='Scentral'
+Range=[0 3]
+NumMFs=2
+MF1='cerca':'trimf',[-3.14 0.0171 3]
+MF2='lejos':'gauss2mf',[0.599 2.941 0.184 5.85]
+
+[Input3]
+Name='Sright'
+Range=[0 3]
+NumMFs=2
+MF1='cerca':'trimf',[-3.14 0.0171 3]
+MF2='lejos':'gauss2mf',[0.599 2.941 0.184 5.85]
+
+[Output1]
+Name='W'
+Range=[-0.52 0.52]
+NumMFs=3
+MF1='izquierda':'trapmf',[-0.9507 -0.6084 -0.2792 -0.05119]
+MF2='derecha':'trapmf',[0.05171 0.2782 0.63 1.032]
+MF3='centro':'trimf',[-0.1671 0 0.1648]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 2 1, 3 (1) : 1
+1 2 2, 2 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 3 (1) : 1
