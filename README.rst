@@ -96,10 +96,25 @@ petalinux:
 Команда shift нужна для того чтоб аргумент с именем рабочей директории нужный
 только этому скрипту не попал в сам контейнер.
 
-Теперь можно, например, запустить комнаду на сборку проекта примерно так:
+Теперь можно запускать команды из хоста непосредственно в контейнере. Например:
 
-  .. code-clock:: sh
+.. code-clock:: sh
 
-     ./run-container.sh /home/igor/peta-project plbuild
+   gcc -v
+
+выведет в термнал хоста версию компилятора в контейнере.
+
+Однако, из-за того что petalinux требует инициализации переменных окружения
+простой вызов команд petalinux не сработает. Для этого надо немного
+модифицировать команду. Например, создадим проект petalinux для zynqMP в
+хостовой директории `~/petalinux_prj`:
+
+.. code-clock:: sh
+
+   ./run-container.sh /home/user/petalinux_prj  /bin/bash -c            \
+       'source /opt/Xilinx/petalinux/settings.sh;                       \
+       petalinux-create -t project --template zynqMP --force -n test'
+
+
 
 

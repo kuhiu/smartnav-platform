@@ -24,8 +24,8 @@ docker run                                                  \
     -v /tmp/.X11-unix:/tmp/.X11-unix                        \
     --net="host"                                            \
     -v $HOME/.Xauthority:/home/vivado/.Xauthority           \
-    -v $1:/home/vivado/project                              \
-    petalinux:2021.1
+    -v $1:/home/user/project                                \
+    petalinux:2021.1                                        
 
 #   -ti
 #   интерактивный режим запуска контейнера 

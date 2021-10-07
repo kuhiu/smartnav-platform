@@ -111,7 +111,7 @@ RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 RUN sudo ln -fs /bin/bash /bin/sh
 
 USER user
-ENV HOME /home/uer
+ENV HOME /home/user
 ENV LANG en_US.UTF-8
 
 #
@@ -159,4 +159,3 @@ RUN sudo ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # запустим демон ssh
 ENTRYPOINT sudo service ssh start && /bin/bash
-
