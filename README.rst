@@ -76,7 +76,7 @@ petalinux:
 * В ``run-container.sh`` часть запускающую команду docker run модифицировать к
   примерно следующему виду":
 
-  .. code-clock:: sh
+  .. code-block:: sh
 
      PROJ_DIR=$1
      shift
@@ -98,7 +98,7 @@ petalinux:
 
 Теперь можно запускать команды из хоста непосредственно в контейнере. Например:
 
-.. code-clock:: sh
+.. code-block::
 
    gcc -v
 
@@ -109,7 +109,7 @@ petalinux:
 модифицировать команду. Например, создадим проект petalinux для zynqMP в
 хостовой директории `~/petalinux_prj`:
 
-.. code-clock:: sh
+.. code-block::
 
    ./run-container.sh /home/user/petalinux_prj  /bin/bash -c            \
        'source /opt/Xilinx/petalinux/settings.sh;                       \
