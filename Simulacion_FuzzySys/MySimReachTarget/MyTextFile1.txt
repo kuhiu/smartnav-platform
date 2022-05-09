@@ -1,6 +1,0 @@
-Las distancias: 3, 3, 3 , el angulo: -5.499286e-04 , w: 1.375434e-01
-Las distancias: 2.507884e+00, 3, 2.504840e+00 , el angulo: -6.088053e-04 , w: 1.170761e-01
-Las distancias: 2.412845e+00, 3, 2.404279e+00 , el angulo: -1.370407e-03 , w: 1.057294e-01
-Las distancias: 2.320380e+00, 3, 2.304171e+00 , el angulo: -7.678239e-03 , w: 8.969374e-02
-Las distancias: 2.230014e+00, 3, 2.205182e+00 , el angulo: -9.194239e-03 , w: 6.925662e-02
-Las distancias: 2.141587e+00, 3, 2.107713e+00 , el angulo: -8.166656e-03 , w: 4.945366e-02
