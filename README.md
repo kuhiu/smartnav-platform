@@ -1,4 +1,4 @@
-# Sistema de navegacion inteligente acelerado por hardware
+# Sistema de navegacion inteligente
 
 ## Introduccion 
 
