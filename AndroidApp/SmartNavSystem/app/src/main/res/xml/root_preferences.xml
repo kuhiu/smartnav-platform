@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/cng_darkmode_header">
+
+        <SwitchPreferenceCompat
+            app:key="drkmode"
+            app:title="@string/cng_darkmode" />
+
+        <ListPreference
+            app:defaultValue="List"
+            app:entries="@array/layout_list_object"
+            app:entryValues="@array/layout_list_object"
+            app:key="layout_list_object"
+            app:title="@string/layout_object_preference"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

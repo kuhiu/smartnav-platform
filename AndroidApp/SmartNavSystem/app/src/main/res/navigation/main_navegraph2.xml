@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navegraph2"
+    app:startDestination="@id/containerFragment">
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="Fragments.Fragment2"
+        android:label="fragment_2"
+        tools:layout="@layout/fragment_2" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="Fragments.listFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_listDetalleFragment"
+            app:destination="@id/listDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment4"
+        android:name="Fragments.Fragment4"
+        android:label="fragment_4"
+        tools:layout="@layout/fragment_4" />
+    <fragment
+        android:id="@+id/listDetalleFragment"
+        android:name="Fragments.listDetalleFragment"
+        android:label="listDetalleFragment" >
+        <argument
+            android:name="detalleObjeto"
+            app:argType="Entities.Objetos" />
+    </fragment>
+    <fragment
+        android:id="@+id/containerFragment"
+        android:name="Fragments.containerFragment"
+        android:label="containerFragment" />
+    <fragment
+        android:id="@+id/fragment5"
+        android:name="Fragments.Fragment5"
+        android:label="fragment_5"
+        tools:layout="@layout/fragment_5" />
+</navigation>
