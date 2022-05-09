@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/containerFragment"
+    android:icon="@drawable/ojo"
+    android:title="Vision" />
+
+    <item
+    android:id="@+id/fragment4"
+    android:icon="@drawable/fuzzy"
+    android:title="FuzzyLogic"
+        />
+    <item
+    android:id="@+id/listFragment"
+    android:icon="@drawable/cnn"
+    android:title="CNN" />
+
+    </menu>

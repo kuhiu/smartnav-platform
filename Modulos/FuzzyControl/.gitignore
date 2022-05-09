@@ -1,0 +1,19 @@
+# Ignore all 
+/*
+.*
+/*/
+!/FuzzyLogicFromScratch/
+!/MatlabCode/
+!/imagenes/
+
+
+# Unignore all with extensions
+
+!*.c
+!*.py
+!*.md
+!*.png
+!*.vhd
+!*.v
+!/.gitignore
+!*.xdc

@@ -1,0 +1,67 @@
+[System]
+Name='mamfis'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Sleft'
+Range=[0 4]
+NumMFs=2
+MF1='cerca':'trimf',[-4.187 0.0228 4]
+MF2='lejos':'gauss2mf',[0.4427 4 0.2453 8.173]
+
+[Input2]
+Name='Scentral'
+Range=[0 4]
+NumMFs=2
+MF1='cerca':'trimf',[-4.187 0.0228 4]
+MF2='lejos':'gauss2mf',[0.4427 4 0.2453 8.173]
+
+[Input3]
+Name='Sright'
+Range=[0 4]
+NumMFs=2
+MF1='cerca':'trimf',[-4.187 0.0228 4]
+MF2='lejos':'gauss2mf',[0.4427 4 0.2453 8.173]
+
+[Output1]
+Name='Theta'
+Range=[-0.4 0.4]
+NumMFs=3
+MF1='izquierda':'trapmf',[-0.7313 -0.468 -0.2148 -0.03938]
+MF2='derecha':'trapmf',[0.03978 0.214 0.4846 0.7938]
+MF3='centro':'trimf',[-0.1285 0 0.1268]
+
+[Output2]
+Name='W'
+Range=[0 1]
+NumMFs=2
+MF1='bajo':'trapmf',[-0.40407822410148 -0.19557822410148 0.0409217758985201 0.0439217758985201]
+MF2='alto':'gaussmf',[0.034877857608445 0.188]
+
+[Output3]
+Name='Vel'
+Range=[0 1]
+NumMFs=4
+MF1='baja':'trimf',[-0.245 0 0.25]
+MF2='alta':'trimf',[0.3 0.6 0.9]
+MF3='media':'trimf',[0.1 0.3 0.5]
+MF4='muyAlta':'trimf',[0.8 0.9 1]
+
+[Rules]
+1 1 1, 1 1 1 (1) : 1
+1 1 2, 2 1 3 (1) : 1
+1 2 1, 3 1 2 (1) : 1
+1 2 2, 2 1 3 (1) : 1
+2 1 1, 1 1 3 (1) : 1
+2 1 2, 1 1 3 (1) : 1
+2 2 1, 1 1 3 (1) : 1
+2 2 2, 3 2 4 (1) : 1
