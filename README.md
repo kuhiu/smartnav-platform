@@ -11,7 +11,9 @@
 
 # Pendientes
 
-*  Cambiar el SO para poder descargar a la Zybo paquetes y modulos. (es necesario FPGA Manager)
+*  ~~Cambiar el SO para poder descargar a la Zybo paquetes y modulos.~~
+*  ~~Cross compilar opencv para la zybo.~~
+*  Instalar FPGA Manager.
 *  Poder levantar la imagen en RAM con openCV.
 *  Acelerar la etapa de procesamiento de imagenes.
 *  * Usando skimage en python.
