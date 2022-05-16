@@ -1,0 +1,40 @@
+[System]
+Name='mamfis2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='alpha'
+Range=[0 2]
+NumMFs=2
+MF1='low':'zmf',[0.253973632587012 0.341416094295717]
+MF2='high':'smf',[0.485570715641924 1.87076336292243]
+
+[Input2]
+Name='theta_t_o'
+Range=[0 1.5707963267949]
+NumMFs=2
+MF1='low':'zmf',[0.69853051622921 1.31587797804471]
+MF2='high':'smf',[0.240176003475569 0.0294574383215396]
+
+[Output1]
+Name='w'
+Range=[0 1]
+NumMFs=2
+MF1='low':'zmf',[0.0717302338448721 0.00379942929615296]
+MF2='high':'smf',[0.74587490154065 0.698253926627414]
+
+[Rules]
+1 2, 1 (1) : 1
+1 1, 2 (1) : 1
+0 2, 1 (1) : 1
+2 2, 1 (1) : 1
+1 0, 1 (1) : 1
