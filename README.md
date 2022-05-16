@@ -11,7 +11,7 @@
 
 # Pendientes
 
-*  ~~Cambiar el SO para poder descargar a la Zybo paquetes y modulos.~~
+*  ~~Cambiar el SO para poder descargar a la Zybo paquetes y modulos. (ubuntu minimalista)~~
 *  ~~Cross compilar opencv para la zybo.~~
 *  Instalar FPGA Manager.
 *  Poder levantar la imagen en RAM con openCV.
