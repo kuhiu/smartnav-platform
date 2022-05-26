@@ -1,0 +1,16 @@
+Package: libc-ares2
+Architecture: armhf
+Auto-Installed: 1
+
+Package: bluez
+Architecture: armhf
+Auto-Installed: 1
+
+Package: device-tree-compiler
+Architecture: armhf
+Auto-Installed: 1
+
+Package: ofono
+Architecture: armhf
+Auto-Installed: 1
+
