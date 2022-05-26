@@ -1,0 +1,11 @@
+TARGETS = apache-htcacheclean hostapd cgmanager resolvconf apache2 cgproxy udhcpd bluetooth connman avahi-daemon urandom dnsmasq sendsigs rsyslog umountnfs.sh hwclock.sh networking umountfs umountroot halt reboot
+dnsmasq: apache2
+sendsigs: hostapd bluetooth connman avahi-daemon apache-htcacheclean apache2 dnsmasq udhcpd
+rsyslog: sendsigs bluetooth connman avahi-daemon apache-htcacheclean apache2 dnsmasq udhcpd
+umountnfs.sh: hostapd rsyslog bluetooth connman avahi-daemon apache-htcacheclean sendsigs apache2 dnsmasq udhcpd
+hwclock.sh: rsyslog
+networking: umountnfs.sh apache2 dnsmasq
+umountfs: networking hostapd bluetooth umountnfs.sh urandom hwclock.sh connman avahi-daemon resolvconf apache-htcacheclean apache2 dnsmasq udhcpd
+umountroot: umountfs
+halt: umountroot
+reboot: umountroot

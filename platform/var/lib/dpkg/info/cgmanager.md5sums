@@ -1,0 +1,12 @@
+b762fa1667dd4c317910bb56e026f3c2  lib/cgmanager/cgm-release-agent
+f51bda7562ce2f11b51d2fcc595094f5  lib/systemd/system/cgmanager.service
+6381a9e8caecd2ddbedda727db0ab3a4  lib/systemd/system/cgproxy.service
+aee3322456a9af0cc3ed9b57a2aeb7f0  sbin/cgmanager
+5581960eb914177dad192ec6e5c84d29  sbin/cgproxy
+9803da5626a52d4237520e518a98c110  usr/bin/cgm
+687e45ae1499af940d267019ca3bf669  usr/share/doc/cgmanager/README.Debian
+1edf72d90d9ef580511c7e344b0c830f  usr/share/doc/cgmanager/copyright
+149149368f19f39f3e627584854944dc  usr/share/man/man1/cgm.1.gz
+bcab81622cbc8301da8fdd8e0622057c  usr/share/man/man8/cgmanager.8.gz
+dddf8be2de0c11e5c0612aefd8754768  usr/share/man/man8/cgproxy.8.gz
+a017bb07f9174e32164ee9e45a4b05ee  usr/share/upstart/sessions/notify-cgmanager.conf
