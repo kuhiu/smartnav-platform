@@ -23,9 +23,9 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             s.end_headers()
 
             writer.write_array(s.wfile,[ord(j) for j in mm[0:WIDTH*HEIGHT*PIXEL_SIZE]])
-            time.sleep(3)
+            time.sleep(0.2)
   
-httpd = BaseHTTPServer.HTTPServer(("0.0.0.0", 80), MyHandler)
+httpd = BaseHTTPServer.HTTPServer(("0.0.0.0", 81), MyHandler)
 try:
     httpd.serve_forever()
 except KeyboardInterrupt:

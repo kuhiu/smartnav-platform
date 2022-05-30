@@ -22,3 +22,4 @@ all:
 # Copy PNG server to gen dir
 	mkdir -p ./gen/PngServer
 	cp $(PNG_SERVER_DIR)/pngserver_ShowCam.py ./gen/PngServer
+	cp $(PNG_SERVER_DIR)/pngserver_ShowCNN.py ./gen/PngServer
