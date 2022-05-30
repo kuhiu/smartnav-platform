@@ -5,16 +5,14 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include <errno.h>
 
 int main (void)
 { 
     int fd;
     printf("llegue \n");
-    if ( (fd = open("/dev/vdma_control_chardev", O_RDWR)) == -1)
-    {
-        //perror("open");
-        printf("Error abriendo vdma_control_chardev\n");
+    if ( (fd = open("/dev/vdma_control_chardev", O_RDWR)) == -1){
+        printf("Error abriendo vdma_control_chardev! %s\n", strerror(errno));
         return -1;
     }
 

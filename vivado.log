@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun May 29 19:53:42 2022
+# Process ID: 20212
+# Current directory: /media/martin/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys
+# Command line: vivado
+# Log file: /media/martin/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/vivado.log
+# Journal file: /media/martin/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/vivado.jou
+#-----------------------------------------------------------
+start_gui
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun May 29 19:55:09 2022...
