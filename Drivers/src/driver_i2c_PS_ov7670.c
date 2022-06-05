@@ -133,7 +133,7 @@ static struct regval_list ov7670_default_regs[] = {
     { REG_COM7,  0x14 }, // QVGA   Size y RGB output
 	{ REG_CLKRC, 0x40 }, // CLKRC  External clk
 	{ REG_COM3,  0x04 }, // DCW    enable
-   	{ REG_COM14, 0x19 }, // Manual scaling enable y PCLK divider 2
+   	{ REG_COM14, 0x00 }, // Manual scaling enable y PCLK divider 2
     //{ 0x70, 0x3A }, // QVGA
     //{ 0x71, 0x35 }, // QVGA
     { 0x72,     0x11 }, // QVGA
@@ -213,9 +213,9 @@ static struct regval_list ov7670_default_regs[] = {
     //{ REG_RED,  0xFF},
     //{ REG_GAIN,  0xFF},
     //{ REG_COM11, 0x80}, // Modo nocturno, 
-    { REG_EDGE,     0xF0 },   // Edge Enhancement adj
-    { REG_SATCTR,   0x00}, // 
-    //{ 0x77, 0x},
+    { REG_EDGE,     0xF8 },   // Edge Enhancement adj
+    { REG_SATCTR,   0xAA}, // 
+    { 0x77,         0x90},
     { REG_COM16,    0x10 }, // De-noise
     { REG_BRIGHT,   0x20 }, 
     //{ REG_CONTRAST, 0x50 },
