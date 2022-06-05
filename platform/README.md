@@ -1,3 +1,7 @@
+# Platform
+
+Here you can find the platform used.
+
 # Sysroot
 
 * https://rcn-ee.com/rootfs/eewiki/minfs/
@@ -39,8 +43,4 @@ In vivado:
 * File->Project->Write_TCL
 * Tick Recreate Block Designs using TCL.
 
-
-# Platform
-
-Here you can find the platform used.
 
