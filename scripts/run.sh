@@ -6,7 +6,7 @@
 #echo system.bin > /sys/class/fpga_manager/fpga0/firmware;
 
 # Insmod all drivers
-xterm -hold -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_1.ko;
+xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_1.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_2.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_buttons_EMIOgpio_PL_1.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_leds_EMIOgpio_PL.ko;
@@ -33,7 +33,7 @@ echo temppwd | sudo -S chown ubuntu:ubuntu /dev/i2c-0;"'
 xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "~/apps/ControlVdma;"'
 
 # PNG Server
-xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S python ~/PngServer/pngserver_ShowCNN.py;"' &
+xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S python3 ~/PngServer/pngserver_ShowCNN.py;"' &
 
 # Run top app
 #xterm -hold -e 'sshpass -p 44501516 ssh -f ubuntu@192.168.100.130 "~/apps/usrSpace_top > /dev/null 2>&1"' &
@@ -45,7 +45,7 @@ xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo 
 #bash -l"' &
 #sleep 1
 
-#xterm -hold -e 'sshpass -p 44501516 ssh -t ubuntu@192.168.100.130 "python Tesis/ServidorPNG/pngserver_ShowCNN.py;
+#xterm -hold -e 'sshpass -p 44501516 ssh -t ubuntu@192.168.100.130 "3 Tesis/ServidorPNG/pngserver_ShowCNN.py;
 #bash -l"' &
 #sleep 1
 
