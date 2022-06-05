@@ -1,5 +1,5 @@
 # remove all files
-*
+/*
 # except
 !/hdl/*
 !/constraints/*
