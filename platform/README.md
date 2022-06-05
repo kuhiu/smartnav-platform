@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Sysroot
 
 * https://rcn-ee.com/rootfs/eewiki/minfs/
