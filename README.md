@@ -16,7 +16,7 @@
 *  Instalar FPGA Manager.
 *  ~~Poder levantar la imagen en RAM con openCV.~~
 *  Acelerar la etapa de procesamiento de imagenes.
-*  * Usando skimage en python.
+*  * Usando opencv en C++.
 *  * ~~Usando Tensorflow Lite.~~
 *  Acelerar operacion de convolucion sobre una FPGA evaluar la posibilidad de usar ()
 *  Escribir driver para ese HW implementado en la FPGA.
