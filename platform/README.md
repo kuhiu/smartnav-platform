@@ -39,9 +39,9 @@ In vivado:
 
 * File->Project->Write_TCL
 * Tick Recreate Block Designs using TCL.
-=======
+
+
 # Platform
 
 Here you can find the platform used.
->>>>>>> 922937766e2fa6b69ae35746ddb12e7c145c699b
 
