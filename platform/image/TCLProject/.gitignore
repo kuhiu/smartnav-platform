@@ -1,0 +1,7 @@
+# remove all files
+*
+# except
+!/hdl/*
+!/constraints/*
+!ov7670.tcl
+!.gitignore
