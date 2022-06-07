@@ -218,6 +218,7 @@ static struct regval_list ov7670_default_regs[] = {
     { 0x77,         0x90},
     { REG_COM16,    0x10 }, // De-noise
     { REG_BRIGHT,   0x20 }, 
+    { REG_COM8,     0x8D },
     //{ REG_CONTRAST, 0x50 },
 	{ 0xFF,         0xFF }, // Mark end of ROM
 };

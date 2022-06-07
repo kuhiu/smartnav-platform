@@ -23,7 +23,7 @@ class MyHandler(BaseHTTPRequestHandler):
             s.send_header('Content-length',WIDTH*HEIGHT*PIXEL_SIZE)
             s.end_headers()
             writer.write_array(s.wfile,[j for j in mm[0:WIDTH*HEIGHT*PIXEL_SIZE]])
-            time.sleep(1)
+            #time.sleep(1)
   
 httpd = HTTPServer(("0.0.0.0", 81), MyHandler)
 
