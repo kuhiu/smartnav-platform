@@ -4,7 +4,7 @@
 /* Variables sensores de distancia*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-long long int to_distance_cm (long long int time)
+int to_distance_cm (long long int time)
 {
     long long int distance;
 
@@ -13,7 +13,7 @@ long long int to_distance_cm (long long int time)
     if ( (distance > 500) || (distance < 0) )
         distance = 500;
 
-    return distance;
+    return (int)distance;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////

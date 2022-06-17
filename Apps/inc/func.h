@@ -13,6 +13,7 @@
 #include <math.h>
 #include <sys/ipc.h>
 #include <sys/sem.h>
+#include <time.h>
 
 // Semaforo
 union semun {
@@ -29,7 +30,7 @@ int initsem(key_t key, int nsems);
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #define BYTE2READ_MIOgpio_PS 8*3    // 3 bytes
 
-long long int to_distance_cm (long long int time);
+int to_distance_cm (long long int time);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Variables brujula */

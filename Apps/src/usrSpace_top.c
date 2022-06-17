@@ -1,5 +1,7 @@
 #include "func.h"
 
+#define FILTER_N  10
+
 void read_from_state_string(FILE* fdd_State, char recurso[], struct sembuf *sb, int semid, char *readed);
 
 int saveSTATE(struct sembuf *sb, int semid, FILE *fdd_State, long long int rightSensor, long long int centerSensor, long long int leftSensor, float heading, 
@@ -235,8 +237,10 @@ int main (int argc, char *argv[])
 
     /* Variables sensores de distancia*/
         int fd_MIOgpio_PS;
-        long long int rb_MIOgpio_PS[BYTE2READ_MIOgpio_PS];
-        long long int rightSensor=-1, centerSensor=-1, leftSensor=-1;
+        int rb_MIOgpio_PS[BYTE2READ_MIOgpio_PS];
+        int mean_rightSensor, mean_centerSensor, mean_leftSensor;
+        int accum_rightSensor, accum_centerSensor, accum_leftSensor;
+        int i;
 
     /* Variables brujula */
         int fd_brujula;                 // File descriptor para brujula
@@ -248,12 +252,7 @@ int main (int argc, char *argv[])
         int yhigh =   1047;  
         int zlow  =   -233;
         int zhigh =    858;
-        //int xlow  = 100000000;
-        //int xhigh = -100000000;
-        //int ylow  = 100000000;
-        //int yhigh = -100000000;
-        //int zlow  = 100000000;
-        //int zhigh = -100000000;
+
     /* Variables encoder */
         int fd_encoder_1, fd_encoder_2;
         __s64 rb_encoder_1[BYTE2READ_encoder], rb_encoder_2[BYTE2READ_encoder];
@@ -274,6 +273,9 @@ int main (int argc, char *argv[])
         char readed[50], recurso[50], desplazamiento_state[10];
 
         float real_distance_s1=0, real_distance_s2=0, dist_previa=0;
+
+    // Measure time
+        struct timespec begin, end; 
 
     if (CALIBRACION_ENABLE==1){
         int xlow  = 100000000;
@@ -303,16 +305,14 @@ int main (int argc, char *argv[])
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////   State TXT  //////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    if ( (fdd_State = fopen("/home/root/Tesis/Apps/state.txt", "r+")) == NULL)
-    {
+    if ( (fdd_State = fopen("state.txt", "r+")) == NULL){
         printf("Error abriendo state.txt\n");
         return -1;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////  Sensores de distancia  ///////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    if ( (fd_MIOgpio_PS = open("/dev/chardev_MIOgpio_PS", O_RDWR)) == -1)
-    {
+    if ( (fd_MIOgpio_PS = open("/dev/chardev_MIOgpio_PS", O_RDWR)) == -1){
         printf("Error abriendo chardev_MIOgpio_PS\n");
         return -1;
     }
@@ -361,19 +361,27 @@ int main (int argc, char *argv[])
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     while(1)
     {
+        // Start measuring time 
+        clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
 
-        ///////////////////////////////////////////// Sensores ///////////////////////////////////////////////
-        if ( read(fd_MIOgpio_PS, rb_MIOgpio_PS, BYTE2READ_MIOgpio_PS) == -1)
-        {
-            printf("Error leyendo chardev_MIOgpio_PS\n");
-            return -1;
+        accum_rightSensor  = 0;
+        accum_centerSensor = 0;
+        accum_leftSensor   = 0;
+        ///////////////////////////////////////////// Sensores de dist  ///////////////////////////////////////
+        for(i=FILTER_N;i>0;i--){
+            if ( read(fd_MIOgpio_PS, rb_MIOgpio_PS, BYTE2READ_MIOgpio_PS) == -1)
+            {
+                printf("Error leyendo chardev_MIOgpio_PS\n");
+                return -1;
+            }
+            accum_rightSensor  += to_distance_cm(rb_MIOgpio_PS[0]);
+            accum_centerSensor += to_distance_cm(rb_MIOgpio_PS[1]);
+            accum_leftSensor   += to_distance_cm(rb_MIOgpio_PS[2]);
         }
-
-        rightSensor  = to_distance_cm(rb_MIOgpio_PS[0]);
-        centerSensor = to_distance_cm(rb_MIOgpio_PS[1]);
-        leftSensor   = to_distance_cm(rb_MIOgpio_PS[2]);
-
-        //printf("Distancia = Left: %lld cms, Center: %lld cms, Right: %lld cms \n", leftSensor, centerSensor, rightSensor);
+        mean_rightSensor  = accum_rightSensor / FILTER_N;
+        mean_centerSensor = accum_centerSensor / FILTER_N;
+        mean_leftSensor   = accum_leftSensor / FILTER_N;
+        printf("Distancia = Left: %d cms, Center: %d cms, Right: %d cms \n", mean_leftSensor, mean_centerSensor, mean_rightSensor);
 
         ///////////////////////////////////////////// Brujula ///////////////////////////////////////////////
         while (1){
@@ -412,7 +420,6 @@ int main (int argc, char *argv[])
         distance_cm_s1 = get_distance_m(rb_encoder_1[1]);
         distance_cm_s2 = get_distance_m(rb_encoder_2[1]);
         //printf("Distancia recorrida Total: %f - %f ms \n", distance_cm_s1, distance_cm_s2);
-
         strcpy(recurso,"Desplazamiento = %s\n");
         read_from_state_string(fdd_State, recurso, &sb, semid, readed);
         strcpy(desplazamiento_state, readed);
@@ -436,9 +443,16 @@ int main (int argc, char *argv[])
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////  State.txt update  /////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////////    
-        saveSTATE( &sb, semid, fdd_State, rightSensor, centerSensor, leftSensor, heading, revoluciones_rpm_s1, revoluciones_rpm_s2, distance_cm_s1, distance_cm_s2, real_distance_s1, real_distance_s2);
+        saveSTATE( &sb, semid, fdd_State, mean_rightSensor, mean_centerSensor, mean_leftSensor, heading, revoluciones_rpm_s1, revoluciones_rpm_s2, distance_cm_s1, distance_cm_s2, real_distance_s1, real_distance_s2);
 
-        //usleep(10000);
+        // Stop measuring time and calculate the elapsed time
+        clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+        long seconds = end.tv_sec - begin.tv_sec;
+        long nanoseconds = end.tv_nsec - begin.tv_nsec;
+        double elapsed = seconds + nanoseconds*1e-9;
+        printf("Time executing.. %f \n", elapsed);
+
+        //usleep(100000);
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////  Close all  /////////////////////////////////////////////

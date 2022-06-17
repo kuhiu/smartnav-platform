@@ -9,7 +9,7 @@ Target = 0, 0                                           // Es escrito. Indica el
 PosicionActual = 0, 0                                   // Es escrito. Indica la posicion actual del robot. Cuando este llegue al target PosicionActual = Target.
 
 // Variables escritas por el sistema de procesamiento de imagenes
-ImgProc, Direccion = NINGUNA                            // Es leido.   Indica la direccion preferente del proc de imagenes. Posibles = [DERECHA - IZQUIERDA - NINGUNA]
+ImgProc, Direccion = 0                                  // Es leido.   Indica la direccion preferente del proc de imagenes. Posibles = [DERECHA - IZQUIERDA - NINGUNA]
 ImgProc, Tipo = DESCONOCIDO                             // Es leido.   Indica el tipo de objeto reconocido por el sistema de procesamiento de imagenes.
 
 // Variables de estado actual del robot, escritas por drivers
