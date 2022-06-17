@@ -1,6 +1,6 @@
 MAKE_DRIVERS 		= ./Drivers/
 MAKE_DRIVERS_APPS 	= ./Apps/
-MAKE_FUZZY			= ./modules/FuzzyControl/
+MAKE_FUZZY			= ./modules/FuzzyControlAI/
 PNG_SERVER_DIR		= ./modules/PngServer/
 MAKE_READSTATE 		= ./modules/readSTATE/
 
