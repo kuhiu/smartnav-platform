@@ -1,4 +1,4 @@
-#include "fun.h"
+#include "readSTATE.h"
 
 int initsem(key_t key, int nsems) 
 {

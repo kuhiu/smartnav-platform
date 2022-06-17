@@ -1,6 +1,6 @@
 #include "fun.h"
 
-int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int *centerSensor, long long int *leftSensor)
+int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int *centerSensor, long long int *leftSensor, long long int *dir_imgproc)
 {
     ssize_t lread;
     char readed[20];
@@ -51,6 +51,20 @@ int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int
             break;
         default:        // Encontro
             *leftSensor = atof(readed);
+            break;
+        }
+
+        switch (sscanf(line, "ImgProc, Direccion = %s\n", readed ))
+        {
+        case EOF:       // Error
+            perror("sscanf");
+            exit(1);
+            break;
+        case 0:         // No encontro
+            //printf("No se encontro la linea: Sensores, rightSensor \n");
+            break;
+        default:        // Encontro
+            *dir_imgproc = atof(readed);
             break;
         }
     }
@@ -165,21 +179,20 @@ struct io_type* initialize_system_io(char *name, float value, struct mf_type *me
     return System_Inputs;
 }
 
-struct mf_type* initialize_membership_inputs(char *name, int value, float point1, float point2, float slope1, float slope2, struct mf_type * next)
+void initialize_membership_inputs(char *name, int value, float point1, float point2, float slope1, float slope2, struct mf_type * next, struct mf_type** membership_functions_inputs)
 {
-    struct mf_type *membership_functions_inputs = malloc (sizeof (struct mf_type)); 
+    *membership_functions_inputs = malloc (sizeof (struct mf_type)); 
 
-    strcpy(membership_functions_inputs->name, name);
-    membership_functions_inputs -> value  = value;
-    membership_functions_inputs -> point1 = point1;
-    membership_functions_inputs -> point2 = point2;
-    membership_functions_inputs -> slope1 = slope1;
-    membership_functions_inputs -> slope2 = slope2;
-    membership_functions_inputs -> next   = next;
+    strcpy((*membership_functions_inputs)->name, name);
+    (*membership_functions_inputs) -> value  = value;
+    (*membership_functions_inputs) -> point1 = point1;
+    (*membership_functions_inputs) -> point2 = point2;
+    (*membership_functions_inputs) -> slope1 = slope1;
+    (*membership_functions_inputs) -> slope2 = slope2;
+    (*membership_functions_inputs) -> next   = next;
 
-    return membership_functions_inputs;
+    return;
 }
-
 
 // Calcula el grado de pertenencia 
 /* Compute Degree of Membership--Degree to which input is a member of mf is
@@ -242,65 +255,22 @@ void rule_evaluation(struct rule_type *Rule_Base, struct io_type *System_Outputs
 {
     struct rule_type *rule;
     struct rule_element_type *ip;       /* pointer of antecedents  (if-parts)   */
-    //struct rule_element_type *tp;       /* pointer to consequences (then-parts) */
+    struct rule_element_type *tp;       /* pointer to consequences (then-parts) */
     float strength;                    /* strength of  rule currently being evaluated */
-    float GoLeft = 0, GoCenter = 0, GoRight = 0;
-    float low_W = 0, high_W = 0;
-    float low_speed = 0, high_speed = 0, normal_speed = 0;
 
-    for(rule=Rule_Base; rule != NULL; rule=rule->next)
-    {
-        //printf("Rules: %s \n", rule->name);
-
-        strength = UPPER_LIMIT;          // maximo peso posible             
-        for(ip=rule->if_side; ip!=NULL; ip=ip->next)  // determino el peso o fuerza de las reglas (if side)
-        {
-            strength = fmin(strength, *(ip->value));
-            //printf("*(ip->value): %f\n", *(ip->value));
+    for(rule=Rule_Base; rule != NULL; rule=rule->next){
+        strength = UPPER_LIMIT;                       /* max rule strength allowed */
+        /* process if-side of rule to determine strength */
+        for(ip=rule->if_side; ip != NULL; ip=ip->next){
+            strength = fmin(strength,*(ip->value));
+            DEBUG_PRINT(("strength del if %f\n", strength));
         }
-        *(rule->then_side->value) = strength;
-        //printf("strength: %f \n", strength);
+        DEBUG_PRINT(("strength de la regla %f\n", strength));
+        /* process then-side of rule to apply strength */
+        for(tp=rule->then_side; tp != NULL; tp=tp->next)
+            *(tp->value) = fmax(strength,*(tp->value));
     }
-
-    for(rule=Rule_Base; rule != NULL; rule=rule->next)
-    {
-        if ( strstr(rule->name, "W_BAJO") != NULL ) 
-            low_W  = fmax( *(rule->then_side->value), low_W);
-        else 
-            high_W = fmax( *(rule->then_side->value), high_W);
-
-        if ( strstr(rule->name, "S_RAPIDA") != NULL ) 
-            high_speed  = fmax( *(rule->then_side->value), high_speed);
-
-        else if ( strstr(rule->name, "S_NORMAL") != NULL ) 
-            normal_speed  = fmax( *(rule->then_side->value), normal_speed);    
-        else 
-            low_speed = fmax( *(rule->then_side->value), low_speed);
-
-
-        if ( strstr(rule->name, "DERECHA") != NULL )
-            GoRight = fmax( *(rule->then_side->value), GoRight);
-
-        if ( strstr(rule->name, "IZQUIERDA") != NULL )
-            GoLeft = fmax( *(rule->then_side->value), GoLeft);
-
-        if (  strstr(rule->name, "CENTRO") != NULL )
-            GoCenter = fmax( *(rule->then_side->value), GoCenter);
-    }
-
-    //printf("GoLeft: %f, GoCenter: %f, GoRight: %f \n", GoLeft, GoCenter, GoRight);
-    System_Outputs->membership_functions->value = GoLeft;
-    System_Outputs->membership_functions->next->value = GoCenter;
-    System_Outputs->membership_functions->next->next->value = GoRight;
-
-    //printf("low_W: %f, high_W: %f \n", low_W, high_W);
-    System_Outputs->next->membership_functions->value = low_W;
-    System_Outputs->next->membership_functions->next->value = high_W;
-
-    System_Outputs->next->next->membership_functions->value = low_speed;
-    System_Outputs->next->next->membership_functions->next->value = normal_speed;
-    System_Outputs->next->next->membership_functions->next->next->value = high_speed;
-
+    return;
 }
 
 
@@ -394,7 +364,23 @@ void add_rule_element( struct rule_element_type **element,  float value, struct 
     return;
 }
 
-void charge_rules(  char *rule_7_text, char *rule_6_text, char *rule_5_text, char *rule_4_text, 
+void charge_rule(   char *rule_text,                     
+                    struct rule_element_type **if_side_right, struct rule_element_type **if_side_center, struct rule_element_type **if_side_left, struct rule_element_type **if_side_imgproc,
+                    struct rule_element_type **then_side_dirr, struct rule_element_type **then_side_speed,
+                    struct rule_type **rule, struct rule_type *next_rule ) {
+    
+    // Cargo cada regla con los valores de la fuzzificacion
+    add_rule_element(if_side_imgproc, 0.0, NULL);
+    add_rule_element(if_side_right,   0.0, *if_side_imgproc);
+    add_rule_element(if_side_center,  0.0, *if_side_right);
+    add_rule_element(if_side_left,    0.0, *if_side_center);
+    add_rule_element(then_side_speed, 0.0, NULL);
+    add_rule_element(then_side_dirr,  0.0, *then_side_speed);
+    add_rule(rule, rule_text, *if_side_left, *then_side_dirr, next_rule);
+    return;
+}
+    
+/*     char *rule_7_text, char *rule_6_text, char *rule_5_text, char *rule_4_text, 
                     char *rule_3_text, char *rule_2_text, char *rule_1_text, char *rule_0_text,
                     struct rule_element_type **if_side_7_right, struct rule_element_type **if_side_7_center, struct rule_element_type **if_side_7_left,
                     struct rule_element_type **then_side_7, struct rule_type **rule_7,
@@ -472,7 +458,7 @@ void charge_rules(  char *rule_7_text, char *rule_6_text, char *rule_5_text, cha
   add_rule(rule_0, rule_0_text, *if_side_0_left, *then_side_0, *rule_1);
 
   return;
-}
+} */
 
 void read_from_state_string(FILE* fdd_State, char recurso[], struct sembuf sb, int semid, char *readed){
     ssize_t lread;

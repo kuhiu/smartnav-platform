@@ -10,10 +10,18 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
-#define MAXNAME         60      // Numero maximo de caracteres en los nombres 
+#define MAXNAME        200      // Numero maximo de caracteres en los nombres 
 #define UPPER_LIMIT      1      // Numero maximo asignable como grado de pertenencia 
+#define DEBUG            1
 
-// Semaforo
+#ifdef DEBUG
+# define DEBUG_PRINT(x) printf x
+#else
+# define DEBUG_PRINT(x) do {} while (0)
+#endif
+
+#define MAX_RETRIES 10
+
 union semun {
     int val;
     struct semid_ds *buf;
@@ -55,9 +63,8 @@ struct rule_type{
 
 
 int initsem(key_t key, int nsems);
-struct mf_type* initialize_membership_inputs(char *name, int value, float point1, float point2, float slope1, float slope2, struct mf_type * next);
 struct io_type* initialize_system_io(char *name, float value, struct mf_type *membership_functions, struct io_type *next);
-int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int *centerSensor, long long int *leftSensor);
+int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int *centerSensor, long long int *leftSensor, long long int *dir_imgproc);
 int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs);
 void fuzzification(struct io_type *System_Inputs);
 void rule_evaluation(struct rule_type *Rule_Base, struct io_type *System_Outputs);
@@ -66,23 +73,10 @@ float compute_area_of_trapezoid(struct mf_type *mf);
 void add_rule (struct rule_type **rule, char *name, struct rule_element_type *if_side, struct rule_element_type *then_side, struct rule_type *next);
 void add_rule_element( struct rule_element_type **element,  float value, struct rule_element_type *next);
 void update_rule (struct rule_type *rule, char *name);
-void charge_rules(  char *rule_7_text, char *rule_6_text, char *rule_5_text, char *rule_4_text, 
-                    char *rule_3_text, char *rule_2_text, char *rule_1_text, char *rule_0_text,
-                    struct rule_element_type **if_side_7_right, struct rule_element_type **if_side_7_center, struct rule_element_type **if_side_7_left,
-                    struct rule_element_type **then_side_7, struct rule_type **rule_7,
-                    struct rule_element_type **if_side_6_right, struct rule_element_type **if_side_6_center, struct rule_element_type **if_side_6_left,
-                    struct rule_element_type **then_side_6, struct rule_type **rule_6,
-                    struct rule_element_type **if_side_5_right, struct rule_element_type **if_side_5_center, struct rule_element_type **if_side_5_left,
-                    struct rule_element_type **then_side_5, struct rule_type **rule_5,
-                    struct rule_element_type **if_side_4_right, struct rule_element_type **if_side_4_center, struct rule_element_type **if_side_4_left,
-                    struct rule_element_type **then_side_4, struct rule_type **rule_4,
-                    struct rule_element_type **if_side_3_right, struct rule_element_type **if_side_3_center, struct rule_element_type **if_side_3_left,
-                    struct rule_element_type **then_side_3, struct rule_type **rule_3,
-                    struct rule_element_type **if_side_2_right, struct rule_element_type **if_side_2_center, struct rule_element_type **if_side_2_left,
-                    struct rule_element_type **then_side_2, struct rule_type **rule_2,
-                    struct rule_element_type **if_side_1_right, struct rule_element_type **if_side_1_center, struct rule_element_type **if_side_1_left,
-                    struct rule_element_type **then_side_1, struct rule_type **rule_1,
-                    struct rule_element_type **if_side_0_right, struct rule_element_type **if_side_0_center, struct rule_element_type **if_side_0_left,
-                    struct rule_element_type **then_side_0, struct rule_type **rule_0,
-                    struct io_type *System_Inputs_rightSensor, struct io_type *System_Inputs_centerSensor, struct io_type *System_Inputs_leftSensor);
+void charge_rule(   char *rule_text,                     
+                    struct rule_element_type **if_side_right, struct rule_element_type **if_side_center, struct rule_element_type **if_side_left, struct rule_element_type **if_side_imgproc,
+                    struct rule_element_type **then_side_dirr, struct rule_element_type **then_side_speed,
+                    struct rule_type **rule, struct rule_type *next_rule );
 void read_from_state_string(FILE* fdd_State, char recurso[], struct sembuf sb, int semid, char *readed);
+
+void initialize_membership_inputs(char *name, int value, float point1, float point2, float slope1, float slope2, struct mf_type * next, struct mf_type** membership_functions_inputs);
