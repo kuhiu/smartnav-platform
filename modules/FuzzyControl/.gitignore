@@ -1,24 +1,2 @@
-<<<<<<< HEAD
 /gen
 /obj
-=======
-# Ignore all 
-/*
-.*
-/*/
-!/FuzzyLogicFromScratch/
-!/MatlabCode/
-!/imagenes/
-
-
-# Unignore all with extensions
-
-!*.c
-!*.py
-!*.md
-!*.png
-!*.vhd
-!*.v
-!/.gitignore
-!*.xdc
->>>>>>> 922937766e2fa6b69ae35746ddb12e7c145c699b

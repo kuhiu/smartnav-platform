@@ -59,6 +59,10 @@ static ktime_t center_echo_end = 0;
 static ktime_t left_echo_start = 0;
 static ktime_t left_echo_end = 0;
 
+DECLARE_WAIT_QUEUE_HEAD(int1_wait_queue); // type wait_queue_head_t
+DECLARE_WAIT_QUEUE_HEAD(int2_wait_queue);
+DECLARE_WAIT_QUEUE_HEAD(int3_wait_queue);
+
 static struct state {
 
 
@@ -75,8 +79,8 @@ static struct state {
   struct cdev chardev;    // cdev_add()
 
   //void __iomem *_reg_cm_per;
-  long long int *TX_buff;
-  long long int *RX_buff;
+  int *TX_buff;
+  int *RX_buff;
 
   int irq;
 
@@ -237,14 +241,15 @@ static int driver_open(struct inode *inode, struct file *file)
 {
     pr_info("Hola! Entre a open! \n");
 
-    pr_info("Consigo memoria para el buffer de recepcion y de transmision\n");
-    if ((state.RX_buff = (long long int *) kmalloc(BYTE2READ, GFP_KERNEL)) == NULL)
+    pr_info("Consigo memoria para el buffer de recepcion\n");
+    if ((state.RX_buff = (int *) kmalloc(BYTE2READ, GFP_KERNEL)) == NULL)
     {
       pr_err("Insuficiente memoria\n");
       return -ENODEV; /* No such device */
     }
 
-    if ((state.TX_buff = (long long int *) kmalloc(BYTE2READ, GFP_KERNEL)) == NULL)
+    pr_info("Consigo memoria para el buffer de transmision\n");
+    if ((state.TX_buff = (int *) kmalloc(BYTE2READ, GFP_KERNEL)) == NULL)
     {
       pr_err("Insuficiente memoria\n");
       return -ENODEV; /* No such device */
@@ -398,15 +403,12 @@ static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, l
     center_valid_value=0;
     left_valid_value=0;
 
-    /* Trigger */
-    //set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t) ((0x1<<0) | (0x1<<13) | (0x1<<15)), (uint32_t)((0x1<<0) | (0x1<<13) | (0x1<<15)) );
-    //udelay(10);
-    //set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t) ((0x1<<0) | (0x1<<13) | (0x1<<15)), (uint32_t) ((0x0<<0) | (0x0<<13) | (0x0<<15)) );
-
-
     set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x1<<0) );
     udelay(10);
     set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x0<<0) );
+
+
+    //wait_event_timeout(int1_wait_queue, center_valid_value, HZ / 16);
 
     // Tengo que esperar que interrumpa y tenga el resultado
     counter=0;
@@ -414,13 +416,13 @@ static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, l
       //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
       counter++;
       // Out of range
-      if (counter>50000) {
+      if (counter>23200) {
         //*(state.RX_buff) = -1;
               break;
       }
       udelay(1);
-	  }
-
+    }
+ 
     set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x1<<13) );
     udelay(10);
     set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x0<<13) );
@@ -431,12 +433,12 @@ static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, l
       //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
       counter++;
       // Out of range
-      if (counter>50000) {
+      if (counter>23200) {
         //*(state.RX_buff) = -1;
               break;
       }
       udelay(1);
-	  }
+    }
 
     set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<15), (uint32_t)(0x1<<15) );
     udelay(10);
@@ -448,12 +450,12 @@ static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, l
       //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
       counter++;
       // Out of range
-      if (counter>50000) {
+      if (counter>23200) {
         //*(state.RX_buff) = -1;
               break;
       }
       udelay(1);
-	  }
+    }
 
     //pr_info("Llego la interrupcion. rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value); 
     //pr_info("Sensores r c l %lld %lld %lld\n", ktime_to_us( ktime_sub(right_echo_end,  right_echo_start) ), ktime_to_us( ktime_sub(center_echo_end, center_echo_start) ),  ktime_to_us( ktime_sub(left_echo_end,   left_echo_start) ) );
@@ -642,10 +644,10 @@ static int driver_probe (struct platform_device *pdev)
 
  static int driver_remove(struct platform_device *pdev)
  {
-     pr_info("driver_remove: Remuevo el dispositivo!\n");
+    pr_info("driver_remove: Remuevo el dispositivo!\n");
 
     /* Free irq */
-    free_irq(state.irq, driver_isr);
+    free_irq(state.irq, NULL);
     
     /* Release mapped virtual address */
     iounmap(state.mio_pin_addr);
