@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <sys/ipc.h>
 #include <sys/sem.h>
+#include <signal.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Drive Control */
@@ -23,11 +24,18 @@
 
 int initsem(key_t key, int nsems);
 
+int is_running = 1;
+
 union semun {
     int val;
     struct semid_ds *buf;
     ushort *array;
 };
+
+void sigintHandler(int signal_number)
+{
+    is_running = 0;
+}
 
 
 int main (void)
@@ -53,13 +61,14 @@ int main (void)
     sb.sem_op = -1; /* set to allocate resource */
     sb.sem_flg = SEM_UNDO;
 
-
     float heading;
+
+    signal(SIGINT, sigintHandler);
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////   State TXT  //////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    if ( (fdd_State = fopen("/home/root/Tesis/Apps/state.txt", "r+")) == NULL)
+    if ( (fdd_State = fopen("state.txt", "r+")) == NULL)
     {
         printf("Error abriendo state.txt\n");
         return -1;
@@ -106,7 +115,7 @@ int main (void)
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    while(1)
+    while(is_running)
     {
         // Leo de STATE.txt el Angulo deseado
         //printf("Trying to lock...\n");
@@ -143,9 +152,9 @@ int main (void)
         }
         //printf("Unlocked\n");
 
-        if (heading > 5)
+        if (heading > 20)
             *buff_send = DERECHA;
-        else if (heading < -5) 
+        else if (heading < -20) 
             *buff_send = IZQUIERDA;
         else
             *buff_send = ADELANTE;
@@ -161,6 +170,15 @@ int main (void)
         usleep(200000);
     }
 
+    *buff_send = FRENAR;
+
+    if ( ( write(fd_drive, buff_send, BYTE2READ_drive)) == -1)
+    {
+        //perror("close"):
+        printf("Error escribiendo leds_control_chardev\n");
+        return -1;
+    }
+    
     close(fd_speed);
     close(fd_drive);
     fclose(fdd_State);
