@@ -73,7 +73,7 @@ int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int
     return 0;
 }
 
-int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs)
+int put_system_outputs(FILE* fdd_State, float dirr, float speed)
 {
     ssize_t lread;
     char readed[10];
@@ -102,7 +102,7 @@ int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs)
         default:        // Encontro
         //printf("Encontre \n");
           //printf("Line %s strlen %d\n", line, (int)strlen(line));
-            sprintf(line, "Angulo requerido = %f", System_Outputs->value); 
+            sprintf(line, "Angulo requerido = %f", dirr); 
             fseek(fdd_State, (loffset-lread), SEEK_SET);
             //printf("Line %s strlen %d\n", line, (int)strlen(line));
             if ( ( escrito=fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line))
@@ -113,29 +113,7 @@ int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs)
             fseek(fdd_State, (loffset), SEEK_SET);
             break;
         }
-        switch (sscanf(line, "W = %s g", readed ))
-        {
-        case EOF:       // Error
-            perror("sscanf");
-            exit(1);
-            break;
-        case 0:         // No encontro
-            //printf("No se encontro la linea \n");
-            break;
-        default:        // Encontro
-        //printf("Encontre \n");
-          //printf("Line %s strlen %d\n", line, (int)strlen(line));
-            sprintf(line, "W = %f", System_Outputs->next->value); 
-            fseek(fdd_State, (loffset-lread), SEEK_SET);
-            //printf("Line %s strlen %d\n", line, (int)strlen(line));
-            if ( ( escrito=fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line))
-            {
-                printf("Error escribiendo %d\n", (int)escrito);
-                return -1;
-            }
-            fseek(fdd_State, (loffset), SEEK_SET);
-            break;
-        }
+
         switch (sscanf(line, "Pwm, Velocidad = %s", readed ))
         {
         case EOF:       // Error
@@ -148,7 +126,7 @@ int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs)
         default:        // Encontro
         //printf("Encontre \n");
           //printf("Line %s strlen %d\n", line, (int)strlen(line));
-            sprintf(line, "Pwm, Velocidad = %f", (System_Outputs->next->next->value)*100); 
+            sprintf(line, "Pwm, Velocidad = %f", (dirr)*100); 
             fseek(fdd_State, (loffset-lread), SEEK_SET);
             //printf("Line %s strlen %d\n", line, (int)strlen(line));
             if ( ( escrito=fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line))
@@ -159,8 +137,6 @@ int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs)
             fseek(fdd_State, (loffset), SEEK_SET);
             break;
         }
-
-
     }
     free(line);
     return 0;
@@ -263,12 +239,14 @@ void rule_evaluation(struct rule_type *Rule_Base, struct io_type *System_Outputs
         /* process if-side of rule to determine strength */
         for(ip=rule->if_side; ip != NULL; ip=ip->next){
             strength = fmin(strength,*(ip->value));
-            DEBUG_PRINT(("strength del if %f\n", strength));
+            //DEBUG_PRINT(("strength del if %f\n", strength));
         }
-        DEBUG_PRINT(("strength de la regla %f\n", strength));
+        //DEBUG_PRINT(("strength de la regla %f\n", strength));
         /* process then-side of rule to apply strength */
-        for(tp=rule->then_side; tp != NULL; tp=tp->next)
+        for(tp=rule->then_side; tp != NULL; tp=tp->next){
             *(tp->value) = fmax(strength,*(tp->value));
+            //DEBUG_PRINT(("then %f\n", *(tp->value)));
+        }
     }
     return;
 }
@@ -297,6 +275,7 @@ void defuzzification(struct io_type *System_Outputs)
         sum_of_areas = 0;
         for(mf=so->membership_functions; mf != NULL; mf=mf->next)
         {
+            //printf("mf value: %d\n", mf->value);
             area = compute_area_of_trapezoid(mf);
             centroid = mf->point1 + (mf->point2 - mf->point1)/2;
             sum_of_products += area * centroid;
@@ -306,7 +285,7 @@ void defuzzification(struct io_type *System_Outputs)
         }
         //printf("Llegue sum_of_products: %f, sum_of_areas: %f\n", sum_of_products, sum_of_areas);
         so->value = sum_of_products/sum_of_areas;   /* weighted average */
-        //printf("Angulo: %f\n", so->value);
+        //printf("Salida: %f\n", so->value);
     }
 
     return;
@@ -328,13 +307,9 @@ float compute_area_of_trapezoid(struct mf_type *mf)
     base = mf->point2 - mf->point1; // a
     run_1 = mf->value/mf->slope1;   // Ax = Ay * pendiente
     run_2 = mf->value/mf->slope2;   // Ax = Ay * pendiente
-    top = base - run_1 - run_2;     // b 
-    area = mf->value * ( base + top)/2;
-    
-    if (strcmp(mf->name,"goRight") || strcmp(mf->name,"goLeft"))
-        return(area/2);
-    else
-        return(area);
+    top = base-run_1-run_2;         // b 
+    area = mf->value*(base + top)/2;
+    return(area);
 }
 
 void add_rule (struct rule_type **rule, char *name, struct rule_element_type *if_side, struct rule_element_type *then_side, struct rule_type *next)
@@ -356,9 +331,9 @@ void update_rule (struct rule_type *rule, char *name){
 void add_rule_element( struct rule_element_type **element,  float value, struct rule_element_type *next)
 {
     *element = malloc (sizeof (struct rule_element_type));    // Lista de todas las reglas
-    (*element) -> value = malloc (sizeof(float) );
+    //(*element) -> value = malloc (sizeof(float) );
 
-    *((*element) -> value) = value;
+    //*((*element) -> value) = value;
     (*element) -> next  = next;
 
     return;
@@ -379,86 +354,6 @@ void charge_rule(   char *rule_text,
     add_rule(rule, rule_text, *if_side_left, *then_side_dirr, next_rule);
     return;
 }
-    
-/*     char *rule_7_text, char *rule_6_text, char *rule_5_text, char *rule_4_text, 
-                    char *rule_3_text, char *rule_2_text, char *rule_1_text, char *rule_0_text,
-                    struct rule_element_type **if_side_7_right, struct rule_element_type **if_side_7_center, struct rule_element_type **if_side_7_left,
-                    struct rule_element_type **then_side_7, struct rule_type **rule_7,
-                    struct rule_element_type **if_side_6_right, struct rule_element_type **if_side_6_center, struct rule_element_type **if_side_6_left,
-                    struct rule_element_type **then_side_6, struct rule_type **rule_6,
-                    struct rule_element_type **if_side_5_right, struct rule_element_type **if_side_5_center, struct rule_element_type **if_side_5_left,
-                    struct rule_element_type **then_side_5, struct rule_type **rule_5,
-                    struct rule_element_type **if_side_4_right, struct rule_element_type **if_side_4_center, struct rule_element_type **if_side_4_left,
-                    struct rule_element_type **then_side_4, struct rule_type **rule_4,
-                    struct rule_element_type **if_side_3_right, struct rule_element_type **if_side_3_center, struct rule_element_type **if_side_3_left,
-                    struct rule_element_type **then_side_3, struct rule_type **rule_3,
-                    struct rule_element_type **if_side_2_right, struct rule_element_type **if_side_2_center, struct rule_element_type **if_side_2_left,
-                    struct rule_element_type **then_side_2, struct rule_type **rule_2,
-                    struct rule_element_type **if_side_1_right, struct rule_element_type **if_side_1_center, struct rule_element_type **if_side_1_left,
-                    struct rule_element_type **then_side_1, struct rule_type **rule_1,
-                    struct rule_element_type **if_side_0_right, struct rule_element_type **if_side_0_center, struct rule_element_type **if_side_0_left,
-                    struct rule_element_type **then_side_0, struct rule_type **rule_0,
-                    struct io_type *System_Inputs_rightSensor, struct io_type *System_Inputs_centerSensor, struct io_type *System_Inputs_leftSensor){
-
-  // Cargo cada regla con los valores de la fuzzificacion
-  // Si LEJOS, LEJOS , LEJOS = CENTRO
-  add_rule_element(if_side_7_right,  System_Inputs_rightSensor ->membership_functions->next->value, NULL);
-  add_rule_element(if_side_7_center, System_Inputs_centerSensor->membership_functions->next->value, *if_side_7_right);
-  add_rule_element(if_side_7_left,   System_Inputs_leftSensor  ->membership_functions->next->value, *if_side_7_center);
-  add_rule_element(then_side_7,      0.0, NULL);
-  add_rule(rule_7, rule_7_text, *if_side_7_left, *then_side_7, NULL);
-
-  // Si LEJOS, LEJOS , CERCA = IZQUIERDA
-  add_rule_element(if_side_6_right,  System_Inputs_rightSensor ->membership_functions->value, NULL);
-  add_rule_element(if_side_6_center, System_Inputs_centerSensor->membership_functions->next->value, *if_side_6_right);
-  add_rule_element(if_side_6_left,   System_Inputs_leftSensor  ->membership_functions->next->value, *if_side_6_center);
-  add_rule_element(then_side_6,      0.0, NULL);
-  add_rule(rule_6, rule_6_text, *if_side_6_left, *then_side_6, *rule_7);
-
-  // Si LEJOS, CERCA , LEJOS = DERECHA
-  add_rule_element(if_side_5_right,  System_Inputs_rightSensor ->membership_functions->next->value, NULL);
-  add_rule_element(if_side_5_center, System_Inputs_centerSensor->membership_functions->value, *if_side_5_right);
-  add_rule_element(if_side_5_left,   System_Inputs_leftSensor  ->membership_functions->next->value, *if_side_5_center);
-  add_rule_element(then_side_5,      0.0, NULL);
-  add_rule(rule_5, rule_5_text, *if_side_5_left, *then_side_5, *rule_6);
-
-  // Si LEJOS, CERCA , CERCA = IZQUIERDA
-  add_rule_element(if_side_4_right,  System_Inputs_rightSensor ->membership_functions->value, NULL);
-  add_rule_element(if_side_4_center, System_Inputs_centerSensor->membership_functions->value, *if_side_4_right);
-  add_rule_element(if_side_4_left,   System_Inputs_leftSensor  ->membership_functions->next->value, *if_side_4_center);
-  add_rule_element(then_side_4,      0.0, NULL);
-  add_rule(rule_4, rule_4_text, *if_side_4_left, *then_side_4, *rule_5);
-
-  // Si CERCA, LEJOS , LEJOS = DERECHA
-  add_rule_element(if_side_3_right,  System_Inputs_rightSensor ->membership_functions->next->value, NULL);
-  add_rule_element(if_side_3_center, System_Inputs_centerSensor->membership_functions->next->value, *if_side_3_right);
-  add_rule_element(if_side_3_left,   System_Inputs_leftSensor  ->membership_functions->value, *if_side_3_center);
-  add_rule_element(then_side_3,      0.0, NULL);
-  add_rule(rule_3, rule_3_text, *if_side_3_left, *then_side_3, *rule_4);
-  
-  // Si CERCA, LEJOS , CERCA = CENTRO
-  add_rule_element(if_side_2_right,  System_Inputs_rightSensor ->membership_functions->value, NULL);
-  add_rule_element(if_side_2_center, System_Inputs_centerSensor->membership_functions->next->value, *if_side_2_right);
-  add_rule_element(if_side_2_left,   System_Inputs_leftSensor  ->membership_functions->value, *if_side_2_center);
-  add_rule_element(then_side_2,      0.0, NULL);
-  add_rule(rule_2, rule_2_text, *if_side_2_left, *then_side_2, *rule_3);
-  
-  // Si CERCA, CERCA , LEJOS = DERECHA
-  add_rule_element(if_side_1_right,  System_Inputs_rightSensor ->membership_functions->next->value, NULL);
-  add_rule_element(if_side_1_center, System_Inputs_centerSensor->membership_functions->value, *if_side_1_right);
-  add_rule_element(if_side_1_left,   System_Inputs_leftSensor  ->membership_functions->value, *if_side_1_center);
-  add_rule_element(then_side_1,      0.0, NULL);
-  add_rule(rule_1, rule_1_text, *if_side_1_left, *then_side_1, *rule_2);
-  
-  // Si CERCA, CERCA , CERCA = CENTRO
-  add_rule_element(if_side_0_right,  System_Inputs_rightSensor ->membership_functions->value, NULL);
-  add_rule_element(if_side_0_center, System_Inputs_centerSensor->membership_functions->value, *if_side_0_right);
-  add_rule_element(if_side_0_left,   System_Inputs_leftSensor  ->membership_functions->value, *if_side_0_center);
-  add_rule_element(then_side_0,      0.0, NULL);
-  add_rule(rule_0, rule_0_text, *if_side_0_left, *then_side_0, *rule_1);
-
-  return;
-} */
 
 void read_from_state_string(FILE* fdd_State, char recurso[], struct sembuf sb, int semid, char *readed){
     ssize_t lread;

@@ -6,7 +6,7 @@
 #echo system.bin > /sys/class/fpga_manager/fpga0/firmware;
 
 # Insmod all drivers
-xterm -hold -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_1.ko;
+xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_1.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_encoder_EMIOgpio_PL_2.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_buttons_EMIOgpio_PL_1.ko;
 echo temppwd | sudo -S insmod ~/drivers/driver_leds_EMIOgpio_PL.ko;
@@ -20,7 +20,7 @@ echo temppwd | sudo -S rmmod ~/drivers/driver_i2c_PS_hmc5883L.ko;
 echo temppwd | sudo -S ~/apps/ControlVdma;"' 
 
 # Change drivers permissions
-xterm -hold -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_encoder_EMIOgpio_PL_1;
+xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_encoder_EMIOgpio_PL_1;
 echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_encoder_EMIOgpio_PL_2;
 echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_buttons_EMIOgpio_PL_1;
 echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_leds_EMIOgpio_PL;
@@ -31,10 +31,10 @@ echo temppwd | sudo -S chown ubuntu:ubuntu /dev/chardev_EMIOgpio_PL;
 echo temppwd | sudo -S chown ubuntu:ubuntu /dev/i2c-0;"' 
 
 # Run VDMA 
-#xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "~/apps/ControlVdma;"'
+xterm -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "~/apps/ControlVdma;"'
 
 # PNG Server
-xterm -hold -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | "sudo -S python3 /home/ubuntu/PngServer/pngserver_ShowCNN.py""' 
+#xterm -hold -e 'sshpass -p temppwd ssh -t ubuntu@192.168.100.130 "echo temppwd | "sudo -S python3 /home/ubuntu/PngServer/pngserver_ShowCNN.py""' 
 
 # Run top app
 #xterm -hold -e 'sshpass -p 44501516 ssh -f ubuntu@192.168.100.130 "~/apps/usrSpace_top > /dev/null 2>&1"' &

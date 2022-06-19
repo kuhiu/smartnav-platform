@@ -10,15 +10,17 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+//#define DEBUG           1     
+
+#ifdef DEBUG 
+#define DEBUG_PRINT(x) printf x
+#else
+#define DEBUG_PRINT(x) do {} while (0)
+#endif 
+
+
 #define MAXNAME        200      // Numero maximo de caracteres en los nombres 
 #define UPPER_LIMIT      1      // Numero maximo asignable como grado de pertenencia 
-#define DEBUG            1
-
-#ifdef DEBUG
-# define DEBUG_PRINT(x) printf x
-#else
-# define DEBUG_PRINT(x) do {} while (0)
-#endif
 
 #define MAX_RETRIES 10
 
@@ -65,7 +67,7 @@ struct rule_type{
 int initsem(key_t key, int nsems);
 struct io_type* initialize_system_io(char *name, float value, struct mf_type *membership_functions, struct io_type *next);
 int get_system_inputs(FILE* fdd_State, long long int *rightSensor, long long int *centerSensor, long long int *leftSensor, long long int *dir_imgproc);
-int put_system_outputs(FILE* fdd_State, struct io_type *System_Outputs);
+int put_system_outputs(FILE* fdd_State, float dirr, float speed);
 void fuzzification(struct io_type *System_Inputs);
 void rule_evaluation(struct rule_type *Rule_Base, struct io_type *System_Outputs);
 void defuzzification(struct io_type *System_Outputs);
