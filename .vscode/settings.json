@@ -54,6 +54,7 @@
         "codecvt": "cpp",
         "algorithm": "cpp",
         "memory": "cpp",
-        "ipc.h": "c"
+        "ipc.h": "c",
+        "signal.h": "c"
     }
 }

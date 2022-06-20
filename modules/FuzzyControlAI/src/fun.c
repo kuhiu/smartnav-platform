@@ -125,8 +125,7 @@ int put_system_outputs(FILE* fdd_State, float dirr, float speed)
             break;
         default:        // Encontro
         //printf("Encontre \n");
-          //printf("Line %s strlen %d\n", line, (int)strlen(line));
-            sprintf(line, "Pwm, Velocidad = %f", (dirr)*100); 
+            sprintf(line, "Pwm, Velocidad = %03d %%", (int)((speed)*100)); 
             fseek(fdd_State, (loffset-lread), SEEK_SET);
             //printf("Line %s strlen %d\n", line, (int)strlen(line));
             if ( ( escrito=fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line))

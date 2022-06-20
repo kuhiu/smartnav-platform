@@ -43,7 +43,6 @@ int main (void)
     /* Driver Control */
     int fd_drive, fd_speed;
     uint32_t buff_send[BYTE2READ_drive];
-    uint32_t speed;
 
     // File
     FILE* fdd_State;
@@ -61,7 +60,7 @@ int main (void)
     sb.sem_op = -1; /* set to allocate resource */
     sb.sem_flg = SEM_UNDO;
 
-    float heading;
+    int heading, speed;
 
     signal(SIGINT, sigintHandler);
 
@@ -106,7 +105,7 @@ int main (void)
         return -1;
     }
 
-    speed = 20;
+    speed = 15;
     if ( ( write(fd_speed, &speed, BYTE2READ_speed)) == -1)
     {
         //perror("close"):
@@ -143,6 +142,20 @@ int main (void)
                     heading = atof(readed);
                     break;
                 }
+
+                switch (sscanf(line, "Pwm, Velocidad = %s\n", readed ))
+                {
+                case EOF:       // Error
+                    perror("sscanf");
+                    exit(1);
+                    break;
+                case 0:         // No encontro
+                    //printf("No se encontro la linea: Sensores, rightSensor \n");
+                    break;
+                default:        // Encontro
+                    speed = atoi(readed);
+                    break;
+                }
             }
 
         sb.sem_op = 1;          /* Libera el recurso */
@@ -161,6 +174,13 @@ int main (void)
 
 
         if ( ( write(fd_drive, buff_send, BYTE2READ_drive)) == -1)
+        {
+            //perror("close"):
+            printf("Error escribiendo leds_control_chardev\n");
+            return -1;
+        }
+
+        if ( ( write(fd_speed, &speed, BYTE2READ_speed)) == -1)
         {
             //perror("close"):
             printf("Error escribiendo leds_control_chardev\n");

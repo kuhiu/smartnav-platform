@@ -2,6 +2,14 @@
 
 #define FILTER_N  10
 
+//#define DEBUG           1     
+
+#ifdef DEBUG 
+#define DEBUG_PRINT(x) printf x
+#else
+#define DEBUG_PRINT(x) do {} while (0)
+#endif 
+
 void read_from_state_string(FILE* fdd_State, char recurso[], struct sembuf *sb, int semid, char *readed);
 
 int saveSTATE(struct sembuf *sb, int semid, FILE *fdd_State, long long int rightSensor, long long int centerSensor, long long int leftSensor, float heading, 
@@ -364,6 +372,7 @@ int main (int argc, char *argv[])
         // Start measuring time 
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &begin);
 
+        DEBUG_PRINT(("Llegue 1\n"));
         accum_rightSensor  = 0;
         accum_centerSensor = 0;
         accum_leftSensor   = 0;
@@ -387,6 +396,7 @@ int main (int argc, char *argv[])
         while (1){
             //heading = get_headeing_degree(fd_brujula, xlow, xhigh, ylow, yhigh);
             heading = get_headeing_degree_yz(fd_brujula, zlow, zhigh, ylow, yhigh);
+            DEBUG_PRINT(("Llegue heading = %f\n", heading));
             if (heading == -1){   // hubo ov
                 return -1;
             }
@@ -400,7 +410,7 @@ int main (int argc, char *argv[])
             //printf("heading: %f \n", heading);
             break;
         }
-
+        DEBUG_PRINT(("Llegue 2\n"));
         ///////////////////////////////////////////// Encoders //////////////////////////////////////////////
         if ( ( read(fd_encoder_1, rb_encoder_1, BYTE2READ_encoder)) == -1)
         {

@@ -1,5 +1,13 @@
 #include "fun.h"
 
+#define DEBUG
+
+#ifdef DEBUG 
+#define DEBUG_PRINT(x) printf x
+#else
+#define DEBUG_PRINT(x) do {} while (0)
+#endif 
+
 int main(void)
 {
     // File
@@ -302,9 +310,9 @@ int main(void)
     initialize_membership_inputs("Izquierda", 0, -160, 160,  (float)1/160, (float)1/160, membership_functions_inputs_center_imgproc, &membership_functions_inputs_left_imgproc);
 
     // Outputs
-    initialize_membership_inputs("high_speed",     0,  0.3, 0.5, (float)1/0.1, (float)1/0.1, NULL, &membership_functions_outputs_high_speed);
-    initialize_membership_inputs("normal_speed", 0,  0.2, 0.4, (float)1/0.1, (float)1/0.1, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
-    initialize_membership_inputs("low_speed",      0,  0.1, 0.3, (float)1/0.1, (float)1/0.1, membership_functions_outputs_normal_speed, &membership_functions_outputs_low_speed);
+    initialize_membership_inputs("high_speed",     0,  0.10, 0.20, (float)1/0.05, (float)1/0.05, NULL, &membership_functions_outputs_high_speed);
+    initialize_membership_inputs("normal_speed",   0,  0.05, 0.15, (float)1/0.05, (float)1/0.05, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
+    initialize_membership_inputs("low_speed",      0,  0.00, 0.10, (float)1/0.05, (float)1/0.05, membership_functions_outputs_normal_speed, &membership_functions_outputs_low_speed);
 
     initialize_membership_inputs("goRight",  0,    0,  90, (float)1/45, (float)1/45, NULL, &membership_functions_outputs_goRight);
     initialize_membership_inputs("goCenter", 0,  -45,  45, (float)1/45, (float)1/45, membership_functions_outputs_goRight, &membership_functions_outputs_goCenter);
@@ -404,7 +412,7 @@ int main(void)
     if_side_20_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_20_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_20_dirr  -> value = ang_membership_functions_value_left;
-    then_side_20_speed -> value = speed_membership_functions_value_slow;
+    then_side_20_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 19
     charge_rule( "LEJOS, LEJOS, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -416,7 +424,7 @@ int main(void)
     if_side_19_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_19_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_19_dirr  -> value = ang_membership_functions_value_right;
-    then_side_19_speed -> value = speed_membership_functions_value_slow;
+    then_side_19_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 18
     charge_rule( "LEJOS, LEJOS, CERCA, Img_Proc_CENTRO = CENTRO, S_LENTA", 
@@ -428,7 +436,7 @@ int main(void)
     if_side_18_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_18_imgproc -> value = cameraSensor_membership_functions_value_center;
     then_side_18_dirr  -> value = ang_membership_functions_value_center;
-    then_side_18_speed -> value = speed_membership_functions_value_slow;
+    then_side_18_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 17
     charge_rule( "LEJOS, CERCA, LEJOS, Img_Proc_IZQUIERDA = IZQUIERDA, S_LENTA",
@@ -440,7 +448,7 @@ int main(void)
     if_side_17_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_17_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_17_dirr  -> value = ang_membership_functions_value_left;
-    then_side_17_speed -> value = speed_membership_functions_value_slow;
+    then_side_17_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 16
     charge_rule( "LEJOS, CERCA, LEJOS, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -452,7 +460,7 @@ int main(void)
     if_side_16_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_16_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_16_dirr  -> value = ang_membership_functions_value_right;
-    then_side_16_speed -> value = speed_membership_functions_value_slow;
+    then_side_16_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 15
     charge_rule( "LEJOS, CERCA, LEJOS, Img_Proc_CENTRO = CENTRO, S_ZERO",
@@ -476,7 +484,7 @@ int main(void)
     if_side_14_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_14_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_14_dirr  -> value = ang_membership_functions_value_left;
-    then_side_14_speed -> value = speed_membership_functions_value_slow;
+    then_side_14_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 13
     charge_rule( "LEJOS, CERCA, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -488,7 +496,7 @@ int main(void)
     if_side_13_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_13_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_13_dirr  -> value = ang_membership_functions_value_right;
-    then_side_13_speed -> value = speed_membership_functions_value_slow;
+    then_side_13_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 12
     charge_rule( "LEJOS, CERCA, CERCA, Img_Proc_CENTRO = CENTRO, S_ZERO", 
@@ -512,7 +520,7 @@ int main(void)
     if_side_11_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_11_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_11_dirr  -> value = ang_membership_functions_value_left;
-    then_side_11_speed -> value = speed_membership_functions_value_slow;
+    then_side_11_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 10
     charge_rule( "CERCA, LEJOS, LEJOS, Img_Proc_DERECHA = DERECHA, S_LENTA",
@@ -524,7 +532,7 @@ int main(void)
     if_side_10_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_10_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_10_dirr  -> value = ang_membership_functions_value_right;
-    then_side_10_speed -> value = speed_membership_functions_value_slow;
+    then_side_10_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 9
     charge_rule( "CERCA, LEJOS, LEJOS, Img_Proc_CENTRO = CENTRO, S_LENTA", 
@@ -536,7 +544,7 @@ int main(void)
     if_side_9_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_9_imgproc -> value = cameraSensor_membership_functions_value_center;
     then_side_9_dirr  -> value = ang_membership_functions_value_center;
-    then_side_9_speed -> value = speed_membership_functions_value_slow;
+    then_side_9_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 8
     charge_rule( "CERCA, LEJOS, CERCA, Img_Proc_IZQUIERDA = IZQUIERDA, S_LENTA",
@@ -548,7 +556,7 @@ int main(void)
     if_side_8_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_8_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_8_dirr  -> value = ang_membership_functions_value_left;
-    then_side_8_speed -> value = speed_membership_functions_value_slow;
+    then_side_8_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 7
     charge_rule( "CERCA, LEJOS, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -560,7 +568,7 @@ int main(void)
     if_side_7_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_7_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_7_dirr  -> value = ang_membership_functions_value_right;
-    then_side_7_speed -> value = speed_membership_functions_value_slow;
+    then_side_7_speed -> value = speed_membership_functions_value_normal;
 
     charge_rule( "CERCA, LEJOS, CERCA, Img_Proc_CENTRO = CENTRO, S_LENTA",
                 &if_side_6_right, &if_side_6_center, &if_side_6_left, &if_side_6_imgproc,
@@ -572,7 +580,7 @@ int main(void)
     if_side_6_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_6_imgproc -> value = cameraSensor_membership_functions_value_center;
     then_side_6_dirr  -> value = ang_membership_functions_value_center;
-    then_side_6_speed -> value = speed_membership_functions_value_slow;
+    then_side_6_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 5
     charge_rule( "CERCA, CERCA, LEJOS, Img_Proc_IZQUIERDA = IZQUIERDA, S_LENTA",
@@ -584,7 +592,7 @@ int main(void)
     if_side_5_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_5_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_5_dirr  -> value = ang_membership_functions_value_left;
-    then_side_5_speed -> value = speed_membership_functions_value_slow;
+    then_side_5_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 4
     charge_rule( "CERCA, CERCA, LEJOS, Img_Proc_DERECHA = DERECHA, S_LENTA",
@@ -596,7 +604,7 @@ int main(void)
     if_side_4_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_4_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_4_dirr  -> value = ang_membership_functions_value_right;
-    then_side_4_speed -> value = speed_membership_functions_value_slow;
+    then_side_4_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 3
     charge_rule( "CERCA, CERCA, LEJOS, Img_Proc_CENTRO = CENTRO, S_LENTA",
@@ -620,7 +628,7 @@ int main(void)
     if_side_2_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_2_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_2_dirr  -> value = ang_membership_functions_value_left;
-    then_side_2_speed -> value = speed_membership_functions_value_slow;
+    then_side_2_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 1
     charge_rule( "CERCA, CERCA, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA",
@@ -632,7 +640,7 @@ int main(void)
     if_side_1_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_1_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_1_dirr  -> value = ang_membership_functions_value_right;
-    then_side_1_speed -> value = speed_membership_functions_value_slow;
+    then_side_1_speed -> value = speed_membership_functions_value_normal;
 
     // Rule 0
     charge_rule( "CERCA, CERCA, CERCA, Img_Proc_CENTRO = CENTRO, S_ZERO",

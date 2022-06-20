@@ -15,6 +15,7 @@
 #include <sys/sem.h>
 #include <time.h>
 
+
 // Semaforo
 union semun {
     int val;

@@ -37,16 +37,7 @@ int main (void)
         switch (ubuff)
         {
         case 1:
-            system("/home/root/Tesis/Apps/usrSpace_drive_v3 100 0");
-            break;
-        case 2:
-            system("/home/root/Tesis/Apps/usrSpace_drive_v3 200 0");
-            break;
-        case 3:
-            system("/home/root/Tesis/Apps/usrSpace_drive_v3 100 100");
-            break;
-        case 4:
-            system("/home/root/Tesis/Apps/usrSpace_drive");
+            system("/home/ubuntu/smartNavSys/smartNavSys");
             break;
         default:
             printf("Error, el boton no existe\n"); 
@@ -54,7 +45,6 @@ int main (void)
         }
     }
 
-    printf("Sali del while\n");  
     close(fd);
     return 0;
 }

@@ -4,6 +4,8 @@ MAKE_FUZZY			= ./modules/FuzzyControlAI/
 PNG_SERVER_DIR		= ./modules/PngServer/
 MAKE_READSTATE 		= ./modules/readSTATE/
 MAKE_SMNAVSYS		= ./modules/smartNavSys/
+MAKE_BUTTCTRL		= ./modules/buttonsControl/
+
 # Colors
 WHITE        := $(shell tput -Txterm setaf 7)
 RED          := $(shell tput -Txterm setaf 1)
@@ -26,8 +28,13 @@ all:
 # Run makefile to build smartNavSys	
 	@echo "    ${WHITE}:: ${RED}Running smartNavSys${RESET} ${WHITE}::${RESET}"
 	cd $(MAKE_SMNAVSYS) && $(MAKE)
+# Run makefile to build buttonsControl	
+	@echo "    ${WHITE}:: ${RED}Running buttonsControl${RESET} ${WHITE}::${RESET}"
+	cd $(MAKE_BUTTCTRL) && $(MAKE)
 # Copy PNG server to gen dir
 	mkdir -p ./gen/PngServer
 	cp $(PNG_SERVER_DIR)/pngserver_ShowCam.py ./gen/PngServer
 	cp $(PNG_SERVER_DIR)/pngserver_ShowCNN.py ./gen/PngServer
 	cp $(MAKE_DRIVERS_APPS)/state.txt ./gen/
+	cp scripts/installDrivers.sh ./gen/
+	cp scripts/installDrivers.service ./gen/
