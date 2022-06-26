@@ -5,6 +5,7 @@ PNG_SERVER_DIR		= ./modules/PngServer/
 MAKE_READSTATE 		= ./modules/readSTATE/
 MAKE_SMNAVSYS		= ./modules/smartNavSys/
 MAKE_BUTTCTRL		= ./modules/buttonsControl/
+MAKE_DISTSENS		= ./modules/distanceSensors/
 
 # Colors
 WHITE        := $(shell tput -Txterm setaf 7)
@@ -31,6 +32,10 @@ all:
 # Run makefile to build buttonsControl	
 	@echo "    ${WHITE}:: ${RED}Running buttonsControl${RESET} ${WHITE}::${RESET}"
 	cd $(MAKE_BUTTCTRL) && $(MAKE)
+# Run makefile to build distanceSensors	
+	@echo "    ${WHITE}:: ${RED}Running distanceSensors${RESET} ${WHITE}::${RESET}"
+	cd $(MAKE_DISTSENS) && $(MAKE)
+
 # Copy PNG server to gen dir
 	mkdir -p ./gen/PngServer
 	cp $(PNG_SERVER_DIR)/pngserver_ShowCam.py ./gen/PngServer

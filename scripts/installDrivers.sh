@@ -13,3 +13,5 @@ sudo insmod /home/ubuntu/drivers/driver_EMIOgpio_PL.ko;
 sudo insmod /home/ubuntu/drivers/driver_i2c_PS_hmc5883L.ko; 
 sudo rmmod  /home/ubuntu/drivers/driver_i2c_PS_hmc5883L.ko;
 sudo /home/ubuntu/apps/ControlVdma;
+
+sudo /home/ubuntu/buttonsControl/buttonsControl;

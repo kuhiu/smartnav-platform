@@ -60,7 +60,7 @@ int main (void)
     sb.sem_op = -1; /* set to allocate resource */
     sb.sem_flg = SEM_UNDO;
 
-    int heading, speed;
+    int heading, speed, dirr;
 
     signal(SIGINT, sigintHandler);
 
@@ -156,6 +156,20 @@ int main (void)
                     speed = atoi(readed);
                     break;
                 }
+
+                switch (sscanf(line, "ImgProc, Direccion = %s\n", readed ))
+                {
+                case EOF:       // Error
+                    perror("sscanf");
+                    exit(1);
+                    break;
+                case 0:         // No encontro
+                    //printf("No se encontro la linea: Sensores, rightSensor \n");
+                    break;
+                default:        // Encontro
+                    dirr = atoi(readed);
+                    break;
+                }
             }
 
         sb.sem_op = 1;          /* Libera el recurso */
@@ -164,13 +178,24 @@ int main (void)
             exit(1);
         }
         //printf("Unlocked\n");
-
-        if (heading > 20)
-            *buff_send = DERECHA;
-        else if (heading < -20) 
-            *buff_send = IZQUIERDA;
-        else
+        
+        if(dirr>0){
+            speed = 15 + dirr;
+            if ( ( write(fd_speed, &speed, BYTE2READ_speed)) == -1){
+                //perror("close"):
+                printf("Error escribiendo leds_control_chardev\n");
+                return -1;
+            }
             *buff_send = ADELANTE;
+            //if (heading > 30)
+            //    *buff_send = DERECHA;
+            //else if (heading < 30) 
+            //    *buff_send = IZQUIERDA;
+            //else
+            //    *buff_send = ADELANTE;
+        }
+        else 
+            *buff_send = FRENAR;
 
 
         if ( ( write(fd_drive, buff_send, BYTE2READ_drive)) == -1)
@@ -187,7 +212,7 @@ int main (void)
             return -1;
         }
 
-        usleep(200000);
+        //usleep(50000);
     }
 
     *buff_send = FRENAR;

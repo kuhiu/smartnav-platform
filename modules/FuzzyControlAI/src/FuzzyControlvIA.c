@@ -310,13 +310,13 @@ int main(void)
     initialize_membership_inputs("Izquierda", 0, -160, 160,  (float)1/160, (float)1/160, membership_functions_inputs_center_imgproc, &membership_functions_inputs_left_imgproc);
 
     // Outputs
-    initialize_membership_inputs("high_speed",     0,  0.10, 0.20, (float)1/0.05, (float)1/0.05, NULL, &membership_functions_outputs_high_speed);
-    initialize_membership_inputs("normal_speed",   0,  0.05, 0.15, (float)1/0.05, (float)1/0.05, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
+    initialize_membership_inputs("high_speed",     0,  0.15, 0.25, (float)1/0.05, (float)1/0.05, NULL, &membership_functions_outputs_high_speed);
+    initialize_membership_inputs("normal_speed",   0,  0.05, 0.25, (float)1/0.10, (float)1/0.10, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
     initialize_membership_inputs("low_speed",      0,  0.00, 0.10, (float)1/0.05, (float)1/0.05, membership_functions_outputs_normal_speed, &membership_functions_outputs_low_speed);
 
-    initialize_membership_inputs("goRight",  0,    0,  90, (float)1/45, (float)1/45, NULL, &membership_functions_outputs_goRight);
-    initialize_membership_inputs("goCenter", 0,  -45,  45, (float)1/45, (float)1/45, membership_functions_outputs_goRight, &membership_functions_outputs_goCenter);
-    initialize_membership_inputs("goLeft",   0,  -90,   0, (float)1/45, (float)1/45, membership_functions_outputs_goCenter, &membership_functions_outputs_goLeft);
+    initialize_membership_inputs("goRight",  0,    0,  60, (float)1/30, (float)1/30, NULL, &membership_functions_outputs_goRight);
+    initialize_membership_inputs("goCenter", 0,  -30,  30, (float)1/30, (float)1/30, membership_functions_outputs_goRight, &membership_functions_outputs_goCenter);
+    initialize_membership_inputs("goLeft",   0,   60,   0, (float)1/30, (float)1/30, membership_functions_outputs_goCenter, &membership_functions_outputs_goLeft);
 
     // Cargo las estructuras de las Entradas 
     System_Inputs_ImgProc   = initialize_system_io("ImgProc", 0, membership_functions_inputs_left_imgproc, NULL);
@@ -689,14 +689,15 @@ int main(void)
         defuzzification(System_Outputs_ang);
 
 
-        DEBUG_PRINT(("Left cerca %f, left lejos %f \n", *leftSensor_membership_functions_value_cerca, *leftSensor_membership_functions_value_lejos));
-        DEBUG_PRINT(("central cerca %f, central lejos %f \n", *centerSensor_membership_functions_value_cerca, *centerSensor_membership_functions_value_lejos));
-        DEBUG_PRINT(("right cerca %f, right lejos %f \n", *rightSensor_membership_functions_value_cerca, *rightSensor_membership_functions_value_lejos));
-        DEBUG_PRINT(("imgproc left %f, imgproc center %f, imgproc right %f \n", *cameraSensor_membership_functions_value_left, *cameraSensor_membership_functions_value_center, *cameraSensor_membership_functions_value_right));
-        DEBUG_PRINT(("ang left %f, ang center %f, ang right %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
-        DEBUG_PRINT(("speed slow %f, speed normal %f, speed fast %f \n", *speed_membership_functions_value_slow, *speed_membership_functions_value_normal, *speed_membership_functions_value_fast));
+        //DEBUG_PRINT(("Left cerca %f, left lejos %f \n", *leftSensor_membership_functions_value_cerca, *leftSensor_membership_functions_value_lejos));
+        //DEBUG_PRINT(("central cerca %f, central lejos %f \n", *centerSensor_membership_functions_value_cerca, *centerSensor_membership_functions_value_lejos));
+        //DEBUG_PRINT(("right cerca %f, right lejos %f \n", *rightSensor_membership_functions_value_cerca, *rightSensor_membership_functions_value_lejos));
+        //DEBUG_PRINT(("imgproc left %f, imgproc center %f, imgproc right %f \n", *cameraSensor_membership_functions_value_left, *cameraSensor_membership_functions_value_center, *cameraSensor_membership_functions_value_right));
+        //DEBUG_PRINT(("ang left %f, ang center %f, ang right %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
+        //DEBUG_PRINT(("speed slow %f, speed normal %f, speed fast %f \n", *speed_membership_functions_value_slow, *speed_membership_functions_value_normal, *speed_membership_functions_value_fast));
+        //DEBUG_PRINT(("Las salidas defuzzificadas son: %f, %f\n", System_Outputs_ang->value, System_Outputs_speed->value));
+        DEBUG_PRINT(("Las salidas sin defuzzificar son: %f, %f, %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
 
-        DEBUG_PRINT(("Las salidas defuzzificadas son: %f, %f\n", System_Outputs_ang->value, System_Outputs_speed->value));
 
         sb.sem_op = -1;         /* Asignar recurso */
         if (semop(semid, &sb, 1) == -1) {           /* semop setea, chequea o limpia uno o varios semaforos */
@@ -722,7 +723,7 @@ int main(void)
         *speed_membership_functions_value_normal = 0;
         *speed_membership_functions_value_fast   = 0;
         
-        usleep(100000);
+        //usleep(100000);
     }
 
     // Libero toda la memoria pedida y los file descriptors

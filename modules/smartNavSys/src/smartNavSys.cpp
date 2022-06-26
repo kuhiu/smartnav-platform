@@ -46,9 +46,9 @@ int main(){
     string program_readState ("./readSTATE/readSTATE");
     const char *arg_list_readState[] = {program_readState.data(), nullptr};
 
-    // usrSpace_top
-    string program_usrSpace_top ("./apps/usrSpace_top");
-    const char *arg_list_usrSpace_top[] = {program_usrSpace_top.data(), nullptr};
+    // distanceSensors
+    string program_distanceSensors ("./distanceSensors/distanceSensors");
+    const char *arg_list_distanceSensors[] = {program_distanceSensors.data(), nullptr};
 
     // usrSpace_drive
     string program_usrSpace_drive ("./apps/usrSpace_drive");
@@ -61,10 +61,10 @@ int main(){
 
     // Add the apps you want to run
     string programs2run[(int)FORK_NUM] = {program_fuzzzyControl.data(), program_imgproc.data(), intrepreter.data(),\
-    program_readState.data(), program_usrSpace_top.data(), program_usrSpace_drive.data()};
+    program_readState.data(), program_distanceSensors.data(), program_usrSpace_drive.data()};
 
     const char **argsOfPrograms2run[(int)FORK_NUM] = {arg_list_fuzzzyControl, arg_list_imgproc, arg_list_server,\
-    arg_list_readState, arg_list_usrSpace_top, arg_list_usrSpace_drive};
+    arg_list_readState, arg_list_distanceSensors, arg_list_usrSpace_drive};
 
 /*     if (!exists((path)program_fuzzzyControl)){
         cout << "Program file " << program_fuzzzyControl.data() << " does not exist in current directory!" << endl;

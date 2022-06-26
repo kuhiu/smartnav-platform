@@ -15,7 +15,7 @@
 
 #define DEVICE_NAME "chardev_MIOgpio_PS"                /* Define Driver Name */
 #define DEVICE_CLASS_NAME "class_MIOgpio_PS"
-#define BYTE2READ 6*4                                   /* Cantidad de word de 32 bits que tengo que leer * 4 = Bytes 2 read */
+#define BYTE2READ 3*4                                   /* Cantidad de word de 32 bits que tengo que leer * 4 = Bytes 2 read */
 #define BASE_MINOR 0                                    /* Base del numero menor */
 #define MINOR_COUNT 1                                   /* Cantidad de numeros menores que voy a usar */
 #define DEVICE_PARENT NULL
@@ -48,16 +48,16 @@ static int driver_probe (struct platform_device *pdev);
 static int driver_remove (struct platform_device *pdev);
 
 
-static int right_valid_value = 0;
-static int center_valid_value = 0;
-static int left_valid_value = 0;
+volatile int right_valid_value = 0;
+volatile int center_valid_value = 0;
+volatile int left_valid_value = 0;
 
-static ktime_t right_echo_start = 0;
-static ktime_t right_echo_end = 0;
-static ktime_t center_echo_start = 0;
-static ktime_t center_echo_end = 0;
-static ktime_t left_echo_start = 0;
-static ktime_t left_echo_end = 0;
+volatile ktime_t right_echo_start = 0;
+volatile ktime_t right_echo_end = 0;
+volatile ktime_t center_echo_start = 0;
+volatile ktime_t center_echo_end = 0;
+volatile ktime_t left_echo_start = 0;
+volatile ktime_t left_echo_end = 0;
 
 DECLARE_WAIT_QUEUE_HEAD(int1_wait_queue); // type wait_queue_head_t
 DECLARE_WAIT_QUEUE_HEAD(int2_wait_queue);
@@ -372,19 +372,68 @@ static int driver_release(struct inode *inode, struct file *file)
 
 /*************************************************************************************************/
 /**
-  @brief Funcion que se ejecutara con el uso de la syscall read()
+  @brief 
 
-  @returns 0: sin error, -1: error
+  @returns 
 **/
 /*************************************************************************************************/
+int hcsr04_value_read(int select) {
+	int counter;
+
+	// Send a 10uS impulse to the TRIGGER line
+    if(select == 0){
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<15), (uint32_t)(0x1<<15) );
+        udelay(10);
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<15), (uint32_t)(0x0<<15) );
+
+        // Tengo que esperar que interrumpa y tenga el resultado
+        counter=0;
+        while ( right_valid_value == 0 ) {
+            counter++;
+            // Out of range
+            if (counter>100) 
+                return -1;
+            mdelay(1);
+        }
+        return ktime_to_us( ktime_sub(right_echo_end,  right_echo_start) );
+    }
+    if(select == 1){
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x1<<0) );
+        udelay(10);
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x0<<0) );
+
+        // Tengo que esperar que interrumpa y tenga el resultado
+        counter=0;
+        while ( center_valid_value == 0 ) {
+            counter++;
+            // Out of range
+            if (counter>100) 
+                return -1;
+            mdelay(1);
+        }
+        return ktime_to_us( ktime_sub(center_echo_end, center_echo_start) );
+    }
+    else{
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x1<<13) );
+        udelay(10);
+        set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x0<<13) );
+
+        // Tengo que esperar que interrumpa y tenga el resultado
+        counter=0;
+        while ( left_valid_value == 0 ) {
+            counter++;
+            // Out of range
+            if (counter>100) 
+                return -1;
+            mdelay(1);
+        }
+        return ktime_to_us( ktime_sub(left_echo_end, left_echo_start) );
+    }
+}
 
 
 static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, loff_t *offset) 
 {
-    int counter;
-
-    //pr_info("Entre a driver_read\n"); 
-
     //pr_info("Verifico si es valido el tamanio del buffer\n");  
     if(size != BYTE2READ)
     {
@@ -403,78 +452,17 @@ static ssize_t driver_read(struct file *file, char __user *ubuff, size_t size, l
     center_valid_value=0;
     left_valid_value=0;
 
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x1<<0) );
-    udelay(10);
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<0), (uint32_t)(0x0<<0) );
-
-
-    //wait_event_timeout(int1_wait_queue, center_valid_value, HZ / 16);
-
-    // Tengo que esperar que interrumpa y tenga el resultado
-    counter=0;
-    while ( center_valid_value == 0 ) {
-      //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
-      counter++;
-      // Out of range
-      if (counter>23200) {
-        //*(state.RX_buff) = -1;
-              break;
-      }
-      udelay(1);
-    }
- 
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x1<<13) );
-    udelay(10);
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<13), (uint32_t)(0x0<<13) );
-
-    // Tengo que esperar que interrumpa y tenga el resultado
-    counter=0;
-    while ( left_valid_value == 0 ) {
-      //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
-      counter++;
-      // Out of range
-      if (counter>23200) {
-        //*(state.RX_buff) = -1;
-              break;
-      }
-      udelay(1);
-    }
-
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<15), (uint32_t)(0x1<<15) );
-    udelay(10);
-    set_registers(state.xgpiops_addr, OFFSET_GPIO_DATA_0, (uint32_t)(0x1<<15), (uint32_t)(0x0<<15) );
-
-    // Tengo que esperar que interrumpa y tenga el resultado
-    counter=0;
-    while ( right_valid_value == 0 ) {
-      //pr_info("Espero la interrupcion rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value);  
-      counter++;
-      // Out of range
-      if (counter>23200) {
-        //*(state.RX_buff) = -1;
-              break;
-      }
-      udelay(1);
-    }
-
-    //pr_info("Llego la interrupcion. rv: %d, cv: %d, lv: %d\n", right_valid_value, center_valid_value, left_valid_value); 
-    //pr_info("Sensores r c l %lld %lld %lld\n", ktime_to_us( ktime_sub(right_echo_end,  right_echo_start) ), ktime_to_us( ktime_sub(center_echo_end, center_echo_start) ),  ktime_to_us( ktime_sub(left_echo_end,   left_echo_start) ) );
-    
-    state.RX_buff[0] = ktime_to_us( ktime_sub(right_echo_end,  right_echo_start) );
-    state.RX_buff[1] = ktime_to_us( ktime_sub(center_echo_end, center_echo_start) );
-    state.RX_buff[2] = ktime_to_us( ktime_sub(left_echo_end,   left_echo_start) );
-
-    //pr_info("Sensores r c l %lld %lld %lld\n", *(state.RX_buff + 8*0), *(state.RX_buff + 8*1), *(state.RX_buff + 8*2) );
+    state.RX_buff[1] = hcsr04_value_read(1);    // center
+    state.RX_buff[2] = hcsr04_value_read(2);    // left
+    state.RX_buff[0] = hcsr04_value_read(0);    // right
 
     /* Cargo el dato en el buffer del usuario */
-    //pr_info("Cargo el buffer del usuario con la informacion\n");
     if(__copy_to_user(ubuff, state.RX_buff, size) != 0)
     {
         pr_info("__copy_to_user: Fallo __copy_to_user\n");
         return -1;
     }
-
-    //pr_info("Salgo de driver_read\n"); 
+    
     return 0;
 }
 

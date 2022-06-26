@@ -52,8 +52,7 @@ float revoluciones_rpm_s1, float revoluciones_rpm_s2, float distance_cm_s1, floa
                 //printf("line %s \n", line); 
                 sprintf(line, "Sensores, rightSensor = %03lld", rightSensor);
                 fseek(fdd_State, (loffset-lread), SEEK_SET);
-                if ( ( fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line))
-                {
+                if ( ( fwrite(line, sizeof(char), strlen(line), fdd_State)) != strlen(line)){
                     printf("Error escribiendo\n");
                     return -1;
                 }

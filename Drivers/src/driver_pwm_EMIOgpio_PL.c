@@ -304,8 +304,6 @@ static int driver_release(struct inode *inode, struct file *file)
     //mdelay(100);
 	  //iowrite32( (uint32_t)0x01, state.base_addr_EMIOgpio);
 
-    pr_info("Llegue 1\n");
-
     // Load Register for Timer 0
     //pr_err("Load Register T0: %d ", (uint32_t)( (AXI_CLOCK_FREQ/PWM_FREQ)-2 ) );
     set_registers(state.base_addr, OFFSET_TLR0, (uint32_t) 0xFFFFFFFF , (uint32_t)( (AXI_CLOCK_FREQ/PWM_FREQ)-2 ) );
@@ -323,7 +321,7 @@ static int driver_release(struct inode *inode, struct file *file)
       //pr_info("Cargo en el registro = %d \n", (uint32_t)( ((uint32_t)AXI_CLOCK_FREQ/Freq_pwm_high_time_2set)-2 ));
       set_registers(state.base_addr, OFFSET_TLR1, (uint32_t) 0xFFFFFFFF , (uint32_t)( ((uint32_t)AXI_CLOCK_FREQ/Freq_pwm_high_time_2set) ) );
     }
-    pr_info("Llegue 2\n");
+
     // Set Load Timer 0 y Timer 1
     set_registers(state.base_addr, OFFSET_TCSR0, (uint32_t) (0x1<<5) , (uint32_t)(0x01<<5));
     set_registers(state.base_addr, OFFSET_TCSR1, (uint32_t) (0x1<<5) , (uint32_t)(0x01<<5));
@@ -337,7 +335,7 @@ static int driver_release(struct inode *inode, struct file *file)
 
     // Set to 0 bit MDT (Timer mode is generate) for Timer 1
     set_registers(state.base_addr, OFFSET_TCSR1, (uint32_t) 0x1, (uint32_t) 0x0);
-    pr_info("Llegue 3\n");
+
     // PWMA0 bit set to 1 to enable PWM for Timer 0
     set_registers(state.base_addr, OFFSET_TCSR0, (uint32_t) (0x1<<9) , (uint32_t)(0x01<<9));
 
@@ -346,7 +344,7 @@ static int driver_release(struct inode *inode, struct file *file)
 
     // Enable GenerateOut signals for Timer 0
     set_registers(state.base_addr, OFFSET_TCSR0, (uint32_t) (0x1<<2) , (uint32_t)(0x01<<2));
-    pr_info("Llegue 4\n");
+
     // Enable GenerateOut signals for Timer 1
     set_registers(state.base_addr, OFFSET_TCSR1, (uint32_t) (0x1<<2) , (uint32_t)(0x01<<2));
 
@@ -355,13 +353,13 @@ static int driver_release(struct inode *inode, struct file *file)
 
     // Auto or Reload Mode for Timer 1
     set_registers(state.base_addr, OFFSET_TCSR1, (uint32_t) (0x1<<4) , (uint32_t)(0x01<<4));
-    pr_info("Llegue 5\n");
+
     // Down Count for Timer 0
     set_registers(state.base_addr, OFFSET_TCSR0, (uint32_t) (0x1<<1) , (uint32_t)(0x01<<1));
 
     // Down Count for Timer 1
     set_registers(state.base_addr, OFFSET_TCSR1, (uint32_t) (0x1<<1) , (uint32_t)(0x01<<1));
-    pr_info("Llegue 6\n");
+
     // Enable Timer 0 and Timer 1 
     set_registers(state.base_addr, OFFSET_TCSR0, (uint32_t) (0x1<<10) , (uint32_t) (0x1<<10) );
 

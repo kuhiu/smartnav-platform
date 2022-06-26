@@ -19,3 +19,7 @@ network:
       dhcp6: yes
 
 Ref: https://askubuntu.com/questions/972429/how-to-bring-network-up-on-boot
+
+# Note
+
+I reduced the timeout in /lib/systemd/system/systemd-random-seed.service to reduce ssh login time. => FAILED] Failed to start Load/Save Random Seed.

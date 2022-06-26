@@ -214,7 +214,7 @@ static struct regval_list ov7670_default_regs[] = {
     //{ REG_GAIN,  0xFF},
     //{ REG_COM11, 0x80}, // Modo nocturno, 
     { REG_EDGE,     0xF8 },   // Edge Enhancement adj
-    { REG_SATCTR,   0xAA}, // 
+    { REG_SATCTR,   0x00}, // 
     { 0x77,         0x90},
     { REG_COM16,    0x10 }, // De-noise
     { REG_BRIGHT,   0x20 }, 
