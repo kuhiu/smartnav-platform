@@ -55,6 +55,7 @@
         "algorithm": "cpp",
         "memory": "cpp",
         "ipc.h": "c",
-        "signal.h": "c"
+        "signal.h": "c",
+        "distancesensors.hpp": "c"
     }
 }

@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/modules/distanceSensors/inc"
+            ]
+        }
+    ],
+    "version": 4
+}
