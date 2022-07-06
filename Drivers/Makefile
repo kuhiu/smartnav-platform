@@ -7,7 +7,8 @@ obj-m 		+= $(SRC_DIR)/driver_encoder_EMIOgpio_PL_2.o
 obj-m 		+= $(SRC_DIR)/driver_i2c_PS_ov7670.o 
 obj-m 		+= $(SRC_DIR)/driver_vdma.o 
 obj-m 		+= $(SRC_DIR)/driver_MIOgpio_PS.o 
-obj-m 		+= $(SRC_DIR)/driver_pwm_EMIOgpio_PL.o 
+obj-m 		+= $(SRC_DIR)/driver_pwm_EMIOgpio_PL_1.o 
+obj-m 		+= $(SRC_DIR)/driver_pwm_EMIOgpio_PL_2.o 
 obj-m 		+= $(SRC_DIR)/driver_EMIOgpio_PL.o 
 obj-m 		+= $(SRC_DIR)/driver_i2c_PS_hmc5883L.o
 

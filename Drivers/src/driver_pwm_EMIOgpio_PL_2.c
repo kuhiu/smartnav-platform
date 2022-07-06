@@ -9,8 +9,8 @@
 #include <linux/cdev.h>                 /* Se necesita para crear el Char Device */
 #include <linux/delay.h>
 
-#define DEVICE_NAME "chardev_pwm_EMIOgpio_PL"                /* Define Driver Name */
-#define DEVICE_CLASS_NAME "class_pwm_EMIOgpio_PL"
+#define DEVICE_NAME "chardev_pwm_EMIOgpio_PL_2"                /* Define Driver Name */
+#define DEVICE_CLASS_NAME "class_pwm_EMIOgpio_PL_2"
 #define BYTE2READ 4                                     /* Cantidad de word de 32 bits que tengo que leer * 4 = Bytes 2 read */
 #define BASE_MINOR 0                                      /* Base del numero menor */
 #define MINOR_COUNT 1                                     /* Cantidad de numeros menores que voy a usar */
@@ -61,7 +61,7 @@ static struct state {
 /********************************* Estructuras  of_device_id *************************************/
 
 static const struct of_device_id driver_of_match[] = {
-{ .compatible = "driver_pwm_EMIOgpio_PL" },
+{ .compatible = "driver_pwm_EMIOgpio_PL_2" },
 { }
 };
 
