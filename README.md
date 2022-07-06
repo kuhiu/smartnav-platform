@@ -1,5 +1,12 @@
 # Sistema de navegacion inteligente
 
+# Video
+
+<video width="320" height="240" controls>
+  <source src="./images/video.mp4" type="video/mp4">
+</video>
+
+
 ## Introduccion 
 
 
@@ -7,6 +14,11 @@
 
 | Fuschetto Martin         | Email: <marfus@hotmail.es>
 |:-------------------------:|:-------------------------:
+
+# Dependecias
+
+* gcc-arm-linux-gnueabihf
+* libi2c-dev
 
 
 # Pendientes
