@@ -2,7 +2,7 @@
 
 # Video
 
-![](./images/video.gif)
+<img src="./images/video.gif " height="400"/>
 
 ## Introduccion 
 
