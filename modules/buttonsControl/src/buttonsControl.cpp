@@ -6,7 +6,7 @@ std::atomic<int> child_pid;
 std::atomic<int> *children;
 
 constexpr std::atomic_int handler_exit_code = {103};
-constexpr std::atomic_int FORK_NUM = {6};     
+constexpr std::atomic_int FORK_NUM = {1};     
 
 void intHandler(int dummy) {
     keepRunning = 0;

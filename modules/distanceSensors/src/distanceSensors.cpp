@@ -210,5 +210,8 @@ int main(){
         sleep(TIME_SLEEPING_S-(elapsed));
     }
 
+    fclose(fdd_State);
+    close(fd_MIOgpio_PS);
+    close(fd_sem);
     return EXIT_SUCCESS;
 }

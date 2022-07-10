@@ -310,13 +310,13 @@ int main(void)
     initialize_membership_inputs("Izquierda", 0, -160, 160,  (float)1/160, (float)1/160, membership_functions_inputs_center_imgproc, &membership_functions_inputs_left_imgproc);
 
     // Outputs
-    initialize_membership_inputs("high_speed",     0,  0.15, 0.25, (float)1/0.05, (float)1/0.05, NULL, &membership_functions_outputs_high_speed);
-    initialize_membership_inputs("normal_speed",   0,  0.05, 0.25, (float)1/0.10, (float)1/0.10, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
-    initialize_membership_inputs("low_speed",      0,  0.00, 0.10, (float)1/0.05, (float)1/0.05, membership_functions_outputs_normal_speed, &membership_functions_outputs_low_speed);
+    initialize_membership_inputs("high_speed",     0,  0.30, 0.60, (float)1/0.15, (float)1/0.15, NULL, &membership_functions_outputs_high_speed);
+    initialize_membership_inputs("normal_speed",   0,  0.15, 0.45, (float)1/0.15, (float)1/0.15, membership_functions_outputs_high_speed, &membership_functions_outputs_normal_speed);
+    initialize_membership_inputs("low_speed",      0,  0.00, 0.30, (float)1/0.15, (float)1/0.15, membership_functions_outputs_normal_speed, &membership_functions_outputs_low_speed);
 
-    initialize_membership_inputs("goRight",  0,    0,  60, (float)1/30, (float)1/30, NULL, &membership_functions_outputs_goRight);
-    initialize_membership_inputs("goCenter", 0,  -30,  30, (float)1/30, (float)1/30, membership_functions_outputs_goRight, &membership_functions_outputs_goCenter);
-    initialize_membership_inputs("goLeft",   0,   60,   0, (float)1/30, (float)1/30, membership_functions_outputs_goCenter, &membership_functions_outputs_goLeft);
+    initialize_membership_inputs("goRight",  0,    0,  40, (float)1/20, (float)1/20, NULL, &membership_functions_outputs_goRight);
+    initialize_membership_inputs("goCenter", 0,  -20,  20, (float)1/20, (float)1/20, membership_functions_outputs_goRight, &membership_functions_outputs_goCenter);
+    initialize_membership_inputs("goLeft",   0,  -40,   0, (float)1/20, (float)1/20, membership_functions_outputs_goCenter, &membership_functions_outputs_goLeft);
 
     // Cargo las estructuras de las Entradas 
     System_Inputs_ImgProc   = initialize_system_io("ImgProc", 0, membership_functions_inputs_left_imgproc, NULL);
@@ -448,7 +448,7 @@ int main(void)
     if_side_17_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_17_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_17_dirr  -> value = ang_membership_functions_value_left;
-    then_side_17_speed -> value = speed_membership_functions_value_normal;
+    then_side_17_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 16
     charge_rule( "LEJOS, CERCA, LEJOS, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -460,7 +460,7 @@ int main(void)
     if_side_16_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_16_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_16_dirr  -> value = ang_membership_functions_value_right;
-    then_side_16_speed -> value = speed_membership_functions_value_normal;
+    then_side_16_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 15
     charge_rule( "LEJOS, CERCA, LEJOS, Img_Proc_CENTRO = CENTRO, S_ZERO",
@@ -484,7 +484,7 @@ int main(void)
     if_side_14_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_14_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_14_dirr  -> value = ang_membership_functions_value_left;
-    then_side_14_speed -> value = speed_membership_functions_value_normal;
+    then_side_14_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 13
     charge_rule( "LEJOS, CERCA, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA", 
@@ -496,7 +496,7 @@ int main(void)
     if_side_13_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_13_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_13_dirr  -> value = ang_membership_functions_value_right;
-    then_side_13_speed -> value = speed_membership_functions_value_normal;
+    then_side_13_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 12
     charge_rule( "LEJOS, CERCA, CERCA, Img_Proc_CENTRO = CENTRO, S_ZERO", 
@@ -592,7 +592,7 @@ int main(void)
     if_side_5_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_5_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_5_dirr  -> value = ang_membership_functions_value_left;
-    then_side_5_speed -> value = speed_membership_functions_value_normal;
+    then_side_5_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 4
     charge_rule( "CERCA, CERCA, LEJOS, Img_Proc_DERECHA = DERECHA, S_LENTA",
@@ -604,7 +604,7 @@ int main(void)
     if_side_4_right   -> value = rightSensor_membership_functions_value_lejos;
     if_side_4_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_4_dirr  -> value = ang_membership_functions_value_right;
-    then_side_4_speed -> value = speed_membership_functions_value_normal;
+    then_side_4_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 3
     charge_rule( "CERCA, CERCA, LEJOS, Img_Proc_CENTRO = CENTRO, S_LENTA",
@@ -628,7 +628,7 @@ int main(void)
     if_side_2_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_2_imgproc -> value = cameraSensor_membership_functions_value_left;
     then_side_2_dirr  -> value = ang_membership_functions_value_left;
-    then_side_2_speed -> value = speed_membership_functions_value_normal;
+    then_side_2_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 1
     charge_rule( "CERCA, CERCA, CERCA, Img_Proc_DERECHA = DERECHA, S_LENTA",
@@ -640,7 +640,7 @@ int main(void)
     if_side_1_right   -> value = rightSensor_membership_functions_value_cerca;
     if_side_1_imgproc -> value = cameraSensor_membership_functions_value_right;
     then_side_1_dirr  -> value = ang_membership_functions_value_right;
-    then_side_1_speed -> value = speed_membership_functions_value_normal;
+    then_side_1_speed -> value = speed_membership_functions_value_slow;
 
     // Rule 0
     charge_rule( "CERCA, CERCA, CERCA, Img_Proc_CENTRO = CENTRO, S_ZERO",
@@ -654,8 +654,7 @@ int main(void)
     then_side_0_dirr  -> value = ang_membership_functions_value_center;
     then_side_0_speed -> value = speed_membership_functions_value_slow;          
 
-    while(1)
-    {
+    while(1){
         sb.sem_op = -1;         /* Asignar recurso */
         if (semop(semid, &sb, 1) == -1) {           /* semop setea, chequea o limpia uno o varios semaforos */
             perror("semop");
@@ -688,16 +687,14 @@ int main(void)
         // Defuzzificion de todas las salidas
         defuzzification(System_Outputs_ang);
 
-
         //DEBUG_PRINT(("Left cerca %f, left lejos %f \n", *leftSensor_membership_functions_value_cerca, *leftSensor_membership_functions_value_lejos));
         //DEBUG_PRINT(("central cerca %f, central lejos %f \n", *centerSensor_membership_functions_value_cerca, *centerSensor_membership_functions_value_lejos));
         //DEBUG_PRINT(("right cerca %f, right lejos %f \n", *rightSensor_membership_functions_value_cerca, *rightSensor_membership_functions_value_lejos));
         //DEBUG_PRINT(("imgproc left %f, imgproc center %f, imgproc right %f \n", *cameraSensor_membership_functions_value_left, *cameraSensor_membership_functions_value_center, *cameraSensor_membership_functions_value_right));
         //DEBUG_PRINT(("ang left %f, ang center %f, ang right %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
         //DEBUG_PRINT(("speed slow %f, speed normal %f, speed fast %f \n", *speed_membership_functions_value_slow, *speed_membership_functions_value_normal, *speed_membership_functions_value_fast));
-        //DEBUG_PRINT(("Las salidas defuzzificadas son: %f, %f\n", System_Outputs_ang->value, System_Outputs_speed->value));
-        DEBUG_PRINT(("Las salidas sin defuzzificar son: %f, %f, %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
-
+        DEBUG_PRINT(("Las salidas defuzzificadas son: %f, %f\n", System_Outputs_ang->value, System_Outputs_speed->value));
+        //DEBUG_PRINT(("Las salidas sin defuzzificar son: %f, %f, %f\n", *ang_membership_functions_value_left, *ang_membership_functions_value_center, *ang_membership_functions_value_right));
 
         sb.sem_op = -1;         /* Asignar recurso */
         if (semop(semid, &sb, 1) == -1) {           /* semop setea, chequea o limpia uno o varios semaforos */

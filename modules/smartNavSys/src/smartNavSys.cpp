@@ -4,7 +4,7 @@ std::atomic<int> child_pid;
 std::atomic<int> *children;
 
 constexpr std::atomic_int handler_exit_code = {103};
-constexpr std::atomic_int FORK_NUM = {6};               // Edit
+constexpr std::atomic_int FORK_NUM = {5};               // Edit
 
 void sigquitHandler(int signal_number)
 {
@@ -60,10 +60,10 @@ int main(){
     const char *arg_list_server[] = {intrepreter.data(), program_server.data(), nullptr};
 
     // Add the apps you want to run
-    string programs2run[(int)FORK_NUM] = {program_fuzzzyControl.data(), program_imgproc.data(), intrepreter.data(),\
+    string programs2run[(int)FORK_NUM] = {program_fuzzzyControl.data(), program_imgproc.data(),\
     program_readState.data(), program_distanceSensors.data(), program_usrSpace_drive.data()};
 
-    const char **argsOfPrograms2run[(int)FORK_NUM] = {arg_list_fuzzzyControl, arg_list_imgproc, arg_list_server,\
+    const char **argsOfPrograms2run[(int)FORK_NUM] = {arg_list_fuzzzyControl, arg_list_imgproc,\
     arg_list_readState, arg_list_distanceSensors, arg_list_usrSpace_drive};
 
 /*     if (!exists((path)program_fuzzzyControl)){
