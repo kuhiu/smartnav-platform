@@ -25,9 +25,9 @@
 *  Instalar FPGA Manager.
 *  ~~Poder levantar la imagen en RAM con openCV.~~
 *  Acelerar la etapa de procesamiento de imagenes.
-*  * Usando opencv en C++.
+*  * ~~Usando opencv en C++.~~
 *  * ~~Usando Tensorflow Lite.~~
-*  Acelerar operacion de convolucion sobre una FPGA evaluar la posibilidad de usar ()
+*  Acelerar operacion de convolucion sobre una FPGA.
 *  Escribir driver para ese HW implementado en la FPGA.
 *  Mejorar el codigo (de forma general, hay muchas cosas que quedaron mal), por ejemplo, implementar un unico main.c que ejecute muchos hilos o procesos.
 * Convertir el archivo a una share memory, para poder loggear las variables de estado.
