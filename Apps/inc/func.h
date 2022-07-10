@@ -8,7 +8,7 @@
 #include <errno.h>
 #include <string.h>
 #include <linux/i2c-dev.h>
-#include "smbus.h"
+#include <i2c/smbus.h>
 #include <sys/ioctl.h>
 #include <math.h>
 #include <sys/ipc.h>

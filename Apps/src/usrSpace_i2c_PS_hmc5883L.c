@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <linux/i2c-dev.h>
-//#include <i2c/smbus.h>
-#include "smbus.h"
+#include <i2c/smbus.h>
 #include <errno.h>
 #include <sys/ioctl.h>
 #include <string.h>
