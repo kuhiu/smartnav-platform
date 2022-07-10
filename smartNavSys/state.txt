@@ -1,0 +1,6 @@
+// Salidas
+// Entradas
+ImgProc, Direccion = 000
+Sensores, rightSensor = 000
+Sensores, centerSensor = 000
+Sensores, leftSensor = 000
