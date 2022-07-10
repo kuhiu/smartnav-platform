@@ -1,3 +1,7 @@
+KERNEL_DIR 			= platform/image/Image/build/tmp/work/plnx_zynq7-xilinx-linux-gnueabi/linux-xlnx/4.19-xilinx-v2019.1+gitAUTOINC+9811303824-r0/linux-plnx_zynq7-standard-build
+PWD 				:= $(shell pwd)
+LIBS_DIR_R 			= platform/image/Image/build/tmp/sysroots-components/cortexa9t2hf-neon/i2c-tools/usr
+
 MAKE_DRIVERS 		= ./Drivers/
 MAKE_DRIVERS_APPS 	= ./Apps/
 MAKE_FUZZY			= ./modules/FuzzyControlAI/
@@ -17,10 +21,10 @@ all:
 	rm -rf ./gen
 # Run makefile to build all drivers	
 	@echo "    ${WHITE}:: ${RED}Running drivers Makefile${RESET} ${WHITE}::${RESET}"
-	cd $(MAKE_DRIVERS) && $(MAKE)
+	cd $(MAKE_DRIVERS) && $(MAKE) KERNEL_DIR=${PWD}/${KERNEL_DIR}
 # Run makefile to build all drivers apps	
 	@echo "    ${WHITE}:: ${RED}Running drivers apps Makefile${RESET} ${WHITE}::${RESET}"
-	cd $(MAKE_DRIVERS_APPS) && $(MAKE)
+	cd $(MAKE_DRIVERS_APPS) && $(MAKE) LIBS_DIR_R=${PWD}/${LIBS_DIR_R}
 # Run makefile to build FuzzyControl	
 	@echo "    ${WHITE}:: ${RED}Running FuzzyControl${RESET} ${WHITE}::${RESET}"
 	cd $(MAKE_FUZZY) && $(MAKE)
