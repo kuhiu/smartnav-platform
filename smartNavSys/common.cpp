@@ -50,7 +50,7 @@ void common::saveToState(int data, enum dataType dataType) {
         newpos = __state.tellg();
         switch (std::sscanf(line.data(), lookingFor, readed)) {
         case EOF:
-            err << "Not found in state.txt";
+            err << "Not found in state.txt: " << lookingFor;
             throw std::runtime_error(err.str());    
             break;
         case 0: 
