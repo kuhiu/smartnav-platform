@@ -5,10 +5,10 @@
 
 class fuzzyMembership {
 public:
-    fuzzyMembership(const std::string &name, float point1, float point2, 
-    float slope1, float slope2);
+    fuzzyMembership() = default;
     ~fuzzyMembership() = default;
 
+    void initializer(const std::string &name, float point1, float point2, float slope1, float slope2);
     float getValue(void) const;
     void setValue(float value);
     float getPoint1(void) const;
@@ -17,12 +17,12 @@ public:
     float getSlope2(void) const;
     const std::string &getName(void) const;
 private:
-  const std::string __name;       
+  std::string __name;       
   float __value;              
-  const float __point1;             
-  const float __point2;             
-  const float __slope1;             
-  const float __slope2;             
+  float __point1;             
+  float __point2;             
+  float __slope1;             
+  float __slope2;             
 };
 
 #endif // __FUZZYMEMBERSHIP_H__

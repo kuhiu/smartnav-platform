@@ -8,8 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
-#include "common.hpp"
+#include <sstream>
 
 namespace ndistanceSensor 
 {
@@ -25,6 +24,9 @@ public:
     std::vector<int> getDistances();
     
 private:
+    static constexpr auto MIOGPIOPS = "/dev/chardev_MIOgpio_PS";
+    const int N_MIOGPIOPS = 3;
+
     float __timeToDistance(float time);
     void __meanOfDistances(void);
     void __readDistanceFromDriver(void);

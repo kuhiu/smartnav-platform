@@ -1,10 +1,12 @@
 #include <fuzzyControl.hpp>
 
-fuzzyControl::fuzzyControl(const std::vector<fuzzyInput> inputs, const std::vector<fuzzyOutput> outputs, const std::vector<fuzzyRule> rules) 
-: __inputs(inputs), __outputs(outputs), __rules(rules) {}
+void fuzzyControl::initializer(const std::vector<fuzzyInput> &inputs, const std::vector<fuzzyOutput> &outputs, const std::vector<fuzzyRule> &rules) {
+    __inputs = inputs;
+    __outputs = outputs;
+    __rules = rules; 
+}
 
 std::map<std::string, float>  fuzzyControl::updateInputs(std::map<std::string, int> &inputs_to_update) {
-    //std::vector<float> ret;
     std::map<std::__cxx11::string, float> ret;
 
     for ( auto input_to_update : inputs_to_update) {

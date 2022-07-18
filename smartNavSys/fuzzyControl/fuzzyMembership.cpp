@@ -1,8 +1,13 @@
 #include <fuzzyMembership.hpp>
 
-fuzzyMembership::fuzzyMembership(const std::string &name, float point1, float point2, 
-float slope1, float slope2) : __name(name), __value(0.0), __point1(point1), __point2(point2),
-__slope1(slope1), __slope2(slope2) {}
+void fuzzyMembership::initializer(const std::string &name, float point1, float point2, float slope1, float slope2) {
+    __name = name; 
+    __value = 0.0;
+    __point1 = point1;
+    __point2 = point2;
+    __slope1 = slope1;
+    __slope2 = slope2;
+}
 
 
 float fuzzyMembership::getValue(void) const {

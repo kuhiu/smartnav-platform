@@ -1,8 +1,11 @@
 #include <fuzzyRule.hpp>
 #include <iostream>
 
-fuzzyRule::fuzzyRule(const std::string &name, fuzzyRuleInput &ruleInputs, fuzzyRuleOutput &ruleOutputs) 
-: __name(name), __ruleInputs(ruleInputs), __ruleOutputs(ruleOutputs) {}
+void fuzzyRule::initializer(const std::string &name, fuzzyRuleInput &ruleInputs, fuzzyRuleOutput &ruleOutputs) {
+    __name = name;
+    __ruleInputs = ruleInputs;
+    __ruleOutputs = ruleOutputs;
+}
 
 void fuzzyRule::evaluate(std::vector<fuzzyInput> &inputs, std::vector<fuzzyOutput> &outputs) const {
     float strength = UPPER_LIMIT;

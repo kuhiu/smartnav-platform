@@ -9,9 +9,10 @@
 
 class fuzzyRuleOutput {
 public:
-    fuzzyRuleOutput(const std::vector<fuzzyElement> elements);
+    fuzzyRuleOutput() = default;
     ~fuzzyRuleOutput() = default;
 
+    void initializer(const std::vector<fuzzyElement> elements);
     std::vector<fuzzyElement> getElements(void) const;
 private:
     std::vector<fuzzyElement> __elements;

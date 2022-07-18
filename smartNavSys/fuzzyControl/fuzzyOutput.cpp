@@ -1,7 +1,9 @@
 #include <fuzzyOutput.hpp>
 
-fuzzyOutput::fuzzyOutput(const std::string &name, std::vector<fuzzyMembership> &memberships) 
-: __name(name), __memberships(memberships) {}
+void fuzzyOutput::initializer(const std::string &name, std::vector<fuzzyMembership> &memberships) {
+    __name = name; 
+    __memberships = memberships;
+}
 
 const std::string fuzzyOutput::getName(void) const {
     return __name;

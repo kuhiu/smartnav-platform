@@ -1,7 +1,9 @@
 #include <fuzzyInput.hpp>
 
-fuzzyInput::fuzzyInput(const std::string &name, std::vector<fuzzyMembership> &memberships) :
-__name(name), __memberships(memberships) {}
+void fuzzyInput::initializer(const std::string &name, std::vector<fuzzyMembership> &memberships) {
+    __name = name;
+    __memberships = memberships;
+}
 
 void fuzzyInput::fuzzyfication(void) {
     for ( auto &membership : __memberships ){

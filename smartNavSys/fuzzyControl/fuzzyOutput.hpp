@@ -9,9 +9,10 @@
 
 class fuzzyOutput {
 public:
-    fuzzyOutput(const std::string &name, std::vector<fuzzyMembership> &memberships);
+    fuzzyOutput() = default;
     ~fuzzyOutput() = default;
 
+    void initializer(const std::string &name, std::vector<fuzzyMembership> &memberships);
     void defuzzification(void);
 
     const std::string getName(void) const;
@@ -19,7 +20,7 @@ public:
 
     float getValue(void) const;
 private:
-    const std::string __name;
+    std::string __name;
     std::vector<fuzzyMembership> __memberships;
     mutable float __output;
 

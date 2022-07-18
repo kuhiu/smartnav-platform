@@ -9,12 +9,13 @@
 
 class fuzzyRuleInput {
 public:
-    fuzzyRuleInput(const std::vector<fuzzyElement> elements);
+    fuzzyRuleInput() = default;
     ~fuzzyRuleInput() = default;
     
+    void initializer(const std::vector<fuzzyElement> &elements);
     const std::vector<fuzzyElement> &getElements(void) const;
 private:
-    const std::vector<fuzzyElement> __elements;
+    std::vector<fuzzyElement> __elements;
 };
 
 #endif // __FUZZYRULEINPUT_H__

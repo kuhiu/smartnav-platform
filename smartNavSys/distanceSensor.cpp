@@ -3,7 +3,7 @@
 distanceSensor::distanceSensor() {
     std::ostringstream err;
 
-    if ( (__mioGpioPs = open(nCommon::MIOGPIOPS, O_RDONLY)) == -1){
+    if ( (__mioGpioPs = open(MIOGPIOPS, O_RDONLY)) == -1){
         err << "__mioGpioPs fail";
         throw std::runtime_error(err.str());
     }
@@ -60,11 +60,11 @@ void distanceSensor::__meanOfDistances(void) {
 
 void distanceSensor::__readDistanceFromDriver(void) {
     int i;
-    int rb_MIOgpio_PS[nCommon::N_MIOGPIOPS];
+    int rb_MIOgpio_PS[N_MIOGPIOPS];
 
     for( i=ndistanceSensor::FILTER_N ; i>0 ; i-- ){
-        if ( read(__mioGpioPs, rb_MIOgpio_PS, nCommon::N_MIOGPIOPS*sizeof(int)) == -1){
-            throw nCommon::MIOGPIOPS;
+        if ( read(__mioGpioPs, rb_MIOgpio_PS, N_MIOGPIOPS*sizeof(int)) == -1){
+            throw MIOGPIOPS;
         }
         __sampleMean_s1.push_back(__timeToDistance((float)rb_MIOgpio_PS[0]));
         __sampleMean_s2.push_back(__timeToDistance((float)rb_MIOgpio_PS[1]));

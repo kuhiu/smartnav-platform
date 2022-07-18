@@ -20,8 +20,6 @@
 namespace nCommon 
 {
     constexpr const char *STATE{"state.txt"};
-    constexpr const char *MIOGPIOPS{"/dev/chardev_MIOgpio_PS"};
-    const int N_MIOGPIOPS = 3;
     constexpr const char *SENSOR1{"Sensores, rightSensor = %s"};
     constexpr const char *SENSOR2{"Sensores, centerSensor = %s"};
     constexpr const char *SENSOR3{"Sensores, leftSensor = %s"};

@@ -9,13 +9,14 @@
 
 class fuzzyRule {
 public:
-    fuzzyRule(const std::string &name, fuzzyRuleInput &ruleInputs, fuzzyRuleOutput &ruleOutputs);
+    fuzzyRule() = default;
     ~fuzzyRule() = default;
 
+    void initializer(const std::string &name, fuzzyRuleInput &ruleInputs, fuzzyRuleOutput &ruleOutputs);
     void evaluate(std::vector<fuzzyInput> &inputs, std::vector<fuzzyOutput> &outputs) const;
 
 private:
-    const std::string __name;
+    std::string __name;
     fuzzyRuleInput __ruleInputs;
     fuzzyRuleOutput __ruleOutputs;
 };

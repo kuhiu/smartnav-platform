@@ -1,11 +1,8 @@
 #ifndef __RULES_H__
 #define __RULES_H__
 
-#include <ioConfig.hpp>
-
-namespace test {
-    constexpr const char *RULE23{"RULE23"};
-}
+#include  <ioConfig.hpp>
+#include <string>
 
 struct RULE {
     const std::string NAME;
@@ -24,7 +21,7 @@ struct RULE {
 };
 
 RULE RULE23 {   
-    test::RULE23,
+    "RULE23",
     in_sensor1::NAME,
     in_sensor1::membership1::MEMBERSHIP_LEJOS,
     in_sensor2::NAME,
@@ -79,7 +76,7 @@ RULE RULE20 {
     in_ov7670::NAME,
     in_ov7670::membership1::MEMBERSHIP_DERECHA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership1::MEMBERSHIP_DERECHA};
 
@@ -94,7 +91,7 @@ RULE RULE19 {
     in_ov7670::NAME,
     in_ov7670::membership2::MEMBERSHIP_CENTRO,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership2::MEMBERSHIP_CENTRO};
 
@@ -109,7 +106,7 @@ RULE RULE18 {
     in_ov7670::NAME,
     in_ov7670::membership3::MEMBERSHIP_IZQUIERDA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership3::MEMBERSHIP_IZQUIERDA};
 
@@ -214,7 +211,7 @@ RULE RULE11 {
     in_ov7670::NAME,
     in_ov7670::membership1::MEMBERSHIP_DERECHA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership1::MEMBERSHIP_DERECHA};
 
@@ -229,7 +226,7 @@ RULE RULE10 {
     in_ov7670::NAME,
     in_ov7670::membership2::MEMBERSHIP_CENTRO,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership2::MEMBERSHIP_CENTRO};
 
@@ -244,7 +241,7 @@ RULE RULE9 {
     in_ov7670::NAME,
     in_ov7670::membership3::MEMBERSHIP_IZQUIERDA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership3::MEMBERSHIP_IZQUIERDA};
 
@@ -259,7 +256,7 @@ RULE RULE8 {
     in_ov7670::NAME,
     in_ov7670::membership1::MEMBERSHIP_DERECHA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership1::MEMBERSHIP_DERECHA};
 
@@ -274,7 +271,7 @@ RULE RULE7 {
     in_ov7670::NAME,
     in_ov7670::membership2::MEMBERSHIP_CENTRO,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership2::MEMBERSHIP_CENTRO};
 
@@ -289,7 +286,7 @@ RULE RULE6 {
     in_ov7670::NAME,
     in_ov7670::membership3::MEMBERSHIP_IZQUIERDA,
     out_speed::NAME,
-    out_speed::membership1::MEMBERSHIP_AUMENTAR,
+    out_speed::membership2::MEMBERSHIP_MANTENER,
     out_heading::NAME,
     out_heading::membership3::MEMBERSHIP_IZQUIERDA};
 

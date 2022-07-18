@@ -1,5 +1,5 @@
-#ifndef __SMARTNAVSYS_H__
-#define __SMARTNAVSYS_H__
+#ifndef __SMARtNAVSYS_H__
+#define __SMARtNAVSYS_H__
 
 #include <vector>
 #include <signal.h>
@@ -7,9 +7,35 @@
 #include <map>
 #include <set>
 
-#include "common.hpp"
+#include "imgProc.hpp"
 #include "distanceSensor.hpp"
 #include "fuzzyControl.hpp"
-#include "rulesIA.hpp"
+#include <smartNavSys.hpp>
+#include "driver.hpp"
+#include "common.hpp"
 
-#endif // __SMARTNAVSYS_H__
+class smartNavSys {
+public:
+    smartNavSys();
+    ~smartNavSys() = default;
+
+    void run(void);
+private:
+    /* modules */
+    distanceSensor __distanceSensor;
+    driver __driver;
+    fuzzyControl __fuzzyControl;
+    imgProc __imgProc;
+    //common __common;
+    /* Distance sensors data */
+    std::vector<int> __sensorData;
+    /* Inputs of driver */
+    std::map<std::string, float> __driverInputsMap;
+    /* Inputs of fuzzy control system */
+    std::map<std::string, int> __fuzzyInputsMap;
+};
+
+
+
+
+#endif // __SMARtNAVSYS_H__

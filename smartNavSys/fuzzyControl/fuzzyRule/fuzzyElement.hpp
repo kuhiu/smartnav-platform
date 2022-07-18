@@ -7,14 +7,15 @@
 
 class fuzzyElement {
 public:
-    fuzzyElement(const std::string &__ioName, const std::string &membershipName);
+    fuzzyElement() = default;
     ~fuzzyElement() = default;
 
+    void initializer(const std::string &__ioName, const std::string &membershipName);
     bool checkName(const std::string &name) const;
     bool checkMembershipName(const std::string &membership) const;
 private: 
-    const std::string __ioName;
-    const std::string __membershipName;                   
+    std::string __ioName;
+    std::string __membershipName;                   
 };
 
 #endif // __FUZZYELEMENT_H__
