@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "224660582273",
+    "firebase_url": "https://navsys-e2185-default-rtdb.firebaseio.com",
+    "project_id": "navsys-e2185",
+    "storage_bucket": "navsys-e2185.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224660582273:android:aefffbd24e29cde7384280",
+        "android_client_info": {
+          "package_name": "com.example.myapplication3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224660582273-alj6jenfbesfk08oii50ist84jqh1kc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRrVn7bkC-EyMwg_gUqYiu2FD3rugeP9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224660582273-alj6jenfbesfk08oii50ist84jqh1kc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224660582273:android:795ba296f3983835384280",
+        "android_client_info": {
+          "package_name": "com.manadigital.rec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224660582273-alj6jenfbesfk08oii50ist84jqh1kc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRrVn7bkC-EyMwg_gUqYiu2FD3rugeP9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224660582273-alj6jenfbesfk08oii50ist84jqh1kc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

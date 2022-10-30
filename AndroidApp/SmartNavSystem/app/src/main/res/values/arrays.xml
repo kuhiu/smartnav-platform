@@ -1,0 +1,9 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="layout_list_object">
+        <item>List</item>
+        <item>Grid</item>
+    </string-array>
+
+
+</resources>
