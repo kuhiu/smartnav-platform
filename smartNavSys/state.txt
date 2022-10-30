@@ -1,6 +1,0 @@
-    Sensores, rightSensor = 000
-    Sensores, centerSensor = 000
-    Sensores, leftSensor = 000
-    ImgProc, Direccion = 000
-    Angulo requerido = 000
-    Pwm, Velocidad = 000

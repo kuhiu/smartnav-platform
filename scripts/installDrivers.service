@@ -1,8 +1,0 @@
-[Unit]
-Description=install all drivers 
-
-[Service]
-ExecStart=/home/ubuntu/installDrivers.sh
-
-[Install]
-WantedBy=default.target
