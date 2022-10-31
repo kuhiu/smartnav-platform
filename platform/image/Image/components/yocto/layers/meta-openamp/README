@@ -1,0 +1,39 @@
+meta-openamp
+===================
+
+This layer provides support for building libmetal and OpenAMP libraries.
+
+The layer is capable of automatically adding the openamp.dtsi nodes to the
+device-tree files.  This is disabled by default as it does not work in all
+cases.  To enable, in your local.conf, set: ENABLE_OPENAMP_DTSI = "1"
+
+Dependencies
+------------
+This layer depends on:
+
+URI: git://git.openembedded.org/bitbake
+
+URI: git://git.yoctoproject.org/poky
+layers: meta
+        meta-poky
+
+URI: git://github.com/openembedded/meta-openembedded
+layers: meta-oe
+
+Maintenance
+-----------
+
+Send pull requests, patches, comments or questions to open-amp@googlegroups.com
+
+Maintainers:
+	Wendy Liang <wendy.liang@xilinx.com>
+
+When sending single patches, please using something like:
+'git send-email -1 --to open-amp@googlegroups.com --subject-prefix='meta-openamp][patch'
+
+License
+-------
+
+All metadata is MIT licensed unless otherwise stated. Source code included
+in tree for individual recipes is under the LICENSE stated in each recipe
+(.bb file) unless otherwise stated.
