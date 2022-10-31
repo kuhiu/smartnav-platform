@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:07 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Sun Jul  4 23:02:24 2021
+# Process ID: 25882
+# Current directory: /home/martin/Escritorio/Repositorios/RepoVerilog/verilog_code/ov7670/ov7670.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/martin/Escritorio/Repositorios/RepoVerilog/verilog_code/ov7670/ov7670.sim/sim_1/behav/xsim/xsim.dir/led_control_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/martin/Escritorio/Repositorios/RepoVerilog/verilog_code/ov7670/ov7670.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/martin/Escritorio/Repositorios/RepoVerilog/verilog_code/ov7670/ov7670.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/martin/Escritorio/Repositorios/RepoVerilog/verilog_code/ov7670/ov7670.sim/sim_1/behav/xsim/xsim.dir/led_control_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Jul  4 23:02:25 2021...

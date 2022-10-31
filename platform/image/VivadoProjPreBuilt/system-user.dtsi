@@ -1,0 +1,138 @@
+/include/ "system-conf.dtsi"
+/ {
+
+	memory {
+		device_type = "memory";
+		reg = <0x0 0x20000000>;
+	};
+
+  	reserved-memory {
+	      #address-cells = <1>;
+	      #size-cells = <1>;
+	      ranges;
+	  
+              reservedmemory0: reservedmemory0@0x01000000{
+			no-map;
+			reg = <0x01000000 0x800000>;
+	      };
+              reservedmemory1: reservedmemory0@0x02000000{
+			no-map;
+			reg = <0x02000000 0x800000>;
+	      };
+	};
+
+	cpus {
+		cpu@0 {
+			operating-points = <666667 1000000 333334 1000000 166667 1000000 83334 1000000 41667 1000000>;
+		};
+	};
+};
+
+	&amba_pl {
+
+		dma@44000000 {
+			compatible = "vdma_control_driver";	
+			reg = <0x44000000 0x10000>, <0x01000000 0x800000>;
+			interrupts = <0 31 4>;
+			memory-region = <&reservedmemory0>;
+		};
+
+		v_tpg@44c00000 {
+			compatible = "xlnx,v-tpg-8.0";
+			reg = <0x44C00000 0x10000>, <0x41210000 0x10000>;
+			ports {
+				address-cells = <1>;
+				size-cells = <0>;
+
+				port@00000000 {
+					reg = <0>;
+					xlnx,video-format = <2>;
+					xlnx,video-width = <8>;
+
+					tpg_in: endpoint {
+						remote-endpoint = <&reservedmemory0>;
+					};
+				};
+			};
+		};
+
+		timer@42800000 {
+			compatible = "driver_pwm_EMIOgpio_PL_1";	
+			reg = <0x42800000 0x10000>, <0x41200000 0x10000>;
+			clock-frequency = <100000000>;
+		};
+
+		timer@42810000 {
+			compatible = "driver_pwm_EMIOgpio_PL_2";	
+			reg = <0x42810000 0x10000>, <0x41260000 0x10000>;
+			clock-frequency = <100000000>;
+		};
+
+		gpio@41210000 {
+			compatible = "driver_EMIOgpio_PL";	
+			reg = <0x41210000 0x10000>;
+		};
+
+		gpio@41220000 {
+			compatible = "driver_encoder_EMIOgpio_PL_1";	
+			reg = <0x41220000 0x10000>;
+			interrupts = <0 29 4>;
+		};
+
+		gpio@41230000 {
+			compatible = "driver_encoder_EMIOgpio_PL_2";	
+			reg = <0x41230000 0x10000>;
+			interrupts = <0 30 4>;
+		};
+
+		gpio@41240000 {
+			compatible = "driver_buttons_EMIOgpio_PL_1";	
+			reg = <0x41240000 0x10000>;
+			interrupts = <0 32 4>;
+		};
+
+		gpio@41250000 {
+			compatible = "driver_leds_EMIOgpio_PL";	
+			reg = <0x41250000 0x10000>;
+		};
+	};
+
+
+	&amba {
+		
+		gpio@e000a000 {
+			compatible = "driver_MIOgpio_PS";
+			reg = <0xE000A000 0x1000>,<0xF8000000 0x1000>;
+			interrupts = <0 20 4>;
+		};
+
+
+		i2c@e0004000 {
+			status = "okay";
+			clock-frequency = <100000>;
+			
+			i2c@0 {
+				reg = <0>;
+				ov7670@0x21 {
+					compatible = "ov7670";
+					reg = <0x21>;
+				};
+				HMC5883L@0x1E {
+					compatible = "HMC5883L";
+					reg = <0x1E>;
+				};
+			};
+		};
+
+	};	
+
+
+
+
+
+
+
+
+
+
+
