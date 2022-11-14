@@ -69,19 +69,19 @@ set rc [catch {
   create_project -in_memory -part xc7z010clg400-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.cache/wt [current_project]
-  set_property parent.project_path /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.xpr [current_project]
-  set_property ip_repo_paths /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.srcs [current_project]
+  set_property webtalk.parent_dir /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.cache/wt [current_project]
+  set_property parent.project_path /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.xpr [current_project]
+  set_property ip_repo_paths /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/Tesis/Petalinux_Projects/ov7670/ov7670.srcs [current_project]
   update_ip_catalog
-  set_property ip_output_repo /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.cache/ip [current_project]
+  set_property ip_output_repo /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.runs/synth_1/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.srcs/sources_1/bd/design_1/design_1.bd
+  add_files /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  read_xdc /home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.srcs/constrs_1/new/board.xdc
+  read_xdc /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.srcs/constrs_1/new/board.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z010clg400-1
   set_param project.isImplRun false

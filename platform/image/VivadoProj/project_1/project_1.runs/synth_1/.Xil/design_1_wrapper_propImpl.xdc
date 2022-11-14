@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/martin/Escritorio/Tesis/Petalinux_Projects/ov7670/ov7670.srcs/constrs_1/new/board.xdc rfile:../../../ov7670.srcs/constrs_1/new/board.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.srcs/constrs_1/new/board.xdc rfile:../../../project_1.srcs/constrs_1/new/board.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:23 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { pi_action[0] }];  #IO_L20N_T3_34 Sch=BTN0
 set_property src_info {type:XDC file:1 line:24 export:INPUT save:INPUT read:READ} [current_design]

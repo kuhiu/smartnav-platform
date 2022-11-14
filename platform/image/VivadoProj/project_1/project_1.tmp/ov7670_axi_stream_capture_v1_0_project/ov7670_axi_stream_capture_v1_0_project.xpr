@@ -6,7 +6,7 @@
 <Project Version="7" Minor="40" Path="/media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/platform/image/VivadoProj/project_1/project_1.tmp/ov7670_axi_stream_capture_v1_0_project/ov7670_axi_stream_capture_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="408523e8a6c74a2da21bf4944227705a"/>
+    <Option Name="Id" Val="d5e84f4d234544a9861dd82fea304f6c"/>
     <Option Name="Part" Val="xc7z010clg400-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>

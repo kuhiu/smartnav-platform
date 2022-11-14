@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date                      : Wed Jun 22 16:43:43 2022
-| Host                      : martin-Aspire-A515-51G running 64-bit Ubuntu 16.04.7 LTS
+| Date                      : Sat Nov 14 14:34:38 2020
+| Host                      : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 16.04.7 LTS
 | Command                   : report_io -file design_1_wrapper_io_placed.rpt
 | Design                    : design_1_wrapper
 | Device                    : xc7z010
@@ -80,7 +80,7 @@ Table of Contents
 | C3         | DDR_dq[0]         |            | PS_DDR_DQ0_502          | INOUT         | SSTL135_T_DCI      |         |            | FAST |           DCI SPLIT |            FP_VTT_50 |         | FIXED      |           |          |      | SPLIT            |              |                   |              |
 | C4         |                   |            | GND                     | GND           |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | C5         | FIXED_IO_mio[14]  |            | PS_MIO14_500            | INOUT         | LVCMOS33           |         |          8 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| C6         | FIXED_IO_mio[11]  |            | PS_MIO11_500            | INOUT         | LVCMOS33           |         |          8 | FAST |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| C6         | FIXED_IO_mio[11]  |            | PS_MIO11_500            | INOUT         | LVCMOS33           |         |          8 | FAST |                     |                 NONE |         | FIXED      | PULLUP    |          |      | NONE             |              |                   |              |
 | C7         | FIXED_IO_ps_porb  |            | PS_POR_B_500            | BIDIR         | LVCMOS33           |         |         12 | FAST |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | C8         | FIXED_IO_mio[15]  |            | PS_MIO15_500            | INOUT         | LVCMOS33           |         |          8 | SLOW |                     |                 NONE |         | FIXED      | PULLUP    |          |      | NONE             |              |                   |              |
 | C9         |                   |            | GND                     | GND           |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
@@ -123,7 +123,7 @@ Table of Contents
 | E6         | FIXED_IO_mio[0]   |            | PS_MIO0_500             | INOUT         | LVCMOS33           |         |          8 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | E7         | FIXED_IO_ps_clk   |            | PS_CLK_500              | BIDIR         | LVCMOS33           |         |         12 | FAST |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | E8         | FIXED_IO_mio[13]  |            | PS_MIO13_500            | INOUT         | LVCMOS33           |         |          8 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| E9         | FIXED_IO_mio[10]  |            | PS_MIO10_500            | INOUT         | LVCMOS33           |         |          8 | FAST |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| E9         | FIXED_IO_mio[10]  |            | PS_MIO10_500            | INOUT         | LVCMOS33           |         |          8 | FAST |                     |                 NONE |         | FIXED      | PULLUP    |          |      | NONE             |              |                   |              |
 | E10        |                   |            | GND                     | GND           |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | E11        |                   |            | PS_MIO_VREF_501         | PSS IO        |                    |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | E12        | FIXED_IO_mio[42]  |            | PS_MIO42_501            | INOUT         | LVCMOS18           |         |          8 | SLOW |                     |                 NONE |         | FIXED      | PULLUP    |          |      | NONE             |              |                   |              |
