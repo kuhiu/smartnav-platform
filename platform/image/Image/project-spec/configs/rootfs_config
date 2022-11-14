@@ -3939,12 +3939,18 @@ CONFIG_imagefeature-hwcodecs=y
 #
 # apps 
 #
+CONFIG_frame-processor=y
 # CONFIG_gpio-demo is not set
 # CONFIG_helloworld is not set
 CONFIG_libtensorflowlite=y
 # CONFIG_peekpoke is not set
-CONFIG_persondetector=y
+# CONFIG_persondetector is not set
 # CONFIG_smartnavsys is not set
+
+#
+# modules 
+#
+# CONFIG_ov7670 is not set
 
 #
 # user packages 
