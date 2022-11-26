@@ -18,9 +18,8 @@
 #define debug_print(fmt, ...) do {} while (0)
 #endif
 
-CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixelformat, uint32_t frame_count) 
+CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
 	: __cb(cb), __frame_count(frame_count) {
-	__capture_frame_is_running = true;
 	// Clear all v4l2 struct 
   CLEAR(__capability);
 	CLEAR(__format);
@@ -28,8 +27,8 @@ CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pi
 	CLEAR(__req);
 
 	__openDevice();
-	__initDevice(width, height, pixelformat);
-	__startCapturing();
+	__initDevice(width, height, pixel_format);
+	__capture_frame_is_running = true;
 	__capture_thread = std::thread(&CaptureFrame::__capture, this);
 }
 
@@ -226,9 +225,10 @@ void CaptureFrame::__startCapturing() {
 		buf.type = __buffer_type;
 		buf.memory = V4L2_MEMORY_MMAP;
 		buf.index = i;
-		buf.m.planes = __image_buffers[__frame_count].planes;
+		buf.m.planes = __image_buffers[i].planes;
 		buf.length = __num_planes;
-
+		
+		printf("VIDIOC_QBUF buf index: %d\n", buf.index);
 		if (__xioctl(__fd, VIDIOC_QBUF, &buf) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_QBUF: Fail. Errno: " << strerror(errno);
@@ -236,9 +236,7 @@ void CaptureFrame::__startCapturing() {
 			throw std::runtime_error(err.str());
 		}
 	}
-
 	printf("Video stream on\n");
-	
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
 	if (__xioctl(__fd, VIDIOC_STREAMON, &type) == -1) {
 			std::ostringstream err;
@@ -246,11 +244,10 @@ void CaptureFrame::__startCapturing() {
 			Logger::log(LogLevels::Fatal) << err.str();
 			throw std::runtime_error(err.str());
 	}
-
 	printf("Video stream on termino ioctl\n");
 }
 
-bool CaptureFrame::__readFrame() {
+bool CaptureFrame::__readFrame(int frame_number) {
 	v4l2_buffer buff;
 
 	printf("Entre a read frame. \n");
@@ -273,15 +270,15 @@ bool CaptureFrame::__readFrame() {
 
 	// Callback
 	printf("Ejecuto la callback. \n");
-	__cb(__image_buffers[buff.index].start[0], buff.m.planes->bytesused);
+	__cb(__image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
 
 	return 1;
 }
 
 void CaptureFrame::__capture() {
-	printf("Entre a capture. %s \n", __capture_frame_is_running ? "true" : "false");
 	while(__capture_frame_is_running) {
-		printf("Is running. \n");
+		__startCapturing();
+
 		for( int counter = 0; counter < __frame_count ; counter++) {
 			fd_set fds;
 			timeval tv;
@@ -292,7 +289,7 @@ void CaptureFrame::__capture() {
 			FD_SET(__fd, &fds);
 
 			/* Timeout. */
-			tv.tv_sec = 2;
+			tv.tv_sec = 5;
 			tv.tv_usec = 0;
 
 			ret = select(__fd + 1, &fds, NULL, NULL, &tv);
@@ -306,7 +303,7 @@ void CaptureFrame::__capture() {
 			}
 
 			/* EAGAIN - continue select loop. */
-			if (__readFrame())
+			if (!__readFrame(counter))
 				break;
 		}
 	}

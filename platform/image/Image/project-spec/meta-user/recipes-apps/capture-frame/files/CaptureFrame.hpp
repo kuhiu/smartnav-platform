@@ -32,7 +32,7 @@ public:
   /** Callback of captured frame */
   using EventCallback = std::function<void (void* data, unsigned int size)>;
   /** CaptureFrame constructor */
-  CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixelformat, uint32_t frame_count = 1);
+  CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count = 1);
   /** CaptureFrame destructor */
   ~CaptureFrame();
 
@@ -51,15 +51,15 @@ private:
   std::vector<ImageBuffer> __image_buffers;
   /** Format */
 	v4l2_format __format;
-  
-  const int __num_planes = 3;
-
+  /** Numbers of planes for image buffer */
+  const int __num_planes = 1;
+  /** Driver type */
   int __driver_type;
-
+  /** Buffer type */
   int __buffer_type;
-
+  /** V4L2 stream parameter */
   v4l2_streamparm __parm;
-  
+  /** V4L2 request buffers */
   v4l2_requestbuffers __req;
   /** Capture Callback */
   const EventCallback __cb;
@@ -92,7 +92,7 @@ private:
   /** Start capturing frames */
   void __startCapturing();
   /** Read frame */
-  bool __readFrame();
+  bool __readFrame(int frame_number);
   /** Capture frame */
   void __capture();
   /**
