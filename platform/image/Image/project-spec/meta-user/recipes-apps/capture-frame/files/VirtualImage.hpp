@@ -25,10 +25,10 @@ public:
    */
   void resize(uint32_t width, uint32_t height);
 	/**
-	 * @brief RGBA to RGB
+	 * @brief convert the input format to rgb
 	 * 
 	 */
-	void rgbaToRgb();
+	void convertToRgb();
 	/**
 	 * @brief Save image as jpeg
 	 * 
@@ -44,47 +44,51 @@ public:
 	/**
 	 * @brief Get the Width object
 	 * 
-	 * @return uint32_t 
+	 * @return int 
 	 */
-	uint32_t getWidth() const;
+	int getWidth() const;
 	/**
 	 * @brief Get the Heigth object
 	 * 
-	 * @return uint32_t 
+	 * @return int 
 	 */
-	uint32_t getHeigth() const;
+	int getHeigth() const;
 	/**
 	 * @brief Get the Channels object
 	 * 
-	 * @return uint32_t 
+	 * @return int 
 	 */
-	uint32_t getChannels() const;
+	int getChannels() const;
 	/**
 	 * @brief Get the Color Space object
 	 * 
 	 * @return colorSpace 
 	 */
 	ColorSpaces getColorSpace() const;
+	/**
+	 * @brief Color balancing algorithm
+	 * 
+	 * @param percent 
+	 */
+	void colorBalancing(float percent);
+	/**
+	 * @brief Flip image 
+	 * 
+	 * @param orientation 0: vertically, 1: horizontal
+	 */
+	void flip(bool orientation);
 
 private:
   /** Image data */
 	cv::Mat __data;
-	/** Image width */
-	uint32_t __width;
-	/** Image height */
-	uint32_t __height;
-	/** Image channels*/
-	const uint32_t __channels;
-	/** Image type */
-	int __type;
-	/** Image color space */
+	/** Image colorspace */
 	ColorSpaces __color_space;
 	/**
 	 * @brief Get image footprint
 	 * 
-	 * @return size_t 
+	 * @return int 
 	 */
-	size_t __getFootprint();
+	int __getFootprint();
 
 };
 
