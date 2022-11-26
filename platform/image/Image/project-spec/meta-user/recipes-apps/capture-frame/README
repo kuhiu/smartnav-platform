@@ -1,32 +1,7 @@
-PetaLinux User Application Template
-===================================
+# Capture-frame
 
-This directory contains a PetaLinux user application created from a template.
+Commands to test with console: 
 
-If you are developing your application from scratch, simply start editing the
-file CaptureFrame.c.
-
-You can easily import any existing application code by copying it into this 
-directory, and editing the automatically generated Makefile.
-
-Before building the application, you will need to enable the application
-from PetaLinux menuconfig by running:
-    "petalinux-config -c rootfs"
-You will see your application in the "apps --->" submenu.
-
-To build your application, simply run "petalinux-build -c CaptureFrame".
-This command will build your application and will install your application
-into the target file system host copy.
-
-You will also need to rebuild PetaLinux bootable images so that the images
-is updated with the updated target filesystem copy, run this command:
-    "petalinux-build -c rootfs"
-
-You can also run one PetaLinux command to install the application to the
-target filesystem host copy and update the bootable images as follows:
-    "petalinux-build"
-
-To add extra source code files (for example, to split a large application into 
-multiple source files), add the relevant .o files to the list in the local 
-Makefile where indicated.  
-
+media-ctl -d /dev/media0 --set-v4l '"ov7670 0-0021":0 [fmt:SBGGR8_1X8/640x480@1/5]'
+media-ctl -d /dev/media0 --set-v4l '"43c20000.v_demosaic":1 [fmt:RBG888_1X24/640x480]'
+yavta -c5 -f RGB24 -s 640x480 -F /dev/video0
