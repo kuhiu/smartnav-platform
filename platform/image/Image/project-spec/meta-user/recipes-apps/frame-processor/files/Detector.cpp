@@ -65,7 +65,7 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
   // If the recognition exceed the score threshold is saved 
   for (int i = 0; i < num_detections; ++i) {
     if (detection_scores[i] >= __SCORE_THRESHOLD) {
-      printf("detection_score: %d\n", detection_scores[i]);
+      printf("detection_score: %f\n", detection_scores[i]);
       RecognitionResult recognition_result;
       recognition_result.label = (int)detection_classes[i];
       recognition_result.ymin = detection_locations[i * 4] * image->getHeigth();
@@ -81,7 +81,7 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
 
 void Detector::__preProcess(std::shared_ptr<VirtualImage> image) {
   if (image->getColorSpace() != ColorSpaces(RGB)) {
-    image->rgbaToRgb();
+    image->convertToRgb();
   }
   if (image->getWidth() != 320 || image->getHeigth() != 320) {
     image->resize(320, 320);
