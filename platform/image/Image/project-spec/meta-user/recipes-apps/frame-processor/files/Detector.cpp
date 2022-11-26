@@ -36,17 +36,15 @@ Detector::Detector() {
 
 std::vector<RecognitionResult> Detector::detect(std::shared_ptr<VirtualImage> image) {
   // Pre process
-  image->saveAsJpg("test2.jpg");
   __preProcess(image);
-  image->saveAsJpg("test3.jpg");
   // Fill input
   if (kTfLiteOk != __fillInput(image->getWidth(), image->getHeigth(), image->getChannels(), image)) 
     throw(std::runtime_error("Image capture failed \n"));
   // Invoke 
   __interpreter->Invoke();
   // Post processing
-  std::vector<RecognitionResult> recognitions_result = __postProcess(image);
-  return recognitions_result;
+  auto result = __postProcess(image);
+  return result;
 }
 
 TfLiteStatus Detector::__fillInput(uint32_t image_width, uint32_t image_height, uint32_t channels, std::shared_ptr<VirtualImage> image) {  
@@ -67,6 +65,7 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
     if (detection_scores[i] >= __SCORE_THRESHOLD) {
       printf("detection_score: %f\n", detection_scores[i]);
       RecognitionResult recognition_result;
+      recognition_result.score = detection_scores[i];
       recognition_result.label = (int)detection_classes[i];
       recognition_result.ymin = detection_locations[i * 4] * image->getHeigth();
       recognition_result.xmin = detection_locations[i * 4 + 1] * image->getWidth();
