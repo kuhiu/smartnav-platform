@@ -1,0 +1,105 @@
+{
+  "fuzzy_system": {
+
+    "inputs": 
+    [
+      {
+        "name": "left_distance_sensor",
+        "membership_functions": 
+        [
+          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "FAR",  "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] } 
+        ]
+      },
+      {
+        "name": "center_distance_sensor",
+        "membership_functions": 
+        [
+          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "FAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
+        ]
+      },
+      { 
+        "name": "right_distance_sensor",
+        "membership_functions": 
+        [
+          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "FAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
+        ]
+      }
+    ], 
+
+    "outputs": 
+    [
+      {
+        "name": "heading",
+        "membership_functions": 
+        [
+          { "name": "RIGHT", "trapezoidal": [{"x1": 0}, {"x2": 30}, {"right_slope": 0.0667}, {"left_slope": 0.0667}] },
+          { "name": "CENTER", "trapezoidal": [{"x1": -15}, {"x2": 15}, {"right_slope": 0.0667}, {"left_slope": 0.0667}] },
+          { "name": "LEFT", "trapezoidal": [{"x1": 0}, {"x2": -30}, {"right_slope": 0.0667}, {"left_slope": 0.0667}] }
+        ]
+      }
+    ],
+
+    "rules": 
+    [
+      { 
+        "name": "rule_0", 
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "FAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "CENTER" } ] 
+      },
+      { 
+        "name": "rule_1",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "NEAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "LEFT" } ] 
+      },
+      { 
+        "name": "rule_2",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "FAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "LEFT" } ] 
+      },
+      { 
+        "name": "rule_3",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "NEAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "LEFT" } ] 
+      },
+      { 
+        "name": "rule_4",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "FAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "RIGHT" } ] 
+      },
+      { 
+        "name": "rule_5",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "FAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "NEAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "CENTER" } ] 
+      },
+      { 
+        "name": "rule_6",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "FAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "RIGHT" } ] 
+      },
+      { 
+        "name": "rule_7",
+        "input_conditions": [{ "and": [ { "io": "left_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "center_distance_sensor", "fuzzy_value": "NEAR" }, 
+                                        { "io": "right_distance_sensor", "fuzzy_value": "NEAR" } ] }], 
+        "output_conditions": [ { "io": "heading", "fuzzy_value": "LEFT" } ] 
+      }
+    ]
+  } 
+}

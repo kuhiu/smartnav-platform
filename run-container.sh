@@ -25,7 +25,7 @@ docker run                                                  \
     --net="host"                                            \
     -v $HOME/.Xauthority:/home/vivado/.Xauthority           \
     -v $1:/home/user/project                                \
-    petalinux:2021.1                                        
+    petalinux:2019.1                                        
 
 #   -ti
 #   интерактивный режим запуска контейнера 

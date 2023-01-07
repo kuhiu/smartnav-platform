@@ -1,0 +1,11 @@
+# hcsr04 driver
+
+This linux kernel driver of hcsr04 sensor uses the linux gpios core. 
+
+Strongly inspired by my old version of this driver: driver_MIOgpio_PS.c. You can find it here: https://github.com/kuhiu/SmartNavSysAccelByHW.
+
+# Save links
+
+* http://embeddedguruji.blogspot.com/2019/01/linux-character-driver-creating.html
+* https://stackoverflow.com/questions/24178484/how-to-access-gpio-from-kernel-space-zynq-microzed-board
+* https://stackoverflow.com/questions/8832298/gpio-access-from-kernel-space

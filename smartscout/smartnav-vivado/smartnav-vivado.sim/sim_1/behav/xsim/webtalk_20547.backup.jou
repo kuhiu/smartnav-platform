@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Aug  3 19:01:55 2021
+# Process ID: 20547
+# Current directory: /home/martin/Escritorio/Tesis/pImagen/Petalinux_Projects/ov7670/ov7670.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/martin/Escritorio/Tesis/pImagen/Petalinux_Projects/ov7670/ov7670.sim/sim_1/behav/xsim/xsim.dir/ov7670_controller_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/martin/Escritorio/Tesis/pImagen/Petalinux_Projects/ov7670/ov7670.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/martin/Escritorio/Tesis/pImagen/Petalinux_Projects/ov7670/ov7670.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/martin/Escritorio/Tesis/pImagen/Petalinux_Projects/ov7670/ov7670.sim/sim_1/behav/xsim/xsim.dir/ov7670_controller_behav/webtalk/xsim_webtalk.tcl -notrace

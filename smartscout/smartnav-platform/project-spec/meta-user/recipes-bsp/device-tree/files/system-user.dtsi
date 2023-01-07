@@ -1,0 +1,157 @@
+/include/ "system-conf.dtsi"
+/ {
+
+	memory {
+		device_type = "memory";
+		reg = <0x0 0x20000000>;
+	};
+
+  	reserved-memory {
+	      #address-cells = <1>;
+	      #size-cells = <1>;
+	      ranges;
+	  
+              reservedmemory0: reservedmemory0@0x01000000{
+			no-map;
+			reg = <0x01000000 0x800000>;
+	      };
+              reservedmemory1: reservedmemory0@0x02000000{
+			no-map;
+			reg = <0x02000000 0x800000>;
+	      };
+	};
+
+	cpus {
+		cpu@0 {
+			operating-points = <666667 1000000 333334 1000000 166667 1000000 83334 1000000 41667 1000000>;
+		};
+	};
+};
+
+	&amba_pl {
+
+		v_demosaic@43c20000 {
+			reset-gpios = <&gpio0 55 1>;
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@0 {
+					reg = <0>;
+					xlnx,video-width = <8>;
+
+					demosaic_in: endpoint {
+						remote-endpoint = <&ov7670_0>;
+					};
+				};
+
+				port@1 {
+					reg = <1>;
+					xlnx,video-width = <8>;
+
+					demosaic_out: endpoint {
+						remote-endpoint = <&vcap0_in>;
+					};
+				};
+			};
+		};
+
+
+		v_frmbuf_wr@43c00000 {
+			reset-gpios = <&gpio0 54 1>;
+			xlnx,dma-addr-width = <32>;
+			
+			xlnx,pixels-per-clock = <1>;
+		};
+
+		axi_video_cap {
+			compatible = "xlnx,video";
+			dmas = <&v_frmbuf_wr_0 0>;
+			dma-names = "port0";
+
+			ports {
+				#address-cells = <1>;
+				#size-cells = <0>;
+
+				port@0 {
+					reg = <0>;
+					direction = "input";
+					vcap0_in: endpoint {
+						remote-endpoint = <&demosaic_out>;
+					};
+				};
+			};
+ 		};
+
+	};
+
+
+	&amba {
+
+		hcsr04 {
+			compatible = "hcsr04";
+			echo_hcsr04_1-gpios = <&gpio0 12 0>;
+			trig_hcsr04_1-gpios = <&gpio0 15 0>;
+			
+			echo_hcsr04_2-gpios = <&gpio0 14 0>;
+			trig_hcsr04_2-gpios = <&gpio0 13 0>;
+
+			echo_hcsr04_3-gpios = <&gpio0 9 0>;
+			trig_hcsr04_3-gpios = <&gpio0 0 0>;
+		};
+
+		i2c@e0004000 {
+			status = "okay";
+			clock-frequency = <100000>;
+			
+			ov7670: camera@21 {
+				compatible = "ovti,ov7670";
+				reg = <0x21>;
+				clocks = <&clkc 0x11>;
+				clock-names = "xclk";
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_sensor_power &pinctrl_sensor_reset>;
+				reset-gpios = <&gpio0 56 1>;
+				powerdown-gpios = <&gpio0 57 0>;
+
+				/*ov7670,pclk-hb-disable;*/
+				port {
+					ov7670_0: endpoint {
+						hsync-active = <1>;
+						vsync-active = <1>;
+
+						remote-endpoint = <&demosaic_in>;
+					};
+				};
+			};
+			HMC5883L@0x1E {
+				compatible = "HMC5883L";
+				reg = <0x1E>;
+			};
+
+		};
+		
+		slcr@f8000000 {
+			pinctrl@700 {
+				pinctrl_sensor_power: sensor_power {
+					function = "gpio0";
+					bias-disable;
+				};
+
+				pinctrl_sensor_reset: sensor_reset {
+					function = "gpio0";
+					bias-disable;
+				};
+			};
+		};
+
+	};	
+
+
+
+
+
+
+
