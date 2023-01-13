@@ -26,6 +26,14 @@ public:
    * @return std::string 
    */
   std::string getName() const { return __name; };
+  /**
+   * @brief Reset all membership functions
+   * 
+   */
+  void resetMembershipFuntions() {
+    for (auto &mb : __memberships)
+      mb->resetValue();
+  };
 
 protected:
 	/** Input/Output name */

@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command=".planAhead." Owner="petalinux" Host="kuhiu-Aspire-A515-51G" Pid="2848">
-    </Process>
-</ProcessHandle>

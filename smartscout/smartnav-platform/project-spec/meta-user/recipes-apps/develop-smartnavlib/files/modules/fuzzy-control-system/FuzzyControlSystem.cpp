@@ -10,7 +10,7 @@ FuzzyControlSystem FuzzyControlSystem::parse(const nlohmann::json& fuzzy_control
 	std::vector<FuzzyInput> system_inputs;
 	std::vector<FuzzyOutput> system_outputs;
 	std::vector<FuzzyRule> system_rules; 
-
+  
   // Check if it contains the fuzzy system
   if(!fuzzy_control_system_json.contains(__FUZZY_SYSTEM_KEY)) {
     err << "Invalid fuzzy_system arguments: " << fuzzy_control_system_json.dump();
@@ -53,8 +53,8 @@ FuzzyControlSystem FuzzyControlSystem::parse(const nlohmann::json& fuzzy_control
       system_inputs.push_back(fuzzy_input);
     }
     catch(const std::exception& e) {
-      err << "Error parsing as FuzzyInput: " << input.dump();
-      std::runtime_error(err.str());
+      err << "Error parsing as FuzzyInput: " << input.dump() << " WHAT: " << e.what();
+      throw std::runtime_error(err.str());
     }
   }
   // Parse outputs
@@ -64,8 +64,8 @@ FuzzyControlSystem FuzzyControlSystem::parse(const nlohmann::json& fuzzy_control
       system_outputs.push_back(fuzzy_output);
     }
     catch(const std::exception& e) {
-      err << "Error parsing as FuzzyOutput: " << output.dump();
-      std::runtime_error(err.str());
+      err << "Error parsing as FuzzyOutput: " << output.dump() << " WHAT: " << e.what();
+      throw std::runtime_error(err.str());
     }
   }
   // Parse rules
@@ -75,9 +75,14 @@ FuzzyControlSystem FuzzyControlSystem::parse(const nlohmann::json& fuzzy_control
       system_rules.push_back(fuzzy_rule);
     }
     catch(const std::exception& e) {
-      err << "Error parsing as FuzzyRule: " << rule.dump();
-      std::runtime_error(err.str());
+      err << "Error parsing as FuzzyRule: " << rule.dump() << " WHAT: " << e.what();
+      throw std::runtime_error(err.str());
     }
   }
+  // Test
+  printf("Nro of inputs inside system = %d.\n", system_inputs.size());
+  printf("Nro of outputs inside system = %d.\n", system_outputs.size());
+  printf("Nro of rules inside system = %d.\n", system_rules.size());
+
   return FuzzyControlSystem(system_inputs, system_outputs, system_rules);   
 }

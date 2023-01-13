@@ -7,24 +7,24 @@
         "name": "left_distance_sensor",
         "membership_functions": 
         [
-          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
-          { "name": "FAR",  "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] } 
+          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "NEAR",  "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] } 
         ]
       },
       {
         "name": "center_distance_sensor",
         "membership_functions": 
         [
-          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
-          { "name": "FAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
+          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "NEAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
         ]
       },
       { 
         "name": "right_distance_sensor",
         "membership_functions": 
         [
-          { "name": "NEAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
-          { "name": "FAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
+          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 1000}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "NEAR", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
         ]
       }
     ], 

@@ -12,11 +12,10 @@ void FuzzyInput::fuzzyfication(float input_value) {
 
 FuzzyInput FuzzyInput::parse(const nlohmann::json& input_json) {
   std::ostringstream err;
-  std::string name;
   std::vector<std::shared_ptr<FuzzyMembership>> memberships;
-
+  
   // Check if it contains the name of io
-  if(!input_json.contains("hola")) {
+  if(!input_json.contains(__NAME_KEY)) {
     err << "Invalid input arguments: " << input_json.dump();
     throw std::runtime_error(err.str());
   }
@@ -35,7 +34,7 @@ FuzzyInput FuzzyInput::parse(const nlohmann::json& input_json) {
     err << "Invalid type of input membership function: " << input_json.at(__MEMBERSHIPS_FUNCTIONS_KEY).dump();
     throw std::runtime_error(err.str());
   }
-  name = input_json.at(__NAME_KEY);
+
   // Parse inputs
   for (const auto &membership : input_json.at(__MEMBERSHIPS_FUNCTIONS_KEY)) {
     try {
@@ -46,9 +45,9 @@ FuzzyInput FuzzyInput::parse(const nlohmann::json& input_json) {
       }
     }
     catch(const std::exception& e) {
-      err << "Error parsing as FuzzyInput: " << input_json.dump();
-      std::runtime_error(err.str());
+      err << "Error parsing as FuzzyInput: " << input_json.dump() << " WHAT: " << e.what();
+      throw std::runtime_error(err.str());
     }
   }
-  return (FuzzyInput(name, memberships));
+  return (FuzzyInput(input_json.at(__NAME_KEY), memberships));
 };

@@ -5,17 +5,28 @@ constexpr const char *FuzzyComparation::__FUZZY_VALUE_KEY;
 
 float FuzzyComparation::evaluate(std::vector<FuzzyInput> &system_input) const {
   bool input_found = false;
+  bool mb_found = false;
   for (auto &input : system_input) {
+    //printf("Input name %s, comparation name %s.\n", input.getName().c_str(),
+    //__comparation.first.c_str());
     if(input.getName() == __comparation.first) {
       input_found = true;
       for (auto &membership : input.getMemberships()) {
-        if(membership->getName() == __comparation.second)
+        mb_found = false;
+        //printf("Mb name %s, comparation name %s.\n", membership->getName().c_str(),
+        //__comparation.second.c_str());
+        if(membership->getName() == __comparation.second) {
+          mb_found = true;
           return membership->getValue();
+        }
       }
     }
   }
   if(input_found == false) {
     throw std::runtime_error("Input not found in fuzzy system.");
+  }
+  else if (mb_found == false) {
+    throw std::runtime_error("Membership not found in fuzzy system.");
   }
   return -1.0;
 }
@@ -51,6 +62,9 @@ FuzzyCondition::FuzzyConditionPtr FuzzyComparation::parse(const nlohmann::json& 
     err << "Comparation: " << __FUZZY_VALUE_KEY << " not contain an string object: " << comparation_json.dump();
     throw std::runtime_error(err.str());
   }
+
+  printf("Parsing as comparation.\n");
+  
   comparation.first = comparation_json.at(__IO_KEY);
   comparation.second = comparation_json.at(__FUZZY_VALUE_KEY);
   return (FuzzyConditionPtr(std::make_shared<FuzzyComparation>(comparation)));
