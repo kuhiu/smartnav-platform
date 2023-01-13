@@ -60,7 +60,7 @@ void DistanceSensors::__readDistance() {
 			if ( samples_from_sensors[i] == -1) {
 				throw std::runtime_error("Error reading distance sensors");
 			}
-			printf("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
+			//printf("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
 			sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
 		}
 

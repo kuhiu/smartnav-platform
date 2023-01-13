@@ -24,8 +24,8 @@ void FuzzyAnd::update(float value, std::vector<FuzzyOutput> &system_output) {
 
 FuzzyCondition::FuzzyConditionPtr FuzzyAnd::parse(const nlohmann::json& and_json) {
   std::ostringstream err;
-  FuzzyConditionPtr comparation;
-  std::vector<FuzzyConditionPtr> comparations;
+  FuzzyConditionPtr condition;
+  std::vector<FuzzyConditionPtr> conditions;
 
   if(!and_json.contains(__AND_KEY)) {
     err << "And condition not contain and object: " << and_json.dump();
@@ -38,24 +38,26 @@ FuzzyCondition::FuzzyConditionPtr FuzzyAnd::parse(const nlohmann::json& and_json
 
   for (auto &comparation_json : and_json.at(__AND_KEY)) {
     try {
-      comparation = FuzzyAnd::parse(comparation_json);
+      condition = FuzzyAnd::parse(comparation_json);
     }
     catch(const std::exception& e) {
       // And comparation could not be parsed as and
+      printf("Test and: It could not be parsed as and.\n");
     }
     try {
-      comparation = FuzzyComparation::parse(comparation_json);
+      condition = FuzzyComparation::parse(comparation_json);
     }
     catch(const std::exception& e) {
       // And comparation could not be parsed as comparation
+      printf("Test and: It could not be parsed as comparation.\n");
     }
 
-    if(comparation == nullptr) {
+    if(condition == nullptr) {
       err << "And condition is not an array: " << and_json.dump();
       throw std::runtime_error(err.str());
     }
     else 
-      comparations.push_back(comparation);
+      conditions.push_back(condition);
   }
-  return (FuzzyConditionPtr(std::make_shared<FuzzyAnd>(comparations)));
+  return (FuzzyConditionPtr(std::make_shared<FuzzyAnd>(conditions)));
 };

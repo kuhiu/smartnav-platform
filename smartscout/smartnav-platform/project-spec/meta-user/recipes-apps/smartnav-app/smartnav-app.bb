@@ -18,7 +18,7 @@ EXTRA_OEMAKE = "\
     'LIBS=-lsmartnavsys'"
 
 do_compile() {
-	${CXX} ${CFLAGS} ${LDFLAGS} -o smartnav-app smartnav-app.cpp -lsmartnavsys -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread 
+	${CXX} ${CFLAGS} ${LDFLAGS} -o smartnav-app smartnav-app.cpp -ldevelop-smartnavlib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread 
 }
 
 do_install() {

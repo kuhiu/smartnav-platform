@@ -38,7 +38,7 @@ EXTRA_OEMAKE = "\
     'TARGET_ARCH=${TUNE_ARCH}'"
 
 do_compile() {
-	     oe_runmake
+	     oe_runmak
 }
 
 do_install() {

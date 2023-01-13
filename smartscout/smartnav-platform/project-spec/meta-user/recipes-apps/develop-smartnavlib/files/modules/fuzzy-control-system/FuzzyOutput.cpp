@@ -8,7 +8,6 @@ constexpr const char *FuzzyOutput::__NAME_KEY;
 
 FuzzyOutput FuzzyOutput::parse(const nlohmann::json& output_json) {
   std::ostringstream err;
-  std::string name;
   std::vector<std::shared_ptr<FuzzyMembership>> memberships;
 
   // Check if it contains the name of io
@@ -31,7 +30,6 @@ FuzzyOutput FuzzyOutput::parse(const nlohmann::json& output_json) {
     err << "Invalid type of output membership function: " << output_json.at(__MEMBERSHIPS_FUNCTIONS_KEY).dump();
     throw std::runtime_error(err.str());
   }
-  name = output_json.at(__NAME_KEY);
   // Parse inputs
   for (const auto &membership : output_json.at(__MEMBERSHIPS_FUNCTIONS_KEY)) {
     try {
@@ -42,11 +40,11 @@ FuzzyOutput FuzzyOutput::parse(const nlohmann::json& output_json) {
       }
     }
     catch(const std::exception& e) {
-      err << "Error parsing as FuzzyInput: " << output_json.dump();
-      std::runtime_error(err.str());
+      err << "Error parsing as FuzzyInput: " << output_json.dump() << "WHAT: " << e.what();;
+      throw std::runtime_error(err.str());
     }
   }
-  return (FuzzyOutput(name, memberships));
+  return (FuzzyOutput(output_json.at(__NAME_KEY), memberships));
 };
 
 float FuzzyOutput::defuzzification() {
@@ -60,6 +58,7 @@ float FuzzyOutput::defuzzification() {
     centroid = membership->compute_centroid_of_membership();
     sum_of_products += area * centroid;
     sum_of_areas += area;
+    printf("Area: %f. Centroid: %f.\n", area, centroid);
   }
   return (sum_of_products/sum_of_areas);  
 }

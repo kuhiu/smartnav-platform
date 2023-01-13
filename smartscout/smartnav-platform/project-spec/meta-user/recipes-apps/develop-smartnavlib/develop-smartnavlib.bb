@@ -7,17 +7,16 @@ SECTION = "PETALINUX/apps"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
+# Package name
+PN="develop-smartnavlib"
+PN_LIB = "lib${PN}"
+
+# Package version
+PV = "0.0.67"
+
 SRC_URI = "file://Makefile \
-		 file://modules/capture-frame/CaptureFrame.cpp \
-		 file://modules/capture-frame/CaptureFrame.hpp \
-		 file://modules/capture-frame/ColorSpaces.hpp \
-		 file://modules/capture-frame/VirtualImage.cpp \
-		 file://modules/capture-frame/VirtualImage.hpp \
-		 file://modules/frame-processor/Detector.cpp \
-		 file://modules/frame-processor/Detector.hpp \
-		 file://modules/frame-processor/FrameProcessor.cpp \
-		 file://modules/frame-processor/FrameProcessor.hpp \
-		 file://modules/frame-processor/RecognitionResult.hpp \
+		 file://modules/capture-frame/* \
+		 file://modules/frame-processor/* \
 		 file://modules/fuzzy-control-system/* \
 		 file://modules/hc-sr04/* \
 		  "
@@ -39,6 +38,8 @@ EXTRA_OEMAKE = "\
     'LD=${LD}' \
     'LDFLAGS=${LDFLAGS}' \
     'TARGET=${TARGET_OS}' \
+    'LIB_NAME=${PN_LIB}' \
+    'LIB_VERSION=${PV}' \
     'TARGET_ARCH=${TUNE_ARCH}'"
 
 do_compile() {
@@ -50,10 +51,10 @@ do_install() {
 		install -d ${D}${includedir}
 
     install -m 0644 ${S}/modules/*/*.hpp ${D}${includedir}
-    ln -s -r ${S}/libsmartnavsys.so.0.0.23 ${D}/${libdir}/libsmartnavsys.so
+    ln -s -r ${S}/${PN_LIB}.so.${PV} ${D}/${libdir}/${PN_LIB}.so
 
     # install the prebuilt library in /usr/lib with default permissions
-    oe_soinstall ${S}/libsmartnavsys.so.0.0.23 ${D}${libdir}
+    oe_soinstall ${S}/${PN_LIB}.so.${PV} ${D}${libdir}
 }
 
 FILES_${PN} = "${libdir}/*.so.* ${libdir}/*.so ${includedir}/*"

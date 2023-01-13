@@ -47,6 +47,11 @@ public:
 	 * @param value 
 	 */
 	void setValue(float value) { __fuzzy_value = value; }
+	/**
+	 * @brief Reset fuzzy value 
+	 * 
+	 */
+	void resetValue() { __fuzzy_value = 0; };
 
 protected:
   /** Name key */
@@ -54,7 +59,7 @@ protected:
   /** Max membership value */
   const float __UPPER_LIMIT = 1.0;
 	/** Fuzzy value */
-	float __fuzzy_value;                 
+	float __fuzzy_value = 0.0;                 
 	/** FuzzyMembership name */
   const std::string __name;   
 	

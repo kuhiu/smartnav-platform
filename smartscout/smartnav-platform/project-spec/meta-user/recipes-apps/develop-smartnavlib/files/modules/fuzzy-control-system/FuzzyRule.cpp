@@ -8,12 +8,12 @@ constexpr const char *FuzzyRule::__OUTPUT_COND_KEY;
 
 void FuzzyRule::evaluate(std::vector<FuzzyInput> &system_input, std::vector<FuzzyOutput> &system_output) { 
   float rule_strength = __fuzzy_input_condition->evaluate(system_input); 
+  printf("Rule name %s Rule strenght = %f.\n", __name.c_str(), rule_strength);
   __fuzzy_output_condition->update(rule_strength, system_output);
 }
 
 FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
   std::ostringstream err;
-  std::string name;
   FuzzyCondition::FuzzyConditionPtr fuzzy_input_condition;
   FuzzyCondition::FuzzyConditionPtr fuzzy_output_condition;
 
@@ -30,49 +30,51 @@ FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
     throw std::runtime_error(err.str());
   }
 
-  name = rule_json.at(__NAME_KEY);
-
-  try {
-    // Try to parse input condition as and
-    fuzzy_input_condition = FuzzyAnd::parse(rule_json.at(__INPUT_COND_KEY));
-  }
-  catch(const std::exception& e) {
-    // The input condition could not be parsed as and
-  }
-
-  try {
-    // Try to parse input condition as comparation
-    fuzzy_input_condition = FuzzyComparation::parse(rule_json.at(__INPUT_COND_KEY));
-  }
-  catch(const std::exception& e) {
-    // The input condition could not be parsed as and
-  }
-
-  if (fuzzy_input_condition == nullptr) {
-    err << "The input condition could not be parsed: " << rule_json.at(__INPUT_COND_KEY).dump();
-    throw std::runtime_error(err.str());
-  }
-
-  try {
-    // Try to parse output condition as and
-    fuzzy_output_condition = FuzzyAnd::parse(rule_json.at(__OUTPUT_COND_KEY));
-  }
-  catch(const std::exception& e) {
-    // The output condition could not be parsed as and
+  for (const auto &condition : rule_json.at(__INPUT_COND_KEY)) {
+    try {
+      // Try to parse input condition as and
+      fuzzy_input_condition = FuzzyAnd::parse(condition);
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as and
+      printf("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
+    }
+    try {
+      // Try to parse input condition as comparation
+      fuzzy_input_condition = FuzzyComparation::parse(condition);
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as comparation
+      printf("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
+    }
+    if (fuzzy_input_condition == nullptr) {
+      err << "The input condition of the rule could not be parsed: " << rule_json.at(__INPUT_COND_KEY).dump();
+      throw std::runtime_error(err.str());
+    }
   }
 
-  try {
-    // Try to parse output condition as comparation
-    fuzzy_output_condition = FuzzyComparation::parse(rule_json.at(__OUTPUT_COND_KEY));
-  }
-  catch(const std::exception& e) {
-    // The input condition could not be parsed as and
+  for (const auto &condition : rule_json.at(__OUTPUT_COND_KEY)) { 
+    try {
+      // Try to parse output condition as and
+      fuzzy_output_condition = FuzzyAnd::parse(condition);
+    }
+    catch(const std::exception& e) {
+      // The output condition could not be parsed as and
+      printf("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
+    }
+    try {
+      // Try to parse output condition as comparation
+      fuzzy_output_condition = FuzzyComparation::parse(condition);
+    }
+    catch(const std::exception& e) {
+      // The input condition could not be parsed as and
+      printf("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
+    }
+    if (fuzzy_output_condition == nullptr) {
+      err << "The output condition could not be parsed: " << rule_json.at(__OUTPUT_COND_KEY).dump();
+      throw std::runtime_error(err.str());
+    }
   }
 
-  if (fuzzy_output_condition == nullptr) {
-    err << "The output condition could not be parsed: " << rule_json.at(__OUTPUT_COND_KEY).dump();
-    throw std::runtime_error(err.str());
-  }
-
-  return (FuzzyRule(name, fuzzy_input_condition, fuzzy_output_condition));
+  return (FuzzyRule(rule_json.at(__NAME_KEY).dump(), fuzzy_input_condition, fuzzy_output_condition));
 }

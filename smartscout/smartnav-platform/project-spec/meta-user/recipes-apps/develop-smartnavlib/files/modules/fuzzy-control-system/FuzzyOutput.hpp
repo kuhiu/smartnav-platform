@@ -36,7 +36,7 @@ public:
 
 private:
   /** Membership function key */
-  static constexpr auto __MEMBERSHIPS_FUNCTIONS_KEY{"memberships_functions"};
+  static constexpr auto __MEMBERSHIPS_FUNCTIONS_KEY{"membership_functions"};
   /** Name key */
   static constexpr auto __NAME_KEY{"name"};
 
