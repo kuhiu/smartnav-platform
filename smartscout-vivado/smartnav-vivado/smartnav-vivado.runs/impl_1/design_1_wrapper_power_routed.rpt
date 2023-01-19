@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Mon Jan  9 19:05:07 2023
+| Date             : Sun Jan 15 02:57:29 2023
 | Host             : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.621        |
+| Total On-Chip Power (W)  | 1.627        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.498        |
+| Dynamic (W)              | 1.504        |
 | Device Static (W)        | 0.124        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 66.3         |
-| Junction Temperature (C) | 43.7         |
+| Max Ambient (C)          | 66.2         |
+| Junction Temperature (C) | 43.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.030 |        4 |       --- |             --- |
-| Slice Logic              |     0.020 |    26995 |       --- |             --- |
-|   LUT as Logic           |     0.017 |    10319 |     17600 |           58.63 |
-|   CARRY4                 |     0.001 |      966 |      4400 |           21.95 |
-|   Register               |     0.001 |    11978 |     35200 |           34.03 |
+| Clocks                   |     0.029 |        4 |       --- |             --- |
+| Slice Logic              |     0.021 |    26282 |       --- |             --- |
+|   LUT as Logic           |     0.017 |    10017 |     17600 |           56.91 |
+|   CARRY4                 |     0.002 |      948 |      4400 |           21.55 |
+|   Register               |     0.001 |    11604 |     35200 |           32.97 |
 |   LUT as Distributed RAM |    <0.001 |      152 |      6000 |            2.53 |
-|   LUT as Shift Register  |    <0.001 |      387 |      6000 |            6.45 |
+|   LUT as Shift Register  |    <0.001 |      389 |      6000 |            6.48 |
 |   F7/F8 Muxes            |    <0.001 |      143 |     17600 |            0.81 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |      818 |       --- |             --- |
-| Signals                  |     0.023 |    18989 |       --- |             --- |
+|   Others                 |     0.000 |      784 |       --- |             --- |
+| Signals                  |     0.025 |    18566 |       --- |             --- |
 | Block RAM                |     0.012 |     14.5 |        60 |           24.17 |
 | DSPs                     |    <0.001 |       11 |        80 |           13.75 |
-| I/O                      |     0.007 |       32 |       100 |           32.00 |
+| I/O                      |     0.011 |       32 |       100 |           32.00 |
 | PS7                      |     1.404 |        1 |       --- |             --- |
 | Static Power             |     0.124 |          |           |                 |
-| Total                    |     1.621 |          |           |                 |
+| Total                    |     1.627 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,9 +78,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.093 |       0.086 |      0.007 |
+| Vccint    |       1.000 |     0.095 |       0.088 |      0.008 |
 | Vccaux    |       1.800 |     0.008 |       0.000 |      0.008 |
-| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |
+| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -155,12 +155,12 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| design_1_wrapper         |     1.498 |
-|   design_1_i             |     1.490 |
+| design_1_wrapper         |     1.504 |
+|   design_1_i             |     1.492 |
 |     axi_timer_0          |     0.002 |
 |       U0                 |     0.002 |
-|     axi_timer_1          |     0.003 |
-|       U0                 |     0.003 |
+|     axi_timer_1          |     0.002 |
+|       U0                 |     0.002 |
 |     axi_timer_2          |     0.002 |
 |       U0                 |     0.002 |
 |     axi_timer_3          |     0.002 |
@@ -169,11 +169,10 @@ Table of Contents
 |       inst               |     1.406 |
 |     ps7_0_axi_periph     |     0.005 |
 |       s00_couplers       |     0.004 |
-|       xbar               |     0.001 |
 |     smartconnect_0       |     0.011 |
 |       inst               |     0.011 |
-|     v_demosaic_0         |     0.018 |
-|       inst               |     0.018 |
+|     v_demosaic_0         |     0.021 |
+|       inst               |     0.021 |
 |     v_frmbuf_wr_0        |     0.037 |
 |       inst               |     0.037 |
 |     v_vid_in_axi4s_0     |     0.002 |

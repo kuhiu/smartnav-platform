@@ -1,11 +1,11 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Fri Nov  5 20:24:48 2021
-// Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 16.04.7 LTS
+// Date        : Sun Jan 15 01:16:53 2023
+// Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 // Command     : write_verilog -force -mode funcsim -rename_top design_1_axi_gpio_2_0 -prefix
-//               design_1_axi_gpio_2_0_ design_1_axi_gpio_2_0_sim_netlist.v
-// Design      : design_1_axi_gpio_2_0
+//               design_1_axi_gpio_2_0_ design_1_axi_gpio_2_1_sim_netlist.v
+// Design      : design_1_axi_gpio_2_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z010clg400-1
@@ -1572,7 +1572,7 @@ module design_1_axi_gpio_2_0_cdc_sync
         .O(gpio_data_in_xor));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_axi_gpio_2_0,axi_gpio,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_gpio,Vivado 2019.1" *) 
+(* CHECK_LICENSE_TYPE = "design_1_axi_gpio_2_1,axi_gpio,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_gpio,Vivado 2019.1" *) 
 (* NotValidForBitStream *)
 module design_1_axi_gpio_2_0
    (s_axi_aclk,

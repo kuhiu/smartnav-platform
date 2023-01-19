@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -58,11 +58,11 @@ module design_1_xlslice_0_0 (
   Dout
 );
 
-input wire [3 : 0] Din;
+input wire [63 : 0] Din;
 output wire [0 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
-    .DIN_WIDTH(4),
+    .DIN_WIDTH(64),
     .DIN_FROM(0),
     .DIN_TO(0)
   ) inst (
