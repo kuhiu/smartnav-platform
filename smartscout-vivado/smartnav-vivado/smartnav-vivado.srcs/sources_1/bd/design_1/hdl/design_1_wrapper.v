@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Mon Jan  9 19:01:27 2023
+//Date        : Sun Jan 15 01:15:01 2023
 //Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -33,7 +33,10 @@ module design_1_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    MotorCtrl,
+    MotorCtrl_0,
+    MotorCtrl_1,
+    MotorCtrl_2,
+    MotorCtrl_3,
     d,
     href,
     led_pwm_0,
@@ -73,7 +76,10 @@ module design_1_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  output [3:0]MotorCtrl;
+  output [0:0]MotorCtrl_0;
+  output [0:0]MotorCtrl_1;
+  output [0:0]MotorCtrl_2;
+  output [0:0]MotorCtrl_3;
   input [7:0]d;
   input href;
   output led_pwm_0;
@@ -114,7 +120,10 @@ module design_1_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire [3:0]MotorCtrl;
+  wire [0:0]MotorCtrl_0;
+  wire [0:0]MotorCtrl_1;
+  wire [0:0]MotorCtrl_2;
+  wire [0:0]MotorCtrl_3;
   wire [7:0]d;
   wire href;
   wire led_pwm_0;
@@ -156,7 +165,10 @@ module design_1_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .MotorCtrl(MotorCtrl),
+        .MotorCtrl_0(MotorCtrl_0),
+        .MotorCtrl_1(MotorCtrl_1),
+        .MotorCtrl_2(MotorCtrl_2),
+        .MotorCtrl_3(MotorCtrl_3),
         .d(d),
         .href(href),
         .led_pwm_0(led_pwm_0),
