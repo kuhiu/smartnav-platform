@@ -12,8 +12,6 @@ constexpr const char *FuzzyMembershipTrapezoidal::__MB_LEFT_SLOPE_KEY;
 
 float FuzzyMembershipTrapezoidal::compute_area_of_membership() {
   // area = height*(base+top)/2
-  printf("Trapezoidal points: %f - %f - %f - %f. Value: %f.\n", __trapezoidal_points.x1,
-  __trapezoidal_points.x2, __trapezoidal_points.left_slope, __trapezoidal_points.right_slope, __fuzzy_value);
   float base = __trapezoidal_points.x2 - __trapezoidal_points.x1; // a
   float dx1 = __fuzzy_value / __trapezoidal_points.left_slope;	// Ax = Ay * slope
   float dx2 = __fuzzy_value / __trapezoidal_points.right_slope;
