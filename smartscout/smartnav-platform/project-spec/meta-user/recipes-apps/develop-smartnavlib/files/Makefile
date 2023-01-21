@@ -1,4 +1,4 @@
-SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights
 
 OBJECTS_DIR = ./obj
 
