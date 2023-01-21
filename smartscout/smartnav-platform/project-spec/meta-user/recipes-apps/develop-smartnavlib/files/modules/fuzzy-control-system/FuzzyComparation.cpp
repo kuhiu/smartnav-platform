@@ -3,18 +3,25 @@
 constexpr const char *FuzzyComparation::__IO_KEY;
 constexpr const char *FuzzyComparation::__FUZZY_VALUE_KEY;
 
+//#define DEBUG_COMPARATION
+#ifdef DEBUG_COMPARATION
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+#endif
+
 float FuzzyComparation::evaluate(std::vector<FuzzyInput> &system_input) const {
   bool input_found = false;
   bool mb_found = false;
   for (auto &input : system_input) {
-    //printf("Input name %s, comparation name %s.\n", input.getName().c_str(),
-    //__comparation.first.c_str());
+    DEBUG_PRINT("Input name %s, comparation name %s.\n", input.getName().c_str(),
+    __comparation.first.c_str());
     if(input.getName() == __comparation.first) {
       input_found = true;
       for (auto &membership : input.getMemberships()) {
         mb_found = false;
-        //printf("Mb name %s, comparation name %s.\n", membership->getName().c_str(),
-        //__comparation.second.c_str());
+        DEBUG_PRINT("Mb name %s, comparation name %s.\n", membership->getName().c_str(),
+        __comparation.second.c_str());
         if(membership->getName() == __comparation.second) {
           mb_found = true;
           return membership->getValue();
