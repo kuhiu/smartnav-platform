@@ -13,8 +13,13 @@
 
 #include <atomic>
 #include <functional>
+#include <memory>
 #include <thread>
 #include <vector>
+
+#include <VirtualImage.hpp>
+#include <ov7670.hpp>
+#include <v_demosaic.hpp>
 
 class CaptureFrame {
 public:
@@ -29,11 +34,17 @@ public:
 
   };
   /** Callback of captured frame */
-  using EventCallback = std::function<void (void* data, unsigned int size)>;
+  using EventCallback = std::function<void (std::shared_ptr<VirtualImage> img)>;
   /** CaptureFrame constructor */
   CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count = 1);
   /** CaptureFrame destructor */
   ~CaptureFrame();
+  /**
+   * @brief Return brightness
+   * 
+   * @return uint32_t 
+   */
+  uint32_t getBrightness() const { return __brightness; };
 
 private:
   /** Clear vl2d struct */
@@ -42,6 +53,10 @@ private:
   static constexpr const char *__DEVICE = {"/dev/video0"};
   /** Device file descriptor */
   int __fd;
+  /** OV7670 object */
+  std::shared_ptr<ov7670> __ov7670;
+  /** v_demosaic object */
+  std::shared_ptr<v_demosaic> __v_demosaic;
   /** Device driver stats */
   struct stat __st;
 	/** Device capabilities */ 
@@ -105,6 +120,8 @@ private:
   int __xioctl(int fd, int request, void* arg);
   /** Init mmap */
   void __init_mmap();
+  /** Brightness */
+  std::atomic<uint32_t> __brightness;
 
 };
 

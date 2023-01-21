@@ -10,13 +10,13 @@
 #include <cstring>
 #include <sstream>
 
-#include "CaptureFrame.hpp"
+#include <CaptureFrame.hpp>
 
-#define DEBUG 1
-#ifdef DEBUG
+//#define DEBUG_CAPTURE 1
+#ifdef DEBUG_CAPTURE
 #define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
 #else
-#define debug_print(fmt, ...) do {} while (0)
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
 #endif
 
 CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
@@ -27,8 +27,12 @@ CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pi
 	CLEAR(__parm);
 	CLEAR(__req);
 
+	__ov7670 = std::make_shared<ov7670>(width, height, ov7670::pixelFormat::SBGGR8_1X8, (uint32_t)5);
+	__v_demosaic = std::make_shared<v_demosaic>(width, height, v_demosaic::pixelFormat::RBG888_1X24);
+
 	__openDevice();
 	__initDevice(width, height, pixel_format);
+	
 	__capture_frame_is_running = true;
 	__capture_thread = std::thread(&CaptureFrame::__capture, this);
 }
@@ -148,7 +152,7 @@ void CaptureFrame::__setFormat(uint32_t width, uint32_t height, pixelFormat pixe
 	}
 
 	// Print format
-	__getFormat();	
+	//__getFormat();	
 }
 
 void CaptureFrame::__getFormat() {
@@ -157,7 +161,7 @@ void CaptureFrame::__getFormat() {
 
 	__xioctl(__fd, VIDIOC_G_FMT, &format);
 
-	printf("Number of planes: %d\n", format.fmt.pix_mp.num_planes);
+	DEBUG_PRINT("Number of planes: %d\n", format.fmt.pix_mp.num_planes);
 }
 
 void CaptureFrame::__setFramerate() {
@@ -171,7 +175,7 @@ void CaptureFrame::__setFramerate() {
 		std::cout << err.str() << std::endl;
 	}
 
-	printf("Current Framerate %u/%u \n", 
+	DEBUG_PRINT("Current Framerate %u/%u \n", 
 			__parm.parm.capture.timeperframe.numerator, __parm.parm.capture.timeperframe.denominator);
 
 	__parm.parm.capture.timeperframe.numerator = 1;
@@ -191,7 +195,7 @@ void CaptureFrame::__setFramerate() {
 		std::cout << err.str() << std::endl;
 	}
 
-	printf("New Framerate %u/%u \n", 
+	DEBUG_PRINT("New Framerate %u/%u \n", 
 		__parm.parm.capture.timeperframe.numerator, __parm.parm.capture.timeperframe.denominator);
 }
 
@@ -229,7 +233,7 @@ void CaptureFrame::__startCapturing() {
 		buf.m.planes = __image_buffers[i].planes;
 		buf.length = __num_planes;
 		
-		printf("VIDIOC_QBUF buf index: %d\n", buf.index);
+		DEBUG_PRINT("VIDIOC_QBUF buf index: %d\n", buf.index);
 		if (__xioctl(__fd, VIDIOC_QBUF, &buf) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_QBUF: Fail. Errno: " << strerror(errno);
@@ -237,7 +241,7 @@ void CaptureFrame::__startCapturing() {
 			throw std::runtime_error(err.str());
 		}
 	}
-	printf("Video stream on\n");
+	DEBUG_PRINT("Video stream on\n");
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
 	if (__xioctl(__fd, VIDIOC_STREAMON, &type) == -1) {
 			std::ostringstream err;
@@ -245,13 +249,13 @@ void CaptureFrame::__startCapturing() {
 			std::cout << err.str() << std::endl;
 			throw std::runtime_error(err.str());
 	}
-	printf("Video stream on termino ioctl\n");
+	DEBUG_PRINT("Video stream on termino ioctl\n");
 }
 
 bool CaptureFrame::__readFrame(int frame_number) {
 	v4l2_buffer buff;
 
-	printf("Entre a read frame. \n");
+	DEBUG_PRINT("Entre a read frame. \n");
 	CLEAR(buff);
 	buff.type = __buffer_type;
 	buff.memory = V4L2_MEMORY_MMAP;
@@ -268,11 +272,18 @@ bool CaptureFrame::__readFrame(int frame_number) {
 			throw std::runtime_error(err.str());
 		}
 	}
-
+	// Image ptr __image_buffers[buff.index].start[frame_number]
+	// Image size buff.m.planes->bytesused
+  auto rgb_image = std::make_shared<VirtualImage>(640, 480, 3, ColorSpaces::RGB, __image_buffers[buff.index].start[frame_number]);
+  rgb_image->resize(320, 320);
+  rgb_image->flip(false);
+  rgb_image->colorBalancing(1.0);
+	__brightness = rgb_image->getBrightness();
 	// Callback
-	printf("Ejecuto la callback. \n");
-	__cb(__image_buffers[buff.index].start[frame_number], buff.m.planes->bytesused);
-
+	DEBUG_PRINT("Ejecuto la callback. \n");
+	__cb(rgb_image);
+	// Deallocate image
+	rgb_image = nullptr;
 	return 1;
 }
 
@@ -285,7 +296,7 @@ void CaptureFrame::__capture() {
 			timeval tv;
 			int ret;
 
-			printf("Capturing counter: %d \n", counter);
+			DEBUG_PRINT("Capturing counter: %d \n", counter);
 			FD_ZERO(&fds);
 			FD_SET(__fd, &fds);
 
@@ -356,7 +367,7 @@ void CaptureFrame::__init_mmap() {
 		buf.length = __num_planes;
 		buf.m.planes = image_buffer.planes;
 
-		printf("Buf index is %d\n", buf.index);
+		DEBUG_PRINT("Buf index is %d\n", buf.index);
 		if (__xioctl(__fd, VIDIOC_QUERYBUF, &buf) == -1) {
 			std::ostringstream err;
 			err << "VIDIOC_QUERYBUF. Errno: " << strerror(errno);
