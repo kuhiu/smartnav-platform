@@ -77,6 +77,28 @@ public:
 	 * @param orientation 0: vertically, 1: horizontal
 	 */
 	void flip(bool orientation);
+	/**
+	 * @brief Get the Brightness object
+	 * 
+	 * @return uint32_t 
+	 */
+	uint32_t getBrightness() const {
+		cv::Mat hsv;
+		cv::Scalar mean;
+		std::vector<cv::Mat> channels;
+
+		printf("To hsv.\n");
+		cv::cvtColor(__data, hsv, cv::COLOR_RGB2HSV);
+		printf("Split.\n");
+		cv::split(hsv, channels);
+		printf("Get v channel.\n");
+		cv::Mat v_channel = channels[2];
+		printf("Get mean.\n");
+		mean = cv::mean(v_channel);
+		printf("Mean size: %d.\n", mean.channels);
+		printf("Brightness is: %d.\n", (uint32_t)(mean(0)));
+		return (((uint32_t)(mean(0) * 100) / 255));
+	};
 
 private:
   /** Image data */

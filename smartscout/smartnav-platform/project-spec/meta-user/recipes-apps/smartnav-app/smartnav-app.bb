@@ -10,7 +10,10 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 DEPENDS += "develop-smartnavlib"
 
 SRC_URI = "	file://Makefile \
-           	file://smartnav-app.cpp"
+           	file://smartnav.hpp \
+						file://main.cpp \
+						file://fuzzy_system_v0.json \ 
+						file://fuzzy_system_v1.json " 
 
 S = "${WORKDIR}"
 
@@ -18,13 +21,14 @@ EXTRA_OEMAKE = "\
     'LIBS=-lsmartnavsys'"
 
 do_compile() {
-	${CXX} ${CFLAGS} ${LDFLAGS} -o smartnav-app smartnav-app.cpp -ldevelop-smartnavlib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread 
+	${CXX} ${CFLAGS} ${LDFLAGS} -o smartnav-app main.cpp -I${S} -ldevelop-smartnavlib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread 
 }
 
 do_install() {
-	     install -d ${D}${bindir}
-	     install -m 0755 smartnav-app ${D}${bindir}
-
+		install -d ${D}${bindir}
+		install -m 0755 smartnav-app ${D}${bindir}
+		install -m 0755 fuzzy_system_v0.json ${D}${bindir}
+		install -m 0755 fuzzy_system_v1.json ${D}${bindir}
 }
 
 FILES_${PN} += "smartnav-app"

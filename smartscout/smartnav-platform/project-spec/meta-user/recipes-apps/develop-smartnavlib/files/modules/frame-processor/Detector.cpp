@@ -2,8 +2,14 @@
 
 #include <stdexcept>
 
-Detector::Detector() {
+//#define DEBUG_DETECTOR 1
+#ifdef DEBUG_DETECTOR
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+#endif
 
+Detector::Detector() {
   // Load model
   __model = tflite::FlatBufferModel::BuildFromFile(__MODEL_FILE_NAME);
   if (__model == nullptr)
@@ -19,10 +25,10 @@ Detector::Detector() {
   if (__interpreter->AllocateTensors() != kTfLiteOk)
     throw std::runtime_error("Interpreter not initilizated \n");
 
-  printf("=== Pre-invoke Interpreter State ===\n");
+  DEBUG_PRINT("=== Pre-invoke Interpreter State ===\n");
   tflite::PrintInterpreterState(__interpreter.get());
 
-  printf("=== Number of input = %d, number of output = %d ===\n", __interpreter->inputs().size(), __interpreter->outputs().size());
+  DEBUG_PRINT("=== Number of input = %d, number of output = %d ===\n", __interpreter->inputs().size(), __interpreter->outputs().size());
 
   __input = std::unique_ptr<TfLiteTensor> (__interpreter->input_tensor(0));
   __output_detection_locations = std::unique_ptr<TfLiteTensor> (__interpreter->output_tensor(0));
@@ -30,7 +36,7 @@ Detector::Detector() {
   __output_detection_scores = std::unique_ptr<TfLiteTensor> (__interpreter->output_tensor(2));
   __output_num_detections = std::unique_ptr<TfLiteTensor> (__interpreter->output_tensor(3));
 
-  printf("=== Input 0. bytes = %d, name %s, width %d  height %d channel %d ===\n", __input->bytes, __input->name,
+  DEBUG_PRINT("=== Input 0. bytes = %d, name %s, width %d  height %d channel %d ===\n", __input->bytes, __input->name,
       __input->dims->data[1], __input->dims->data[2], __input->dims->data[3]);
 }
 
@@ -63,7 +69,7 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
   // If the recognition exceed the score threshold is saved 
   for (int i = 0; i < num_detections; ++i) {
     if (detection_scores[i] >= __SCORE_THRESHOLD) {
-      printf("detection_score: %f\n", detection_scores[i]);
+      DEBUG_PRINT("detection_score: %f\n", detection_scores[i]);
       RecognitionResult recognition_result;
       recognition_result.score = detection_scores[i];
       recognition_result.label = (int)detection_classes[i];

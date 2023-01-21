@@ -79,10 +79,5 @@ FuzzyControlSystem FuzzyControlSystem::parse(const nlohmann::json& fuzzy_control
       throw std::runtime_error(err.str());
     }
   }
-  // Test
-  printf("Nro of inputs inside system = %d.\n", system_inputs.size());
-  printf("Nro of outputs inside system = %d.\n", system_outputs.size());
-  printf("Nro of rules inside system = %d.\n", system_rules.size());
-
   return FuzzyControlSystem(system_inputs, system_outputs, system_rules);   
 }

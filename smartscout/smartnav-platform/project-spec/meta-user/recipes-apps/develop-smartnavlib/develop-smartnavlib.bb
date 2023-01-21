@@ -12,13 +12,15 @@ PN="develop-smartnavlib"
 PN_LIB = "lib${PN}"
 
 # Package version
-PV = "0.0.67"
+PV = "0.1.34"
 
 SRC_URI = "file://Makefile \
 		 file://modules/capture-frame/* \
 		 file://modules/frame-processor/* \
 		 file://modules/fuzzy-control-system/* \
 		 file://modules/hc-sr04/* \
+     file://modules/driver/* \
+     file://modules/headlights/* \
 		  "
 
 DEPENDS += "tensorflowlite-lib" 

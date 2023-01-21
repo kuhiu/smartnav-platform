@@ -6,9 +6,16 @@ constexpr const char *FuzzyRule::__NAME_KEY;
 constexpr const char *FuzzyRule::__INPUT_COND_KEY;
 constexpr const char *FuzzyRule::__OUTPUT_COND_KEY;
 
+#define DEBUG_RULE 1
+#ifdef DEBUG_RULE
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+#endif
+
 void FuzzyRule::evaluate(std::vector<FuzzyInput> &system_input, std::vector<FuzzyOutput> &system_output) { 
   float rule_strength = __fuzzy_input_condition->evaluate(system_input); 
-  printf("Rule name %s Rule strenght = %f.\n", __name.c_str(), rule_strength);
+  DEBUG_PRINT("Rule name %s Rule strenght = %f.\n", __name.c_str(), rule_strength);
   __fuzzy_output_condition->update(rule_strength, system_output);
 }
 
@@ -37,7 +44,7 @@ FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
     }
     catch(const std::exception& e) {
       // The input condition could not be parsed as and
-      printf("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
+      DEBUG_PRINT("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
     }
     try {
       // Try to parse input condition as comparation
@@ -45,7 +52,7 @@ FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
     }
     catch(const std::exception& e) {
       // The input condition could not be parsed as comparation
-      printf("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
+      DEBUG_PRINT("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
     }
     if (fuzzy_input_condition == nullptr) {
       err << "The input condition of the rule could not be parsed: " << rule_json.at(__INPUT_COND_KEY).dump();
@@ -60,7 +67,7 @@ FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
     }
     catch(const std::exception& e) {
       // The output condition could not be parsed as and
-      printf("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
+      DEBUG_PRINT("Test rule: It could not be parsed as and: WHAT: %s.\n", e.what());
     }
     try {
       // Try to parse output condition as comparation
@@ -68,7 +75,7 @@ FuzzyRule FuzzyRule::parse(const nlohmann::json& rule_json) {
     }
     catch(const std::exception& e) {
       // The input condition could not be parsed as and
-      printf("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
+      DEBUG_PRINT("Test rule: It could not be parsed as comparation: WHAT: %s\n", e.what());
     }
     if (fuzzy_output_condition == nullptr) {
       err << "The output condition could not be parsed: " << rule_json.at(__OUTPUT_COND_KEY).dump();

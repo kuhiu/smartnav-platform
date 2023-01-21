@@ -30,7 +30,26 @@
 
 	&amba_pl {
 
-		v_demosaic@43c20000 {
+		l298n {
+			compatible = "l298n";
+			motor_ctrl_0-gpios = <&gpio0 66 0>;	
+			motor_ctrl_1-gpios = <&gpio0 67 0>;
+			motor_ctrl_2-gpios = <&gpio0 68 0>;
+			motor_ctrl_3-gpios = <&gpio0 69 0>;
+		};
+
+		axi_timer {
+			compatible = "axi_timer_pwm";	
+			reg = <0x42800000 0x10000>, <0x42810000 0x10000>, <0x42830000 0x10000>, <0x42820000 0x10000>;
+			reset-0-gpios = <&gpio0 62 0>;
+			reset-1-gpios = <&gpio0 64 0>;
+			reset-2-gpios = <&gpio0 65 0>;
+			reset-3-gpios = <&gpio0 63 0>;
+			clock-frequency = <100000000>;
+			pwm-frequency = <500>;
+		};
+
+		v_demosaic@43c10000 {
 			reset-gpios = <&gpio0 55 1>;
 
 			ports {

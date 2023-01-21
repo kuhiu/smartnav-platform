@@ -1,12 +1,11 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
-#include <linux/uaccess.h>              /* Se necesita para copy_from_user */
-#include <asm/io.h>                     /* Se necesita para IO Read/Write Functions */
-#include <linux/proc_fs.h>              /* Se necesita para Proc File System Functions */
-#include <linux/seq_file.h>             /* Se necesita para Sequence File Operations */
-#include <linux/platform_device.h>      /* Se necesita para Platform Driver Functions */
+#include <linux/uaccess.h>             
+#include <linux/proc_fs.h>              
+#include <linux/seq_file.h>            
+#include <linux/platform_device.h>      
 #include <linux/of_platform.h>          
-#include <linux/cdev.h>                 /* Se necesita para crear el Char Device */
+#include <linux/cdev.h>                 
 #include <linux/delay.h>
 #include <linux/ktime.h>
 #include <linux/interrupt.h>
@@ -32,7 +31,7 @@
 #define HCSR04_IOC_NUM_MAX 1
 #define HCSR04_IOC_TRIGGER _IO(HCSR04_IOC_NMAGICO, 1)
 
-#define DEBUG_HCSR04 1
+//#define DEBUG_HCSR04 1
 #if defined(DEBUG_HCSR04) 
  	#define DEBUG_PRINT(fmt, args...) printk( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -87,11 +86,11 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     //  DEBUG_PRINT("hcsr04 sensor 1 timeout\n");
     counter=0;
     while (!state.echo_arrived_1) {
-      if (++counter>100) {
+      if (++counter>10) {
         printk("Sensor 1: Out of range.\n");
         break;
       }
-      mdelay(1);
+      msleep(10);
     }
     time = ktime_to_us( ktime_sub(state.echo_end_1, state.echo_start_1));
     DEBUG_PRINT("Sensor 1. Time in kernel space: %llu.\n", time);
@@ -107,11 +106,11 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     //  DEBUG_PRINT("hcsr04 sensor 2 timeout\n");
     counter=0;
     while (!state.echo_arrived_2) {
-      if (++counter>100) {
+      if (++counter>10) {
         printk("Sensor 2: Out of range.\n");
         break;
       }
-      mdelay(1);
+      msleep(10);
     }
     time = ktime_to_us( ktime_sub(state.echo_end_2, state.echo_start_2));
     DEBUG_PRINT("Sensor 2. Time in kernel space: %llu.\n", time);
@@ -127,11 +126,11 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     //  DEBUG_PRINT("hcsr04 sensor 3 timeout\n");
     counter=0;
     while (!state.echo_arrived_3) {
-      if (++counter>100) {
+      if (++counter>10) {
         printk("Sensor 3: Out of range.\n");
         break;
       }
-      mdelay(1);
+      msleep(10);
     }
     time = ktime_to_us( ktime_sub(state.echo_end_3, state.echo_start_3));
     DEBUG_PRINT("Sensor 3. Time in kernel space: %llu.\n", time);
@@ -444,4 +443,4 @@ module_exit(hcsr04_exit);
 /* Standard module information */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Fuschetto Martin");
-MODULE_DESCRIPTION("hcsr04 - driver");
+MODULE_DESCRIPTION("hcsr04");
