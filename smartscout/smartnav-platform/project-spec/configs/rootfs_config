@@ -3950,7 +3950,9 @@ CONFIG_tensorflowlite-lib=y
 #
 # modules 
 #
+CONFIG_axi-timer=y
 CONFIG_hcsr04=y
+CONFIG_l298n=y
 
 #
 # user packages 
