@@ -2,6 +2,14 @@
 
 constexpr const char *FuzzyAnd::__AND_KEY;
 
+//#define DEBUG_AND 1
+#ifdef DEBUG_AND
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+#endif
+
+
 float FuzzyAnd::evaluate(std::vector<FuzzyInput> &system_input) const {
   float strength = __UPPER_LIMIT;
   if(__conditions.empty())
@@ -42,14 +50,14 @@ FuzzyCondition::FuzzyConditionPtr FuzzyAnd::parse(const nlohmann::json& and_json
     }
     catch(const std::exception& e) {
       // And comparation could not be parsed as and
-      printf("Test and: It could not be parsed as and.\n");
+      DEBUG_PRINT("Test and: It could not be parsed as and.\n");
     }
     try {
       condition = FuzzyComparation::parse(comparation_json);
     }
     catch(const std::exception& e) {
       // And comparation could not be parsed as comparation
-      printf("Test and: It could not be parsed as comparation.\n");
+      DEBUG_PRINT("Test and: It could not be parsed as comparation.\n");
     }
 
     if(condition == nullptr) {
