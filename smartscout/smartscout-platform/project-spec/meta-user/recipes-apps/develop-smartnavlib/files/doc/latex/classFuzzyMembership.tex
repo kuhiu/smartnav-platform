@@ -1,0 +1,227 @@
+\hypertarget{classFuzzyMembership}{}\doxysection{Fuzzy\+Membership Class Reference}
+\label{classFuzzyMembership}\index{FuzzyMembership@{FuzzyMembership}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Membership.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Membership\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{classFuzzyMembership__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Membership\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFuzzyMembership__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}{Fuzzy\+Membership\+Ptr}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyMembership_ad44ee281fa39d9eaf9d21be4748cc7f3}{Fuzzy\+Membership}} (const std\+::string \&name)
+\item 
+virtual \mbox{\hyperlink{classFuzzyMembership_aea29e647cfc75a9bd9bd88dce429dc8a}{$\sim$\+Fuzzy\+Membership}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classFuzzyMembership_abea6588811dbb59fbe9e49cedbda65ce}{compute\+\_\+degree\+\_\+of\+\_\+membership}} (float input\+\_\+value)=0
+\begin{DoxyCompactList}\small\item\em Compute degree of membership. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classFuzzyMembership_ace8f6f8a7b103cd5603f9c7c9e2c0e40}{compute\+\_\+area\+\_\+of\+\_\+membership}} ()=0
+\begin{DoxyCompactList}\small\item\em Compute area of membership. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classFuzzyMembership_a14c37b0b8d4d05534c8f36a37dab249b}{compute\+\_\+centroid\+\_\+of\+\_\+membership}} ()=0
+\begin{DoxyCompactList}\small\item\em Compute centroid of membership. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFuzzyMembership_a0b14fb9f6d8986a3198415b92c85ab14}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classFuzzyMembership_aa413d0df032e5cb87ddfaa31c1748a89}{get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Get the Value object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuzzyMembership_a15a507c9817019034a25d24bbf334144}{set\+Value}} (float value)
+\begin{DoxyCompactList}\small\item\em Set the Value object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuzzyMembership_a4be1698d2af62b2503537b3ab8912d65}{reset\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Reset fuzzy value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{classFuzzyMembership_ac9f93ee99d66d7a858ee0b8b8e28a12d}{\+\_\+\+\_\+\+UPPER\+\_\+\+LIMIT}} = 1.\+0
+\item 
+float \mbox{\hyperlink{classFuzzyMembership_a7c4d38377a799c080868b6da0f04ebf1}{\+\_\+\+\_\+fuzzy\+\_\+value}} = 0.\+0
+\item 
+const std\+::string \mbox{\hyperlink{classFuzzyMembership_ae53e1e68799252c4a420f4987ce774ed}{\+\_\+\+\_\+name}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyMembership_a24165bfd8e3c895d8cb8d6d2ad1caec3}{\+\_\+\+\_\+\+NAME\+\_\+\+KEY}} \{\char`\"{}name\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}\label{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}} 
+\index{FuzzyMembership@{FuzzyMembership}!FuzzyMembershipPtr@{FuzzyMembershipPtr}}
+\index{FuzzyMembershipPtr@{FuzzyMembershipPtr}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{FuzzyMembershipPtr}{FuzzyMembershipPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}{Fuzzy\+Membership\+::\+Fuzzy\+Membership\+Ptr}} =  std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}}$>$}
+
+\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} smart pointer 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyMembership_ad44ee281fa39d9eaf9d21be4748cc7f3}\label{classFuzzyMembership_ad44ee281fa39d9eaf9d21be4748cc7f3}} 
+\index{FuzzyMembership@{FuzzyMembership}!FuzzyMembership@{FuzzyMembership}}
+\index{FuzzyMembership@{FuzzyMembership}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{FuzzyMembership()}{FuzzyMembership()}}
+{\footnotesize\ttfamily Fuzzy\+Membership\+::\+Fuzzy\+Membership (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} constructor \mbox{\Hypertarget{classFuzzyMembership_aea29e647cfc75a9bd9bd88dce429dc8a}\label{classFuzzyMembership_aea29e647cfc75a9bd9bd88dce429dc8a}} 
+\index{FuzzyMembership@{FuzzyMembership}!````~FuzzyMembership@{$\sim$FuzzyMembership}}
+\index{````~FuzzyMembership@{$\sim$FuzzyMembership}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyMembership()}{~FuzzyMembership()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Membership\+::$\sim$\+Fuzzy\+Membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyMembership_ace8f6f8a7b103cd5603f9c7c9e2c0e40}\label{classFuzzyMembership_ace8f6f8a7b103cd5603f9c7c9e2c0e40}} 
+\index{FuzzyMembership@{FuzzyMembership}!compute\_area\_of\_membership@{compute\_area\_of\_membership}}
+\index{compute\_area\_of\_membership@{compute\_area\_of\_membership}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{compute\_area\_of\_membership()}{compute\_area\_of\_membership()}}
+{\footnotesize\ttfamily virtual float Fuzzy\+Membership\+::compute\+\_\+area\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute area of membership. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_a3da4b53e913fb255ea505aa2da3c2521}{Fuzzy\+Membership\+Trapezoidal}}.
+
+\mbox{\Hypertarget{classFuzzyMembership_a14c37b0b8d4d05534c8f36a37dab249b}\label{classFuzzyMembership_a14c37b0b8d4d05534c8f36a37dab249b}} 
+\index{FuzzyMembership@{FuzzyMembership}!compute\_centroid\_of\_membership@{compute\_centroid\_of\_membership}}
+\index{compute\_centroid\_of\_membership@{compute\_centroid\_of\_membership}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{compute\_centroid\_of\_membership()}{compute\_centroid\_of\_membership()}}
+{\footnotesize\ttfamily virtual float Fuzzy\+Membership\+::compute\+\_\+centroid\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute centroid of membership. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_ae0e5d207369e761c43569182945cd167}{Fuzzy\+Membership\+Trapezoidal}}.
+
+\mbox{\Hypertarget{classFuzzyMembership_abea6588811dbb59fbe9e49cedbda65ce}\label{classFuzzyMembership_abea6588811dbb59fbe9e49cedbda65ce}} 
+\index{FuzzyMembership@{FuzzyMembership}!compute\_degree\_of\_membership@{compute\_degree\_of\_membership}}
+\index{compute\_degree\_of\_membership@{compute\_degree\_of\_membership}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{compute\_degree\_of\_membership()}{compute\_degree\_of\_membership()}}
+{\footnotesize\ttfamily virtual void Fuzzy\+Membership\+::compute\+\_\+degree\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}\item[{float}]{input\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute degree of membership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_ace17aa23490f3b98be15f583c8c4c289}{Fuzzy\+Membership\+Trapezoidal}}.
+
+\mbox{\Hypertarget{classFuzzyMembership_a0b14fb9f6d8986a3198415b92c85ab14}\label{classFuzzyMembership_a0b14fb9f6d8986a3198415b92c85ab14}} 
+\index{FuzzyMembership@{FuzzyMembership}!getName@{getName}}
+\index{getName@{getName}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Fuzzy\+Membership\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Name object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyMembership_aa413d0df032e5cb87ddfaa31c1748a89}\label{classFuzzyMembership_aa413d0df032e5cb87ddfaa31c1748a89}} 
+\index{FuzzyMembership@{FuzzyMembership}!getValue@{getValue}}
+\index{getValue@{getValue}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily float Fuzzy\+Membership\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Value object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyMembership_a4be1698d2af62b2503537b3ab8912d65}\label{classFuzzyMembership_a4be1698d2af62b2503537b3ab8912d65}} 
+\index{FuzzyMembership@{FuzzyMembership}!resetValue@{resetValue}}
+\index{resetValue@{resetValue}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{resetValue()}{resetValue()}}
+{\footnotesize\ttfamily void Fuzzy\+Membership\+::reset\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reset fuzzy value. 
+
+\mbox{\Hypertarget{classFuzzyMembership_a15a507c9817019034a25d24bbf334144}\label{classFuzzyMembership_a15a507c9817019034a25d24bbf334144}} 
+\index{FuzzyMembership@{FuzzyMembership}!setValue@{setValue}}
+\index{setValue@{setValue}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}}
+{\footnotesize\ttfamily void Fuzzy\+Membership\+::set\+Value (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Value object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuzzyMembership_a7c4d38377a799c080868b6da0f04ebf1}\label{classFuzzyMembership_a7c4d38377a799c080868b6da0f04ebf1}} 
+\index{FuzzyMembership@{FuzzyMembership}!\_\_fuzzy\_value@{\_\_fuzzy\_value}}
+\index{\_\_fuzzy\_value@{\_\_fuzzy\_value}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_value}{\_\_fuzzy\_value}}
+{\footnotesize\ttfamily float Fuzzy\+Membership\+::\+\_\+\+\_\+fuzzy\+\_\+value = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+Fuzzy value \mbox{\Hypertarget{classFuzzyMembership_ae53e1e68799252c4a420f4987ce774ed}\label{classFuzzyMembership_ae53e1e68799252c4a420f4987ce774ed}} 
+\index{FuzzyMembership@{FuzzyMembership}!\_\_name@{\_\_name}}
+\index{\_\_name@{\_\_name}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{\_\_name}{\_\_name}}
+{\footnotesize\ttfamily const std\+::string Fuzzy\+Membership\+::\+\_\+\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} name \mbox{\Hypertarget{classFuzzyMembership_a24165bfd8e3c895d8cb8d6d2ad1caec3}\label{classFuzzyMembership_a24165bfd8e3c895d8cb8d6d2ad1caec3}} 
+\index{FuzzyMembership@{FuzzyMembership}!\_\_NAME\_KEY@{\_\_NAME\_KEY}}
+\index{\_\_NAME\_KEY@{\_\_NAME\_KEY}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{\_\_NAME\_KEY}{\_\_NAME\_KEY}}
+{\footnotesize\ttfamily constexpr auto Fuzzy\+Membership\+::\+\_\+\+\_\+\+NAME\+\_\+\+KEY \{\char`\"{}name\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [protected]}}
+
+Name key \mbox{\Hypertarget{classFuzzyMembership_ac9f93ee99d66d7a858ee0b8b8e28a12d}\label{classFuzzyMembership_ac9f93ee99d66d7a858ee0b8b8e28a12d}} 
+\index{FuzzyMembership@{FuzzyMembership}!\_\_UPPER\_LIMIT@{\_\_UPPER\_LIMIT}}
+\index{\_\_UPPER\_LIMIT@{\_\_UPPER\_LIMIT}!FuzzyMembership@{FuzzyMembership}}
+\doxysubsubsection{\texorpdfstring{\_\_UPPER\_LIMIT}{\_\_UPPER\_LIMIT}}
+{\footnotesize\ttfamily const float Fuzzy\+Membership\+::\+\_\+\+\_\+\+UPPER\+\_\+\+LIMIT = 1.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+Max membership value 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyMembership_8hpp}{Fuzzy\+Membership.\+hpp}}\end{DoxyCompactItemize}

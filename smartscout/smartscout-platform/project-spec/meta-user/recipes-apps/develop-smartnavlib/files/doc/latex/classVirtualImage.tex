@@ -1,0 +1,229 @@
+\hypertarget{classVirtualImage}{}\doxysection{Virtual\+Image Class Reference}
+\label{classVirtualImage}\index{VirtualImage@{VirtualImage}}
+
+
+{\ttfamily \#include $<$Virtual\+Image.\+hpp$>$}
+
+
+
+Collaboration diagram for Virtual\+Image\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classVirtualImage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVirtualImage_af6e029f195b35d77a8288f26b45c6129}{Virtual\+Image}} (uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t channels)
+\item 
+\mbox{\hyperlink{classVirtualImage_a7cca973d7cf6e955eadb5e4de667c12a}{Virtual\+Image}} (uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t channels, \mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}} color\+\_\+space, void $\ast$data)
+\item 
+\mbox{\hyperlink{classVirtualImage_a8093e9f8fe41e9ca079b8b79bdd4e261}{$\sim$\+Virtual\+Image}} ()=default
+\item 
+void \mbox{\hyperlink{classVirtualImage_ad5ff7a4aca9080e99d4669c01c9b2b2f}{resize}} (uint32\+\_\+t width, uint32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em Resize image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVirtualImage_aa5e480ef2299065bc3626a9dcfdcc773}{convert\+To\+Rgb}} ()
+\begin{DoxyCompactList}\small\item\em convert the input format to rgb \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVirtualImage_a90d8f763f55cbe4c03e8bce5845449bc}{save\+As\+Jpg}} (const std\+::string \&directory)
+\begin{DoxyCompactList}\small\item\em Save image as jpeg. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classVirtualImage_abb998193ef6fb306c62e23b6b4a05c65}{get\+Data}} () const
+\begin{DoxyCompactList}\small\item\em Get the Data. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classVirtualImage_a7a249ff88dddf8cceb324c61d097a067}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Get the Width object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classVirtualImage_a3f6cceda0b9afa614d9ace7cd8097321}{get\+Heigth}} () const
+\begin{DoxyCompactList}\small\item\em Get the Heigth object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classVirtualImage_a48b9c30ba59e63e67da49b606588b9af}{get\+Channels}} () const
+\begin{DoxyCompactList}\small\item\em Get the Channels object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}} \mbox{\hyperlink{classVirtualImage_a0b6a4fe917008d42fe7e877913fa8655}{get\+Color\+Space}} () const
+\begin{DoxyCompactList}\small\item\em Get the Color Space object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}{color\+Balancing}} (float percent)
+\begin{DoxyCompactList}\small\item\em Color balancing algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVirtualImage_a45d6ce2aea5ce7973bf4282f0918f7b1}{flip}} (bool orientation)
+\begin{DoxyCompactList}\small\item\em Flip image. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classVirtualImage_a4d0430b87734fa2dadb67c9bc4b7adbb}{get\+Brightness}} () const
+\begin{DoxyCompactList}\small\item\em Get the Brightness object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVirtualImage_af6e029f195b35d77a8288f26b45c6129}\label{classVirtualImage_af6e029f195b35d77a8288f26b45c6129}} 
+\index{VirtualImage@{VirtualImage}!VirtualImage@{VirtualImage}}
+\index{VirtualImage@{VirtualImage}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{VirtualImage()}{VirtualImage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Virtual\+Image\+::\+Virtual\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{uint32\+\_\+t}]{channels }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} constructor \mbox{\Hypertarget{classVirtualImage_a7cca973d7cf6e955eadb5e4de667c12a}\label{classVirtualImage_a7cca973d7cf6e955eadb5e4de667c12a}} 
+\index{VirtualImage@{VirtualImage}!VirtualImage@{VirtualImage}}
+\index{VirtualImage@{VirtualImage}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{VirtualImage()}{VirtualImage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Virtual\+Image\+::\+Virtual\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{uint32\+\_\+t}]{channels,  }\item[{\mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}}}]{color\+\_\+space,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} constructor \mbox{\Hypertarget{classVirtualImage_a8093e9f8fe41e9ca079b8b79bdd4e261}\label{classVirtualImage_a8093e9f8fe41e9ca079b8b79bdd4e261}} 
+\index{VirtualImage@{VirtualImage}!````~VirtualImage@{$\sim$VirtualImage}}
+\index{````~VirtualImage@{$\sim$VirtualImage}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{$\sim$VirtualImage()}{~VirtualImage()}}
+{\footnotesize\ttfamily Virtual\+Image\+::$\sim$\+Virtual\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}\label{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}} 
+\index{VirtualImage@{VirtualImage}!colorBalancing@{colorBalancing}}
+\index{colorBalancing@{colorBalancing}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{colorBalancing()}{colorBalancing()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::color\+Balancing (\begin{DoxyParamCaption}\item[{float}]{percent }\end{DoxyParamCaption})}
+
+
+
+Color balancing algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVirtualImage_aa5e480ef2299065bc3626a9dcfdcc773}\label{classVirtualImage_aa5e480ef2299065bc3626a9dcfdcc773}} 
+\index{VirtualImage@{VirtualImage}!convertToRgb@{convertToRgb}}
+\index{convertToRgb@{convertToRgb}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{convertToRgb()}{convertToRgb()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::convert\+To\+Rgb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+convert the input format to rgb 
+
+\mbox{\Hypertarget{classVirtualImage_a45d6ce2aea5ce7973bf4282f0918f7b1}\label{classVirtualImage_a45d6ce2aea5ce7973bf4282f0918f7b1}} 
+\index{VirtualImage@{VirtualImage}!flip@{flip}}
+\index{flip@{flip}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{flip()}{flip()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::flip (\begin{DoxyParamCaption}\item[{bool}]{orientation }\end{DoxyParamCaption})}
+
+
+
+Flip image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orientation} & 0\+: vertically, 1\+: horizontal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVirtualImage_a4d0430b87734fa2dadb67c9bc4b7adbb}\label{classVirtualImage_a4d0430b87734fa2dadb67c9bc4b7adbb}} 
+\index{VirtualImage@{VirtualImage}!getBrightness@{getBrightness}}
+\index{getBrightness@{getBrightness}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getBrightness()}{getBrightness()}}
+{\footnotesize\ttfamily uint32\+\_\+t Virtual\+Image\+::get\+Brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Brightness object. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a48b9c30ba59e63e67da49b606588b9af}\label{classVirtualImage_a48b9c30ba59e63e67da49b606588b9af}} 
+\index{VirtualImage@{VirtualImage}!getChannels@{getChannels}}
+\index{getChannels@{getChannels}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getChannels()}{getChannels()}}
+{\footnotesize\ttfamily int Virtual\+Image\+::get\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Channels object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a0b6a4fe917008d42fe7e877913fa8655}\label{classVirtualImage_a0b6a4fe917008d42fe7e877913fa8655}} 
+\index{VirtualImage@{VirtualImage}!getColorSpace@{getColorSpace}}
+\index{getColorSpace@{getColorSpace}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getColorSpace()}{getColorSpace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}} Virtual\+Image\+::get\+Color\+Space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Color Space object. 
+
+\begin{DoxyReturn}{Returns}
+color\+Space 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_abb998193ef6fb306c62e23b6b4a05c65}\label{classVirtualImage_abb998193ef6fb306c62e23b6b4a05c65}} 
+\index{VirtualImage@{VirtualImage}!getData@{getData}}
+\index{getData@{getData}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily cv\+::\+Mat Virtual\+Image\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Data. 
+
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a3f6cceda0b9afa614d9ace7cd8097321}\label{classVirtualImage_a3f6cceda0b9afa614d9ace7cd8097321}} 
+\index{VirtualImage@{VirtualImage}!getHeigth@{getHeigth}}
+\index{getHeigth@{getHeigth}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getHeigth()}{getHeigth()}}
+{\footnotesize\ttfamily int Virtual\+Image\+::get\+Heigth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Heigth object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a7a249ff88dddf8cceb324c61d097a067}\label{classVirtualImage_a7a249ff88dddf8cceb324c61d097a067}} 
+\index{VirtualImage@{VirtualImage}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily int Virtual\+Image\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Width object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_ad5ff7a4aca9080e99d4669c01c9b2b2f}\label{classVirtualImage_ad5ff7a4aca9080e99d4669c01c9b2b2f}} 
+\index{VirtualImage@{VirtualImage}!resize@{resize}}
+\index{resize@{resize}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::resize (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+
+
+Resize image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$ Resize 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a90d8f763f55cbe4c03e8bce5845449bc}\label{classVirtualImage_a90d8f763f55cbe4c03e8bce5845449bc}} 
+\index{VirtualImage@{VirtualImage}!saveAsJpg@{saveAsJpg}}
+\index{saveAsJpg@{saveAsJpg}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{saveAsJpg()}{saveAsJpg()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::save\+As\+Jpg (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{directory }\end{DoxyParamCaption})}
+
+
+
+Save image as jpeg. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/capture-\/frame/\mbox{\hyperlink{VirtualImage_8hpp}{Virtual\+Image.\+hpp}}\item 
+modules/capture-\/frame/\mbox{\hyperlink{VirtualImage_8cpp}{Virtual\+Image.\+cpp}}\end{DoxyCompactItemize}

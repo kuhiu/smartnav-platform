@@ -32,7 +32,7 @@ DistanceSensors::DistanceSensors() {
 	}
 
 	for(int i=0; i < __NRO_SENSORS; i++) {
-		sma_vec.push_back(SimpleMovingAverage(3));
+		__sma_vec.push_back(SimpleMovingAverage(3));
 	}
 
 	DEBUG_PRINT("Run read distance thread.\n");	
@@ -50,7 +50,7 @@ DistanceSensors::~DistanceSensors() {
 std::vector<int> DistanceSensors::getDistances() { 
 	std::vector<int> ret;
 
-	for (auto &sma : sma_vec) 
+	for (auto &sma : __sma_vec) 
 		ret.push_back(sma.getMean());
 
 	return ret; 
@@ -67,7 +67,7 @@ void DistanceSensors::__readDistance() {
 				throw std::runtime_error("Error reading distance sensors");
 			}
 			DEBUG_PRINT("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
-			sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
+			__sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
 		}
 	}
 }

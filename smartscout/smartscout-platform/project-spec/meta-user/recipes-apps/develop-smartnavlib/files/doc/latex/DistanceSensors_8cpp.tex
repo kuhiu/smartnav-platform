@@ -1,0 +1,51 @@
+\hypertarget{DistanceSensors_8cpp}{}\doxysection{modules/hc-\/sr04/\+Distance\+Sensors.cpp File Reference}
+\label{DistanceSensors_8cpp}\index{modules/hc-\/sr04/DistanceSensors.cpp@{modules/hc-\/sr04/DistanceSensors.cpp}}
+{\ttfamily \#include \char`\"{}Distance\+Sensors.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for Distance\+Sensors.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DistanceSensors_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{DistanceSensors_8cpp_aaa94d3096e4d86ce233a427b2b2f00e7}{HCSR04\+\_\+\+IOC\+\_\+\+NMAGICO}}~\textquotesingle{}c\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{DistanceSensors_8cpp_aa89183ab44b3c899216b165d2adffbc2}{HCSR04\+\_\+\+IOC\+\_\+\+TRIGGER}}~\+\_\+\+IO(\mbox{\hyperlink{DistanceSensors_8cpp_aaa94d3096e4d86ce233a427b2b2f00e7}{HCSR04\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)
+\item 
+\#define \mbox{\hyperlink{DistanceSensors_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}{DEBUG\+\_\+\+PRINT}}(fmt, ...)~do \{\} while (0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{DistanceSensors_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}\label{DistanceSensors_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}} 
+\index{DistanceSensors.cpp@{DistanceSensors.cpp}!DEBUG\_PRINT@{DEBUG\_PRINT}}
+\index{DEBUG\_PRINT@{DEBUG\_PRINT}!DistanceSensors.cpp@{DistanceSensors.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PRINT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})~do \{\} while (0)}
+
+\mbox{\Hypertarget{DistanceSensors_8cpp_aaa94d3096e4d86ce233a427b2b2f00e7}\label{DistanceSensors_8cpp_aaa94d3096e4d86ce233a427b2b2f00e7}} 
+\index{DistanceSensors.cpp@{DistanceSensors.cpp}!HCSR04\_IOC\_NMAGICO@{HCSR04\_IOC\_NMAGICO}}
+\index{HCSR04\_IOC\_NMAGICO@{HCSR04\_IOC\_NMAGICO}!DistanceSensors.cpp@{DistanceSensors.cpp}}
+\doxysubsubsection{\texorpdfstring{HCSR04\_IOC\_NMAGICO}{HCSR04\_IOC\_NMAGICO}}
+{\footnotesize\ttfamily \#define HCSR04\+\_\+\+IOC\+\_\+\+NMAGICO~\textquotesingle{}c\textquotesingle{}}
+
+\mbox{\Hypertarget{DistanceSensors_8cpp_aa89183ab44b3c899216b165d2adffbc2}\label{DistanceSensors_8cpp_aa89183ab44b3c899216b165d2adffbc2}} 
+\index{DistanceSensors.cpp@{DistanceSensors.cpp}!HCSR04\_IOC\_TRIGGER@{HCSR04\_IOC\_TRIGGER}}
+\index{HCSR04\_IOC\_TRIGGER@{HCSR04\_IOC\_TRIGGER}!DistanceSensors.cpp@{DistanceSensors.cpp}}
+\doxysubsubsection{\texorpdfstring{HCSR04\_IOC\_TRIGGER}{HCSR04\_IOC\_TRIGGER}}
+{\footnotesize\ttfamily \#define HCSR04\+\_\+\+IOC\+\_\+\+TRIGGER~\+\_\+\+IO(\mbox{\hyperlink{DistanceSensors_8cpp_aaa94d3096e4d86ce233a427b2b2f00e7}{HCSR04\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)}
+

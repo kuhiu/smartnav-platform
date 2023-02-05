@@ -1,0 +1,118 @@
+\hypertarget{classFuzzyIO}{}\doxysection{Fuzzy\+IO Class Reference}
+\label{classFuzzyIO}\index{FuzzyIO@{FuzzyIO}}
+
+
+{\ttfamily \#include $<$Fuzzy\+IO.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+IO\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classFuzzyIO__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+IO\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classFuzzyIO__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyIO_a0019795f3a1cf061d83e095caa9e8aa0}{Fuzzy\+IO}} (const std\+::string \&name, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$ memberships)
+\item 
+virtual \mbox{\hyperlink{classFuzzyIO_a8b74b50f3a4577fda0e804696a84afe0}{$\sim$\+Fuzzy\+IO}} ()=default
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$ $>$ \mbox{\hyperlink{classFuzzyIO_a8c362679351a1392ac3537beb18cb7ba}{get\+Memberships}} () const
+\begin{DoxyCompactList}\small\item\em Get the memberships object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFuzzyIO_af1bd57bdff0f7130fc708332e87025f6}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFuzzyIO_a79a37961c781f4cb3e339974af2aa9bd}{reset\+Membership\+Funtions}} ()
+\begin{DoxyCompactList}\small\item\em Reset all membership functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classFuzzyIO_a6c249c3037fc24b3d523c333bf7de736}{\+\_\+\+\_\+name}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$ $>$ \mbox{\hyperlink{classFuzzyIO_a413b3ff158269ed0a8c4db6bf15911db}{\+\_\+\+\_\+memberships}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyIO_a0019795f3a1cf061d83e095caa9e8aa0}\label{classFuzzyIO_a0019795f3a1cf061d83e095caa9e8aa0}} 
+\index{FuzzyIO@{FuzzyIO}!FuzzyIO@{FuzzyIO}}
+\index{FuzzyIO@{FuzzyIO}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{FuzzyIO()}{FuzzyIO()}}
+{\footnotesize\ttfamily Fuzzy\+IO\+::\+Fuzzy\+IO (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$}]{memberships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyIO}{Fuzzy\+IO}} constructor \mbox{\Hypertarget{classFuzzyIO_a8b74b50f3a4577fda0e804696a84afe0}\label{classFuzzyIO_a8b74b50f3a4577fda0e804696a84afe0}} 
+\index{FuzzyIO@{FuzzyIO}!````~FuzzyIO@{$\sim$FuzzyIO}}
+\index{````~FuzzyIO@{$\sim$FuzzyIO}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyIO()}{~FuzzyIO()}}
+{\footnotesize\ttfamily virtual Fuzzy\+IO\+::$\sim$\+Fuzzy\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyIO}{Fuzzy\+IO}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyIO_a8c362679351a1392ac3537beb18cb7ba}\label{classFuzzyIO_a8c362679351a1392ac3537beb18cb7ba}} 
+\index{FuzzyIO@{FuzzyIO}!getMemberships@{getMemberships}}
+\index{getMemberships@{getMemberships}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{getMemberships()}{getMemberships()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}}$>$ $>$ Fuzzy\+IO\+::get\+Memberships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the memberships object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Fuzzy\+Membership$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyIO_af1bd57bdff0f7130fc708332e87025f6}\label{classFuzzyIO_af1bd57bdff0f7130fc708332e87025f6}} 
+\index{FuzzyIO@{FuzzyIO}!getName@{getName}}
+\index{getName@{getName}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Fuzzy\+IO\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Name object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyIO_a79a37961c781f4cb3e339974af2aa9bd}\label{classFuzzyIO_a79a37961c781f4cb3e339974af2aa9bd}} 
+\index{FuzzyIO@{FuzzyIO}!resetMembershipFuntions@{resetMembershipFuntions}}
+\index{resetMembershipFuntions@{resetMembershipFuntions}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{resetMembershipFuntions()}{resetMembershipFuntions()}}
+{\footnotesize\ttfamily void Fuzzy\+IO\+::reset\+Membership\+Funtions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reset all membership functions. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuzzyIO_a413b3ff158269ed0a8c4db6bf15911db}\label{classFuzzyIO_a413b3ff158269ed0a8c4db6bf15911db}} 
+\index{FuzzyIO@{FuzzyIO}!\_\_memberships@{\_\_memberships}}
+\index{\_\_memberships@{\_\_memberships}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{\_\_memberships}{\_\_memberships}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}}$>$ $>$ Fuzzy\+IO\+::\+\_\+\+\_\+memberships\hspace{0.3cm}{\ttfamily [protected]}}
+
+Memberships function \mbox{\Hypertarget{classFuzzyIO_a6c249c3037fc24b3d523c333bf7de736}\label{classFuzzyIO_a6c249c3037fc24b3d523c333bf7de736}} 
+\index{FuzzyIO@{FuzzyIO}!\_\_name@{\_\_name}}
+\index{\_\_name@{\_\_name}!FuzzyIO@{FuzzyIO}}
+\doxysubsubsection{\texorpdfstring{\_\_name}{\_\_name}}
+{\footnotesize\ttfamily std\+::string Fuzzy\+IO\+::\+\_\+\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+Input/\+Output name 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyIO_8hpp}{Fuzzy\+IO.\+hpp}}\end{DoxyCompactItemize}

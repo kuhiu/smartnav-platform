@@ -1,0 +1,162 @@
+\hypertarget{classFuzzyMembershipTrapezoidal}{}\doxysection{Fuzzy\+Membership\+Trapezoidal Class Reference}
+\label{classFuzzyMembershipTrapezoidal}\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Membership\+Trapezoidal.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Membership\+Trapezoidal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{classFuzzyMembershipTrapezoidal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Membership\+Trapezoidal\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFuzzyMembershipTrapezoidal__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFuzzyMembershipTrapezoidal_1_1TrapezoidalPoints}{Trapezoidal\+Points}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyMembershipTrapezoidal_aeaea177df5d2eae49f6c05fd229d626a}{Fuzzy\+Membership\+Trapezoidal}} (const std\+::string \&name, \mbox{\hyperlink{structFuzzyMembershipTrapezoidal_1_1TrapezoidalPoints}{Trapezoidal\+Points}} trapezoidal\+\_\+points)
+\item 
+virtual \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_a70a8d23920271df6477a89ab78ff3107}{$\sim$\+Fuzzy\+Membership\+Trapezoidal}} ()=default
+\item 
+virtual float \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_a3da4b53e913fb255ea505aa2da3c2521}{compute\+\_\+area\+\_\+of\+\_\+membership}} ()
+\begin{DoxyCompactList}\small\item\em Compute area of the trapezoid. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_ae0e5d207369e761c43569182945cd167}{compute\+\_\+centroid\+\_\+of\+\_\+membership}} ()
+\begin{DoxyCompactList}\small\item\em Compute centroid of membership. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_ace17aa23490f3b98be15f583c8c4c289}{compute\+\_\+degree\+\_\+of\+\_\+membership}} (float input\+\_\+value) override
+\begin{DoxyCompactList}\small\item\em Evaluate membership function (membership degree) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}{Fuzzy\+Membership\+Ptr}} \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_a2b5fdac952432d9c2064620e80e65a48}{parse}} (const nlohmann\+::json \&memb\+\_\+function\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse membership function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyMembershipTrapezoidal_a8ad89e0226ab8af07a21d305f2fd305e}{\+\_\+\+\_\+\+MB\+\_\+\+TRAPEZOIDAL\+\_\+\+KEY}} \{\char`\"{}trapezoidal\char`\"{}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_aeaea177df5d2eae49f6c05fd229d626a}\label{classFuzzyMembershipTrapezoidal_aeaea177df5d2eae49f6c05fd229d626a}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{FuzzyMembershipTrapezoidal()}{FuzzyMembershipTrapezoidal()}}
+{\footnotesize\ttfamily Fuzzy\+Membership\+Trapezoidal\+::\+Fuzzy\+Membership\+Trapezoidal (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{structFuzzyMembershipTrapezoidal_1_1TrapezoidalPoints}{Trapezoidal\+Points}}}]{trapezoidal\+\_\+points }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyMembershipTrapezoidal}{Fuzzy\+Membership\+Trapezoidal}} constructor \mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_a70a8d23920271df6477a89ab78ff3107}\label{classFuzzyMembershipTrapezoidal_a70a8d23920271df6477a89ab78ff3107}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!````~FuzzyMembershipTrapezoidal@{$\sim$FuzzyMembershipTrapezoidal}}
+\index{````~FuzzyMembershipTrapezoidal@{$\sim$FuzzyMembershipTrapezoidal}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyMembershipTrapezoidal()}{~FuzzyMembershipTrapezoidal()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Membership\+Trapezoidal\+::$\sim$\+Fuzzy\+Membership\+Trapezoidal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyMembershipTrapezoidal}{Fuzzy\+Membership\+Trapezoidal}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_a3da4b53e913fb255ea505aa2da3c2521}\label{classFuzzyMembershipTrapezoidal_a3da4b53e913fb255ea505aa2da3c2521}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!compute\_area\_of\_membership@{compute\_area\_of\_membership}}
+\index{compute\_area\_of\_membership@{compute\_area\_of\_membership}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{compute\_area\_of\_membership()}{compute\_area\_of\_membership()}}
+{\footnotesize\ttfamily float Fuzzy\+Membership\+Trapezoidal\+::compute\+\_\+area\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Compute area of the trapezoid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFuzzyMembership_ace8f6f8a7b103cd5603f9c7c9e2c0e40}{Fuzzy\+Membership}}.
+
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_ae0e5d207369e761c43569182945cd167}\label{classFuzzyMembershipTrapezoidal_ae0e5d207369e761c43569182945cd167}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!compute\_centroid\_of\_membership@{compute\_centroid\_of\_membership}}
+\index{compute\_centroid\_of\_membership@{compute\_centroid\_of\_membership}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{compute\_centroid\_of\_membership()}{compute\_centroid\_of\_membership()}}
+{\footnotesize\ttfamily float Fuzzy\+Membership\+Trapezoidal\+::compute\+\_\+centroid\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Compute centroid of membership. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFuzzyMembership_a14c37b0b8d4d05534c8f36a37dab249b}{Fuzzy\+Membership}}.
+
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_ace17aa23490f3b98be15f583c8c4c289}\label{classFuzzyMembershipTrapezoidal_ace17aa23490f3b98be15f583c8c4c289}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!compute\_degree\_of\_membership@{compute\_degree\_of\_membership}}
+\index{compute\_degree\_of\_membership@{compute\_degree\_of\_membership}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{compute\_degree\_of\_membership()}{compute\_degree\_of\_membership()}}
+{\footnotesize\ttfamily void Fuzzy\+Membership\+Trapezoidal\+::compute\+\_\+degree\+\_\+of\+\_\+membership (\begin{DoxyParamCaption}\item[{float}]{input\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluate membership function (membership degree) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFuzzyMembership_abea6588811dbb59fbe9e49cedbda65ce}{Fuzzy\+Membership}}.
+
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_a2b5fdac952432d9c2064620e80e65a48}\label{classFuzzyMembershipTrapezoidal_a2b5fdac952432d9c2064620e80e65a48}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!parse@{parse}}
+\index{parse@{parse}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyMembership_a147007c2bb11ff4203fcdb10eb65d834}{Fuzzy\+Membership\+::\+Fuzzy\+Membership\+Ptr}} Fuzzy\+Membership\+Trapezoidal\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{memb\+\_\+function\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse membership function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+json} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFuzzyMembershipTrapezoidal}{Fuzzy\+Membership\+Trapezoidal}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuzzyMembershipTrapezoidal_a8ad89e0226ab8af07a21d305f2fd305e}\label{classFuzzyMembershipTrapezoidal_a8ad89e0226ab8af07a21d305f2fd305e}} 
+\index{FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}!\_\_MB\_TRAPEZOIDAL\_KEY@{\_\_MB\_TRAPEZOIDAL\_KEY}}
+\index{\_\_MB\_TRAPEZOIDAL\_KEY@{\_\_MB\_TRAPEZOIDAL\_KEY}!FuzzyMembershipTrapezoidal@{FuzzyMembershipTrapezoidal}}
+\doxysubsubsection{\texorpdfstring{\_\_MB\_TRAPEZOIDAL\_KEY}{\_\_MB\_TRAPEZOIDAL\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Membership\+Trapezoidal\+::\+\_\+\+\_\+\+MB\+\_\+\+TRAPEZOIDAL\+\_\+\+KEY \{\char`\"{}trapezoidal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+Trapezoidal memebership function key 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyMembershipTrapezoidal_8hpp}{Fuzzy\+Membership\+Trapezoidal.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyMembershipTrapezoidal_8cpp}{Fuzzy\+Membership\+Trapezoidal.\+cpp}}\end{DoxyCompactItemize}

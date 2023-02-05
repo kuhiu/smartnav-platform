@@ -1,4 +1,4 @@
-SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights modules/
+SUBDIR = modules/capture-frame modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights modules/compass
 
 OBJECTS_DIR = ./obj
 
@@ -9,7 +9,7 @@ INCLUDE_DIRS = $(addprefix -I, $(SUBDIR))
 
 CFLAGS_LIB = -std=c++17 -c -fPIC 
 LDFLAGS_LIB = -shared -Wl,-soname,$(LIB_NAME).so.0
-LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread
+LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread -li2c
 
 all: $(LIB_NAME).so
 

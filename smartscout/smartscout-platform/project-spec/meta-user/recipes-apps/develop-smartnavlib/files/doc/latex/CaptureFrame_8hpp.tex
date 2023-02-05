@@ -1,0 +1,49 @@
+\hypertarget{CaptureFrame_8hpp}{}\doxysection{modules/capture-\/frame/\+Capture\+Frame.hpp File Reference}
+\label{CaptureFrame_8hpp}\index{modules/capture-\/frame/CaptureFrame.hpp@{modules/capture-\/frame/CaptureFrame.hpp}}
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$linux/videodev2.\+h$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$Virtual\+Image.\+hpp$>$}\newline
+{\ttfamily \#include $<$ov7670.\+hpp$>$}\newline
+{\ttfamily \#include $<$v\+\_\+demosaic.\+hpp$>$}\newline
+{\ttfamily \#include $<$Frame\+Processor.\+hpp$>$}\newline
+Include dependency graph for Capture\+Frame.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{CaptureFrame_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{CaptureFrame_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}}
+\item 
+struct \mbox{\hyperlink{structCaptureFrame_1_1ImageBuffer}{Capture\+Frame\+::\+Image\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{CaptureFrame_8hpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}{CLEAR}}(x)~memset(\&(x), 0, sizeof(x))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{CaptureFrame_8hpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}\label{CaptureFrame_8hpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}} 
+\index{CaptureFrame.hpp@{CaptureFrame.hpp}!CLEAR@{CLEAR}}
+\index{CLEAR@{CLEAR}!CaptureFrame.hpp@{CaptureFrame.hpp}}
+\doxysubsubsection{\texorpdfstring{CLEAR}{CLEAR}}
+{\footnotesize\ttfamily \#define CLEAR(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~memset(\&(x), 0, sizeof(x))}
+
+Clear vl2d struct 

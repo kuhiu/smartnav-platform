@@ -1,0 +1,91 @@
+\hypertarget{classFuzzyInput}{}\doxysection{Fuzzy\+Input Class Reference}
+\label{classFuzzyInput}\index{FuzzyInput@{FuzzyInput}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Input.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Input\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classFuzzyInput__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Input\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classFuzzyInput__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyInput_a9415f5a048a85676f98f40d668b2a4b2}{Fuzzy\+Input}} (const std\+::string \&name, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$ memberships)
+\item 
+virtual \mbox{\hyperlink{classFuzzyInput_a6c6a2db3ca4b272f99a39ecfa53be73c}{$\sim$\+Fuzzy\+Input}} ()=default
+\item 
+void \mbox{\hyperlink{classFuzzyInput_a8f57502312db99c6b07486d8e2d2934a}{fuzzyfication}} (float input\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Input fuzzification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} \mbox{\hyperlink{classFuzzyInput_aefd8fde0a50045c19ebb2b53495606cd}{parse}} (const nlohmann\+::json \&input\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyInput_a9415f5a048a85676f98f40d668b2a4b2}\label{classFuzzyInput_a9415f5a048a85676f98f40d668b2a4b2}} 
+\index{FuzzyInput@{FuzzyInput}!FuzzyInput@{FuzzyInput}}
+\index{FuzzyInput@{FuzzyInput}!FuzzyInput@{FuzzyInput}}
+\doxysubsubsection{\texorpdfstring{FuzzyInput()}{FuzzyInput()}}
+{\footnotesize\ttfamily Fuzzy\+Input\+::\+Fuzzy\+Input (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$}]{memberships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} constructor \mbox{\Hypertarget{classFuzzyInput_a6c6a2db3ca4b272f99a39ecfa53be73c}\label{classFuzzyInput_a6c6a2db3ca4b272f99a39ecfa53be73c}} 
+\index{FuzzyInput@{FuzzyInput}!````~FuzzyInput@{$\sim$FuzzyInput}}
+\index{````~FuzzyInput@{$\sim$FuzzyInput}!FuzzyInput@{FuzzyInput}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyInput()}{~FuzzyInput()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Input\+::$\sim$\+Fuzzy\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyInput_a8f57502312db99c6b07486d8e2d2934a}\label{classFuzzyInput_a8f57502312db99c6b07486d8e2d2934a}} 
+\index{FuzzyInput@{FuzzyInput}!fuzzyfication@{fuzzyfication}}
+\index{fuzzyfication@{fuzzyfication}!FuzzyInput@{FuzzyInput}}
+\doxysubsubsection{\texorpdfstring{fuzzyfication()}{fuzzyfication()}}
+{\footnotesize\ttfamily void Fuzzy\+Input\+::fuzzyfication (\begin{DoxyParamCaption}\item[{float}]{input\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Input fuzzification. 
+
+\mbox{\Hypertarget{classFuzzyInput_aefd8fde0a50045c19ebb2b53495606cd}\label{classFuzzyInput_aefd8fde0a50045c19ebb2b53495606cd}} 
+\index{FuzzyInput@{FuzzyInput}!parse@{parse}}
+\index{parse@{parse}!FuzzyInput@{FuzzyInput}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} Fuzzy\+Input\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{input\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io} & input to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyInput_8hpp}{Fuzzy\+Input.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyInput_8cpp}{Fuzzy\+Input.\+cpp}}\end{DoxyCompactItemize}

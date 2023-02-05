@@ -12,21 +12,22 @@ PN="develop-smartnavlib"
 PN_LIB = "lib${PN}"
 
 # Package version
-PV = "0.1.41"
+PV = "0.1.64"
 
 SRC_URI = "file://Makefile \
 		 file://modules/capture-frame/* \
-		 file://modules/frame-processor/* \
 		 file://modules/fuzzy-control-system/* \
 		 file://modules/hc-sr04/* \
      file://modules/driver/* \
      file://modules/headlights/* \
-     file://modules/SmartNav.hpp \
+     file://modules/compass/* \
+     file://SmartNav.hpp \
 		  "
 
 DEPENDS += "tensorflowlite-lib" 
 DEPENDS += "opencv"
 DEPENDS += "jsonnlohmann"
+DEPENDS += "i2c-tools"
 
 S = "${WORKDIR}"
 
@@ -54,7 +55,7 @@ do_install() {
 		install -d ${D}${includedir}
 
     install -m 0644 ${S}/modules/*/*.hpp ${D}${includedir}
-    install -m 0644 ${S}/modules/SmartNav.hpp ${D}${includedir}
+    install -m 0644 ${S}/SmartNav.hpp ${D}${includedir}
     ln -s -r ${S}/${PN_LIB}.so.${PV} ${D}/${libdir}/${PN_LIB}.so
 
     # install the prebuilt library in /usr/lib with default permissions

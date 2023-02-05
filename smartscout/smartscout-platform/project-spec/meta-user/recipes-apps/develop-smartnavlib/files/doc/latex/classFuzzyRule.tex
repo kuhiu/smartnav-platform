@@ -1,0 +1,88 @@
+\hypertarget{classFuzzyRule}{}\doxysection{Fuzzy\+Rule Class Reference}
+\label{classFuzzyRule}\index{FuzzyRule@{FuzzyRule}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Rule.\+hpp$>$}
+
+
+
+Collaboration diagram for Fuzzy\+Rule\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{classFuzzyRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyRule_add8921575a553dd3584e2459fbe8bf81}{Fuzzy\+Rule}} (std\+::string name, \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} fuzzy\+\_\+input\+\_\+condition, \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} fuzzy\+\_\+output\+\_\+condition)
+\item 
+\mbox{\hyperlink{classFuzzyRule_a1ebcb627ba73dfeb5e35b55a1bae0d20}{$\sim$\+Fuzzy\+Rule}} ()=default
+\item 
+void \mbox{\hyperlink{classFuzzyRule_a03285a5e41fe7ade164142a9a8c74cc8}{evaluate}} (std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&system\+\_\+input, std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&system\+\_\+output)
+\begin{DoxyCompactList}\small\item\em Evaluate the inputs and update the outputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} \mbox{\hyperlink{classFuzzyRule_ae96b49353cd7900ee6a291c8956b6236}{parse}} (const nlohmann\+::json \&rule\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse rule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyRule_add8921575a553dd3584e2459fbe8bf81}\label{classFuzzyRule_add8921575a553dd3584e2459fbe8bf81}} 
+\index{FuzzyRule@{FuzzyRule}!FuzzyRule@{FuzzyRule}}
+\index{FuzzyRule@{FuzzyRule}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{FuzzyRule()}{FuzzyRule()}}
+{\footnotesize\ttfamily Fuzzy\+Rule\+::\+Fuzzy\+Rule (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}}}]{fuzzy\+\_\+input\+\_\+condition,  }\item[{\mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}}}]{fuzzy\+\_\+output\+\_\+condition }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} constructor \mbox{\Hypertarget{classFuzzyRule_a1ebcb627ba73dfeb5e35b55a1bae0d20}\label{classFuzzyRule_a1ebcb627ba73dfeb5e35b55a1bae0d20}} 
+\index{FuzzyRule@{FuzzyRule}!````~FuzzyRule@{$\sim$FuzzyRule}}
+\index{````~FuzzyRule@{$\sim$FuzzyRule}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyRule()}{~FuzzyRule()}}
+{\footnotesize\ttfamily Fuzzy\+Rule\+::$\sim$\+Fuzzy\+Rule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyRule_a03285a5e41fe7ade164142a9a8c74cc8}\label{classFuzzyRule_a03285a5e41fe7ade164142a9a8c74cc8}} 
+\index{FuzzyRule@{FuzzyRule}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily void Fuzzy\+Rule\+::evaluate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&}]{system\+\_\+input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&}]{system\+\_\+output }\end{DoxyParamCaption})}
+
+
+
+Evaluate the inputs and update the outputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em system\+\_\+input} & \\
+\hline
+{\em system\+\_\+output} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFuzzyRule_ae96b49353cd7900ee6a291c8956b6236}\label{classFuzzyRule_ae96b49353cd7900ee6a291c8956b6236}} 
+\index{FuzzyRule@{FuzzyRule}!parse@{parse}}
+\index{parse@{parse}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} Fuzzy\+Rule\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{rule\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse rule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rule\+\_\+json} & Rule to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyRule_8hpp}{Fuzzy\+Rule.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyRule_8cpp}{Fuzzy\+Rule.\+cpp}}\end{DoxyCompactItemize}

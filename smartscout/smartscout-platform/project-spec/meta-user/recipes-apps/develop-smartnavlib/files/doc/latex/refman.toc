@@ -1,0 +1,370 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Namespace List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Namespace Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Registers Namespace Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Variable Documentation}{9}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}QMC5883L\_CHIP\_ID}{9}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}QMC5883L\_CONFIG}{9}{subsubsection.5.1.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.1.3}QMC5883L\_CONFIG2}{10}{subsubsection.5.1.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.1.4}QMC5883L\_RESERVED}{10}{subsubsection.5.1.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.1.5}QMC5883L\_RESET}{10}{subsubsection.5.1.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.1.6}QMC5883L\_STATUS}{10}{subsubsection.5.1.1.6}%
+\contentsline {subsubsection}{\numberline {5.1.1.7}QMC5883L\_TEMP\_LSB}{10}{subsubsection.5.1.1.7}%
+\contentsline {subsubsection}{\numberline {5.1.1.8}QMC5883L\_TEMP\_MSB}{10}{subsubsection.5.1.1.8}%
+\contentsline {subsubsection}{\numberline {5.1.1.9}QMC5883L\_X\_LSB}{10}{subsubsection.5.1.1.9}%
+\contentsline {subsubsection}{\numberline {5.1.1.10}QMC5883L\_X\_MSB}{10}{subsubsection.5.1.1.10}%
+\contentsline {subsubsection}{\numberline {5.1.1.11}QMC5883L\_Y\_LSB}{11}{subsubsection.5.1.1.11}%
+\contentsline {subsubsection}{\numberline {5.1.1.12}QMC5883L\_Y\_MSB}{11}{subsubsection.5.1.1.12}%
+\contentsline {subsubsection}{\numberline {5.1.1.13}QMC5883L\_Z\_LSB}{11}{subsubsection.5.1.1.13}%
+\contentsline {subsubsection}{\numberline {5.1.1.14}QMC5883L\_Z\_MSB}{11}{subsubsection.5.1.1.14}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Compass\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Calibration\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Values Struct Reference}{13}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{14}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Member Data Documentation}{14}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}x\_high}{14}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}x\_low}{14}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}y\_high}{14}{subsubsection.6.1.2.3}%
+\contentsline {subsubsection}{\numberline {6.1.2.4}y\_low}{14}{subsubsection.6.1.2.4}%
+\contentsline {section}{\numberline {6.2}Capture\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame Class Reference}{15}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{16}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Member Typedef Documentation}{16}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}EventCallback}{16}{subsubsection.6.2.2.1}%
+\contentsline {subsection}{\numberline {6.2.3}Member Enumeration Documentation}{16}{subsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}pixelFormat}{16}{subsubsection.6.2.3.1}%
+\contentsline {subsection}{\numberline {6.2.4}Constructor \& Destructor Documentation}{16}{subsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.4.1}CaptureFrame()}{16}{subsubsection.6.2.4.1}%
+\contentsline {subsubsection}{\numberline {6.2.4.2}$\sim $CaptureFrame()}{17}{subsubsection.6.2.4.2}%
+\contentsline {subsection}{\numberline {6.2.5}Member Function Documentation}{17}{subsection.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.5.1}getBrightness()}{17}{subsubsection.6.2.5.1}%
+\contentsline {subsection}{\numberline {6.2.6}Member Data Documentation}{17}{subsection.6.2.6}%
+\contentsline {subsubsection}{\numberline {6.2.6.1}frame\_processor}{17}{subsubsection.6.2.6.1}%
+\contentsline {section}{\numberline {6.3}Compass Class Reference}{17}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Member Enumeration Documentation}{18}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}Axes}{18}{subsubsection.6.3.1.1}%
+\contentsline {subsection}{\numberline {6.3.2}Constructor \& Destructor Documentation}{18}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}Compass()}{18}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}$\sim $Compass()}{18}{subsubsection.6.3.2.2}%
+\contentsline {subsection}{\numberline {6.3.3}Member Function Documentation}{19}{subsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.3.1}getValue()}{19}{subsubsection.6.3.3.1}%
+\contentsline {section}{\numberline {6.4}Compass\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Compass\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Values Struct Reference}{19}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{20}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Member Data Documentation}{20}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}raw\_x}{20}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}raw\_y}{20}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}raw\_z}{20}{subsubsection.6.4.2.3}%
+\contentsline {section}{\numberline {6.5}Detector Class Reference}{20}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Constructor \& Destructor Documentation}{21}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}Detector()}{21}{subsubsection.6.5.1.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.2}$\sim $Detector()}{21}{subsubsection.6.5.1.2}%
+\contentsline {subsection}{\numberline {6.5.2}Member Function Documentation}{21}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}detect()}{21}{subsubsection.6.5.2.1}%
+\contentsline {section}{\numberline {6.6}Distance\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensors Class Reference}{21}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Constructor \& Destructor Documentation}{22}{subsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.1}DistanceSensors()}{22}{subsubsection.6.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.2}$\sim $DistanceSensors()}{22}{subsubsection.6.6.1.2}%
+\contentsline {subsection}{\numberline {6.6.2}Member Function Documentation}{22}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}getDistances()}{23}{subsubsection.6.6.2.1}%
+\contentsline {section}{\numberline {6.7}Driver Class Reference}{23}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Member Enumeration Documentation}{23}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}operationMode}{23}{subsubsection.6.7.1.1}%
+\contentsline {subsection}{\numberline {6.7.2}Constructor \& Destructor Documentation}{24}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}Driver()}{24}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}$\sim $Driver()}{24}{subsubsection.6.7.2.2}%
+\contentsline {subsection}{\numberline {6.7.3}Member Function Documentation}{24}{subsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.3.1}update()}{24}{subsubsection.6.7.3.1}%
+\contentsline {section}{\numberline {6.8}Frame\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Processor Class Reference}{25}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Constructor \& Destructor Documentation}{25}{subsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.1}FrameProcessor()}{25}{subsubsection.6.8.1.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.2}$\sim $FrameProcessor()}{25}{subsubsection.6.8.1.2}%
+\contentsline {subsection}{\numberline {6.8.2}Member Function Documentation}{26}{subsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.1}getResults()}{26}{subsubsection.6.8.2.1}%
+\contentsline {subsubsection}{\numberline {6.8.2.2}processFrame()}{26}{subsubsection.6.8.2.2}%
+\contentsline {section}{\numberline {6.9}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}And Class Reference}{26}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Constructor \& Destructor Documentation}{28}{subsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.1}FuzzyAnd()}{28}{subsubsection.6.9.1.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.2}$\sim $FuzzyAnd()}{28}{subsubsection.6.9.1.2}%
+\contentsline {subsection}{\numberline {6.9.2}Member Function Documentation}{28}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}evaluate()}{28}{subsubsection.6.9.2.1}%
+\contentsline {subsubsection}{\numberline {6.9.2.2}parse()}{29}{subsubsection.6.9.2.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.3}update()}{29}{subsubsection.6.9.2.3}%
+\contentsline {section}{\numberline {6.10}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparation Class Reference}{30}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Constructor \& Destructor Documentation}{31}{subsection.6.10.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.1}FuzzyComparation()}{32}{subsubsection.6.10.1.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.2}$\sim $FuzzyComparation()}{32}{subsubsection.6.10.1.2}%
+\contentsline {subsection}{\numberline {6.10.2}Member Function Documentation}{32}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}evaluate()}{32}{subsubsection.6.10.2.1}%
+\contentsline {subsubsection}{\numberline {6.10.2.2}parse()}{32}{subsubsection.6.10.2.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.3}update()}{33}{subsubsection.6.10.2.3}%
+\contentsline {section}{\numberline {6.11}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition Class Reference}{33}{section.6.11}%
+\contentsline {subsection}{\numberline {6.11.1}Member Typedef Documentation}{35}{subsection.6.11.1}%
+\contentsline {subsubsection}{\numberline {6.11.1.1}FuzzyConditionPtr}{35}{subsubsection.6.11.1.1}%
+\contentsline {subsection}{\numberline {6.11.2}Constructor \& Destructor Documentation}{35}{subsection.6.11.2}%
+\contentsline {subsubsection}{\numberline {6.11.2.1}FuzzyCondition()}{35}{subsubsection.6.11.2.1}%
+\contentsline {subsubsection}{\numberline {6.11.2.2}$\sim $FuzzyCondition()}{35}{subsubsection.6.11.2.2}%
+\contentsline {subsection}{\numberline {6.11.3}Member Function Documentation}{35}{subsection.6.11.3}%
+\contentsline {subsubsection}{\numberline {6.11.3.1}evaluate()}{35}{subsubsection.6.11.3.1}%
+\contentsline {subsubsection}{\numberline {6.11.3.2}update()}{36}{subsubsection.6.11.3.2}%
+\contentsline {section}{\numberline {6.12}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}System Class Reference}{36}{section.6.12}%
+\contentsline {subsection}{\numberline {6.12.1}Constructor \& Destructor Documentation}{37}{subsection.6.12.1}%
+\contentsline {subsubsection}{\numberline {6.12.1.1}FuzzyControlSystem()}{37}{subsubsection.6.12.1.1}%
+\contentsline {subsubsection}{\numberline {6.12.1.2}$\sim $FuzzyControlSystem()}{37}{subsubsection.6.12.1.2}%
+\contentsline {subsection}{\numberline {6.12.2}Member Function Documentation}{38}{subsection.6.12.2}%
+\contentsline {subsubsection}{\numberline {6.12.2.1}evaluate()}{38}{subsubsection.6.12.2.1}%
+\contentsline {subsubsection}{\numberline {6.12.2.2}parse()}{38}{subsubsection.6.12.2.2}%
+\contentsline {section}{\numberline {6.13}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input Class Reference}{38}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Constructor \& Destructor Documentation}{40}{subsection.6.13.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.1}FuzzyInput()}{41}{subsubsection.6.13.1.1}%
+\contentsline {subsubsection}{\numberline {6.13.1.2}$\sim $FuzzyInput()}{41}{subsubsection.6.13.1.2}%
+\contentsline {subsection}{\numberline {6.13.2}Member Function Documentation}{41}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}fuzzyfication()}{41}{subsubsection.6.13.2.1}%
+\contentsline {subsubsection}{\numberline {6.13.2.2}parse()}{41}{subsubsection.6.13.2.2}%
+\contentsline {section}{\numberline {6.14}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IO Class Reference}{42}{section.6.14}%
+\contentsline {subsection}{\numberline {6.14.1}Constructor \& Destructor Documentation}{43}{subsection.6.14.1}%
+\contentsline {subsubsection}{\numberline {6.14.1.1}FuzzyIO()}{44}{subsubsection.6.14.1.1}%
+\contentsline {subsubsection}{\numberline {6.14.1.2}$\sim $FuzzyIO()}{44}{subsubsection.6.14.1.2}%
+\contentsline {subsection}{\numberline {6.14.2}Member Function Documentation}{44}{subsection.6.14.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.1}getMemberships()}{44}{subsubsection.6.14.2.1}%
+\contentsline {subsubsection}{\numberline {6.14.2.2}getName()}{44}{subsubsection.6.14.2.2}%
+\contentsline {subsubsection}{\numberline {6.14.2.3}resetMembershipFuntions()}{44}{subsubsection.6.14.2.3}%
+\contentsline {subsection}{\numberline {6.14.3}Member Data Documentation}{45}{subsection.6.14.3}%
+\contentsline {subsubsection}{\numberline {6.14.3.1}\_\_memberships}{45}{subsubsection.6.14.3.1}%
+\contentsline {subsubsection}{\numberline {6.14.3.2}\_\_name}{45}{subsubsection.6.14.3.2}%
+\contentsline {section}{\numberline {6.15}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership Class Reference}{45}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Member Typedef Documentation}{48}{subsection.6.15.1}%
+\contentsline {subsubsection}{\numberline {6.15.1.1}FuzzyMembershipPtr}{48}{subsubsection.6.15.1.1}%
+\contentsline {subsection}{\numberline {6.15.2}Constructor \& Destructor Documentation}{48}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}FuzzyMembership()}{48}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}$\sim $FuzzyMembership()}{48}{subsubsection.6.15.2.2}%
+\contentsline {subsection}{\numberline {6.15.3}Member Function Documentation}{48}{subsection.6.15.3}%
+\contentsline {subsubsection}{\numberline {6.15.3.1}compute\_area\_of\_membership()}{48}{subsubsection.6.15.3.1}%
+\contentsline {subsubsection}{\numberline {6.15.3.2}compute\_centroid\_of\_membership()}{49}{subsubsection.6.15.3.2}%
+\contentsline {subsubsection}{\numberline {6.15.3.3}compute\_degree\_of\_membership()}{49}{subsubsection.6.15.3.3}%
+\contentsline {subsubsection}{\numberline {6.15.3.4}getName()}{49}{subsubsection.6.15.3.4}%
+\contentsline {subsubsection}{\numberline {6.15.3.5}getValue()}{49}{subsubsection.6.15.3.5}%
+\contentsline {subsubsection}{\numberline {6.15.3.6}resetValue()}{50}{subsubsection.6.15.3.6}%
+\contentsline {subsubsection}{\numberline {6.15.3.7}setValue()}{50}{subsubsection.6.15.3.7}%
+\contentsline {subsection}{\numberline {6.15.4}Member Data Documentation}{50}{subsection.6.15.4}%
+\contentsline {subsubsection}{\numberline {6.15.4.1}\_\_fuzzy\_value}{50}{subsubsection.6.15.4.1}%
+\contentsline {subsubsection}{\numberline {6.15.4.2}\_\_name}{50}{subsubsection.6.15.4.2}%
+\contentsline {subsubsection}{\numberline {6.15.4.3}\_\_NAME\_KEY}{50}{subsubsection.6.15.4.3}%
+\contentsline {subsubsection}{\numberline {6.15.4.4}\_\_UPPER\_LIMIT}{50}{subsubsection.6.15.4.4}%
+\contentsline {section}{\numberline {6.16}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trapezoidal Class Reference}{51}{section.6.16}%
+\contentsline {subsection}{\numberline {6.16.1}Constructor \& Destructor Documentation}{53}{subsection.6.16.1}%
+\contentsline {subsubsection}{\numberline {6.16.1.1}FuzzyMembershipTrapezoidal()}{53}{subsubsection.6.16.1.1}%
+\contentsline {subsubsection}{\numberline {6.16.1.2}$\sim $FuzzyMembershipTrapezoidal()}{53}{subsubsection.6.16.1.2}%
+\contentsline {subsection}{\numberline {6.16.2}Member Function Documentation}{53}{subsection.6.16.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.1}compute\_area\_of\_membership()}{53}{subsubsection.6.16.2.1}%
+\contentsline {subsubsection}{\numberline {6.16.2.2}compute\_centroid\_of\_membership()}{53}{subsubsection.6.16.2.2}%
+\contentsline {subsubsection}{\numberline {6.16.2.3}compute\_degree\_of\_membership()}{54}{subsubsection.6.16.2.3}%
+\contentsline {subsubsection}{\numberline {6.16.2.4}parse()}{54}{subsubsection.6.16.2.4}%
+\contentsline {subsection}{\numberline {6.16.3}Member Data Documentation}{54}{subsection.6.16.3}%
+\contentsline {subsubsection}{\numberline {6.16.3.1}\_\_MB\_TRAPEZOIDAL\_KEY}{54}{subsubsection.6.16.3.1}%
+\contentsline {section}{\numberline {6.17}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Output Class Reference}{55}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Constructor \& Destructor Documentation}{56}{subsection.6.17.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.1}FuzzyOutput()}{57}{subsubsection.6.17.1.1}%
+\contentsline {subsubsection}{\numberline {6.17.1.2}$\sim $FuzzyOutput()}{57}{subsubsection.6.17.1.2}%
+\contentsline {subsection}{\numberline {6.17.2}Member Function Documentation}{57}{subsection.6.17.2}%
+\contentsline {subsubsection}{\numberline {6.17.2.1}defuzzification()}{57}{subsubsection.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.2.2}parse()}{57}{subsubsection.6.17.2.2}%
+\contentsline {section}{\numberline {6.18}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rule Class Reference}{58}{section.6.18}%
+\contentsline {subsection}{\numberline {6.18.1}Constructor \& Destructor Documentation}{58}{subsection.6.18.1}%
+\contentsline {subsubsection}{\numberline {6.18.1.1}FuzzyRule()}{58}{subsubsection.6.18.1.1}%
+\contentsline {subsubsection}{\numberline {6.18.1.2}$\sim $FuzzyRule()}{59}{subsubsection.6.18.1.2}%
+\contentsline {subsection}{\numberline {6.18.2}Member Function Documentation}{59}{subsection.6.18.2}%
+\contentsline {subsubsection}{\numberline {6.18.2.1}evaluate()}{59}{subsubsection.6.18.2.1}%
+\contentsline {subsubsection}{\numberline {6.18.2.2}parse()}{59}{subsubsection.6.18.2.2}%
+\contentsline {section}{\numberline {6.19}Headlights Class Reference}{60}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Constructor \& Destructor Documentation}{60}{subsection.6.19.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.1}Headlights()}{60}{subsubsection.6.19.1.1}%
+\contentsline {subsubsection}{\numberline {6.19.1.2}$\sim $Headlights()}{60}{subsubsection.6.19.1.2}%
+\contentsline {subsection}{\numberline {6.19.2}Member Function Documentation}{60}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}update()}{60}{subsubsection.6.19.2.1}%
+\contentsline {section}{\numberline {6.20}Capture\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Image\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Buffer Struct Reference}{61}{section.6.20}%
+\contentsline {subsection}{\numberline {6.20.1}Detailed Description}{61}{subsection.6.20.1}%
+\contentsline {subsection}{\numberline {6.20.2}Member Data Documentation}{61}{subsection.6.20.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.1}length}{62}{subsubsection.6.20.2.1}%
+\contentsline {subsubsection}{\numberline {6.20.2.2}planes}{62}{subsubsection.6.20.2.2}%
+\contentsline {subsubsection}{\numberline {6.20.2.3}start}{62}{subsubsection.6.20.2.3}%
+\contentsline {section}{\numberline {6.21}Logger Class Reference}{62}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Constructor \& Destructor Documentation}{63}{subsection.6.21.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.1}Logger()}{63}{subsubsection.6.21.1.1}%
+\contentsline {subsection}{\numberline {6.21.2}Member Function Documentation}{63}{subsection.6.21.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.1}log()}{63}{subsubsection.6.21.2.1}%
+\contentsline {subsubsection}{\numberline {6.21.2.2}operator=()}{63}{subsubsection.6.21.2.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.3}push()}{64}{subsubsection.6.21.2.3}%
+\contentsline {section}{\numberline {6.22}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream Class Reference}{65}{section.6.22}%
+\contentsline {subsection}{\numberline {6.22.1}Constructor \& Destructor Documentation}{66}{subsection.6.22.1}%
+\contentsline {subsubsection}{\numberline {6.22.1.1}LogStream()}{66}{subsubsection.6.22.1.1}%
+\contentsline {subsubsection}{\numberline {6.22.1.2}$\sim $LogStream()}{66}{subsubsection.6.22.1.2}%
+\contentsline {subsection}{\numberline {6.22.2}Member Function Documentation}{67}{subsection.6.22.2}%
+\contentsline {subsubsection}{\numberline {6.22.2.1}levelToString()}{67}{subsubsection.6.22.2.1}%
+\contentsline {section}{\numberline {6.23}ov7670 Class Reference}{67}{section.6.23}%
+\contentsline {subsection}{\numberline {6.23.1}Member Enumeration Documentation}{67}{subsection.6.23.1}%
+\contentsline {subsubsection}{\numberline {6.23.1.1}pixelFormat}{67}{subsubsection.6.23.1.1}%
+\contentsline {subsection}{\numberline {6.23.2}Constructor \& Destructor Documentation}{68}{subsection.6.23.2}%
+\contentsline {subsubsection}{\numberline {6.23.2.1}ov7670()}{68}{subsubsection.6.23.2.1}%
+\contentsline {subsubsection}{\numberline {6.23.2.2}$\sim $ov7670()}{68}{subsubsection.6.23.2.2}%
+\contentsline {section}{\numberline {6.24}Recognition\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Result Struct Reference}{68}{section.6.24}%
+\contentsline {subsection}{\numberline {6.24.1}Member Data Documentation}{69}{subsection.6.24.1}%
+\contentsline {subsubsection}{\numberline {6.24.1.1}label}{69}{subsubsection.6.24.1.1}%
+\contentsline {subsubsection}{\numberline {6.24.1.2}score}{69}{subsubsection.6.24.1.2}%
+\contentsline {subsubsection}{\numberline {6.24.1.3}xmax}{70}{subsubsection.6.24.1.3}%
+\contentsline {subsubsection}{\numberline {6.24.1.4}xmin}{70}{subsubsection.6.24.1.4}%
+\contentsline {subsubsection}{\numberline {6.24.1.5}ymax}{70}{subsubsection.6.24.1.5}%
+\contentsline {subsubsection}{\numberline {6.24.1.6}ymin}{70}{subsubsection.6.24.1.6}%
+\contentsline {section}{\numberline {6.25}Simple\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Moving\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Average Class Reference}{70}{section.6.25}%
+\contentsline {subsection}{\numberline {6.25.1}Constructor \& Destructor Documentation}{71}{subsection.6.25.1}%
+\contentsline {subsubsection}{\numberline {6.25.1.1}SimpleMovingAverage()}{71}{subsubsection.6.25.1.1}%
+\contentsline {subsubsection}{\numberline {6.25.1.2}$\sim $SimpleMovingAverage()}{71}{subsubsection.6.25.1.2}%
+\contentsline {subsection}{\numberline {6.25.2}Member Function Documentation}{71}{subsection.6.25.2}%
+\contentsline {subsubsection}{\numberline {6.25.2.1}addData()}{71}{subsubsection.6.25.2.1}%
+\contentsline {subsubsection}{\numberline {6.25.2.2}getMean()}{71}{subsubsection.6.25.2.2}%
+\contentsline {section}{\numberline {6.26}Smart\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nav Class Reference}{72}{section.6.26}%
+\contentsline {subsection}{\numberline {6.26.1}Constructor \& Destructor Documentation}{72}{subsection.6.26.1}%
+\contentsline {subsubsection}{\numberline {6.26.1.1}SmartNav()}{72}{subsubsection.6.26.1.1}%
+\contentsline {subsubsection}{\numberline {6.26.1.2}$\sim $SmartNav()}{73}{subsubsection.6.26.1.2}%
+\contentsline {section}{\numberline {6.27}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trapezoidal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Trapezoidal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Points Struct Reference}{73}{section.6.27}%
+\contentsline {subsection}{\numberline {6.27.1}Member Data Documentation}{73}{subsection.6.27.1}%
+\contentsline {subsubsection}{\numberline {6.27.1.1}left\_slope}{74}{subsubsection.6.27.1.1}%
+\contentsline {subsubsection}{\numberline {6.27.1.2}right\_slope}{74}{subsubsection.6.27.1.2}%
+\contentsline {subsubsection}{\numberline {6.27.1.3}x1}{74}{subsubsection.6.27.1.3}%
+\contentsline {subsubsection}{\numberline {6.27.1.4}x2}{74}{subsubsection.6.27.1.4}%
+\contentsline {section}{\numberline {6.28}utilities Class Reference}{74}{section.6.28}%
+\contentsline {subsection}{\numberline {6.28.1}Constructor \& Destructor Documentation}{75}{subsection.6.28.1}%
+\contentsline {subsubsection}{\numberline {6.28.1.1}utilities()}{75}{subsubsection.6.28.1.1}%
+\contentsline {subsubsection}{\numberline {6.28.1.2}$\sim $utilities()}{75}{subsubsection.6.28.1.2}%
+\contentsline {section}{\numberline {6.29}v\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}demosaic Class Reference}{75}{section.6.29}%
+\contentsline {subsection}{\numberline {6.29.1}Member Enumeration Documentation}{76}{subsection.6.29.1}%
+\contentsline {subsubsection}{\numberline {6.29.1.1}pixelFormat}{76}{subsubsection.6.29.1.1}%
+\contentsline {subsection}{\numberline {6.29.2}Constructor \& Destructor Documentation}{76}{subsection.6.29.2}%
+\contentsline {subsubsection}{\numberline {6.29.2.1}v\_demosaic()}{76}{subsubsection.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.2.2}$\sim $v\_demosaic()}{76}{subsubsection.6.29.2.2}%
+\contentsline {section}{\numberline {6.30}Virtual\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Image Class Reference}{77}{section.6.30}%
+\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{78}{subsection.6.30.1}%
+\contentsline {subsubsection}{\numberline {6.30.1.1}VirtualImage()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{78}{subsubsection.6.30.1.1}%
+\contentsline {subsubsection}{\numberline {6.30.1.2}VirtualImage()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{78}{subsubsection.6.30.1.2}%
+\contentsline {subsubsection}{\numberline {6.30.1.3}$\sim $VirtualImage()}{78}{subsubsection.6.30.1.3}%
+\contentsline {subsection}{\numberline {6.30.2}Member Function Documentation}{78}{subsection.6.30.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.1}colorBalancing()}{78}{subsubsection.6.30.2.1}%
+\contentsline {subsubsection}{\numberline {6.30.2.2}convertToRgb()}{79}{subsubsection.6.30.2.2}%
+\contentsline {subsubsection}{\numberline {6.30.2.3}flip()}{79}{subsubsection.6.30.2.3}%
+\contentsline {subsubsection}{\numberline {6.30.2.4}getBrightness()}{79}{subsubsection.6.30.2.4}%
+\contentsline {subsubsection}{\numberline {6.30.2.5}getChannels()}{79}{subsubsection.6.30.2.5}%
+\contentsline {subsubsection}{\numberline {6.30.2.6}getColorSpace()}{80}{subsubsection.6.30.2.6}%
+\contentsline {subsubsection}{\numberline {6.30.2.7}getData()}{80}{subsubsection.6.30.2.7}%
+\contentsline {subsubsection}{\numberline {6.30.2.8}getHeigth()}{80}{subsubsection.6.30.2.8}%
+\contentsline {subsubsection}{\numberline {6.30.2.9}getWidth()}{80}{subsubsection.6.30.2.9}%
+\contentsline {subsubsection}{\numberline {6.30.2.10}resize()}{80}{subsubsection.6.30.2.10}%
+\contentsline {subsubsection}{\numberline {6.30.2.11}saveAsJpg()}{81}{subsubsection.6.30.2.11}%
+\contentsline {chapter}{\numberline {7}File Documentation}{83}{chapter.7}%
+\contentsline {section}{\numberline {7.1}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Capture\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame.cpp File Reference}{83}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Macro Definition Documentation}{83}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}DEBUG\_PRINT}{84}{subsubsection.7.1.1.1}%
+\contentsline {section}{\numberline {7.2}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Capture\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame.hpp File Reference}{84}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Macro Definition Documentation}{85}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}CLEAR}{85}{subsubsection.7.2.1.1}%
+\contentsline {section}{\numberline {7.3}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Color\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Spaces.hpp File Reference}{85}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Enumeration Type Documentation}{86}{subsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.1}ColorSpaces}{86}{subsubsection.7.3.1.1}%
+\contentsline {section}{\numberline {7.4}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Detector.cpp File Reference}{86}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Macro Definition Documentation}{86}{subsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.1.1}DEBUG\_PRINT}{86}{subsubsection.7.4.1.1}%
+\contentsline {section}{\numberline {7.5}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Detector.hpp File Reference}{87}{section.7.5}%
+\contentsline {section}{\numberline {7.6}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Processor.cpp File Reference}{87}{section.7.6}%
+\contentsline {section}{\numberline {7.7}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Frame\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Processor.hpp File Reference}{88}{section.7.7}%
+\contentsline {section}{\numberline {7.8}modules/capture-\/frame/ov7670.cpp File Reference}{89}{section.7.8}%
+\contentsline {subsection}{\numberline {7.8.1}Macro Definition Documentation}{89}{subsection.7.8.1}%
+\contentsline {subsubsection}{\numberline {7.8.1.1}DEBUG\_OV7670}{89}{subsubsection.7.8.1.1}%
+\contentsline {subsubsection}{\numberline {7.8.1.2}DEBUG\_PRINT}{89}{subsubsection.7.8.1.2}%
+\contentsline {section}{\numberline {7.9}modules/capture-\/frame/ov7670.hpp File Reference}{90}{section.7.9}%
+\contentsline {subsection}{\numberline {7.9.1}Macro Definition Documentation}{90}{subsection.7.9.1}%
+\contentsline {subsubsection}{\numberline {7.9.1.1}CLEAR}{91}{subsubsection.7.9.1.1}%
+\contentsline {section}{\numberline {7.10}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Recognition\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Result.hpp File Reference}{91}{section.7.10}%
+\contentsline {section}{\numberline {7.11}modules/capture-\/frame/v\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}demosaic.cpp File Reference}{92}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Macro Definition Documentation}{92}{subsection.7.11.1}%
+\contentsline {subsubsection}{\numberline {7.11.1.1}DEBUG\_DEMOSAIC}{92}{subsubsection.7.11.1.1}%
+\contentsline {subsubsection}{\numberline {7.11.1.2}DEBUG\_PRINT}{92}{subsubsection.7.11.1.2}%
+\contentsline {section}{\numberline {7.12}modules/capture-\/frame/v\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}demosaic.hpp File Reference}{93}{section.7.12}%
+\contentsline {subsection}{\numberline {7.12.1}Macro Definition Documentation}{93}{subsection.7.12.1}%
+\contentsline {subsubsection}{\numberline {7.12.1.1}CLEAR}{94}{subsubsection.7.12.1.1}%
+\contentsline {section}{\numberline {7.13}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Virtual\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Image.cpp File Reference}{94}{section.7.13}%
+\contentsline {section}{\numberline {7.14}modules/capture-\/frame/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Virtual\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Image.hpp File Reference}{94}{section.7.14}%
+\contentsline {section}{\numberline {7.15}modules/compass/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compass.cpp File Reference}{95}{section.7.15}%
+\contentsline {subsection}{\numberline {7.15.1}Macro Definition Documentation}{95}{subsection.7.15.1}%
+\contentsline {subsubsection}{\numberline {7.15.1.1}DEBUG\_PRINT}{96}{subsubsection.7.15.1.1}%
+\contentsline {section}{\numberline {7.16}modules/compass/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Compass.hpp File Reference}{96}{section.7.16}%
+\contentsline {section}{\numberline {7.17}modules/compass/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Registers.hpp File Reference}{97}{section.7.17}%
+\contentsline {section}{\numberline {7.18}modules/driver/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Driver.hpp File Reference}{98}{section.7.18}%
+\contentsline {subsection}{\numberline {7.18.1}Macro Definition Documentation}{99}{subsection.7.18.1}%
+\contentsline {subsubsection}{\numberline {7.18.1.1}AXI\_TIMER\_IOC\_NMAGICO}{99}{subsubsection.7.18.1.1}%
+\contentsline {subsubsection}{\numberline {7.18.1.2}AXI\_TIMER\_IOC\_T\_ON}{99}{subsubsection.7.18.1.2}%
+\contentsline {subsubsection}{\numberline {7.18.1.3}L298N\_IOC\_BACK}{99}{subsubsection.7.18.1.3}%
+\contentsline {subsubsection}{\numberline {7.18.1.4}L298N\_IOC\_FORWARD}{99}{subsubsection.7.18.1.4}%
+\contentsline {subsubsection}{\numberline {7.18.1.5}L298N\_IOC\_LEFT}{99}{subsubsection.7.18.1.5}%
+\contentsline {subsubsection}{\numberline {7.18.1.6}L298N\_IOC\_NMAGICO}{99}{subsubsection.7.18.1.6}%
+\contentsline {subsubsection}{\numberline {7.18.1.7}L298N\_IOC\_RIGHT}{99}{subsubsection.7.18.1.7}%
+\contentsline {subsubsection}{\numberline {7.18.1.8}L298N\_IOC\_STOP}{100}{subsubsection.7.18.1.8}%
+\contentsline {section}{\numberline {7.19}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}And.cpp File Reference}{100}{section.7.19}%
+\contentsline {subsection}{\numberline {7.19.1}Macro Definition Documentation}{100}{subsection.7.19.1}%
+\contentsline {subsubsection}{\numberline {7.19.1.1}DEBUG\_PRINT}{100}{subsubsection.7.19.1.1}%
+\contentsline {section}{\numberline {7.20}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}And.hpp File Reference}{100}{section.7.20}%
+\contentsline {section}{\numberline {7.21}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparation.cpp File Reference}{101}{section.7.21}%
+\contentsline {subsection}{\numberline {7.21.1}Macro Definition Documentation}{102}{subsection.7.21.1}%
+\contentsline {subsubsection}{\numberline {7.21.1.1}DEBUG\_PRINT}{102}{subsubsection.7.21.1.1}%
+\contentsline {section}{\numberline {7.22}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Comparation.hpp File Reference}{102}{section.7.22}%
+\contentsline {section}{\numberline {7.23}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Condition.hpp File Reference}{103}{section.7.23}%
+\contentsline {section}{\numberline {7.24}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}System.cpp File Reference}{104}{section.7.24}%
+\contentsline {subsection}{\numberline {7.24.1}Macro Definition Documentation}{105}{subsection.7.24.1}%
+\contentsline {subsubsection}{\numberline {7.24.1.1}DEBUG\_FUZZYCONTROLSYSTEM}{105}{subsubsection.7.24.1.1}%
+\contentsline {subsubsection}{\numberline {7.24.1.2}DEBUG\_PRINT}{105}{subsubsection.7.24.1.2}%
+\contentsline {section}{\numberline {7.25}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}System.hpp File Reference}{105}{section.7.25}%
+\contentsline {section}{\numberline {7.26}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input.cpp File Reference}{106}{section.7.26}%
+\contentsline {section}{\numberline {7.27}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Input.hpp File Reference}{106}{section.7.27}%
+\contentsline {section}{\numberline {7.28}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IO.hpp File Reference}{107}{section.7.28}%
+\contentsline {section}{\numberline {7.29}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership.hpp File Reference}{108}{section.7.29}%
+\contentsline {section}{\numberline {7.30}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trapezoidal.cpp File Reference}{109}{section.7.30}%
+\contentsline {section}{\numberline {7.31}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Membership\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Trapezoidal.hpp File Reference}{110}{section.7.31}%
+\contentsline {section}{\numberline {7.32}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Output.cpp File Reference}{111}{section.7.32}%
+\contentsline {subsection}{\numberline {7.32.1}Macro Definition Documentation}{112}{subsection.7.32.1}%
+\contentsline {subsubsection}{\numberline {7.32.1.1}DEBUG\_OUTPUT}{112}{subsubsection.7.32.1.1}%
+\contentsline {subsubsection}{\numberline {7.32.1.2}DEBUG\_PRINT}{112}{subsubsection.7.32.1.2}%
+\contentsline {section}{\numberline {7.33}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Output.hpp File Reference}{112}{section.7.33}%
+\contentsline {section}{\numberline {7.34}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rule.cpp File Reference}{113}{section.7.34}%
+\contentsline {subsection}{\numberline {7.34.1}Macro Definition Documentation}{114}{subsection.7.34.1}%
+\contentsline {subsubsection}{\numberline {7.34.1.1}DEBUG\_PRINT}{114}{subsubsection.7.34.1.1}%
+\contentsline {subsubsection}{\numberline {7.34.1.2}DEBUG\_RULE}{114}{subsubsection.7.34.1.2}%
+\contentsline {section}{\numberline {7.35}modules/fuzzy-\/control-\/system/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Fuzzy\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rule.hpp File Reference}{114}{section.7.35}%
+\contentsline {section}{\numberline {7.36}modules/hc-\/sr04/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Distance\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensors.cpp File Reference}{115}{section.7.36}%
+\contentsline {subsection}{\numberline {7.36.1}Macro Definition Documentation}{116}{subsection.7.36.1}%
+\contentsline {subsubsection}{\numberline {7.36.1.1}DEBUG\_PRINT}{116}{subsubsection.7.36.1.1}%
+\contentsline {subsubsection}{\numberline {7.36.1.2}HCSR04\_IOC\_NMAGICO}{116}{subsubsection.7.36.1.2}%
+\contentsline {subsubsection}{\numberline {7.36.1.3}HCSR04\_IOC\_TRIGGER}{116}{subsubsection.7.36.1.3}%
+\contentsline {section}{\numberline {7.37}modules/hc-\/sr04/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Distance\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensors.hpp File Reference}{116}{section.7.37}%
+\contentsline {section}{\numberline {7.38}modules/hc-\/sr04/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Simple\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Moving\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Average.hpp File Reference}{117}{section.7.38}%
+\contentsline {section}{\numberline {7.39}modules/headlights/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Headlights.hpp File Reference}{118}{section.7.39}%
+\contentsline {subsection}{\numberline {7.39.1}Macro Definition Documentation}{119}{subsection.7.39.1}%
+\contentsline {subsubsection}{\numberline {7.39.1.1}AXI\_TIMER\_IOC\_NMAGICO}{119}{subsubsection.7.39.1.1}%
+\contentsline {subsubsection}{\numberline {7.39.1.2}AXI\_TIMER\_IOC\_T\_ON}{119}{subsubsection.7.39.1.2}%
+\contentsline {section}{\numberline {7.40}modules/logger/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Logger.cpp File Reference}{120}{section.7.40}%
+\contentsline {section}{\numberline {7.41}modules/logger/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Logger.hpp File Reference}{120}{section.7.41}%
+\contentsline {section}{\numberline {7.42}modules/logger/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Levels.hpp File Reference}{121}{section.7.42}%
+\contentsline {subsection}{\numberline {7.42.1}Enumeration Type Documentation}{121}{subsection.7.42.1}%
+\contentsline {subsubsection}{\numberline {7.42.1.1}LogLevels}{121}{subsubsection.7.42.1.1}%
+\contentsline {section}{\numberline {7.43}modules/logger/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.cpp File Reference}{122}{section.7.43}%
+\contentsline {section}{\numberline {7.44}modules/logger/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stream.hpp File Reference}{122}{section.7.44}%
+\contentsline {section}{\numberline {7.45}modules/utilities/utilities.hpp File Reference}{123}{section.7.45}%
+\contentsline {subsection}{\numberline {7.45.1}Function Documentation}{123}{subsection.7.45.1}%
+\contentsline {subsubsection}{\numberline {7.45.1.1}printf()}{123}{subsubsection.7.45.1.1}%
+\contentsline {subsection}{\numberline {7.45.2}Variable Documentation}{124}{subsection.7.45.2}%
+\contentsline {subsubsection}{\numberline {7.45.2.1}begin}{124}{subsubsection.7.45.2.1}%
+\contentsline {subsubsection}{\numberline {7.45.2.2}elapsed}{124}{subsubsection.7.45.2.2}%
+\contentsline {subsubsection}{\numberline {7.45.2.3}end}{124}{subsubsection.7.45.2.3}%
+\contentsline {section}{\numberline {7.46}Smart\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Nav.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp File Reference}{124}{section.7.46}%
+\contentsline {chapter}{Index}{125}{section*.216}%
