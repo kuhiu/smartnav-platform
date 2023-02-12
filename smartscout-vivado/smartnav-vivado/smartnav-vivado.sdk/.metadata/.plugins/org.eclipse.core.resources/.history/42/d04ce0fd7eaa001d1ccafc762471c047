@@ -1,0 +1,16 @@
+#include "xparameters.h"
+
+
+int main()
+{
+    XIOModule xio;
+    init_platform();
+
+    XIOModule_Initialize(&xio, XPAR_IOMODULE_0_DEVICE_ID);
+
+    while(1){
+    	XIOModule_DiscreteWrite(&xio, 1, 0xA);
+    }
+
+    return 0;
+}

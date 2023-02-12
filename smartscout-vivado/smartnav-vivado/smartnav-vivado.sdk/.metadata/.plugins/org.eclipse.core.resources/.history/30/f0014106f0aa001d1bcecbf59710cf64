@@ -1,0 +1,19 @@
+/*
+ * encoder.hpp
+ *
+ *  Created on: Feb 12, 2023
+ *      Author: petalinux
+ */
+
+#ifndef SRC_ENCODER_ENCODER_HPP_
+#define SRC_ENCODER_ENCODER_HPP_
+
+class encoder {
+public:
+
+private:
+
+
+};
+
+#endif /* SRC_ENCODER_ENCODER_HPP_ */

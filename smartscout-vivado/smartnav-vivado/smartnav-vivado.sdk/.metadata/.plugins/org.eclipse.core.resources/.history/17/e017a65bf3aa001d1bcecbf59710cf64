@@ -1,0 +1,40 @@
+/*
+ * encoder.hpp
+ *
+ *  Created on: Feb 12, 2023
+ *      Author: petalinux
+ */
+
+#ifndef SRC_ENCODER_ENCODER_HPP_
+#define SRC_ENCODER_ENCODER_HPP_
+
+#include "xil_printf.h"
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xgpio.h"
+#include "xintc.h"
+#include "xintc_l.h"
+#include "xil_exception.h"
+#include "microblaze_sleep.h"
+
+class Encoder {
+public:
+	/** Encoder constructor */
+	Encoder();
+	/** Encoder destructor */
+	~Encoder();
+
+private:
+	/** GPIO */
+	XGpio __gpio;
+	/** Initialize the axi gpio */
+	void __init_io() {
+		int status;
+
+		status = XGpio_Initialize();
+	};
+
+
+};
+
+#endif /* SRC_ENCODER_ENCODER_HPP_ */

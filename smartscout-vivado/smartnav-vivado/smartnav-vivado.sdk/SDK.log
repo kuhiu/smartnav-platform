@@ -1,0 +1,74 @@
+19:31:41 INFO  : Registering command handlers for SDK TCF services
+19:31:43 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+19:31:50 INFO  : XSCT server has started successfully.
+19:32:02 INFO  : Successfully done setting XSCT server connection channel  
+19:32:02 INFO  : Successfully done setting SDK workspace  
+19:32:02 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+02:17:07 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1676168154000,  Project:1676143493000
+02:17:07 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification located at /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+02:17:43 INFO  : Project design_1_wrapper_hw_platform_0's source hardware specification location will not be monitored anymore.
+02:21:58 INFO  : Registering command handlers for SDK TCF services
+02:22:00 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+02:22:06 INFO  : XSCT server has started successfully.
+02:22:15 INFO  : Successfully done setting XSCT server connection channel  
+02:22:15 INFO  : Successfully done setting SDK workspace  
+02:22:15 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+02:25:42 INFO  : Registering command handlers for SDK TCF services
+02:25:44 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+02:25:47 INFO  : XSCT server has started successfully.
+02:25:47 INFO  : Successfully done setting XSCT server connection channel  
+02:25:47 INFO  : Successfully done setting SDK workspace  
+02:25:47 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+02:25:47 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
+02:49:44 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+02:49:46 INFO  : XSCT server has started successfully.
+02:49:46 INFO  : Successfully done setting XSCT server connection channel  
+02:49:46 INFO  : Successfully done setting SDK workspace  
+02:49:50 INFO  : Registering command handlers for SDK TCF services
+02:49:50 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+03:35:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+04:06:19 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1676174502000,  Project:1676168154000
+04:06:19 INFO  : Project design_1_wrapper_hw_platform_2's source hardware specification located at /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+04:06:28 INFO  : Copied contents of /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_2/system.hdf.
+04:06:39 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+04:06:42 INFO  : 
+04:06:43 INFO  : Updating hardware inferred compiler options for led_blinky.
+04:06:43 INFO  : Clearing existing target manager status.
+04:06:43 INFO  : Closing and re-opening the MSS file of ther project led_blinky_bsp
+04:06:44 INFO  : Closing and re-opening the MSS file of ther project led_blinky_bsp
+04:06:45 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+04:06:47 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+04:50:52 INFO  : Registering command handlers for SDK TCF services
+04:50:55 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+04:51:00 INFO  : XSCT server has started successfully.
+04:51:09 INFO  : Successfully done setting XSCT server connection channel  
+04:51:09 INFO  : Successfully done setting SDK workspace  
+04:51:09 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+04:51:14 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_2.
+04:52:25 INFO  : Registering command handlers for SDK TCF services
+04:52:26 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+04:52:29 INFO  : XSCT server has started successfully.
+04:52:29 INFO  : Successfully done setting XSCT server connection channel  
+04:52:29 INFO  : Successfully done setting SDK workspace  
+04:52:29 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+04:52:29 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_2.
+05:01:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+05:13:01 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1676178469000,  Project:1676174502000
+05:13:01 INFO  : Project design_1_wrapper_hw_platform_2's source hardware specification located at /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+05:13:35 INFO  : Copied contents of /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf into /design_1_wrapper_hw_platform_2/system.hdf.
+05:13:38 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+05:13:40 INFO  : 
+05:13:40 INFO  : Updating hardware inferred compiler options for led_blinky.
+05:13:40 INFO  : Clearing existing target manager status.
+05:13:40 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+05:13:42 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:07:48 INFO  : Registering command handlers for SDK TCF services
+17:07:52 INFO  : Launching XSCT server: xsct -n -interactive /home/user/project/smartnav-vivado.sdk/temp_xsdb_launch_script.tcl
+17:07:57 INFO  : XSCT server has started successfully.
+17:07:57 INFO  : Successfully done setting XSCT server connection channel  
+17:07:57 INFO  : Successfully done setting SDK workspace  
+17:07:57 INFO  : Processing command line option -hwspec /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf.
+17:07:57 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_2.

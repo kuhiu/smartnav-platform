@@ -1,11 +1,11 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Mon Jan  9 10:05:04 2023
+// Date        : Thu Feb  9 02:24:06 2023
 // Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top design_1_axi_timer_1_1 -prefix
-//               design_1_axi_timer_1_1_ design_1_axi_timer_1_1_stub.v
-// Design      : design_1_axi_timer_1_1
+//               design_1_axi_timer_1_1_ design_1_axi_timer_0_0_stub.v
+// Design      : design_1_axi_timer_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------

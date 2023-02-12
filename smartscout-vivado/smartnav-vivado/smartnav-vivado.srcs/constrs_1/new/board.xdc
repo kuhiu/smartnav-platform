@@ -36,7 +36,7 @@ set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { pi_act
 set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports zybo_led_0]; #IO_L23P_T3_35 Sch=LED0
 set_property -dict { PACKAGE_PIN M15   IOSTANDARD LVCMOS33 } [get_ports zybo_led_1]; #IO_L23N_T3_35 Sch=LED1
 set_property -dict { PACKAGE_PIN G14   IOSTANDARD LVCMOS33 } [get_ports zybo_led_2]; #IO_0_35=Sch=LED2
-set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports zybo_led_3]; #IO_L3N_T0_DQS_AD1N_35 Sch=LED3
+set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports led_test]; #IO_L3N_T0_DQS_AD1N_35 Sch=LED3
 
 ##I2S Audio Codec
 #set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports ac_bclk]; #IO_L12N_T1_MRCC_35 Sch=AC_BCLK
@@ -127,11 +127,11 @@ set_property PULLUP TRUE [get_ports Encoder_0];
 set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_0 }]; #IO_L4P_T0_34 Sch=JE1
 set_property -dict { PACKAGE_PIN W16   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_1 }]; #IO_L18N_T2_34 Sch=JE2
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { pwm0 }]; #IO_25_35 Sch=JE3
-set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { Encoder_0 }]; #IO_L19P_T3_35 Sch=JE4
+set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { GPIO_0[17] }]; #IO_L19P_T3_35 Sch=JE4
 set_property -dict { PACKAGE_PIN V13   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_2 }]; #IO_L3N_T0_DQS_34 Sch=JE7
 set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_3 }]; #IO_L9N_T1_DQS_34 Sch=JE8
 set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports { pwm1 }]; #IO_L20P_T3_34 Sch=JE9
-set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { Encoder_1 }]; #IO_L7N_T1_34 Sch=JE10
+set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { GPIO_0[16] }]; #IO_L7N_T1_34 Sch=JE10
 
 
 ##USB-OTG overcurrent detect pin

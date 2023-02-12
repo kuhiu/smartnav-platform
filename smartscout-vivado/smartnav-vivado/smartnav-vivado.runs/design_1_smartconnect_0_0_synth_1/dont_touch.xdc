@@ -46,10 +46,6 @@
 # IP: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_12/bd_48ac_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_1_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
-set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
-
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_1/bd_48ac_psr_aclk_0_board.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
 
@@ -69,6 +65,10 @@ set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_10/bd_48ac_sbn_0_ooc.xdc
 
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_11/bd_48ac_m00s2a_0_ooc.xdc
+
+# XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_1_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
+set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 
 # IP: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/design_1_smartconnect_0_0.xci
 # IP: The module: 'design_1_smartconnect_0_0' is the root of the design. Do not add the DONT_TOUCH constraint.
@@ -115,10 +115,6 @@ set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 # IP: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_12/bd_48ac_m00e_0.xci
 # DONT_TOUCH constraint suppressed by (parent) sub-design file.
 
-# XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/ooc.xdc
-# XDC: The top module name and the constraint reference have the same name: 'design_1_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
-#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
-
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_1/bd_48ac_psr_aclk_0_board.xdc
 # DONT_TOUCH constraint suppressed by parent sub-design file.
 
@@ -138,3 +134,7 @@ set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_10/bd_48ac_sbn_0_ooc.xdc
 
 # XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_11/bd_48ac_m00s2a_0_ooc.xdc
+
+# XDC: /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'design_1_smartconnect_0_0'. Do not add the DONT_TOUCH constraint.
+#dup# set_property DONT_TOUCH TRUE [get_cells inst -quiet] -quiet

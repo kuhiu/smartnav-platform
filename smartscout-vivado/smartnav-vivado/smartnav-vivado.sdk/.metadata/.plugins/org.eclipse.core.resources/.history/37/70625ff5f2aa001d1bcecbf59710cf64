@@ -1,0 +1,31 @@
+/*
+ * encoder.hpp
+ *
+ *  Created on: Feb 12, 2023
+ *      Author: petalinux
+ */
+
+#ifndef SRC_ENCODER_ENCODER_HPP_
+#define SRC_ENCODER_ENCODER_HPP_
+
+#include "xgpio.h"
+
+class Encoder {
+public:
+	/** Encoder constructor */
+	Encoder();
+	/** Encoder destructor */
+	~Encoder();
+
+private:
+	/** Initialize the axi gpio */
+	void __init_io() {
+		int status;
+
+		status = XGp
+	};
+
+
+};
+
+#endif /* SRC_ENCODER_ENCODER_HPP_ */

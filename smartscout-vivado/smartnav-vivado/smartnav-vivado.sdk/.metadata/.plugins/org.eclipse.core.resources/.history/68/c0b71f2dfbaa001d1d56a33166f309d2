@@ -1,0 +1,16 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Feb 12, 2023
+ *      Author: petalinux
+ */
+
+#include "../../encoder/src/encoder.h"
+
+int main() {
+	int i;
+	Encoder();
+
+
+	return 0;
+}

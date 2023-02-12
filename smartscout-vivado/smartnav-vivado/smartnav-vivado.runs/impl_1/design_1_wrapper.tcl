@@ -81,6 +81,9 @@ set rc [catch {
   set_param project.isImplRun true
   add_files /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
+  add_files /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf
+  set_property SCOPED_TO_REF design_1 [get_files -all /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf]
+  set_property SCOPED_TO_CELLS microblaze_0 [get_files -all /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf]
   read_xdc /home/user/project/smartnav-vivado.srcs/constrs_1/new/board.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z010clg400-1
@@ -166,6 +169,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
   catch { write_mem_info -force design_1_wrapper.mmi }
+  catch { write_bmm -force design_1_wrapper_bd.bmm }
   write_bitstream -force design_1_wrapper.bit 
   catch { write_sysdef -hwdef design_1_wrapper.hwdef -bitfile design_1_wrapper.bit -meminfo design_1_wrapper.mmi -file design_1_wrapper.sysdef }
   catch {write_debug_probes -quiet -force design_1_wrapper}
