@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Sat Feb 11 16:40:27 2023
+// Date        : Fri Feb 17 01:32:44 2023
 // Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top design_1_ilmb_bram_if_cntlr_0 -prefix
+//               design_1_ilmb_bram_if_cntlr_0_ design_1_ilmb_bram_if_cntlr_0_sim_netlist.v
 // Design      : design_1_ilmb_bram_if_cntlr_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -48,7 +48,7 @@ module design_1_ilmb_bram_if_cntlr_0
   (* x_interface_info = "xilinx.com:interface:lmb:1.0 SLMB WAIT" *) output Sl_Wait;
   (* x_interface_info = "xilinx.com:interface:lmb:1.0 SLMB UE" *) output Sl_UE;
   (* x_interface_info = "xilinx.com:interface:lmb:1.0 SLMB CE" *) output Sl_CE;
-  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORT RST" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORT, MEM_SIZE 65536, MASTER_TYPE BRAM_CTRL, MEM_WIDTH 32, MEM_ECC NONE, READ_LATENCY 1" *) output BRAM_Rst_A;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORT RST" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORT, MEM_SIZE 131072, MASTER_TYPE BRAM_CTRL, MEM_WIDTH 32, MEM_ECC NONE, READ_LATENCY 1" *) output BRAM_Rst_A;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORT CLK" *) output BRAM_Clk_A;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORT ADDR" *) output [0:31]BRAM_Addr_A;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORT EN" *) output BRAM_EN_A;
@@ -89,7 +89,6 @@ module design_1_ilmb_bram_if_cntlr_0
         .Sl_Ready(Sl_Ready));
 endmodule
 
-(* ORIG_REF_NAME = "lmb_bram_if_cntlr" *) 
 module design_1_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr
    (BRAM_WEN_A,
     Sl_Ready,

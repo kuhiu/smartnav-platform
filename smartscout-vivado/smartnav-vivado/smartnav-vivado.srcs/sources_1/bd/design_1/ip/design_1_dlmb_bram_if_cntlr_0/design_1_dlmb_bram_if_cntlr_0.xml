@@ -654,7 +654,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>MEM_SIZE</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.BRAM_PORT.MEM_SIZE">65536</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.BRAM_PORT.MEM_SIZE">131072</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>MASTER_TYPE</spirit:name>
@@ -1895,7 +1895,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ef04b01</spirit:value>
+            <spirit:value>9:3557fb4a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1906,7 +1906,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ef04b01</spirit:value>
+            <spirit:value>9:3557fb4a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1922,11 +1922,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Feb 12 02:00:52 UTC 2023</spirit:value>
+            <spirit:value>Sat Feb 18 18:45:12 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ef04b01</spirit:value>
+            <spirit:value>9:3557fb4a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1946,7 +1946,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c4b12103</spirit:value>
+            <spirit:value>9:d0daa5e7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1962,11 +1962,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Feb 12 02:00:52 UTC 2023</spirit:value>
+            <spirit:value>Sat Feb 18 18:45:12 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c4b12103</spirit:value>
+            <spirit:value>9:d0daa5e7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1980,11 +1980,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Feb 12 02:02:33 UTC 2023</spirit:value>
+            <spirit:value>Sat Feb 18 19:01:44 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6ef04b01</spirit:value>
+            <spirit:value>9:3557fb4a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3569,7 +3569,7 @@
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_HIGHADDR</spirit:name>
         <spirit:displayName>LMB BRAM High Address</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HIGHADDR" spirit:bitStringLength="64">0x000000000000FFFF</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_HIGHADDR" spirit:bitStringLength="64">0x000000000001FFFF</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector">
         <spirit:name>C_BASEADDR</spirit:name>
@@ -3886,7 +3886,7 @@
     <spirit:parameter>
       <spirit:name>C_HIGHADDR</spirit:name>
       <spirit:displayName>LMB BRAM High Address</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HIGHADDR" spirit:order="1200" spirit:configGroups="1 Addresses" spirit:bitStringLength="64">0x000000000000FFFF</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.C_HIGHADDR" spirit:order="1200" spirit:configGroups="1 Addresses" spirit:bitStringLength="64">0x000000000001FFFF</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>

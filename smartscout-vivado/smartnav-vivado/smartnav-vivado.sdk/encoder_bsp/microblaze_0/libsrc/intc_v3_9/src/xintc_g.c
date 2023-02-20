@@ -37,6 +37,7 @@
 #include "xintc.h"
 
 
+extern void XNullHandler (void *);
 
 /*
 * The configuration table for devices
@@ -55,6 +56,14 @@ XIntc_Config XIntc_ConfigTable[] =
 		XIN_SVC_SGL_ISR_OPTION,
 		XPAR_MICROBLAZE_0_AXI_INTC_TYPE,
 		{
+			{
+				XNullHandler,
+				(void *) XNULL
+			},
+			{
+				XNullHandler,
+				(void *) XNULL
+			}
 		}
 
 	}

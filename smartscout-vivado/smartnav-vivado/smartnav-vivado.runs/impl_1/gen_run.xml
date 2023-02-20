@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1676221749">
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1676845187">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="design_1_wrapper.vdi"/>
   <File Type="BG-DRC" Name="design_1_wrapper.drc"/>
@@ -93,6 +93,12 @@
     <File Path="$PSDKDIR/led_blinky/Release/led_blinky.elf">
       <FileInfo>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="IsVisible" Val="1"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSDKDIR/encoder/Debug/encoder.elf">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="ScopedToRef" Val="design_1"/>
         <Attr Name="ScopedToCell" Val="microblaze_0"/>
         <Attr Name="IsVisible" Val="1"/>
@@ -111,12 +117,6 @@
         <Attr Name="ImportTime" Val="1655926480"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSDKDIR/led_blinky/Release/led_blinky.elf">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="IsVisible" Val="1"/>
       </FileInfo>
     </File>
     <Config>
@@ -141,7 +141,6 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_lmb_bram_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_microblaze_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_microblaze_0_axi_intc_0"/>
@@ -150,7 +149,6 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_mailbox_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_v_frmbuf_wr_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_smartconnect_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_mutex_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_mdm_1_0"/>

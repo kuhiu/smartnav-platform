@@ -81,9 +81,9 @@ set rc [catch {
   set_param project.isImplRun true
   add_files /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  add_files /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf
-  set_property SCOPED_TO_REF design_1 [get_files -all /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf]
-  set_property SCOPED_TO_CELLS microblaze_0 [get_files -all /home/user/project/smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf]
+  add_files /home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf
+  set_property SCOPED_TO_REF design_1 [get_files -all /home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf]
+  set_property SCOPED_TO_CELLS microblaze_0 [get_files -all /home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf]
   read_xdc /home/user/project/smartnav-vivado.srcs/constrs_1/new/board.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xc7z010clg400-1

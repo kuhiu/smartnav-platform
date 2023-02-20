@@ -78,7 +78,7 @@ ENTITY design_1_axi_gpio_0_0 IS
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
     ip2intc_irpt : OUT STD_LOGIC;
-    gpio_io_o : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
+    gpio_io_i : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END design_1_axi_gpio_0_0;
 
@@ -134,8 +134,8 @@ ARCHITECTURE design_1_axi_gpio_0_0_arch OF design_1_axi_gpio_0_0 IS
   END COMPONENT axi_gpio;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER OF gpio_io_o: SIGNAL IS "XIL_INTERFACENAME GPIO, BOARD.ASSOCIATED_PARAM GPIO_BOARD_INTERFACE";
-  ATTRIBUTE X_INTERFACE_INFO OF gpio_io_o: SIGNAL IS "xilinx.com:interface:gpio:1.0 GPIO TRI_O";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF gpio_io_i: SIGNAL IS "XIL_INTERFACENAME GPIO, BOARD.ASSOCIATED_PARAM GPIO_BOARD_INTERFACE";
+  ATTRIBUTE X_INTERFACE_INFO OF gpio_io_i: SIGNAL IS "xilinx.com:interface:gpio:1.0 GPIO TRI_I";
   ATTRIBUTE X_INTERFACE_PARAMETER OF ip2intc_irpt: SIGNAL IS "XIL_INTERFACENAME IP2INTC_IRQ, SENSITIVITY LEVEL_HIGH, PortWidth 1";
   ATTRIBUTE X_INTERFACE_INFO OF ip2intc_irpt: SIGNAL IS "xilinx.com:signal:interrupt:1.0 IP2INTC_IRQ INTERRUPT";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
@@ -169,9 +169,9 @@ BEGIN
       C_S_AXI_DATA_WIDTH => 32,
       C_GPIO_WIDTH => 1,
       C_GPIO2_WIDTH => 32,
-      C_ALL_INPUTS => 0,
+      C_ALL_INPUTS => 1,
       C_ALL_INPUTS_2 => 0,
-      C_ALL_OUTPUTS => 1,
+      C_ALL_OUTPUTS => 0,
       C_ALL_OUTPUTS_2 => 0,
       C_INTERRUPT_PRESENT => 1,
       C_DOUT_DEFAULT => X"00000000",
@@ -201,8 +201,7 @@ BEGIN
       s_axi_rvalid => s_axi_rvalid,
       s_axi_rready => s_axi_rready,
       ip2intc_irpt => ip2intc_irpt,
-      gpio_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
-      gpio_io_o => gpio_io_o,
+      gpio_io_i => gpio_io_i,
       gpio2_io_i => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
     );
 END design_1_axi_gpio_0_0_arch;
