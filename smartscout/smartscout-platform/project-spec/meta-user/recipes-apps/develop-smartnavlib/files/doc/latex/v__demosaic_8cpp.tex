@@ -1,0 +1,46 @@
+\hypertarget{v__demosaic_8cpp}{}\doxysection{modules/capture-\/frame/v\+\_\+demosaic.cpp File Reference}
+\label{v__demosaic_8cpp}\index{modules/capture-\/frame/v\_demosaic.cpp@{modules/capture-\/frame/v\_demosaic.cpp}}
+{\ttfamily \#include $<$v\+\_\+demosaic.\+hpp$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for v\+\_\+demosaic.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{v__demosaic_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{v__demosaic_8cpp_a4df77342daa7f25c38aeaac73dedbf2d}{DEBUG\+\_\+\+DEMOSAIC}}~1
+\item 
+\#define \mbox{\hyperlink{v__demosaic_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}{DEBUG\+\_\+\+PRINT}}(fmt,  args...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{v__demosaic_8cpp_a4df77342daa7f25c38aeaac73dedbf2d}\label{v__demosaic_8cpp_a4df77342daa7f25c38aeaac73dedbf2d}} 
+\index{v\_demosaic.cpp@{v\_demosaic.cpp}!DEBUG\_DEMOSAIC@{DEBUG\_DEMOSAIC}}
+\index{DEBUG\_DEMOSAIC@{DEBUG\_DEMOSAIC}!v\_demosaic.cpp@{v\_demosaic.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_DEMOSAIC}{DEBUG\_DEMOSAIC}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+DEMOSAIC~1}
+
+\mbox{\Hypertarget{v__demosaic_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}\label{v__demosaic_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}} 
+\index{v\_demosaic.cpp@{v\_demosaic.cpp}!DEBUG\_PRINT@{DEBUG\_PRINT}}
+\index{DEBUG\_PRINT@{DEBUG\_PRINT}!v\_demosaic.cpp@{v\_demosaic.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PRINT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{args... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                                                                        \mbox{\hyperlink{utilities_8hpp_a7fffde3437ed8e9e05f93cdf82ea7235}{printf}}( \textcolor{stringliteral}{"{}DEBUG: \%s:\%d:\%s(): "{}} fmt, \(\backslash\)}
+\DoxyCodeLine{                                                                                        \_\_FILE\_\_, \_\_LINE\_\_, \_\_func\_\_, \#\#args)}
+
+\end{DoxyCode}

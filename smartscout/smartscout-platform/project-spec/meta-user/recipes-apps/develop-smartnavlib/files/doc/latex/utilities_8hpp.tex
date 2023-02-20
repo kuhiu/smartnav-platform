@@ -1,0 +1,51 @@
+\hypertarget{utilities_8hpp}{}\doxysection{modules/utilities/utilities.hpp File Reference}
+\label{utilities_8hpp}\index{modules/utilities/utilities.hpp@{modules/utilities/utilities.hpp}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutilities}{utilities}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{utilities_8hpp_a7fffde3437ed8e9e05f93cdf82ea7235}{printf}} (\char`\"{}Time measured\+: \%.\+3f seconds.\textbackslash{}n\char`\"{}, elapsed.\+count() $\ast$1e-\/9)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{utilities_8hpp_a2edb601d67a7b9c69ceb35b7887ed862}{begin}} = std\+::chrono\+::system\+\_\+clock\+::now()
+\item 
+auto \mbox{\hyperlink{utilities_8hpp_a6be7d98960df33edf9f3998a9e8b2407}{end}} = std\+::chrono\+::system\+\_\+clock\+::now()
+\item 
+auto \mbox{\hyperlink{utilities_8hpp_aa53955121e2d594bceff6fe784bcfbb9}{elapsed}} = std\+::chrono\+::duration\+\_\+cast$<$std\+::chrono\+::nanoseconds$>$(\mbox{\hyperlink{utilities_8hpp_a6be7d98960df33edf9f3998a9e8b2407}{end}} -\/ \mbox{\hyperlink{utilities_8hpp_a2edb601d67a7b9c69ceb35b7887ed862}{begin}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8hpp_a7fffde3437ed8e9e05f93cdf82ea7235}\label{utilities_8hpp_a7fffde3437ed8e9e05f93cdf82ea7235}} 
+\index{utilities.hpp@{utilities.hpp}!printf@{printf}}
+\index{printf@{printf}!utilities.hpp@{utilities.hpp}}
+\doxysubsubsection{\texorpdfstring{printf()}{printf()}}
+{\footnotesize\ttfamily printf (\begin{DoxyParamCaption}\item[{\char`\"{}Time measured\+: \%.\+3f seconds.\textbackslash{}n\char`\"{}}]{,  }\item[{elapsed.\+count() $\ast$1e-\/}]{9 }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{utilities_8hpp_a2edb601d67a7b9c69ceb35b7887ed862}\label{utilities_8hpp_a2edb601d67a7b9c69ceb35b7887ed862}} 
+\index{utilities.hpp@{utilities.hpp}!begin@{begin}}
+\index{begin@{begin}!utilities.hpp@{utilities.hpp}}
+\doxysubsubsection{\texorpdfstring{begin}{begin}}
+{\footnotesize\ttfamily auto begin = std\+::chrono\+::system\+\_\+clock\+::now()}
+
+\mbox{\Hypertarget{utilities_8hpp_aa53955121e2d594bceff6fe784bcfbb9}\label{utilities_8hpp_aa53955121e2d594bceff6fe784bcfbb9}} 
+\index{utilities.hpp@{utilities.hpp}!elapsed@{elapsed}}
+\index{elapsed@{elapsed}!utilities.hpp@{utilities.hpp}}
+\doxysubsubsection{\texorpdfstring{elapsed}{elapsed}}
+{\footnotesize\ttfamily auto elapsed = std\+::chrono\+::duration\+\_\+cast$<$std\+::chrono\+::nanoseconds$>$(\mbox{\hyperlink{utilities_8hpp_a6be7d98960df33edf9f3998a9e8b2407}{end}} -\/ \mbox{\hyperlink{utilities_8hpp_a2edb601d67a7b9c69ceb35b7887ed862}{begin}})}
+
+\mbox{\Hypertarget{utilities_8hpp_a6be7d98960df33edf9f3998a9e8b2407}\label{utilities_8hpp_a6be7d98960df33edf9f3998a9e8b2407}} 
+\index{utilities.hpp@{utilities.hpp}!end@{end}}
+\index{end@{end}!utilities.hpp@{utilities.hpp}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily auto end = std\+::chrono\+::system\+\_\+clock\+::now()}
+

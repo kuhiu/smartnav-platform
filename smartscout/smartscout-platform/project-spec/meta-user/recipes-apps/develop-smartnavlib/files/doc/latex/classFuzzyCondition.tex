@@ -1,0 +1,115 @@
+\hypertarget{classFuzzyCondition}{}\doxysection{Fuzzy\+Condition Class Reference}
+\label{classFuzzyCondition}\index{FuzzyCondition@{FuzzyCondition}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Condition.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Condition\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classFuzzyCondition__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Condition\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classFuzzyCondition__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+Ptr}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyCondition}{Fuzzy\+Condition}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyCondition_a0ff923e25e198673c000095047c65f72}{Fuzzy\+Condition}} ()=default
+\item 
+virtual \mbox{\hyperlink{classFuzzyCondition_a1f935e29e4401261546b7d35d11d3e6b}{$\sim$\+Fuzzy\+Condition}} ()=default
+\item 
+virtual float \mbox{\hyperlink{classFuzzyCondition_a8ad6cec6e2bb881d4c791fe3efa3eeca}{evaluate}} (std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&system\+\_\+input) const =0
+\begin{DoxyCompactList}\small\item\em Evaluate any condition. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFuzzyCondition_ab8cbf67294f96c78fd2fe5a3e8b0b492}{update}} (float value, std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&system\+\_\+io)=0
+\begin{DoxyCompactList}\small\item\em Update any condition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}\label{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}} 
+\index{FuzzyCondition@{FuzzyCondition}!FuzzyConditionPtr@{FuzzyConditionPtr}}
+\index{FuzzyConditionPtr@{FuzzyConditionPtr}!FuzzyCondition@{FuzzyCondition}}
+\doxysubsubsection{\texorpdfstring{FuzzyConditionPtr}{FuzzyConditionPtr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} =  std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyCondition}{Fuzzy\+Condition}}$>$}
+
+\mbox{\hyperlink{classFuzzyCondition}{Fuzzy\+Condition}} smart pointer 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyCondition_a0ff923e25e198673c000095047c65f72}\label{classFuzzyCondition_a0ff923e25e198673c000095047c65f72}} 
+\index{FuzzyCondition@{FuzzyCondition}!FuzzyCondition@{FuzzyCondition}}
+\index{FuzzyCondition@{FuzzyCondition}!FuzzyCondition@{FuzzyCondition}}
+\doxysubsubsection{\texorpdfstring{FuzzyCondition()}{FuzzyCondition()}}
+{\footnotesize\ttfamily Fuzzy\+Condition\+::\+Fuzzy\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyCondition}{Fuzzy\+Condition}} constructor \mbox{\Hypertarget{classFuzzyCondition_a1f935e29e4401261546b7d35d11d3e6b}\label{classFuzzyCondition_a1f935e29e4401261546b7d35d11d3e6b}} 
+\index{FuzzyCondition@{FuzzyCondition}!````~FuzzyCondition@{$\sim$FuzzyCondition}}
+\index{````~FuzzyCondition@{$\sim$FuzzyCondition}!FuzzyCondition@{FuzzyCondition}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyCondition()}{~FuzzyCondition()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Condition\+::$\sim$\+Fuzzy\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyCondition}{Fuzzy\+Condition}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyCondition_a8ad6cec6e2bb881d4c791fe3efa3eeca}\label{classFuzzyCondition_a8ad6cec6e2bb881d4c791fe3efa3eeca}} 
+\index{FuzzyCondition@{FuzzyCondition}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!FuzzyCondition@{FuzzyCondition}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual float Fuzzy\+Condition\+::evaluate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&}]{system\+\_\+input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Evaluate any condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em system\+\_\+io} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classFuzzyComparation_ab9a1683c5c05253c153f3ed0d7d55193}{Fuzzy\+Comparation}}, and \mbox{\hyperlink{classFuzzyAnd_adf5d38436c797763196f1293146cb5f2}{Fuzzy\+And}}.
+
+\mbox{\Hypertarget{classFuzzyCondition_ab8cbf67294f96c78fd2fe5a3e8b0b492}\label{classFuzzyCondition_ab8cbf67294f96c78fd2fe5a3e8b0b492}} 
+\index{FuzzyCondition@{FuzzyCondition}!update@{update}}
+\index{update@{update}!FuzzyCondition@{FuzzyCondition}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Fuzzy\+Condition\+::update (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&}]{system\+\_\+io }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update any condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+{\em system\+\_\+io} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classFuzzyComparation_ab4eb4f8ab68339c8fab515d013f28a18}{Fuzzy\+Comparation}}, and \mbox{\hyperlink{classFuzzyAnd_a25f956f6804ece18c4d4fa4c506c4cf5}{Fuzzy\+And}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyCondition_8hpp}{Fuzzy\+Condition.\+hpp}}\end{DoxyCompactItemize}

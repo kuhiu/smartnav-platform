@@ -1,0 +1,91 @@
+\hypertarget{classFuzzyControlSystem}{}\doxysection{Fuzzy\+Control\+System Class Reference}
+\label{classFuzzyControlSystem}\index{FuzzyControlSystem@{FuzzyControlSystem}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Control\+System.\+hpp$>$}
+
+
+
+Collaboration diagram for Fuzzy\+Control\+System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classFuzzyControlSystem__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyControlSystem_aa2363bfa8cf40fd396a61a06a77a6bb8}{Fuzzy\+Control\+System}} (std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ system\+\_\+inputs, std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ system\+\_\+outputs, std\+::vector$<$ \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} $>$ system\+\_\+rules)
+\item 
+\mbox{\hyperlink{classFuzzyControlSystem_a0ec4abb5da80ba62e4c3c73dab0fb6fb}{$\sim$\+Fuzzy\+Control\+System}} ()=default
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \mbox{\hyperlink{classFuzzyControlSystem_ae7e34b7332e027a9b562811ceb82ff34}{evaluate}} (std\+::vector$<$ std\+::pair$<$ std\+::string, float $>$$>$ inputs\+\_\+to\+\_\+update)
+\begin{DoxyCompactList}\small\item\em Update system input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} \mbox{\hyperlink{classFuzzyControlSystem_afea32fdaf4000bc6ec4f23b4f2175d6d}{parse}} (const nlohmann\+::json \&fuzzy\+\_\+control\+\_\+system\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse system.\+json ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyControlSystem_aa2363bfa8cf40fd396a61a06a77a6bb8}\label{classFuzzyControlSystem_aa2363bfa8cf40fd396a61a06a77a6bb8}} 
+\index{FuzzyControlSystem@{FuzzyControlSystem}!FuzzyControlSystem@{FuzzyControlSystem}}
+\index{FuzzyControlSystem@{FuzzyControlSystem}!FuzzyControlSystem@{FuzzyControlSystem}}
+\doxysubsubsection{\texorpdfstring{FuzzyControlSystem()}{FuzzyControlSystem()}}
+{\footnotesize\ttfamily Fuzzy\+Control\+System\+::\+Fuzzy\+Control\+System (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$}]{system\+\_\+inputs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$}]{system\+\_\+outputs,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} $>$}]{system\+\_\+rules }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} constructor \mbox{\Hypertarget{classFuzzyControlSystem_a0ec4abb5da80ba62e4c3c73dab0fb6fb}\label{classFuzzyControlSystem_a0ec4abb5da80ba62e4c3c73dab0fb6fb}} 
+\index{FuzzyControlSystem@{FuzzyControlSystem}!````~FuzzyControlSystem@{$\sim$FuzzyControlSystem}}
+\index{````~FuzzyControlSystem@{$\sim$FuzzyControlSystem}!FuzzyControlSystem@{FuzzyControlSystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyControlSystem()}{~FuzzyControlSystem()}}
+{\footnotesize\ttfamily Fuzzy\+Control\+System\+::$\sim$\+Fuzzy\+Control\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyControlSystem_ae7e34b7332e027a9b562811ceb82ff34}\label{classFuzzyControlSystem_ae7e34b7332e027a9b562811ceb82ff34}} 
+\index{FuzzyControlSystem@{FuzzyControlSystem}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!FuzzyControlSystem@{FuzzyControlSystem}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ Fuzzy\+Control\+System\+::evaluate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ std\+::string, float $>$$>$}]{inputs\+\_\+to\+\_\+update }\end{DoxyParamCaption})}
+
+
+
+Update system input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs\+\_\+to\+\_\+update} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$fuzzy\+Output$>$ Return fuzzy\+\_\+outputs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyControlSystem_afea32fdaf4000bc6ec4f23b4f2175d6d}\label{classFuzzyControlSystem_afea32fdaf4000bc6ec4f23b4f2175d6d}} 
+\index{FuzzyControlSystem@{FuzzyControlSystem}!parse@{parse}}
+\index{parse@{parse}!FuzzyControlSystem@{FuzzyControlSystem}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} Fuzzy\+Control\+System\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{fuzzy\+\_\+control\+\_\+system\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse system.\+json ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fuzzy\+\_\+control\+\_\+system\+\_\+json} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyControlSystem_8hpp}{Fuzzy\+Control\+System.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyControlSystem_8cpp}{Fuzzy\+Control\+System.\+cpp}}\end{DoxyCompactItemize}

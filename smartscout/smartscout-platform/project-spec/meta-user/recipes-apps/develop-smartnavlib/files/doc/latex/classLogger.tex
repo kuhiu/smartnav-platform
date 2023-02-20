@@ -1,0 +1,86 @@
+\hypertarget{classLogger}{}\doxysection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+
+
+Collaboration diagram for Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_a0d21ab21689125fbb5e91584e4f37baa}{Logger}} (\mbox{\hyperlink{classLogger}{Logger}} const \&)=delete
+\item 
+void \mbox{\hyperlink{classLogger_ae14ecca1071f841760f40b5a1398580c}{operator=}} (\mbox{\hyperlink{classLogger}{Logger}} const \&)=delete
+\item 
+void \mbox{\hyperlink{classLogger_a51da8b6c82066ecf46d5afea7d11b3e0}{push}} (std\+::string new\+\_\+msg)
+\begin{DoxyCompactList}\small\item\em Push a new msg into the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLogStream}{Log\+Stream}} \mbox{\hyperlink{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}{log}} (\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67b}{Log\+Levels}} level=\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67ba4059b0251f66a18cb56f544728796875}{Log\+Levels\+::\+Info}})
+\begin{DoxyCompactList}\small\item\em This create \mbox{\hyperlink{classLogger}{Logger}} object and return a \mbox{\hyperlink{classLogStream}{Log\+Stream}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLogger_a0d21ab21689125fbb5e91584e4f37baa}\label{classLogger_a0d21ab21689125fbb5e91584e4f37baa}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Delete copy constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}\label{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classLogStream}{Log\+Stream}} Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67b}{Log\+Levels}}}]{level = {\ttfamily \mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67ba4059b0251f66a18cb56f544728796875}{Log\+Levels\+::\+Info}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+This create \mbox{\hyperlink{classLogger}{Logger}} object and return a \mbox{\hyperlink{classLogStream}{Log\+Stream}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLogStream}{Log\+Stream}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogger_ae14ecca1071f841760f40b5a1398580c}\label{classLogger_ae14ecca1071f841760f40b5a1398580c}} 
+\index{Logger@{Logger}!operator=@{operator=}}
+\index{operator=@{operator=}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Logger\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Delete assignnment operator \mbox{\Hypertarget{classLogger_a51da8b6c82066ecf46d5afea7d11b3e0}\label{classLogger_a51da8b6c82066ecf46d5afea7d11b3e0}} 
+\index{Logger@{Logger}!push@{push}}
+\index{push@{push}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void Logger\+::push (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+Push a new msg into the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+msg} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/logger/\mbox{\hyperlink{Logger_8hpp}{Logger.\+hpp}}\item 
+modules/logger/\mbox{\hyperlink{Logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,92 @@
+\hypertarget{classDriver}{}\doxysection{Driver Class Reference}
+\label{classDriver}\index{Driver@{Driver}}
+
+
+{\ttfamily \#include $<$Driver.\+hpp$>$}
+
+
+
+Collaboration diagram for Driver\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classDriver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1d}{operation\+Mode}} \{ \mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1da63ab12be6a140430a62e6854a59820c1}{OP\+\_\+\+STOP}} = 0
+, \mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1da5be09f84c4337c730bc15302414e72a8}{OP\+\_\+\+DRIVE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}{Driver}} ()
+\item 
+\mbox{\hyperlink{classDriver_ac7645eea8d3ce2bc39ddbda5e840297a}{$\sim$\+Driver}} ()
+\item 
+void \mbox{\hyperlink{classDriver_a5c0a395cc8760858fd4863ba58d20b80}{update}} (\mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1d}{operation\+Mode}} operation\+\_\+mode, int speed\+\_\+variation, int yaw\+\_\+variation)
+\begin{DoxyCompactList}\small\item\em Update the speed and yaw for driving the car. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classDriver_ab299447bfe867faeac744de7ebfcff1d}\label{classDriver_ab299447bfe867faeac744de7ebfcff1d}} 
+\index{Driver@{Driver}!operationMode@{operationMode}}
+\index{operationMode@{operationMode}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{operationMode}{operationMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1d}{Driver\+::operation\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OP\_STOP@{OP\_STOP}!Driver@{Driver}}\index{Driver@{Driver}!OP\_STOP@{OP\_STOP}}}\mbox{\Hypertarget{classDriver_ab299447bfe867faeac744de7ebfcff1da63ab12be6a140430a62e6854a59820c1}\label{classDriver_ab299447bfe867faeac744de7ebfcff1da63ab12be6a140430a62e6854a59820c1}} 
+OP\+\_\+\+STOP&Stop \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OP\_DRIVE@{OP\_DRIVE}!Driver@{Driver}}\index{Driver@{Driver}!OP\_DRIVE@{OP\_DRIVE}}}\mbox{\Hypertarget{classDriver_ab299447bfe867faeac744de7ebfcff1da5be09f84c4337c730bc15302414e72a8}\label{classDriver_ab299447bfe867faeac744de7ebfcff1da5be09f84c4337c730bc15302414e72a8}} 
+OP\+\_\+\+DRIVE&Drive \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}\label{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}} 
+\index{Driver@{Driver}!Driver@{Driver}}
+\index{Driver@{Driver}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{Driver()}{Driver()}}
+{\footnotesize\ttfamily Driver\+::\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} constructor \mbox{\Hypertarget{classDriver_ac7645eea8d3ce2bc39ddbda5e840297a}\label{classDriver_ac7645eea8d3ce2bc39ddbda5e840297a}} 
+\index{Driver@{Driver}!````~Driver@{$\sim$Driver}}
+\index{````~Driver@{$\sim$Driver}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{$\sim$Driver()}{~Driver()}}
+{\footnotesize\ttfamily Driver\+::$\sim$\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDriver_a5c0a395cc8760858fd4863ba58d20b80}\label{classDriver_a5c0a395cc8760858fd4863ba58d20b80}} 
+\index{Driver@{Driver}!update@{update}}
+\index{update@{update}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Driver\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDriver_ab299447bfe867faeac744de7ebfcff1d}{operation\+Mode}}}]{operation\+\_\+mode,  }\item[{int}]{speed\+\_\+variation,  }\item[{int}]{yaw\+\_\+variation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the speed and yaw for driving the car. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operation\+\_\+mode} & \\
+\hline
+{\em speed\+\_\+variation} & \\
+\hline
+{\em yaw\+\_\+variation} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/driver/\mbox{\hyperlink{Driver_8hpp}{Driver.\+hpp}}\end{DoxyCompactItemize}
