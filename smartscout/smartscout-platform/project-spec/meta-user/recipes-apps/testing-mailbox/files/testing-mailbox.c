@@ -5,21 +5,10 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/ioctl.h>
-
-#define AXI_MAILBOX_IOC_NMAGICO 'd'
-#define AXI_MAILBOX_IOC_NUM_MAX 1
-#define AXI_MAILBOX_IOC_PUSH_BLOCKING _IO(AXI_MAILBOX_IOC_NMAGICO, 0)
-#define AXI_MAILBOX_IOC_POP_BLOCKING _IO(AXI_MAILBOX_IOC_NMAGICO, 1)
+#include <mailbox.h>
 
 #define MICROBLAZE_THREAD_CMD_ASK_ENCODER 1
 #define MICROBLAZE_THREAD_CMD_LED_CONTROL 3
-
-#define MSG_LENGTH 4
-
-typedef struct msg_mailbox {
-  /** msg to send or receive */
-  char msg[MSG_LENGTH];
-} msgMailbox;
 
 int main(int argc, char **argv) {
     int fd;
