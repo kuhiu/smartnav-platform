@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-// Date        : Sat Feb 11 16:38:54 2023
+// Date        : Mon Feb 20 20:33:37 2023
 // Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_xbar_0_1/design_1_xbar_0_stub.v

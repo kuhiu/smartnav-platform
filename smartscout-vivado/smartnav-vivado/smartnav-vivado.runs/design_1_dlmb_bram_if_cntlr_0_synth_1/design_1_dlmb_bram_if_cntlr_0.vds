@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sat Feb 18 19:01:32 2023
-# Process ID: 40569
+# Start of session at: Mon Feb 20 20:49:26 2023
+# Process ID: 306379
 # Current directory: /home/user/project/smartnav-vivado.runs/design_1_dlmb_bram_if_cntlr_0_synth_1
 # Command line: vivado -log design_1_dlmb_bram_if_cntlr_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_dlmb_bram_if_cntlr_0.tcl
 # Log file: /home/user/project/smartnav-vivado.runs/design_1_dlmb_bram_if_cntlr_0_synth_1/design_1_dlmb_bram_if_cntlr_0.vds
@@ -15,4 +15,4 @@ WARNING: [IP_Flow 19-2248] Failed to load user IP repository '/home/user/project
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2019.1/data/ip'.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_dlmb_bram_if_cntlr_0, cache-ID = 02e654424460bbf2.
-INFO: [Common 17-206] Exiting Vivado at Sat Feb 18 19:01:44 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 20 20:49:39 2023...

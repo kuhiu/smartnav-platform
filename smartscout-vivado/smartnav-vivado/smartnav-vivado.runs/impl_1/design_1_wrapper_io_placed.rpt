@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date                      : Sun Feb 19 22:29:01 2023
+| Date                      : Tue Feb 21 19:51:52 2023
 | Host                      : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 | Command                   : report_io -file design_1_wrapper_io_placed.rpt
 | Design                    : design_1_wrapper
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|           161 |
+|           162 |
 +---------------+
 
 
@@ -431,7 +431,7 @@ Table of Contents
 | Y14        | d[3]                | High Range | IO_L8N_T1_34            | INPUT         | LVCMOS33           |      34 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | Y15        |                     |            | GND                     | GND           |                    |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | Y16        | pi_action[3]        | High Range | IO_L7P_T1_34            | INPUT         | LVCMOS33           |      34 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| Y17        |                     | High Range | IO_L7N_T1_34            | User IO       |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| Y17        | Encoder_1[0]        | High Range | IO_L7N_T1_34            | INPUT         | LVCMOS33           |      34 |            |      |                     |                 NONE |         | FIXED      | PULLUP    |          |      | NONE             |              |                   |              |
 | Y18        |                     | High Range | IO_L17P_T2_34           | User IO       |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y19        |                     | High Range | IO_L17N_T2_34           | User IO       |                    |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | Y20        |                     | High Range | VCCO_34                 | VCCO          |                    |      34 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |

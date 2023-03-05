@@ -12,8 +12,6 @@
 #include "xstatus.h"
 #include "xparameters.h"
 #include "xintc.h"
-
-#include <mutex>
 #include "interrupt_controller.h"
 
 #define MBOX_DEVICE_ID		XPAR_MBOX_0_DEVICE_ID
@@ -64,7 +62,7 @@ public:
 		}
 		return status;
 	}
-
+	/** Send a msg to the mailbox */
 	int sendMsg(u32 *msg, int msg_length = message_length) {
 		u32 bytes_sended;
 		int status = XST_FAILURE;

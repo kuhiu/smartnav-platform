@@ -131,7 +131,7 @@ set_property -dict { PACKAGE_PIN H15   IOSTANDARD LVCMOS33 } [get_ports { Encode
 set_property -dict { PACKAGE_PIN V13   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_2 }]; #IO_L3N_T0_DQS_34 Sch=JE7
 set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_3 }]; #IO_L9N_T1_DQS_34 Sch=JE8
 set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports { pwm1 }]; #IO_L20P_T3_34 Sch=JE9
-set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { GPIO_0[16] }]; #IO_L7N_T1_34 Sch=JE10
+set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { Encoder_1 }]; #IO_L7N_T1_34 Sch=JE10
 
 
 ##USB-OTG overcurrent detect pin

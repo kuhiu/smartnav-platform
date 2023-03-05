@@ -88,3 +88,110 @@ wait_on_run impl_1
 file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
 
 file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/microblaze_0 (Periph)} Slave {/axi_gpio_2/S_AXI} intc_ip {/microblaze_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_2/S_AXI]
+startgroup
+set_property -dict [list CONFIG.C_GPIO_WIDTH {1} CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_2]
+endgroup
+copy_bd_objs /  [get_bd_ports {Encoder_0}]
+set_property location {-22 -89} [get_bd_ports Encoder_1]
+connect_bd_net [get_bd_ports Encoder_1] [get_bd_pins axi_gpio_2/gpio_io_i]
+regenerate_bd_layout
+update_ip_catalog -rebuild -scan_changes
+report_ip_status -name ip_status
+regenerate_bd_layout
+save_bd_design
+reset_run synth_1
+reset_run design_1_xbar_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M05_AXI] [get_bd_intf_nets microblaze_0_axi_periph_M02_AXI] [get_bd_cells mutex_0]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+report_ip_status -name ip_status 
+regenerate_bd_layout
+set_property SCOPED_TO_REF "" [get_files -all -of_objects [get_fileset sources_1] {/home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf}]
+set_property SCOPED_TO_CELLS { } [get_files -all -of_objects [get_fileset sources_1] {/home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf}]
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+set_property range 256K [get_bd_addr_segs {microblaze_0/Data/SEG_dlmb_bram_if_cntlr_Mem}]
+reset_run synth_1
+reset_run design_1_v_demosaic_0_0_synth_1
+reset_run design_1_v_frmbuf_wr_0_0_synth_1
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+set_property range 128K [get_bd_addr_segs {microblaze_0/Data/SEG_dlmb_bram_if_cntlr_Mem}]
+save_bd_design
+delete_bd_objs [get_bd_cells xlslice_7_7]
+save_bd_design
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+set_property SCOPED_TO_REF design_1 [get_files -all -of_objects [get_fileset sources_1] {/home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf}]
+set_property SCOPED_TO_CELLS { microblaze_0 } [get_files -all -of_objects [get_fileset sources_1] {/home/user/project/smartnav-vivado.sdk/encoder/Debug/encoder.elf}]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1}] [get_bd_cells axi_gpio_2]
+endgroup
+startgroup
+set_property -dict [list CONFIG.NUM_PORTS {3}] [get_bd_cells microblaze_0_xlconcat]
+endgroup
+connect_bd_net [get_bd_pins axi_gpio_2/ip2intc_irpt] [get_bd_pins microblaze_0_xlconcat/In2]
+regenerate_bd_layout
+save_bd_design
+reset_run synth_1
+reset_run design_1_axi_gpio_2_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+regenerate_bd_layout
+save_bd_design
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+regenerate_bd_layout
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+regenerate_bd_layout
+save_bd_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 7
+wait_on_run impl_1
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.sysdef /home/user/project/smartnav-vivado.sdk/design_1_wrapper.hdf
+
+file copy -force /home/user/project/smartnav-vivado.runs/impl_1/design_1_wrapper.bit /home/user/project/smartnav-vivado.sdk/system.bit

@@ -49,8 +49,6 @@ set_property src_info {type:XDC file:1 line:118 export:INPUT save:INPUT read:REA
 set_property -dict { PACKAGE_PIN V18   IOSTANDARD LVCMOS33 } [get_ports led_pwm_1 ]; #IO_L21N_T3_DQS_34 Sch=JD4_N
 set_property src_info {type:XDC file:1 line:121 export:INPUT save:INPUT read:READ} [current_design]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets pclk_IBUF];
-set_property src_info {type:XDC file:1 line:123 export:INPUT save:INPUT read:READ} [current_design]
-set_property PULLUP TRUE [get_ports Encoder_1];
 set_property src_info {type:XDC file:1 line:127 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { MotorCtrl_0 }]; #IO_L4P_T0_34 Sch=JE1
 set_property src_info {type:XDC file:1 line:128 export:INPUT save:INPUT read:READ} [current_design]
@@ -66,4 +64,4 @@ set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports { MotorC
 set_property src_info {type:XDC file:1 line:133 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports { pwm1 }]; #IO_L20P_T3_34 Sch=JE9
 set_property src_info {type:XDC file:1 line:134 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { GPIO_0[16] }]; #IO_L7N_T1_34 Sch=JE10
+set_property -dict { PACKAGE_PIN Y17   IOSTANDARD LVCMOS33 } [get_ports { Encoder_1 }]; #IO_L7N_T1_34 Sch=JE10
