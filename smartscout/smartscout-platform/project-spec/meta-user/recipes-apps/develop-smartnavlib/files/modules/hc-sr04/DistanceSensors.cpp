@@ -18,16 +18,10 @@
 
 //#define DEBUG_DISTANCE 1
 #ifdef DEBUG_DISTANCE
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
 #else
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
-=======
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
-#else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
 #endif
 
 DistanceSensors::DistanceSensors() {
@@ -57,11 +51,7 @@ DistanceSensors::~DistanceSensors() {
 std::vector<int> DistanceSensors::getDistances() { 
 	std::vector<int> ret;
 
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
 	for (auto &sma : __sma_vec) 
-=======
-	for (auto &sma : sma_vec) 
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
 		ret.push_back(sma.getMean());
 
 	return ret; 
@@ -74,19 +64,11 @@ void DistanceSensors::__readDistance() {
 		for (int i=0; i < __NRO_SENSORS; i++) {
 			// Read the distance of each sensor 
 			samples_from_sensors[i] = ioctl(__fd, HCSR04_IOC_TRIGGER, (i+1));
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
 			if ( samples_from_sensors[i] == -1) 
 				printf("Error reading distance sensor: %d.\n", i);
 			else 
 				__sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
 			DEBUG_PRINT("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
-=======
-			if ( samples_from_sensors[i] == -1) {
-				throw std::runtime_error("Error reading distance sensors");
-			}
-			DEBUG_PRINT("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
-			sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/hc-sr04/DistanceSensors.cpp
 		}
 	}
 }

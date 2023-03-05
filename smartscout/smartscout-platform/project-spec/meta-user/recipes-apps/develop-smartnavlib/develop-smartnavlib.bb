@@ -12,11 +12,7 @@ PN="develop-smartnavlib"
 PN_LIB = "lib${PN}"
 
 # Package version
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/develop-smartnavlib.bb
 PV = "0.1.314"
-=======
-PV = "0.1.34"
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/develop-smartnavlib.bb
 
 SRC_URI = "file://Makefile \
 		 file://modules/capture-frame/* \
@@ -24,7 +20,6 @@ SRC_URI = "file://Makefile \
 		 file://modules/hc-sr04/* \
      file://modules/driver/* \
      file://modules/headlights/* \
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/develop-smartnavlib.bb
      file://modules/compass/* \
      file://modules/mailbox/* \
      file://modules/position-estimator/* \
@@ -33,8 +28,6 @@ SRC_URI = "file://Makefile \
      file://modules/obstacle/* \
      file://SmartNav.hpp \
      file://SmartNav.cpp \
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/develop-smartnavlib.bb
 		  "
 DEPENDS += "mailbox"
 DEPENDS += "tensorflowlite-lib" 
