@@ -1,4 +1,8 @@
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/Makefile
 SUBDIR = modules/utilities modules/obstacle modules/capture-frame modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph
+=======
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/Makefile
 
 OBJECTS_DIR = ./obj
 

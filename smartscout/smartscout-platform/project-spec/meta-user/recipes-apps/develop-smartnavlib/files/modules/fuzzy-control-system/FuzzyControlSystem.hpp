@@ -15,6 +15,13 @@
 
 using namespace nlohmann;
 
+#define DEBUG_SYSTEM 1
+#ifdef DEBUG_SYSTEM
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+#endif
+
 class FuzzyControlSystem {
 public:
 	/** FuzzyControlSystem constructor */
@@ -32,7 +39,61 @@ public:
 	 * @param inputs_to_update 
 	 * @return std::vector<fuzzyOutput> Return fuzzy_outputs
 	 */
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyControlSystem.hpp
 	std::vector<FuzzyOutput> evaluate(std::vector<std::pair<std::string, float>> inputs_to_update);
+=======
+	std::vector<FuzzyOutput> evaluate(std::vector<std::pair<std::string, float>> inputs_to_update) {
+		bool found = false;
+
+		// Check input name 
+		for (auto &system_input : __system_inputs) {
+			found = false;
+			for (auto &input_to_update : inputs_to_update) {
+				DEBUG_PRINT("Inputs name: %s - %s.\n", system_input.getName().c_str(), input_to_update.first.c_str());
+				if (system_input.getName() == input_to_update.first) {
+					// Input fuzzification
+					system_input.fuzzyfication(input_to_update.second);	
+					found = true;
+				}
+			}
+			if (found == false) {
+				std::stringstream err;
+				err << "Input not defined in the fuzzy system.";
+				throw std::runtime_error(err.str().c_str());
+			}
+		}
+		// Test
+		for (auto &system_input : __system_inputs) {
+			DEBUG_PRINT("Input name: %s.\n", system_input.getName().c_str());
+			for (auto &system_membership : system_input.getMemberships()) {
+				DEBUG_PRINT("Membership values: %f.\n", system_membership->getValue());
+			}
+		}
+
+		// Before evaluate clean all membership functions of each output
+		for (auto &system_output : __system_outputs)
+			system_output.resetMembershipFuntions();
+
+		// Rules evaluation
+		for (auto &rule : __system_rules) 
+			rule.evaluate(__system_inputs, __system_outputs);
+
+		// Test
+		for (auto &system_output : __system_outputs) {
+			DEBUG_PRINT("Output name: %s.\n", system_output.getName().c_str());
+			for (auto &system_membership : system_output.getMemberships()) {
+				DEBUG_PRINT("Membership values: %f.\n", system_membership->getValue());
+			}
+		}
+
+		// Output deffuzification
+    for ( auto &output : __system_outputs ) {
+			output.defuzzification();
+    }
+
+		return __system_outputs;
+	}
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyControlSystem.hpp
 	/**
 	 * @brief Try to parse system.json  
 	 * 

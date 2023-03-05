@@ -93,12 +93,26 @@ public:
 		cv::Scalar mean;
 		std::vector<cv::Mat> channels;
 
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/VirtualImage.hpp
 		cv::cvtColor(__data, hsv, cv::COLOR_RGB2HSV);
 		cv::split(hsv, channels);
 		cv::Mat v_channel = channels[2];
 		mean = cv::mean(v_channel);
 		int ret = mean.val[0];
 		return (((ret * 100) / 255));
+=======
+		printf("To hsv.\n");
+		cv::cvtColor(__data, hsv, cv::COLOR_RGB2HSV);
+		printf("Split.\n");
+		cv::split(hsv, channels);
+		printf("Get v channel.\n");
+		cv::Mat v_channel = channels[2];
+		printf("Get mean.\n");
+		mean = cv::mean(v_channel);
+		printf("Mean size: %d.\n", mean.channels);
+		printf("Brightness is: %d.\n", (uint32_t)(mean(0)));
+		return (((uint32_t)(mean(0) * 100) / 255));
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/VirtualImage.hpp
 	};
 
 private:

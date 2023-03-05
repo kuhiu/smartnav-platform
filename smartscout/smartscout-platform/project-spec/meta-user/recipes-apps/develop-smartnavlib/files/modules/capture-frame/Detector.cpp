@@ -4,10 +4,16 @@
 
 //#define DEBUG_DETECTOR 1
 #ifdef DEBUG_DETECTOR
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/Detector.cpp
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
 #else
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
+=======
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/frame-processor/Detector.cpp
 #endif
 
 Detector::Detector() {
@@ -71,6 +77,10 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
   for (int i = 0; i < num_detections; ++i) {
     DEBUG_PRINT("detection_label %d, detection_score: %f\n", (int)detection_classes[i], detection_scores[i]);
     if (detection_scores[i] >= __SCORE_THRESHOLD) {
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/Detector.cpp
+=======
+      DEBUG_PRINT("detection_score: %f\n", detection_scores[i]);
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/frame-processor/Detector.cpp
       RecognitionResult recognition_result;
       recognition_result.score = detection_scores[i];
       recognition_result.label = (int)detection_classes[i];

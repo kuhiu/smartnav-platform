@@ -31,9 +31,15 @@
         "name": "lighting",
         "membership_functions": 
         [
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/smartnav-app/files/fuzzy_system_v1.json
           { "name": "HIGH", "trapezoidal": [{"x1": 40}, {"x2": 160}, {"right_slope": 0.1}, {"left_slope": 0.1}] },
           { "name": "MEDIUM", "trapezoidal": [{"x1": 10}, {"x2": 50}, {"right_slope": 0.1}, {"left_slope": 0.1}] },
           { "name": "LOW", "trapezoidal": [{"x1": -20}, {"x2": 20}, {"right_slope": 0.1}, {"left_slope": 0.1}] }
+=======
+          { "name": "HIGH", "trapezoidal": [{"x1": 50}, {"x2": 150}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "MEDIUM", "trapezoidal": [{"x1": 0}, {"x2": 100}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "LOW", "trapezoidal": [{"x1": -50}, {"x2": 50}, {"right_slope": 0.02}, {"left_slope": 0.02}] }
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/smartnav-app/files/fuzzy_system_v1.json
         ]
       }
     ], 

@@ -6,12 +6,20 @@
 constexpr const char *FuzzyOutput::__MEMBERSHIPS_FUNCTIONS_KEY;
 constexpr const char *FuzzyOutput::__NAME_KEY;
 
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyOutput.cpp
 //#define DEBUG_OUTPUT 1
 #ifdef DEBUG_OUTPUT
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
 #else
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
+=======
+#define DEBUG_OUTPUT 1
+#ifdef DEBUG_OUTPUT
+#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
+#else
+#define DEBUG_PRINT(fmt, ...) do {} while (0)
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyOutput.cpp
 #endif
 
 FuzzyOutput FuzzyOutput::parse(const nlohmann::json& output_json) {
