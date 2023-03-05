@@ -6,7 +6,7 @@
 #include <SmartNav.hpp>
 #include <nlohmann/json.hpp>
 
-#define DEBUG_MAIN 1
+//#define DEBUG_MAIN 1
 #if defined(DEBUG_MAIN) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -22,13 +22,9 @@ void siginthandler(int param) {
 }
 
 int main(void) {
-	DEBUG_PRINT("Main started...\n");
-	SmartNav smart_nav;
-	DEBUG_PRINT("SmartNav created.\n");
+	PositionEstimator::cartesianPosition where_we_go(100, 0);
+	SmartNav smart_nav(where_we_go);
+
 	signal(SIGINT, siginthandler);
-	while (is_running.load()) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	} 	
-	DEBUG_PRINT("Main finished neatly.\n");
 	return 0;
 }
