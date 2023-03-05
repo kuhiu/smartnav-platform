@@ -10,8 +10,11 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 DEPENDS += "develop-smartnavlib"
 
 SRC_URI = "	file://main.cpp \
-						file://fuzzy_system_v0.json \ 
-						file://fuzzy_system_v1.json " 
+						file://fuzzy_system_v0.json \
+						file://fuzzy_system_v1.json \ 
+						file://fuzzy_system_v2.json \ 
+						file://fuzzy_system_v3.json \  
+						file://fuzzy_system_v4.json " 
 
 S = "${WORKDIR}"
 
@@ -27,6 +30,9 @@ do_install() {
 		install -m 0755 smartnav-app ${D}${bindir}
 		install -m 0755 fuzzy_system_v0.json ${D}${bindir}
 		install -m 0755 fuzzy_system_v1.json ${D}${bindir}
+		install -m 0755 fuzzy_system_v2.json ${D}${bindir}
+		install -m 0755 fuzzy_system_v3.json ${D}${bindir}
+		install -m 0755 fuzzy_system_v4.json ${D}${bindir}
 }
 
 FILES_${PN} += "smartnav-app"
