@@ -9,10 +9,17 @@ KERNEL_MODULE_AUTOLOAD += "mailbox"
 
 SRC_URI = "file://Makefile \
            file://mailbox.c \
+           file://mailbox.h \
 	   file://COPYING \
           "
 
 S = "${WORKDIR}"
+
+do_install_append() {
+    install -d ${D}${includedir}/
+    install -m 644 ${S}/mailbox.h ${D}${includedir}/mailbox.h
+}
+FILES_${PN} += "${includedir}"
 
 # The inherit of module.bbclass will automatically name module packages with
 # "kernel-module-" prefix as required by the oe-core build environment.

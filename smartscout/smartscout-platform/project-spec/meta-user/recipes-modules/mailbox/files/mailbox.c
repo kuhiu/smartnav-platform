@@ -27,16 +27,12 @@
 #include <linux/platform_device.h>       
 #include <linux/of.h>      
 #include <linux/interrupt.h> 
+#include "mailbox.h"
 
 /* Standard module information */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Fuschetto Martin. Email: marfus@hotmail.es");
 MODULE_DESCRIPTION("axi-mailbox");
-
-#define AXI_MAILBOX_IOC_NMAGICO 'd'
-#define AXI_MAILBOX_IOC_NUM_MAX 1
-#define AXI_MAILBOX_IOC_PUSH_BLOCKING _IO(AXI_MAILBOX_IOC_NMAGICO, 0)
-#define AXI_MAILBOX_IOC_POP_BLOCKING _IO(AXI_MAILBOX_IOC_NMAGICO, 1)
 
 #define DEVICE_NAME "axi_mailbox"              
 #define DEVICE_CLASS_NAME "axi_mailbox_class"
@@ -44,7 +40,6 @@ MODULE_DESCRIPTION("axi-mailbox");
 #define BASE_MINOR 0                                      
 #define MAX_DEVICES 1     // Max number of the devices                                        
 #define DEVICE_PARENT NULL
-#define MSG_LENGTH 4
 
 // Mailbox registers
 #define XMB_WRITE_REG_OFFSET    0x00	// Mailbox write register 
@@ -76,14 +71,6 @@ MODULE_DESCRIPTION("axi-mailbox");
 
 /** Wait queue */
 static DECLARE_WAIT_QUEUE_HEAD(wait_queue);
-/**
- * @brief msg to send or receive from user space 
- * 
- */
-typedef struct msg_mailbox {
-  /** msg to send or receive */
-  char msg[4];
-} msgMailbox;
 /**
  * @brief Struct of requested memory 
  * 
