@@ -62,6 +62,7 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
   //int ret;
   int counter;
   u64 time;
+  int arrived = 1;
 
   if (_IOC_TYPE(command) != HCSR04_IOC_NMAGICO) {
     DEBUG_PRINT("Invalid command.\n");
@@ -88,11 +89,15 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     while (!state.echo_arrived_1) {
       if (++counter>10) {
         printk("Sensor 1: Out of range.\n");
+        arrived = 0;
         break;
       }
       msleep(10);
     }
-    time = ktime_to_us( ktime_sub(state.echo_end_1, state.echo_start_1));
+    if (arrived) 
+      time = ktime_to_us( ktime_sub(state.echo_end_1, state.echo_start_1));
+    else
+      time = -1;
     DEBUG_PRINT("Sensor 1. Time in kernel space: %llu.\n", time);
     return (time);
     case 2:
@@ -108,11 +113,15 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     while (!state.echo_arrived_2) {
       if (++counter>10) {
         printk("Sensor 2: Out of range.\n");
+        arrived = 0;
         break;
       }
       msleep(10);
     }
-    time = ktime_to_us( ktime_sub(state.echo_end_2, state.echo_start_2));
+    if (arrived) 
+      time = ktime_to_us( ktime_sub(state.echo_end_2, state.echo_start_2));
+    else
+      time = -1;
     DEBUG_PRINT("Sensor 2. Time in kernel space: %llu.\n", time);
     return (time);
     case 3:
@@ -128,11 +137,15 @@ long int driver_ioctl(struct file *pfile, unsigned int command, unsigned long ar
     while (!state.echo_arrived_3) {
       if (++counter>10) {
         printk("Sensor 3: Out of range.\n");
+        arrived = 0;
         break;
       }
       msleep(10);
     }
-    time = ktime_to_us( ktime_sub(state.echo_end_3, state.echo_start_3));
+    if (arrived) 
+      time = ktime_to_us( ktime_sub(state.echo_end_3, state.echo_start_3));
+    else
+      time = -1;
     DEBUG_PRINT("Sensor 3. Time in kernel space: %llu.\n", time);
     return (time);
     default:
