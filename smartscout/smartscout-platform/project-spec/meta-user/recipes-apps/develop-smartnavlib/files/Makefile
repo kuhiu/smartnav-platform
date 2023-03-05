@@ -1,0 +1,33 @@
+<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/Makefile
+SUBDIR = modules/utilities modules/obstacle modules/capture-frame modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph
+=======
+SUBDIR = modules/capture-frame modules/frame-processor modules/hc-sr04 modules/fuzzy-control-system modules/driver modules/headlights
+>>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/Makefile
+
+OBJECTS_DIR = ./obj
+
+HEADERS = $(wildcard *.hpp $(foreach fd, $(SUBDIR), $(fd)/*.hpp))
+SOURCES = $(wildcard *.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))
+OBJECTS = $(addprefix $(OBJECTS_DIR)/, $(SOURCES:cpp=o))
+INCLUDE_DIRS = $(addprefix -I, $(SUBDIR))
+
+CFLAGS_LIB = -std=c++17 -c -fPIC 
+LDFLAGS_LIB = -shared -Wl,-soname,$(LIB_NAME).so.0
+LDLIBS_LIB = -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -ltensorflow-lite -ldl -lpthread -li2c
+
+all: $(LIB_NAME).so
+
+$(LIB_NAME).so: $(OBJECTS)
+	@echo Compiling $(LIB_NAME).so
+	$(CXX) $(OBJECTS) -o $(LIB_NAME).so.$(LIB_VERSION) $(LIBS) $(LDFLAGS) $(LDFLAGS_LIB) $(LDLIBS_LIB)
+
+$(OBJECTS_DIR)/%.o: %.cpp $(HEADERS)
+	mkdir -p $(@D)
+	@echo Compiling $@
+	$(CXX) -o $@ -c $< $(CFLAGS) $(CFLAGS_LIB) $(INCLUDE_DIRS)
+
+install: $(LIB_NAME).so
+	cp $(LIB_NAME).so $(DESTDIR)/usr/lib
+
+clean:
+	rm -rf *.so *.so.* $(OBJECTS_DIR)/*

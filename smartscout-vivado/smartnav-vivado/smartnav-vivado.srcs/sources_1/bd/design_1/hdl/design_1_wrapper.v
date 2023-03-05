@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sun Jan 15 01:15:01 2023
+//Date        : Tue Feb 21 18:08:56 2023
 //Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -41,6 +41,7 @@ module design_1_wrapper
     href,
     led_pwm_0,
     led_pwm_1,
+    led_test,
     ov7670_powerdown,
     ov7670_reset,
     pclk,
@@ -51,8 +52,7 @@ module design_1_wrapper
     xclk,
     zybo_led_0,
     zybo_led_1,
-    zybo_led_2,
-    zybo_led_3);
+    zybo_led_2);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -68,8 +68,8 @@ module design_1_wrapper
   inout DDR_ras_n;
   inout DDR_reset_n;
   inout DDR_we_n;
-  input Encoder_0;
-  input Encoder_1;
+  input [0:0]Encoder_0;
+  input [0:0]Encoder_1;
   inout FIXED_IO_ddr_vrn;
   inout FIXED_IO_ddr_vrp;
   inout [53:0]FIXED_IO_mio;
@@ -84,6 +84,7 @@ module design_1_wrapper
   input href;
   output led_pwm_0;
   output led_pwm_1;
+  output [0:0]led_test;
   output [0:0]ov7670_powerdown;
   output [0:0]ov7670_reset;
   input pclk;
@@ -95,7 +96,6 @@ module design_1_wrapper
   output [0:0]zybo_led_0;
   output [0:0]zybo_led_1;
   output [0:0]zybo_led_2;
-  output [0:0]zybo_led_3;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -112,8 +112,8 @@ module design_1_wrapper
   wire DDR_ras_n;
   wire DDR_reset_n;
   wire DDR_we_n;
-  wire Encoder_0;
-  wire Encoder_1;
+  wire [0:0]Encoder_0;
+  wire [0:0]Encoder_1;
   wire FIXED_IO_ddr_vrn;
   wire FIXED_IO_ddr_vrp;
   wire [53:0]FIXED_IO_mio;
@@ -128,6 +128,7 @@ module design_1_wrapper
   wire href;
   wire led_pwm_0;
   wire led_pwm_1;
+  wire [0:0]led_test;
   wire [0:0]ov7670_powerdown;
   wire [0:0]ov7670_reset;
   wire pclk;
@@ -139,7 +140,6 @@ module design_1_wrapper
   wire [0:0]zybo_led_0;
   wire [0:0]zybo_led_1;
   wire [0:0]zybo_led_2;
-  wire [0:0]zybo_led_3;
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -173,6 +173,7 @@ module design_1_wrapper
         .href(href),
         .led_pwm_0(led_pwm_0),
         .led_pwm_1(led_pwm_1),
+        .led_test(led_test),
         .ov7670_powerdown(ov7670_powerdown),
         .ov7670_reset(ov7670_reset),
         .pclk(pclk),
@@ -183,6 +184,5 @@ module design_1_wrapper
         .xclk(xclk),
         .zybo_led_0(zybo_led_0),
         .zybo_led_1(zybo_led_1),
-        .zybo_led_2(zybo_led_2),
-        .zybo_led_3(zybo_led_3));
+        .zybo_led_2(zybo_led_2));
 endmodule

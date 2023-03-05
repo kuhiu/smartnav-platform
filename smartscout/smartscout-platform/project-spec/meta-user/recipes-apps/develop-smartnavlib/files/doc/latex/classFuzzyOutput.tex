@@ -1,0 +1,94 @@
+\hypertarget{classFuzzyOutput}{}\doxysection{Fuzzy\+Output Class Reference}
+\label{classFuzzyOutput}\index{FuzzyOutput@{FuzzyOutput}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Output.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Output\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{classFuzzyOutput__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Output\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classFuzzyOutput__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyOutput_a795f5a2668ed171d1fadce007cf34d6c}{Fuzzy\+Output}} (const std\+::string \&name, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$ memberships)
+\item 
+virtual \mbox{\hyperlink{classFuzzyOutput_a931a2ff05056154a6bffb02680eea7d2}{$\sim$\+Fuzzy\+Output}} ()=default
+\item 
+float \mbox{\hyperlink{classFuzzyOutput_a9f021efc7d0f0cde0caa27d2cdd2dd10}{defuzzification}} ()
+\begin{DoxyCompactList}\small\item\em Membership defuzzification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} \mbox{\hyperlink{classFuzzyOutput_a8968a467738307b93babadf4f61a7963}{parse}} (const nlohmann\+::json \&output\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyOutput_a795f5a2668ed171d1fadce007cf34d6c}\label{classFuzzyOutput_a795f5a2668ed171d1fadce007cf34d6c}} 
+\index{FuzzyOutput@{FuzzyOutput}!FuzzyOutput@{FuzzyOutput}}
+\index{FuzzyOutput@{FuzzyOutput}!FuzzyOutput@{FuzzyOutput}}
+\doxysubsubsection{\texorpdfstring{FuzzyOutput()}{FuzzyOutput()}}
+{\footnotesize\ttfamily Fuzzy\+Output\+::\+Fuzzy\+Output (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyMembership}{Fuzzy\+Membership}} $>$$>$}]{memberships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} constructor \mbox{\Hypertarget{classFuzzyOutput_a931a2ff05056154a6bffb02680eea7d2}\label{classFuzzyOutput_a931a2ff05056154a6bffb02680eea7d2}} 
+\index{FuzzyOutput@{FuzzyOutput}!````~FuzzyOutput@{$\sim$FuzzyOutput}}
+\index{````~FuzzyOutput@{$\sim$FuzzyOutput}!FuzzyOutput@{FuzzyOutput}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyOutput()}{~FuzzyOutput()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Output\+::$\sim$\+Fuzzy\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyOutput_a9f021efc7d0f0cde0caa27d2cdd2dd10}\label{classFuzzyOutput_a9f021efc7d0f0cde0caa27d2cdd2dd10}} 
+\index{FuzzyOutput@{FuzzyOutput}!defuzzification@{defuzzification}}
+\index{defuzzification@{defuzzification}!FuzzyOutput@{FuzzyOutput}}
+\doxysubsubsection{\texorpdfstring{defuzzification()}{defuzzification()}}
+{\footnotesize\ttfamily float Fuzzy\+Output\+::defuzzification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Membership defuzzification. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyOutput_a8968a467738307b93babadf4f61a7963}\label{classFuzzyOutput_a8968a467738307b93babadf4f61a7963}} 
+\index{FuzzyOutput@{FuzzyOutput}!parse@{parse}}
+\index{parse@{parse}!FuzzyOutput@{FuzzyOutput}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} Fuzzy\+Output\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{output\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em io} & input to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyOutput_8hpp}{Fuzzy\+Output.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyOutput_8cpp}{Fuzzy\+Output.\+cpp}}\end{DoxyCompactItemize}

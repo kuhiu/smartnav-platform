@@ -1,0 +1,115 @@
+\hypertarget{classCaptureFrame}{}\doxysection{Capture\+Frame Class Reference}
+\label{classCaptureFrame}\index{CaptureFrame@{CaptureFrame}}
+
+
+{\ttfamily \#include $<$Capture\+Frame.\+hpp$>$}
+
+
+
+Collaboration diagram for Capture\+Frame\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classCaptureFrame__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCaptureFrame_1_1ImageBuffer}{Image\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}} \{ \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5}{PIX\+\_\+\+FMT\+\_\+\+RGB24}} = 0
+ \}
+\item 
+using \mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Event\+Callback}} = std\+::function$<$ void(std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} $>$ img, void $\ast$ctx)$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCaptureFrame_aca5bdb25df5813c8fe02e30c3b8c52c5}{Capture\+Frame}} (\mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Event\+Callback}} cb, uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}} pixel\+\_\+format, uint32\+\_\+t frame\+\_\+count=1)
+\item 
+\mbox{\hyperlink{classCaptureFrame_a16d6e39dcc60e44ff0f7c749b5bde78a}{$\sim$\+Capture\+Frame}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}{get\+Brightness}} () const
+\begin{DoxyCompactList}\small\item\em Return brightness. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFrameProcessor}{Frame\+Processor}} \mbox{\hyperlink{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}{frame\+\_\+processor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module is responsable of open, init, and use a v4l2 device driver author\+: Fuschetto Martin email\+: \href{mailto:marfus@hotmail.es}{\texttt{ marfus@hotmail.\+es}} date\+: 15/11/22 version\+: 0.\+0 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classCaptureFrame_ab691022abe63477690da8525bbbdae45}\label{classCaptureFrame_ab691022abe63477690da8525bbbdae45}} 
+\index{CaptureFrame@{CaptureFrame}!EventCallback@{EventCallback}}
+\index{EventCallback@{EventCallback}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{EventCallback}{EventCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Capture\+Frame\+::\+Event\+Callback}} =  std\+::function$<$void (std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classVirtualImage}{Virtual\+Image}}$>$ img, void$\ast$ ctx)$>$}
+
+Callback of captured frame 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}\label{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}} 
+\index{CaptureFrame@{CaptureFrame}!pixelFormat@{pixelFormat}}
+\index{pixelFormat@{pixelFormat}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{pixelFormat}{pixelFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{Capture\+Frame\+::pixel\+Format}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PIX\_FMT\_RGB24@{PIX\_FMT\_RGB24}!CaptureFrame@{CaptureFrame}}\index{CaptureFrame@{CaptureFrame}!PIX\_FMT\_RGB24@{PIX\_FMT\_RGB24}}}\mbox{\Hypertarget{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5}\label{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5}} 
+PIX\+\_\+\+FMT\+\_\+\+RGB24&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCaptureFrame_aca5bdb25df5813c8fe02e30c3b8c52c5}\label{classCaptureFrame_aca5bdb25df5813c8fe02e30c3b8c52c5}} 
+\index{CaptureFrame@{CaptureFrame}!CaptureFrame@{CaptureFrame}}
+\index{CaptureFrame@{CaptureFrame}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{CaptureFrame()}{CaptureFrame()}}
+{\footnotesize\ttfamily Capture\+Frame\+::\+Capture\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Event\+Callback}}}]{cb,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}}}]{pixel\+\_\+format,  }\item[{uint32\+\_\+t}]{frame\+\_\+count = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}} constructor \mbox{\Hypertarget{classCaptureFrame_a16d6e39dcc60e44ff0f7c749b5bde78a}\label{classCaptureFrame_a16d6e39dcc60e44ff0f7c749b5bde78a}} 
+\index{CaptureFrame@{CaptureFrame}!````~CaptureFrame@{$\sim$CaptureFrame}}
+\index{````~CaptureFrame@{$\sim$CaptureFrame}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{$\sim$CaptureFrame()}{~CaptureFrame()}}
+{\footnotesize\ttfamily Capture\+Frame\+::$\sim$\+Capture\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}\label{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}} 
+\index{CaptureFrame@{CaptureFrame}!getBrightness@{getBrightness}}
+\index{getBrightness@{getBrightness}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{getBrightness()}{getBrightness()}}
+{\footnotesize\ttfamily uint32\+\_\+t Capture\+Frame\+::get\+Brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return brightness. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}\label{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}} 
+\index{CaptureFrame@{CaptureFrame}!frame\_processor@{frame\_processor}}
+\index{frame\_processor@{frame\_processor}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{frame\_processor}{frame\_processor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFrameProcessor}{Frame\+Processor}} Capture\+Frame\+::frame\+\_\+processor}
+
+\mbox{\hyperlink{classFrameProcessor}{Frame\+Processor}} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/capture-\/frame/\mbox{\hyperlink{CaptureFrame_8hpp}{Capture\+Frame.\+hpp}}\item 
+modules/capture-\/frame/\mbox{\hyperlink{CaptureFrame_8cpp}{Capture\+Frame.\+cpp}}\end{DoxyCompactItemize}

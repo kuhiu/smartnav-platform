@@ -1,0 +1,99 @@
+\hypertarget{Driver_8hpp}{}\doxysection{modules/driver/\+Driver.hpp File Reference}
+\label{Driver_8hpp}\index{modules/driver/Driver.hpp@{modules/driver/Driver.hpp}}
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for Driver.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Driver_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{Driver_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDriver}{Driver}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}~\textquotesingle{}c\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_a317b03f4028d84a6d947ec5b5e2a0b6a}{L298\+N\+\_\+\+IOC\+\_\+\+STOP}}~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 0)
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_ad86a82e0d6a8baef259e55ee33e655af}{L298\+N\+\_\+\+IOC\+\_\+\+FORWARD}}~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_afb53b8432fa53a1dc7fd4e2b69c1e3d9}{L298\+N\+\_\+\+IOC\+\_\+\+BACK}}~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 2)
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_ae336193c0f1df4748a543b2b07bd21d2}{L298\+N\+\_\+\+IOC\+\_\+\+RIGHT}}~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 3)
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_af9e7e0c7222d5722d634639ec5e74bcd}{L298\+N\+\_\+\+IOC\+\_\+\+LEFT}}~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 4)
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_a85c960288a2de0fd01fb4fa19ebdc751}{AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+NMAGICO}}~\textquotesingle{}v\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{Driver_8hpp_a2d8bf7e7a96ddc4c34afecb5c1ba2d95}{AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+T\+\_\+\+ON}}~\+\_\+\+IO(\mbox{\hyperlink{Headlights_8hpp_a85c960288a2de0fd01fb4fa19ebdc751}{AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Driver_8hpp_a85c960288a2de0fd01fb4fa19ebdc751}\label{Driver_8hpp_a85c960288a2de0fd01fb4fa19ebdc751}} 
+\index{Driver.hpp@{Driver.hpp}!AXI\_TIMER\_IOC\_NMAGICO@{AXI\_TIMER\_IOC\_NMAGICO}}
+\index{AXI\_TIMER\_IOC\_NMAGICO@{AXI\_TIMER\_IOC\_NMAGICO}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{AXI\_TIMER\_IOC\_NMAGICO}{AXI\_TIMER\_IOC\_NMAGICO}}
+{\footnotesize\ttfamily \#define AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+NMAGICO~\textquotesingle{}v\textquotesingle{}}
+
+\mbox{\Hypertarget{Driver_8hpp_a2d8bf7e7a96ddc4c34afecb5c1ba2d95}\label{Driver_8hpp_a2d8bf7e7a96ddc4c34afecb5c1ba2d95}} 
+\index{Driver.hpp@{Driver.hpp}!AXI\_TIMER\_IOC\_T\_ON@{AXI\_TIMER\_IOC\_T\_ON}}
+\index{AXI\_TIMER\_IOC\_T\_ON@{AXI\_TIMER\_IOC\_T\_ON}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{AXI\_TIMER\_IOC\_T\_ON}{AXI\_TIMER\_IOC\_T\_ON}}
+{\footnotesize\ttfamily \#define AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+T\+\_\+\+ON~\+\_\+\+IO(\mbox{\hyperlink{Headlights_8hpp_a85c960288a2de0fd01fb4fa19ebdc751}{AXI\+\_\+\+TIMER\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)}
+
+\mbox{\Hypertarget{Driver_8hpp_afb53b8432fa53a1dc7fd4e2b69c1e3d9}\label{Driver_8hpp_afb53b8432fa53a1dc7fd4e2b69c1e3d9}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_BACK@{L298N\_IOC\_BACK}}
+\index{L298N\_IOC\_BACK@{L298N\_IOC\_BACK}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_BACK}{L298N\_IOC\_BACK}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+BACK~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 2)}
+
+\mbox{\Hypertarget{Driver_8hpp_ad86a82e0d6a8baef259e55ee33e655af}\label{Driver_8hpp_ad86a82e0d6a8baef259e55ee33e655af}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_FORWARD@{L298N\_IOC\_FORWARD}}
+\index{L298N\_IOC\_FORWARD@{L298N\_IOC\_FORWARD}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_FORWARD}{L298N\_IOC\_FORWARD}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+FORWARD~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 1)}
+
+\mbox{\Hypertarget{Driver_8hpp_af9e7e0c7222d5722d634639ec5e74bcd}\label{Driver_8hpp_af9e7e0c7222d5722d634639ec5e74bcd}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_LEFT@{L298N\_IOC\_LEFT}}
+\index{L298N\_IOC\_LEFT@{L298N\_IOC\_LEFT}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_LEFT}{L298N\_IOC\_LEFT}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+LEFT~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 4)}
+
+\mbox{\Hypertarget{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}\label{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_NMAGICO@{L298N\_IOC\_NMAGICO}}
+\index{L298N\_IOC\_NMAGICO@{L298N\_IOC\_NMAGICO}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_NMAGICO}{L298N\_IOC\_NMAGICO}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO~\textquotesingle{}c\textquotesingle{}}
+
+\mbox{\Hypertarget{Driver_8hpp_ae336193c0f1df4748a543b2b07bd21d2}\label{Driver_8hpp_ae336193c0f1df4748a543b2b07bd21d2}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_RIGHT@{L298N\_IOC\_RIGHT}}
+\index{L298N\_IOC\_RIGHT@{L298N\_IOC\_RIGHT}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_RIGHT}{L298N\_IOC\_RIGHT}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+RIGHT~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 3)}
+
+\mbox{\Hypertarget{Driver_8hpp_a317b03f4028d84a6d947ec5b5e2a0b6a}\label{Driver_8hpp_a317b03f4028d84a6d947ec5b5e2a0b6a}} 
+\index{Driver.hpp@{Driver.hpp}!L298N\_IOC\_STOP@{L298N\_IOC\_STOP}}
+\index{L298N\_IOC\_STOP@{L298N\_IOC\_STOP}!Driver.hpp@{Driver.hpp}}
+\doxysubsubsection{\texorpdfstring{L298N\_IOC\_STOP}{L298N\_IOC\_STOP}}
+{\footnotesize\ttfamily \#define L298\+N\+\_\+\+IOC\+\_\+\+STOP~\+\_\+\+IO(\mbox{\hyperlink{Driver_8hpp_a37aaedea0cbc9f56a1570ae9d70838ac}{L298\+N\+\_\+\+IOC\+\_\+\+NMAGICO}}, 0)}
+

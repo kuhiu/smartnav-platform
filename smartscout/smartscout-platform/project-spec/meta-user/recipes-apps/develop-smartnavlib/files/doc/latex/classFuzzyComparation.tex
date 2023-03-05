@@ -1,0 +1,124 @@
+\hypertarget{classFuzzyComparation}{}\doxysection{Fuzzy\+Comparation Class Reference}
+\label{classFuzzyComparation}\index{FuzzyComparation@{FuzzyComparation}}
+
+
+{\ttfamily \#include $<$Fuzzy\+Comparation.\+hpp$>$}
+
+
+
+Inheritance diagram for Fuzzy\+Comparation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classFuzzyComparation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fuzzy\+Comparation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classFuzzyComparation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFuzzyComparation_ac2aa72929adeff1dc971df50253d4d1f}{Fuzzy\+Comparation}} (std\+::pair$<$ std\+::string, std\+::string $>$ comparation)
+\item 
+virtual \mbox{\hyperlink{classFuzzyComparation_af998fcd66f30f2e0c5a184f1d15c11f7}{$\sim$\+Fuzzy\+Comparation}} ()=default
+\item 
+virtual float \mbox{\hyperlink{classFuzzyComparation_ab9a1683c5c05253c153f3ed0d7d55193}{evaluate}} (std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&system\+\_\+input) const override
+\begin{DoxyCompactList}\small\item\em Evaluate and condition. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFuzzyComparation_ab4eb4f8ab68339c8fab515d013f28a18}{update}} (float value, std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&system\+\_\+output) override
+\begin{DoxyCompactList}\small\item\em Update system outputs with value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+Ptr}} \mbox{\hyperlink{classFuzzyComparation_a506ae9c1adc651db2cc9917b31ab84b7}{parse}} (const nlohmann\+::json \&comparation\+\_\+json)
+\begin{DoxyCompactList}\small\item\em Try to parse comparation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFuzzyComparation_ac2aa72929adeff1dc971df50253d4d1f}\label{classFuzzyComparation_ac2aa72929adeff1dc971df50253d4d1f}} 
+\index{FuzzyComparation@{FuzzyComparation}!FuzzyComparation@{FuzzyComparation}}
+\index{FuzzyComparation@{FuzzyComparation}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{FuzzyComparation()}{FuzzyComparation()}}
+{\footnotesize\ttfamily Fuzzy\+Comparation\+::\+Fuzzy\+Comparation (\begin{DoxyParamCaption}\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{comparation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\hyperlink{classFuzzyComparation}{Fuzzy\+Comparation}} constructor \mbox{\Hypertarget{classFuzzyComparation_af998fcd66f30f2e0c5a184f1d15c11f7}\label{classFuzzyComparation_af998fcd66f30f2e0c5a184f1d15c11f7}} 
+\index{FuzzyComparation@{FuzzyComparation}!````~FuzzyComparation@{$\sim$FuzzyComparation}}
+\index{````~FuzzyComparation@{$\sim$FuzzyComparation}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{$\sim$FuzzyComparation()}{~FuzzyComparation()}}
+{\footnotesize\ttfamily virtual Fuzzy\+Comparation\+::$\sim$\+Fuzzy\+Comparation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\hyperlink{classFuzzyComparation}{Fuzzy\+Comparation}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFuzzyComparation_ab9a1683c5c05253c153f3ed0d7d55193}\label{classFuzzyComparation_ab9a1683c5c05253c153f3ed0d7d55193}} 
+\index{FuzzyComparation@{FuzzyComparation}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily float Fuzzy\+Comparation\+::evaluate (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyInput}{Fuzzy\+Input}} $>$ \&}]{system\+\_\+input }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Evaluate and condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em system\+\_\+io} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFuzzyCondition_a8ad6cec6e2bb881d4c791fe3efa3eeca}{Fuzzy\+Condition}}.
+
+\mbox{\Hypertarget{classFuzzyComparation_a506ae9c1adc651db2cc9917b31ab84b7}\label{classFuzzyComparation_a506ae9c1adc651db2cc9917b31ab84b7}} 
+\index{FuzzyComparation@{FuzzyComparation}!parse@{parse}}
+\index{parse@{parse}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} Fuzzy\+Comparation\+::parse (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{comparation\+\_\+json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Try to parse comparation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comparation\+\_\+json} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Fuzzy\+Condition\+Ptr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFuzzyComparation_ab4eb4f8ab68339c8fab515d013f28a18}\label{classFuzzyComparation_ab4eb4f8ab68339c8fab515d013f28a18}} 
+\index{FuzzyComparation@{FuzzyComparation}!update@{update}}
+\index{update@{update}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Fuzzy\+Comparation\+::update (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classFuzzyOutput}{Fuzzy\+Output}} $>$ \&}]{system\+\_\+output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update system outputs with value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFuzzyCondition_ab8cbf67294f96c78fd2fe5a3e8b0b492}{Fuzzy\+Condition}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyComparation_8hpp}{Fuzzy\+Comparation.\+hpp}}\item 
+modules/fuzzy-\/control-\/system/\mbox{\hyperlink{FuzzyComparation_8cpp}{Fuzzy\+Comparation.\+cpp}}\end{DoxyCompactItemize}

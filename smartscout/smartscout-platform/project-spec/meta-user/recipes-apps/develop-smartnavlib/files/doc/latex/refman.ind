@@ -1,0 +1,723 @@
+\begin{theindex}
+
+  \item {\_\_MB\_TRAPEZOIDAL\_KEY}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{54}
+  \item {\_\_NAME\_KEY}
+    \subitem {FuzzyMembership}, \hyperpage{50}
+  \item {\_\_UPPER\_LIMIT}
+    \subitem {FuzzyMembership}, \hyperpage{50}
+  \item {\_\_fuzzy\_value}
+    \subitem {FuzzyMembership}, \hyperpage{50}
+  \item {\_\_memberships}
+    \subitem {FuzzyIO}, \hyperpage{45}
+  \item {\_\_name}
+    \subitem {FuzzyIO}, \hyperpage{45}
+    \subitem {FuzzyMembership}, \hyperpage{50}
+  \item {$\sim$CaptureFrame}
+    \subitem {CaptureFrame}, \hyperpage{16}
+  \item {$\sim$Compass}
+    \subitem {Compass}, \hyperpage{18}
+  \item {$\sim$Detector}
+    \subitem {Detector}, \hyperpage{21}
+  \item {$\sim$DistanceSensors}
+    \subitem {DistanceSensors}, \hyperpage{22}
+  \item {$\sim$Driver}
+    \subitem {Driver}, \hyperpage{24}
+  \item {$\sim$FrameProcessor}
+    \subitem {FrameProcessor}, \hyperpage{25}
+  \item {$\sim$FuzzyAnd}
+    \subitem {FuzzyAnd}, \hyperpage{28}
+  \item {$\sim$FuzzyComparation}
+    \subitem {FuzzyComparation}, \hyperpage{32}
+  \item {$\sim$FuzzyCondition}
+    \subitem {FuzzyCondition}, \hyperpage{35}
+  \item {$\sim$FuzzyControlSystem}
+    \subitem {FuzzyControlSystem}, \hyperpage{37}
+  \item {$\sim$FuzzyIO}
+    \subitem {FuzzyIO}, \hyperpage{44}
+  \item {$\sim$FuzzyInput}
+    \subitem {FuzzyInput}, \hyperpage{41}
+  \item {$\sim$FuzzyMembership}
+    \subitem {FuzzyMembership}, \hyperpage{48}
+  \item {$\sim$FuzzyMembershipTrapezoidal}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{53}
+  \item {$\sim$FuzzyOutput}
+    \subitem {FuzzyOutput}, \hyperpage{57}
+  \item {$\sim$FuzzyRule}
+    \subitem {FuzzyRule}, \hyperpage{58}
+  \item {$\sim$Headlights}
+    \subitem {Headlights}, \hyperpage{60}
+  \item {$\sim$LogStream}
+    \subitem {LogStream}, \hyperpage{66}
+  \item {$\sim$SimpleMovingAverage}
+    \subitem {SimpleMovingAverage}, \hyperpage{71}
+  \item {$\sim$SmartNav}
+    \subitem {SmartNav}, \hyperpage{72}
+  \item {$\sim$VirtualImage}
+    \subitem {VirtualImage}, \hyperpage{78}
+  \item {$\sim$ov7670}
+    \subitem {ov7670}, \hyperpage{68}
+  \item {$\sim$utilities}
+    \subitem {utilities}, \hyperpage{75}
+  \item {$\sim$v\_demosaic}
+    \subitem {v\_demosaic}, \hyperpage{76}
+
+  \indexspace
+
+  \item {addData}
+    \subitem {SimpleMovingAverage}, \hyperpage{71}
+  \item {Axes}
+    \subitem {Compass}, \hyperpage{18}
+  \item {AXI\_TIMER\_IOC\_NMAGICO}
+    \subitem {Driver.hpp}, \hyperpage{99}
+    \subitem {Headlights.hpp}, \hyperpage{119}
+  \item {AXI\_TIMER\_IOC\_T\_ON}
+    \subitem {Driver.hpp}, \hyperpage{99}
+    \subitem {Headlights.hpp}, \hyperpage{119}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {utilities.hpp}, \hyperpage{124}
+  \item {BGR}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+  \item {BGRA}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+
+  \indexspace
+
+  \item {CaptureFrame}, \hyperpage{15}
+    \subitem {$\sim$CaptureFrame}, \hyperpage{16}
+    \subitem {CaptureFrame}, \hyperpage{16}
+    \subitem {EventCallback}, \hyperpage{16}
+    \subitem {frame\_processor}, \hyperpage{17}
+    \subitem {getBrightness}, \hyperpage{17}
+    \subitem {PIX\_FMT\_RGB24}, \hyperpage{16}
+    \subitem {pixelFormat}, \hyperpage{16}
+  \item {CaptureFrame.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{83}
+  \item {CaptureFrame.hpp}
+    \subitem {CLEAR}, \hyperpage{85}
+  \item {CaptureFrame::ImageBuffer}, \hyperpage{61}
+    \subitem {length}, \hyperpage{61}
+    \subitem {planes}, \hyperpage{62}
+    \subitem {start}, \hyperpage{62}
+  \item {CLEAR}
+    \subitem {CaptureFrame.hpp}, \hyperpage{85}
+    \subitem {ov7670.hpp}, \hyperpage{90}
+    \subitem {v\_demosaic.hpp}, \hyperpage{93}
+  \item {colorBalancing}
+    \subitem {VirtualImage}, \hyperpage{78}
+  \item {ColorSpaces}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+  \item {ColorSpaces.hpp}
+    \subitem {BGR}, \hyperpage{86}
+    \subitem {BGRA}, \hyperpage{86}
+    \subitem {ColorSpaces}, \hyperpage{86}
+    \subitem {NONE}, \hyperpage{86}
+    \subitem {RGB}, \hyperpage{86}
+    \subitem {RGBA}, \hyperpage{86}
+  \item {Compass}, \hyperpage{17}
+    \subitem {$\sim$Compass}, \hyperpage{18}
+    \subitem {Axes}, \hyperpage{18}
+    \subitem {Compass}, \hyperpage{18}
+    \subitem {getValue}, \hyperpage{19}
+    \subitem {X\_AXIS}, \hyperpage{18}
+    \subitem {Y\_AXIS}, \hyperpage{18}
+    \subitem {Z\_AXIS}, \hyperpage{18}
+  \item {Compass.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{95}
+  \item {Compass::CalibrationValues}, \hyperpage{13}
+    \subitem {x\_high}, \hyperpage{14}
+    \subitem {x\_low}, \hyperpage{14}
+    \subitem {y\_high}, \hyperpage{14}
+    \subitem {y\_low}, \hyperpage{14}
+  \item {Compass::CompassValues}, \hyperpage{19}
+    \subitem {raw\_x}, \hyperpage{20}
+    \subitem {raw\_y}, \hyperpage{20}
+    \subitem {raw\_z}, \hyperpage{20}
+  \item {compute\_area\_of\_membership}
+    \subitem {FuzzyMembership}, \hyperpage{48}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{53}
+  \item {compute\_centroid\_of\_membership}
+    \subitem {FuzzyMembership}, \hyperpage{48}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{53}
+  \item {compute\_degree\_of\_membership}
+    \subitem {FuzzyMembership}, \hyperpage{49}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{54}
+  \item {convertToRgb}
+    \subitem {VirtualImage}, \hyperpage{79}
+
+  \indexspace
+
+  \item {DEBUG\_DEMOSAIC}
+    \subitem {v\_demosaic.cpp}, \hyperpage{92}
+  \item {DEBUG\_FUZZYCONTROLSYSTEM}
+    \subitem {FuzzyControlSystem.cpp}, \hyperpage{105}
+  \item {DEBUG\_OUTPUT}
+    \subitem {FuzzyOutput.cpp}, \hyperpage{112}
+  \item {DEBUG\_OV7670}
+    \subitem {ov7670.cpp}, \hyperpage{89}
+  \item {DEBUG\_PRINT}
+    \subitem {CaptureFrame.cpp}, \hyperpage{83}
+    \subitem {Compass.cpp}, \hyperpage{95}
+    \subitem {Detector.cpp}, \hyperpage{86}
+    \subitem {DistanceSensors.cpp}, \hyperpage{116}
+    \subitem {FuzzyAnd.cpp}, \hyperpage{100}
+    \subitem {FuzzyComparation.cpp}, \hyperpage{102}
+    \subitem {FuzzyControlSystem.cpp}, \hyperpage{105}
+    \subitem {FuzzyOutput.cpp}, \hyperpage{112}
+    \subitem {FuzzyRule.cpp}, \hyperpage{114}
+    \subitem {ov7670.cpp}, \hyperpage{89}
+    \subitem {v\_demosaic.cpp}, \hyperpage{92}
+  \item {DEBUG\_RULE}
+    \subitem {FuzzyRule.cpp}, \hyperpage{114}
+  \item {defuzzification}
+    \subitem {FuzzyOutput}, \hyperpage{57}
+  \item {detect}
+    \subitem {Detector}, \hyperpage{21}
+  \item {Detector}, \hyperpage{20}
+    \subitem {$\sim$Detector}, \hyperpage{21}
+    \subitem {detect}, \hyperpage{21}
+    \subitem {Detector}, \hyperpage{21}
+  \item {Detector.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{86}
+  \item {DistanceSensors}, \hyperpage{21}
+    \subitem {$\sim$DistanceSensors}, \hyperpage{22}
+    \subitem {DistanceSensors}, \hyperpage{22}
+    \subitem {getDistances}, \hyperpage{22}
+  \item {DistanceSensors.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{116}
+    \subitem {HCSR04\_IOC\_NMAGICO}, \hyperpage{116}
+    \subitem {HCSR04\_IOC\_TRIGGER}, \hyperpage{116}
+  \item {Driver}, \hyperpage{23}
+    \subitem {$\sim$Driver}, \hyperpage{24}
+    \subitem {Driver}, \hyperpage{24}
+    \subitem {OP\_DRIVE}, \hyperpage{24}
+    \subitem {OP\_STOP}, \hyperpage{24}
+    \subitem {operationMode}, \hyperpage{23}
+    \subitem {update}, \hyperpage{24}
+  \item {Driver.hpp}
+    \subitem {AXI\_TIMER\_IOC\_NMAGICO}, \hyperpage{99}
+    \subitem {AXI\_TIMER\_IOC\_T\_ON}, \hyperpage{99}
+    \subitem {L298N\_IOC\_BACK}, \hyperpage{99}
+    \subitem {L298N\_IOC\_FORWARD}, \hyperpage{99}
+    \subitem {L298N\_IOC\_LEFT}, \hyperpage{99}
+    \subitem {L298N\_IOC\_NMAGICO}, \hyperpage{99}
+    \subitem {L298N\_IOC\_RIGHT}, \hyperpage{99}
+    \subitem {L298N\_IOC\_STOP}, \hyperpage{99}
+
+  \indexspace
+
+  \item {elapsed}
+    \subitem {utilities.hpp}, \hyperpage{124}
+  \item {end}
+    \subitem {utilities.hpp}, \hyperpage{124}
+  \item {evaluate}
+    \subitem {FuzzyAnd}, \hyperpage{28}
+    \subitem {FuzzyComparation}, \hyperpage{32}
+    \subitem {FuzzyCondition}, \hyperpage{35}
+    \subitem {FuzzyControlSystem}, \hyperpage{38}
+    \subitem {FuzzyRule}, \hyperpage{59}
+  \item {EventCallback}
+    \subitem {CaptureFrame}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Fatal}
+    \subitem {LogLevels.hpp}, \hyperpage{122}
+  \item {flip}
+    \subitem {VirtualImage}, \hyperpage{79}
+  \item {frame\_processor}
+    \subitem {CaptureFrame}, \hyperpage{17}
+  \item {FrameProcessor}, \hyperpage{25}
+    \subitem {$\sim$FrameProcessor}, \hyperpage{25}
+    \subitem {FrameProcessor}, \hyperpage{25}
+    \subitem {getResults}, \hyperpage{26}
+    \subitem {processFrame}, \hyperpage{26}
+  \item {FuzzyAnd}, \hyperpage{26}
+    \subitem {$\sim$FuzzyAnd}, \hyperpage{28}
+    \subitem {evaluate}, \hyperpage{28}
+    \subitem {FuzzyAnd}, \hyperpage{28}
+    \subitem {parse}, \hyperpage{29}
+    \subitem {update}, \hyperpage{29}
+  \item {FuzzyAnd.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{100}
+  \item {FuzzyComparation}, \hyperpage{30}
+    \subitem {$\sim$FuzzyComparation}, \hyperpage{32}
+    \subitem {evaluate}, \hyperpage{32}
+    \subitem {FuzzyComparation}, \hyperpage{31}
+    \subitem {parse}, \hyperpage{32}
+    \subitem {update}, \hyperpage{33}
+  \item {FuzzyComparation.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{102}
+  \item {FuzzyCondition}, \hyperpage{33}
+    \subitem {$\sim$FuzzyCondition}, \hyperpage{35}
+    \subitem {evaluate}, \hyperpage{35}
+    \subitem {FuzzyCondition}, \hyperpage{35}
+    \subitem {FuzzyConditionPtr}, \hyperpage{35}
+    \subitem {update}, \hyperpage{36}
+  \item {FuzzyConditionPtr}
+    \subitem {FuzzyCondition}, \hyperpage{35}
+  \item {FuzzyControlSystem}, \hyperpage{36}
+    \subitem {$\sim$FuzzyControlSystem}, \hyperpage{37}
+    \subitem {evaluate}, \hyperpage{38}
+    \subitem {FuzzyControlSystem}, \hyperpage{37}
+    \subitem {parse}, \hyperpage{38}
+  \item {FuzzyControlSystem.cpp}
+    \subitem {DEBUG\_FUZZYCONTROLSYSTEM}, \hyperpage{105}
+    \subitem {DEBUG\_PRINT}, \hyperpage{105}
+  \item {fuzzyfication}
+    \subitem {FuzzyInput}, \hyperpage{41}
+  \item {FuzzyInput}, \hyperpage{38}
+    \subitem {$\sim$FuzzyInput}, \hyperpage{41}
+    \subitem {fuzzyfication}, \hyperpage{41}
+    \subitem {FuzzyInput}, \hyperpage{40}
+    \subitem {parse}, \hyperpage{41}
+  \item {FuzzyIO}, \hyperpage{42}
+    \subitem {\_\_memberships}, \hyperpage{45}
+    \subitem {\_\_name}, \hyperpage{45}
+    \subitem {$\sim$FuzzyIO}, \hyperpage{44}
+    \subitem {FuzzyIO}, \hyperpage{43}
+    \subitem {getMemberships}, \hyperpage{44}
+    \subitem {getName}, \hyperpage{44}
+    \subitem {resetMembershipFuntions}, \hyperpage{44}
+  \item {FuzzyMembership}, \hyperpage{45}
+    \subitem {\_\_NAME\_KEY}, \hyperpage{50}
+    \subitem {\_\_UPPER\_LIMIT}, \hyperpage{50}
+    \subitem {\_\_fuzzy\_value}, \hyperpage{50}
+    \subitem {\_\_name}, \hyperpage{50}
+    \subitem {$\sim$FuzzyMembership}, \hyperpage{48}
+    \subitem {compute\_area\_of\_membership}, \hyperpage{48}
+    \subitem {compute\_centroid\_of\_membership}, \hyperpage{48}
+    \subitem {compute\_degree\_of\_membership}, \hyperpage{49}
+    \subitem {FuzzyMembership}, \hyperpage{48}
+    \subitem {FuzzyMembershipPtr}, \hyperpage{48}
+    \subitem {getName}, \hyperpage{49}
+    \subitem {getValue}, \hyperpage{49}
+    \subitem {resetValue}, \hyperpage{49}
+    \subitem {setValue}, \hyperpage{50}
+  \item {FuzzyMembershipPtr}
+    \subitem {FuzzyMembership}, \hyperpage{48}
+  \item {FuzzyMembershipTrapezoidal}, \hyperpage{51}
+    \subitem {\_\_MB\_TRAPEZOIDAL\_KEY}, \hyperpage{54}
+    \subitem {$\sim$FuzzyMembershipTrapezoidal}, \hyperpage{53}
+    \subitem {compute\_area\_of\_membership}, \hyperpage{53}
+    \subitem {compute\_centroid\_of\_membership}, \hyperpage{53}
+    \subitem {compute\_degree\_of\_membership}, \hyperpage{54}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{53}
+    \subitem {parse}, \hyperpage{54}
+  \item {FuzzyMembershipTrapezoidal::TrapezoidalPoints}, \hyperpage{73}
+    \subitem {left\_slope}, \hyperpage{73}
+    \subitem {right\_slope}, \hyperpage{74}
+    \subitem {x1}, \hyperpage{74}
+    \subitem {x2}, \hyperpage{74}
+  \item {FuzzyOutput}, \hyperpage{55}
+    \subitem {$\sim$FuzzyOutput}, \hyperpage{57}
+    \subitem {defuzzification}, \hyperpage{57}
+    \subitem {FuzzyOutput}, \hyperpage{56}
+    \subitem {parse}, \hyperpage{57}
+  \item {FuzzyOutput.cpp}
+    \subitem {DEBUG\_OUTPUT}, \hyperpage{112}
+    \subitem {DEBUG\_PRINT}, \hyperpage{112}
+  \item {FuzzyRule}, \hyperpage{58}
+    \subitem {$\sim$FuzzyRule}, \hyperpage{58}
+    \subitem {evaluate}, \hyperpage{59}
+    \subitem {FuzzyRule}, \hyperpage{58}
+    \subitem {parse}, \hyperpage{59}
+  \item {FuzzyRule.cpp}
+    \subitem {DEBUG\_PRINT}, \hyperpage{114}
+    \subitem {DEBUG\_RULE}, \hyperpage{114}
+
+  \indexspace
+
+  \item {getBrightness}
+    \subitem {CaptureFrame}, \hyperpage{17}
+    \subitem {VirtualImage}, \hyperpage{79}
+  \item {getChannels}
+    \subitem {VirtualImage}, \hyperpage{79}
+  \item {getColorSpace}
+    \subitem {VirtualImage}, \hyperpage{79}
+  \item {getData}
+    \subitem {VirtualImage}, \hyperpage{80}
+  \item {getDistances}
+    \subitem {DistanceSensors}, \hyperpage{22}
+  \item {getHeigth}
+    \subitem {VirtualImage}, \hyperpage{80}
+  \item {getMean}
+    \subitem {SimpleMovingAverage}, \hyperpage{71}
+  \item {getMemberships}
+    \subitem {FuzzyIO}, \hyperpage{44}
+  \item {getName}
+    \subitem {FuzzyIO}, \hyperpage{44}
+    \subitem {FuzzyMembership}, \hyperpage{49}
+  \item {getResults}
+    \subitem {FrameProcessor}, \hyperpage{26}
+  \item {getValue}
+    \subitem {Compass}, \hyperpage{19}
+    \subitem {FuzzyMembership}, \hyperpage{49}
+  \item {getWidth}
+    \subitem {VirtualImage}, \hyperpage{80}
+
+  \indexspace
+
+  \item {HCSR04\_IOC\_NMAGICO}
+    \subitem {DistanceSensors.cpp}, \hyperpage{116}
+  \item {HCSR04\_IOC\_TRIGGER}
+    \subitem {DistanceSensors.cpp}, \hyperpage{116}
+  \item {Headlights}, \hyperpage{60}
+    \subitem {$\sim$Headlights}, \hyperpage{60}
+    \subitem {Headlights}, \hyperpage{60}
+    \subitem {update}, \hyperpage{60}
+  \item {Headlights.hpp}
+    \subitem {AXI\_TIMER\_IOC\_NMAGICO}, \hyperpage{119}
+    \subitem {AXI\_TIMER\_IOC\_T\_ON}, \hyperpage{119}
+
+  \indexspace
+
+  \item {Info}
+    \subitem {LogLevels.hpp}, \hyperpage{122}
+
+  \indexspace
+
+  \item {L298N\_IOC\_BACK}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {L298N\_IOC\_FORWARD}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {L298N\_IOC\_LEFT}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {L298N\_IOC\_NMAGICO}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {L298N\_IOC\_RIGHT}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {L298N\_IOC\_STOP}
+    \subitem {Driver.hpp}, \hyperpage{99}
+  \item {label}
+    \subitem {RecognitionResult}, \hyperpage{69}
+  \item {left\_slope}
+    \subitem {FuzzyMembershipTrapezoidal::TrapezoidalPoints}, 
+		\hyperpage{73}
+  \item {length}
+    \subitem {CaptureFrame::ImageBuffer}, \hyperpage{61}
+  \item {levelToString}
+    \subitem {LogStream}, \hyperpage{67}
+  \item {log}
+    \subitem {Logger}, \hyperpage{63}
+  \item {Logger}, \hyperpage{62}
+    \subitem {log}, \hyperpage{63}
+    \subitem {Logger}, \hyperpage{63}
+    \subitem {operator=}, \hyperpage{63}
+    \subitem {push}, \hyperpage{63}
+  \item {LogLevels}
+    \subitem {LogLevels.hpp}, \hyperpage{121}
+  \item {LogLevels.hpp}
+    \subitem {Fatal}, \hyperpage{122}
+    \subitem {Info}, \hyperpage{122}
+    \subitem {LogLevels}, \hyperpage{121}
+    \subitem {Warning}, \hyperpage{122}
+  \item {LogStream}, \hyperpage{65}
+    \subitem {$\sim$LogStream}, \hyperpage{66}
+    \subitem {levelToString}, \hyperpage{67}
+    \subitem {LogStream}, \hyperpage{66}
+
+  \indexspace
+
+  \item {modules/capture-\/frame/CaptureFrame.cpp}, \hyperpage{83}
+  \item {modules/capture-\/frame/CaptureFrame.hpp}, \hyperpage{84}
+  \item {modules/capture-\/frame/ColorSpaces.hpp}, \hyperpage{85}
+  \item {modules/capture-\/frame/Detector.cpp}, \hyperpage{86}
+  \item {modules/capture-\/frame/Detector.hpp}, \hyperpage{87}
+  \item {modules/capture-\/frame/FrameProcessor.cpp}, \hyperpage{87}
+  \item {modules/capture-\/frame/FrameProcessor.hpp}, \hyperpage{88}
+  \item {modules/capture-\/frame/ov7670.cpp}, \hyperpage{89}
+  \item {modules/capture-\/frame/ov7670.hpp}, \hyperpage{90}
+  \item {modules/capture-\/frame/RecognitionResult.hpp}, \hyperpage{91}
+  \item {modules/capture-\/frame/v\_demosaic.cpp}, \hyperpage{92}
+  \item {modules/capture-\/frame/v\_demosaic.hpp}, \hyperpage{93}
+  \item {modules/capture-\/frame/VirtualImage.cpp}, \hyperpage{94}
+  \item {modules/capture-\/frame/VirtualImage.hpp}, \hyperpage{94}
+  \item {modules/compass/Compass.cpp}, \hyperpage{95}
+  \item {modules/compass/Compass.hpp}, \hyperpage{96}
+  \item {modules/compass/Registers.hpp}, \hyperpage{97}
+  \item {modules/driver/Driver.hpp}, \hyperpage{98}
+  \item {modules/fuzzy-\/control-\/system/FuzzyAnd.cpp}, 
+		\hyperpage{100}
+  \item {modules/fuzzy-\/control-\/system/FuzzyAnd.hpp}, 
+		\hyperpage{100}
+  \item {modules/fuzzy-\/control-\/system/FuzzyComparation.cpp}, 
+		\hyperpage{101}
+  \item {modules/fuzzy-\/control-\/system/FuzzyComparation.hpp}, 
+		\hyperpage{102}
+  \item {modules/fuzzy-\/control-\/system/FuzzyCondition.hpp}, 
+		\hyperpage{103}
+  \item {modules/fuzzy-\/control-\/system/FuzzyControlSystem.cpp}, 
+		\hyperpage{104}
+  \item {modules/fuzzy-\/control-\/system/FuzzyControlSystem.hpp}, 
+		\hyperpage{105}
+  \item {modules/fuzzy-\/control-\/system/FuzzyInput.cpp}, 
+		\hyperpage{106}
+  \item {modules/fuzzy-\/control-\/system/FuzzyInput.hpp}, 
+		\hyperpage{106}
+  \item {modules/fuzzy-\/control-\/system/FuzzyIO.hpp}, \hyperpage{107}
+  \item {modules/fuzzy-\/control-\/system/FuzzyMembership.hpp}, 
+		\hyperpage{108}
+  \item {modules/fuzzy-\/control-\/system/FuzzyMembershipTrapezoidal.cpp}, 
+		\hyperpage{109}
+  \item {modules/fuzzy-\/control-\/system/FuzzyMembershipTrapezoidal.hpp}, 
+		\hyperpage{110}
+  \item {modules/fuzzy-\/control-\/system/FuzzyOutput.cpp}, 
+		\hyperpage{111}
+  \item {modules/fuzzy-\/control-\/system/FuzzyOutput.hpp}, 
+		\hyperpage{112}
+  \item {modules/fuzzy-\/control-\/system/FuzzyRule.cpp}, 
+		\hyperpage{113}
+  \item {modules/fuzzy-\/control-\/system/FuzzyRule.hpp}, 
+		\hyperpage{114}
+  \item {modules/hc-\/sr04/DistanceSensors.cpp}, \hyperpage{115}
+  \item {modules/hc-\/sr04/DistanceSensors.hpp}, \hyperpage{116}
+  \item {modules/hc-\/sr04/SimpleMovingAverage.hpp}, \hyperpage{117}
+  \item {modules/headlights/Headlights.hpp}, \hyperpage{118}
+  \item {modules/logger/Logger.cpp}, \hyperpage{120}
+  \item {modules/logger/Logger.hpp}, \hyperpage{120}
+  \item {modules/logger/LogLevels.hpp}, \hyperpage{121}
+  \item {modules/logger/LogStream.cpp}, \hyperpage{122}
+  \item {modules/logger/LogStream.hpp}, \hyperpage{122}
+  \item {modules/utilities/utilities.hpp}, \hyperpage{123}
+
+  \indexspace
+
+  \item {NONE}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+
+  \indexspace
+
+  \item {OP\_DRIVE}
+    \subitem {Driver}, \hyperpage{24}
+  \item {OP\_STOP}
+    \subitem {Driver}, \hyperpage{24}
+  \item {operationMode}
+    \subitem {Driver}, \hyperpage{23}
+  \item {operator=}
+    \subitem {Logger}, \hyperpage{63}
+  \item {ov7670}, \hyperpage{67}
+    \subitem {$\sim$ov7670}, \hyperpage{68}
+    \subitem {ov7670}, \hyperpage{68}
+    \subitem {pixelFormat}, \hyperpage{67}
+    \subitem {SBGGR8\_1X8}, \hyperpage{68}
+  \item {ov7670.cpp}
+    \subitem {DEBUG\_OV7670}, \hyperpage{89}
+    \subitem {DEBUG\_PRINT}, \hyperpage{89}
+  \item {ov7670.hpp}
+    \subitem {CLEAR}, \hyperpage{90}
+
+  \indexspace
+
+  \item {parse}
+    \subitem {FuzzyAnd}, \hyperpage{29}
+    \subitem {FuzzyComparation}, \hyperpage{32}
+    \subitem {FuzzyControlSystem}, \hyperpage{38}
+    \subitem {FuzzyInput}, \hyperpage{41}
+    \subitem {FuzzyMembershipTrapezoidal}, \hyperpage{54}
+    \subitem {FuzzyOutput}, \hyperpage{57}
+    \subitem {FuzzyRule}, \hyperpage{59}
+  \item {PIX\_FMT\_RGB24}
+    \subitem {CaptureFrame}, \hyperpage{16}
+  \item {pixelFormat}
+    \subitem {CaptureFrame}, \hyperpage{16}
+    \subitem {ov7670}, \hyperpage{67}
+    \subitem {v\_demosaic}, \hyperpage{76}
+  \item {planes}
+    \subitem {CaptureFrame::ImageBuffer}, \hyperpage{62}
+  \item {printf}
+    \subitem {utilities.hpp}, \hyperpage{123}
+  \item {processFrame}
+    \subitem {FrameProcessor}, \hyperpage{26}
+  \item {push}
+    \subitem {Logger}, \hyperpage{63}
+
+  \indexspace
+
+  \item {QMC5883L\_CHIP\_ID}
+    \subitem {Registers}, \hyperpage{9}
+  \item {QMC5883L\_CONFIG}
+    \subitem {Registers}, \hyperpage{9}
+  \item {QMC5883L\_CONFIG2}
+    \subitem {Registers}, \hyperpage{9}
+  \item {QMC5883L\_RESERVED}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_RESET}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_STATUS}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_TEMP\_LSB}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_TEMP\_MSB}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_X\_LSB}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_X\_MSB}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_Y\_LSB}
+    \subitem {Registers}, \hyperpage{10}
+  \item {QMC5883L\_Y\_MSB}
+    \subitem {Registers}, \hyperpage{11}
+  \item {QMC5883L\_Z\_LSB}
+    \subitem {Registers}, \hyperpage{11}
+  \item {QMC5883L\_Z\_MSB}
+    \subitem {Registers}, \hyperpage{11}
+
+  \indexspace
+
+  \item {raw\_x}
+    \subitem {Compass::CompassValues}, \hyperpage{20}
+  \item {raw\_y}
+    \subitem {Compass::CompassValues}, \hyperpage{20}
+  \item {raw\_z}
+    \subitem {Compass::CompassValues}, \hyperpage{20}
+  \item {RBG888\_1X24}
+    \subitem {v\_demosaic}, \hyperpage{76}
+  \item {RecognitionResult}, \hyperpage{68}
+    \subitem {label}, \hyperpage{69}
+    \subitem {score}, \hyperpage{69}
+    \subitem {xmax}, \hyperpage{69}
+    \subitem {xmin}, \hyperpage{70}
+    \subitem {ymax}, \hyperpage{70}
+    \subitem {ymin}, \hyperpage{70}
+  \item {Registers}, \hyperpage{9}
+    \subitem {QMC5883L\_CHIP\_ID}, \hyperpage{9}
+    \subitem {QMC5883L\_CONFIG}, \hyperpage{9}
+    \subitem {QMC5883L\_CONFIG2}, \hyperpage{9}
+    \subitem {QMC5883L\_RESERVED}, \hyperpage{10}
+    \subitem {QMC5883L\_RESET}, \hyperpage{10}
+    \subitem {QMC5883L\_STATUS}, \hyperpage{10}
+    \subitem {QMC5883L\_TEMP\_LSB}, \hyperpage{10}
+    \subitem {QMC5883L\_TEMP\_MSB}, \hyperpage{10}
+    \subitem {QMC5883L\_X\_LSB}, \hyperpage{10}
+    \subitem {QMC5883L\_X\_MSB}, \hyperpage{10}
+    \subitem {QMC5883L\_Y\_LSB}, \hyperpage{10}
+    \subitem {QMC5883L\_Y\_MSB}, \hyperpage{11}
+    \subitem {QMC5883L\_Z\_LSB}, \hyperpage{11}
+    \subitem {QMC5883L\_Z\_MSB}, \hyperpage{11}
+  \item {resetMembershipFuntions}
+    \subitem {FuzzyIO}, \hyperpage{44}
+  \item {resetValue}
+    \subitem {FuzzyMembership}, \hyperpage{49}
+  \item {resize}
+    \subitem {VirtualImage}, \hyperpage{80}
+  \item {RGB}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+  \item {RGBA}
+    \subitem {ColorSpaces.hpp}, \hyperpage{86}
+  \item {right\_slope}
+    \subitem {FuzzyMembershipTrapezoidal::TrapezoidalPoints}, 
+		\hyperpage{74}
+
+  \indexspace
+
+  \item {saveAsJpg}
+    \subitem {VirtualImage}, \hyperpage{81}
+  \item {SBGGR8\_1X8}
+    \subitem {ov7670}, \hyperpage{68}
+  \item {score}
+    \subitem {RecognitionResult}, \hyperpage{69}
+  \item {setValue}
+    \subitem {FuzzyMembership}, \hyperpage{50}
+  \item {SimpleMovingAverage}, \hyperpage{70}
+    \subitem {$\sim$SimpleMovingAverage}, \hyperpage{71}
+    \subitem {addData}, \hyperpage{71}
+    \subitem {getMean}, \hyperpage{71}
+    \subitem {SimpleMovingAverage}, \hyperpage{71}
+  \item {SmartNav}, \hyperpage{72}
+    \subitem {$\sim$SmartNav}, \hyperpage{72}
+    \subitem {SmartNav}, \hyperpage{72}
+  \item {SmartNav.hpp}, \hyperpage{124}
+  \item {start}
+    \subitem {CaptureFrame::ImageBuffer}, \hyperpage{62}
+
+  \indexspace
+
+  \item {update}
+    \subitem {Driver}, \hyperpage{24}
+    \subitem {FuzzyAnd}, \hyperpage{29}
+    \subitem {FuzzyComparation}, \hyperpage{33}
+    \subitem {FuzzyCondition}, \hyperpage{36}
+    \subitem {Headlights}, \hyperpage{60}
+  \item {utilities}, \hyperpage{74}
+    \subitem {$\sim$utilities}, \hyperpage{75}
+    \subitem {utilities}, \hyperpage{75}
+  \item {utilities.hpp}
+    \subitem {begin}, \hyperpage{124}
+    \subitem {elapsed}, \hyperpage{124}
+    \subitem {end}, \hyperpage{124}
+    \subitem {printf}, \hyperpage{123}
+
+  \indexspace
+
+  \item {v\_demosaic}, \hyperpage{75}
+    \subitem {$\sim$v\_demosaic}, \hyperpage{76}
+    \subitem {pixelFormat}, \hyperpage{76}
+    \subitem {RBG888\_1X24}, \hyperpage{76}
+    \subitem {v\_demosaic}, \hyperpage{76}
+  \item {v\_demosaic.cpp}
+    \subitem {DEBUG\_DEMOSAIC}, \hyperpage{92}
+    \subitem {DEBUG\_PRINT}, \hyperpage{92}
+  \item {v\_demosaic.hpp}
+    \subitem {CLEAR}, \hyperpage{93}
+  \item {VirtualImage}, \hyperpage{77}
+    \subitem {$\sim$VirtualImage}, \hyperpage{78}
+    \subitem {colorBalancing}, \hyperpage{78}
+    \subitem {convertToRgb}, \hyperpage{79}
+    \subitem {flip}, \hyperpage{79}
+    \subitem {getBrightness}, \hyperpage{79}
+    \subitem {getChannels}, \hyperpage{79}
+    \subitem {getColorSpace}, \hyperpage{79}
+    \subitem {getData}, \hyperpage{80}
+    \subitem {getHeigth}, \hyperpage{80}
+    \subitem {getWidth}, \hyperpage{80}
+    \subitem {resize}, \hyperpage{80}
+    \subitem {saveAsJpg}, \hyperpage{81}
+    \subitem {VirtualImage}, \hyperpage{78}
+
+  \indexspace
+
+  \item {Warning}
+    \subitem {LogLevels.hpp}, \hyperpage{122}
+
+  \indexspace
+
+  \item {x1}
+    \subitem {FuzzyMembershipTrapezoidal::TrapezoidalPoints}, 
+		\hyperpage{74}
+  \item {x2}
+    \subitem {FuzzyMembershipTrapezoidal::TrapezoidalPoints}, 
+		\hyperpage{74}
+  \item {X\_AXIS}
+    \subitem {Compass}, \hyperpage{18}
+  \item {x\_high}
+    \subitem {Compass::CalibrationValues}, \hyperpage{14}
+  \item {x\_low}
+    \subitem {Compass::CalibrationValues}, \hyperpage{14}
+  \item {xmax}
+    \subitem {RecognitionResult}, \hyperpage{69}
+  \item {xmin}
+    \subitem {RecognitionResult}, \hyperpage{70}
+
+  \indexspace
+
+  \item {Y\_AXIS}
+    \subitem {Compass}, \hyperpage{18}
+  \item {y\_high}
+    \subitem {Compass::CalibrationValues}, \hyperpage{14}
+  \item {y\_low}
+    \subitem {Compass::CalibrationValues}, \hyperpage{14}
+  \item {ymax}
+    \subitem {RecognitionResult}, \hyperpage{70}
+  \item {ymin}
+    \subitem {RecognitionResult}, \hyperpage{70}
+
+  \indexspace
+
+  \item {Z\_AXIS}
+    \subitem {Compass}, \hyperpage{18}
+
+\end{theindex}

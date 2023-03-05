@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sun Jan 15 02:53:22 2023
-# Process ID: 20450
+# Start of session at: Tue Feb 21 19:48:36 2023
+# Process ID: 445688
 # Current directory: /home/user/project/smartnav-vivado.runs/synth_1
 # Command line: vivado -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: /home/user/project/smartnav-vivado.runs/synth_1/design_1_wrapper.vds
