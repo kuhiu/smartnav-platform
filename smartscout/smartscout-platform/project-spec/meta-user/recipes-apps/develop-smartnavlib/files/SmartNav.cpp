@@ -49,7 +49,7 @@ void SmartNav::__navigation() {
   float speed_variation;
   float curr_angle_to_go;
   bool object_found = false; 
-  std::vector<RecognitionResult> results;
+  std::vector<RecognitionResult> recognized_objects;
 
   // Relativize the point to terrestrial north
   __arrival_point = __position_estimator.relativizePoint(__arrival_point); 
@@ -75,10 +75,10 @@ void SmartNav::__navigation() {
     if ((distances[1] < 50) && (__obstacles.empty())) {
       // Stop the robot
       __driver.update(Driver::operationMode::OP_STOP, 0, 0);
-      // Get the image processor results
+      // Get the results of the image processor 
       while(object_found == false) {
-        results = __capture_frame->frame_processor.getResults();
-        for (auto &result : results) {
+        recognized_objects = __capture_frame->frame_processor.getResults();
+        for (auto &result : recognized_objects) {
           DEBUG_PRINT("Label: %d.\n", result.label);
           if (result.label == 75) { // Waiting for the PC or TV detection
             object_found = true;
@@ -176,5 +176,5 @@ void SmartNav::__navigation() {
   __driver.update(Driver::operationMode::OP_STOP, 0, 0);
   printf("Append to the history file.\n");
   __utilities.appedToFile(utilities::metadata(__position_history, __angle_history, __arrival_point_history,
-          __timestamp, PositionEstimator::cartesianPosition(0.0, 0.0), __arrival_point, __obstacles));
+          __timestamp, PositionEstimator::cartesianPosition(0.0, 0.0), __arrival_point, __obstacles, recognized_objects));
 };

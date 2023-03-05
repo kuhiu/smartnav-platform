@@ -7,6 +7,7 @@
 #include <vector>
 
 #include <PositionEstimator.hpp>
+#include <RecognitionResult.hpp>
 #include <Obstacle.hpp>
 
 #include <nlohmann/json.hpp>
@@ -14,13 +15,22 @@
 class utilities {
 public:
   struct metadata {
-    std::vector<PositionEstimator::cartesianPosition> __position_history;
-    std::vector<PositionEstimator::cartesianPosition> __arrival_point_history;
-    PositionEstimator::cartesianPosition __destination;
-    PositionEstimator::cartesianPosition __origin;
-    std::vector<Obstacle> __obstacles;
-    std::vector<float> __angle_history;
+    /** Timestamp */
     std::vector<int> __timestamp;
+    /** Obstacles */
+    std::vector<Obstacle> __obstacles;
+    /** Angle: Absolute angle to where the robot was looking */
+    std::vector<float> __angle_history;
+    /** Origin point */
+    PositionEstimator::cartesianPosition __origin;
+    /** Destination point */
+    PositionEstimator::cartesianPosition __destination;
+    /** Historical position points */
+    std::vector<PositionEstimator::cartesianPosition> __position_history;
+    /** Historical arrival position: Relative to the currect position */
+    std::vector<PositionEstimator::cartesianPosition> __arrival_point_history;
+    /** Recognized objects */
+    std::vector<RecognitionResult> __recognized_objects;
     /** Metadata constructor */
     metadata(std::vector<PositionEstimator::cartesianPosition> position_history,
       std::vector<float> angle_history, 
@@ -28,9 +38,11 @@ public:
       std::vector<int> timestamp, 
       PositionEstimator::cartesianPosition origin, 
       PositionEstimator::cartesianPosition destination, 
-      std::vector<Obstacle> obstacles) : __position_history(position_history),
+      std::vector<Obstacle> obstacles,
+      std::vector<RecognitionResult> recognized_objects) : __position_history(position_history),
           __angle_history(angle_history), __arrival_point_history(arrival_point_history), 
-          __timestamp(timestamp), __origin(origin), __destination(destination), __obstacles(obstacles) {};
+          __timestamp(timestamp), __origin(origin), __destination(destination), __obstacles(obstacles),
+          __recognized_objects(__recognized_objects) {};
   };
   /** Utilities constructor */
   utilities() {
@@ -68,6 +80,11 @@ public:
       metadata_json["obstacles"][name]["leftmost"] = obstacle.getLeftmostPoint().toJson();
       metadata_json["obstacles"][name]["rightmost"] = obstacle.getRightmostPoint().toJson();
       j++;
+    }
+    metadata_json["recognized_objects"];
+    for (const auto &recog_object : metadata.__recognized_objects) {
+      std::string name = "recognized_object_n" + std::to_string(j);
+      metadata_json["recognized_objects"][name] = recog_object.toJson();
     }
     __file << metadata_json;
   };

@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+#include <nlohmann/json.hpp>
+
 struct RecognitionResult {
 	/** Class label */
 	int label;
@@ -16,7 +18,23 @@ struct RecognitionResult {
 	float ymax;
 	/** X-axis maximum value*/
 	float xmax;
-
+	/**
+	 * @brief RecognitionResult to nlohmann json
+	 * 
+	 * @return nlohmann::json 
+	 */
+	nlohmann::json toJson() const {
+		nlohmann::json json {
+			{"label", label}, 
+			{"score", score},
+			{"ymin", ymin},
+			{"xmin", xmin},
+			{"ymax", ymax},
+			{"xmax", xmax}
+		};
+		return json;
+	};
+	
 };
 
 #endif // __RECOGNITIONRESULT_H__
