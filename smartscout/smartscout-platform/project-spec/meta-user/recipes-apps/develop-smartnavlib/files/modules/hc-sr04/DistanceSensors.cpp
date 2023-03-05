@@ -33,7 +33,7 @@ DistanceSensors::DistanceSensors() {
 	}
 
 	for(int i=0; i < __NRO_SENSORS; i++) {
-		__sma_vec.push_back(SimpleMovingAverage(3));
+		__sma_vec.push_back(SimpleMovingAverage(1));
 	}
 
 	DEBUG_PRINT("Run read distance thread.\n");	
@@ -64,11 +64,11 @@ void DistanceSensors::__readDistance() {
 		for (int i=0; i < __NRO_SENSORS; i++) {
 			// Read the distance of each sensor 
 			samples_from_sensors[i] = ioctl(__fd, HCSR04_IOC_TRIGGER, (i+1));
-			if ( samples_from_sensors[i] == -1) {
-				throw std::runtime_error("Error reading distance sensors");
-			}
+			if ( samples_from_sensors[i] == -1) 
+				printf("Error reading distance sensor: %d.\n", i);
+			else 
+				__sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
 			DEBUG_PRINT("Sensor %d. Time %d. Distance %f.\n", i, samples_from_sensors[i], __timeToDistance((float)samples_from_sensors[i]));
-			__sma_vec[i].addData(__timeToDistance((float)samples_from_sensors[i]));
 		}
 	}
 }

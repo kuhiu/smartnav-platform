@@ -10,7 +10,7 @@
 #include <memory>
 #include <sstream>
 
-#define DEBUG_OV7670
+//#define DEBUG_OV7670
 #ifdef DEBUG_OV7670
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)

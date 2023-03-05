@@ -72,6 +72,12 @@ public:
 	 */
 	void colorBalancing(float percent);
 	/**
+	 * @brief Increase the saturation of the image 
+	 * 
+	 * @param value 
+	 */
+	void increaseSaturation(int value);
+	/**
 	 * @brief Flip image 
 	 * 
 	 * @param orientation 0: vertically, 1: horizontal
@@ -87,25 +93,12 @@ public:
 		cv::Scalar mean;
 		std::vector<cv::Mat> channels;
 
-		printf("To hsv.\n");
 		cv::cvtColor(__data, hsv, cv::COLOR_RGB2HSV);
-		printf("Split.\n");
 		cv::split(hsv, channels);
-		printf("Get v channel.\n");
 		cv::Mat v_channel = channels[2];
-		printf("Get mean.\n");
 		mean = cv::mean(v_channel);
-		printf("Mean size: %d.\n", mean.channels);
 		int ret = mean.val[0];
-		printf("Brightness is: %d.\n", ret);
 		return (((ret * 100) / 255));
-		//double min_val; 
-		//double max_val; 
-		//cv::Point min_loc; 
-		//cv::Point max_loc;
-		//cv::minMaxLoc(v_channel, &min_val, &max_val, &min_loc, &max_loc);
-		//printf("Min val: %f, Max val: %f.\n", min_val, max_val);
-		//return max_val;
 	};
 
 private:

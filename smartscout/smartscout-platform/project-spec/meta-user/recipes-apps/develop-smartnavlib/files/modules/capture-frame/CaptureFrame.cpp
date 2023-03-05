@@ -12,7 +12,7 @@
 
 #include <CaptureFrame.hpp>
 
-#define DEBUG_CAPTURE 1
+//#define DEBUG_CAPTURE 1
 #if defined(DEBUG_CAPTURE) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)

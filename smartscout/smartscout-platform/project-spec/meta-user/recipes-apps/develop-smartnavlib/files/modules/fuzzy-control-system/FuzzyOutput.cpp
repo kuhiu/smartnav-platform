@@ -6,7 +6,7 @@
 constexpr const char *FuzzyOutput::__MEMBERSHIPS_FUNCTIONS_KEY;
 constexpr const char *FuzzyOutput::__NAME_KEY;
 
-#define DEBUG_OUTPUT 1
+//#define DEBUG_OUTPUT 1
 #ifdef DEBUG_OUTPUT
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)

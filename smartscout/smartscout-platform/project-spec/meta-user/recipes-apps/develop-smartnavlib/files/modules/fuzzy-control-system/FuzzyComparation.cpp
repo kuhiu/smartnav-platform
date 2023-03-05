@@ -71,7 +71,7 @@ FuzzyCondition::FuzzyConditionPtr FuzzyComparation::parse(const nlohmann::json& 
     throw std::runtime_error(err.str());
   }
 
-  printf("Parsing as comparation.\n");
+  DEBUG_PRINT("Parsing as comparation.\n");
   
   comparation.first = comparation_json.at(__IO_KEY);
   comparation.second = comparation_json.at(__FUZZY_VALUE_KEY);

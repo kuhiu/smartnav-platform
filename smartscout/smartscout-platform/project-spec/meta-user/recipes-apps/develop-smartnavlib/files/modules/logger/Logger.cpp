@@ -13,7 +13,7 @@ Logger::~Logger() {
 }
 
 void Logger::push(std::string fmt_msg) {
-	std::unique_lock<std::mutex> lock(__queue_guard);
+	std::lock_guard<std::mutex> lock(__queue_guard);
 	__msgs_queue.push(fmt_msg);
 }
 
@@ -22,7 +22,7 @@ void Logger::__printRoutine(Logger *instance, std::chrono::duration<double, std:
 		if (!instance->__isQueueEmpty()) {
 			auto start_measure_time = std::chrono::steady_clock::now();
 			{	// Thread safe print
-				std::unique_lock<std::mutex> lock(instance->__queue_guard);
+				std::lock_guard<std::mutex> lock(instance->__queue_guard);
 				while(!instance->__isQueueEmpty()) {
 					std::cout << instance->__msgs_queue.front() << std::endl;
 					instance->__msgs_queue.pop();

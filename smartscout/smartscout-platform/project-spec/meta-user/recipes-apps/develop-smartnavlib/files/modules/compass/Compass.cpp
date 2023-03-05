@@ -2,13 +2,15 @@
 
 #include <math.h>
 #include <errno.h>
+#include <fstream>
 #include <string.h>
-
 #include <chrono>
 
 #include <Registers.hpp>
 
-#define DEBUG_COMPASS 1
+#include <nlohmann/json.hpp>
+
+//#define DEBUG_COMPASS 1
 #if defined(DEBUG_COMPASS) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -40,8 +42,8 @@ Compass::Compass() {
   i2c_smbus_write_byte_data(__fd, Registers::QMC5883L_CONFIG, 0x1D);
   // Calibrate compass
   __calibrate();
-  DEBUG_PRINT("Compass calibrated: x_high: %d, x_low %d, y_high: %d, y_low: %d.\n", __calibration_values.x_high, 
-    __calibration_values.x_low, __calibration_values.y_high, __calibration_values.y_low);
+  DEBUG_PRINT("Compass calibrated: z_high: %d, z_low %d, y_high: %d, y_low: %d.\n", __calibration_values.z_high, 
+    __calibration_values.z_low, __calibration_values.y_high, __calibration_values.y_low);
   std::this_thread::sleep_for(std::chrono::seconds(3));
   // Start thread
   __is_running = true;
@@ -56,26 +58,26 @@ Compass::~Compass() {
 }
 
 void Compass::__readCompass() {
-  float fx;
+  float fz;
   float fy;
   float heading;
 
   while (__is_running) {
     std::shared_ptr<Compass::CompassValues> sample = __readSample();
     if (sample != nullptr) {
-      DEBUG_PRINT("raw_x : %d, raw_y %d.\n", sample->raw_x, sample->raw_y);
-      sample->raw_x = sample->raw_x - 
-              ((__calibration_values.x_high + __calibration_values.x_low) / 2);
+      DEBUG_PRINT("raw_z : %d, raw_y %d.\n", sample->raw_z, sample->raw_y);
+      sample->raw_z = sample->raw_z - 
+              ((__calibration_values.z_high + __calibration_values.z_low) / 2);
       sample->raw_y = sample->raw_y - (
               (__calibration_values.y_high + __calibration_values.y_low) / 2);
-      fx = (float) sample->raw_x / 
-        ( (float)__calibration_values.x_high - (float)__calibration_values.x_low);
+      fz = (float) sample->raw_z / 
+        ( (float)__calibration_values.z_high - (float)__calibration_values.z_low);
       fy = (float) sample->raw_y / 
         ( (float)__calibration_values.y_high - (float) __calibration_values.y_low);
-      DEBUG_PRINT("fx : %f, fy %f.\n", fx, fy);
-      heading = 180.0 * atan2(fy,fx) / M_PI ;
-      if(heading <= 0) 
-        heading += 360;
+      DEBUG_PRINT("fz : %f, fy %f.\n", fz, fy);
+      heading = 180.0 * atan2(fy,fz) / M_PI ;
+      //if(heading <= 0) 
+      //  heading += 360;
       DEBUG_PRINT("Heading: %f \n", heading);
       {
         std::lock_guard<std::mutex> lock(__m);
@@ -115,30 +117,52 @@ std::shared_ptr<Compass::CompassValues> Compass::__readSample() {
 }
 
 void Compass::__calibrate() {
-  // Initialization of calibration values
-  __calibration_values.x_high = std::numeric_limits<int>::min();
-  __calibration_values.x_low = std::numeric_limits<int>::max();
-  __calibration_values.y_high = std::numeric_limits<int>::min();
-  __calibration_values.y_low = std::numeric_limits<int>::max();
+  std::fstream calibrationFile;
+  calibrationFile.open(__CALIB_FILE);
 
-  for (int i=0; i<__SAMPLES_TO_CALIB; ) {
-    std::shared_ptr<Compass::CompassValues> ret = __readSample();
-    if (ret != nullptr) {
-      i++;
-      // Search max and min values for x values 
-      if(ret->raw_x < __calibration_values.x_low) 
-        __calibration_values.x_low = ret->raw_x;
-      if(ret->raw_x > __calibration_values.x_high) 
-        __calibration_values.x_high = ret->raw_x;
-      // Search max and min values for y values 
-      if(ret->raw_y < __calibration_values.y_low) 
-        __calibration_values.y_low = ret->raw_y;
-      if(ret->raw_y > __calibration_values.y_high) 
-        __calibration_values.y_high = ret->raw_y;
+  if (calibrationFile.fail()) {
+    // Initialization of calibration values
+    __calibration_values.z_high = std::numeric_limits<int>::min();
+    __calibration_values.z_low = std::numeric_limits<int>::max();
+    __calibration_values.y_high = std::numeric_limits<int>::min();
+    __calibration_values.y_low = std::numeric_limits<int>::max();
+
+    for (int i=0; i<__SAMPLES_TO_CALIB; ) {
+      std::shared_ptr<Compass::CompassValues> ret = __readSample();
+      if (ret != nullptr) {
+        i++;
+        // Search max and min values for x values 
+        if(ret->raw_z < __calibration_values.z_low) 
+          __calibration_values.z_low = ret->raw_z;
+        if(ret->raw_z > __calibration_values.z_high) 
+          __calibration_values.z_high = ret->raw_z;
+        // Search max and min values for y values 
+        if(ret->raw_y < __calibration_values.y_low) 
+          __calibration_values.y_low = ret->raw_y;
+        if(ret->raw_y > __calibration_values.y_high) 
+          __calibration_values.y_high = ret->raw_y;
+      }
+      else 
+        DEBUG_PRINT("Not readeable value.\n");
+      std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
-    else 
-      DEBUG_PRINT("Not readeable value.\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    calibrationFile.open(__CALIB_FILE, std::ios::trunc | std::ios::out);
+    nlohmann::json calib_values_json;
+    calib_values_json["z_high"] =  __calibration_values.z_high;
+    calib_values_json["z_low"] =  __calibration_values.z_low;
+    calib_values_json["y_high"] =  __calibration_values.y_high;
+    calib_values_json["y_low"] =  __calibration_values.y_low;
+    calibrationFile << calib_values_json;
+    calibrationFile.close();
+  }
+  else {
+    nlohmann::json calib_values_json = nlohmann::json::parse(calibrationFile);
+    __calibration_values.z_high = calib_values_json["z_high"];
+    __calibration_values.z_low = calib_values_json["z_low"];
+    __calibration_values.y_high = calib_values_json["y_high"];
+    __calibration_values.y_low = calib_values_json["y_low"];
+    DEBUG_PRINT("Values from file. z_high: %d, z_low: %d, y_high: %d, y_low: %d.\n", 
+        __calibration_values.z_high, __calibration_values.z_low, __calibration_values.y_high, __calibration_values.y_low);
   }
 }
 

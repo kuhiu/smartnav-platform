@@ -26,11 +26,11 @@ public:
   /** Calibrartion values */
   struct CalibrationValues {
     // Lower X calibration value
-    int x_low;
+    int z_low;
     // Lower Y calibration value
     int y_low;
     // Higher X calibration value
-    int x_high;
+    int z_high;
     // Higher Y calibration value
     int y_high;
 
@@ -74,12 +74,14 @@ public:
 
 private:
   /** Number of samples to calibrate the compass */
-  const int __SAMPLES_TO_CALIB = 50;
+  const int __SAMPLES_TO_CALIB = 100;
   /** Compass i2c address */
   const uint32_t __COMPASS_ADDR = 0x0D; 
   /** Driver name */
   static constexpr auto __DRIVER{"/dev/i2c-0"}; 
-  /** SMA lenght */
+  /** File to save calibration values */
+  static constexpr auto __CALIB_FILE{"/tmp/calibration.json"}; 
+  /** SMA length */
   const int __SMA_LEN = 3;
   /** Driver file descriptor */
   int __fd;

@@ -73,7 +73,7 @@ private:
   /** Format */
 	v4l2_format __format;
   /** Numbers of planes for image buffer */
-  const int __num_planes = 1;
+  const int __num_planes = 3;
   /** Driver type */
   int __driver_type;
   /** Buffer type */

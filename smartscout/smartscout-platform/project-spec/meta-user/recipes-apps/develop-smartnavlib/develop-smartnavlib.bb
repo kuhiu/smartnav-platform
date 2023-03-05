@@ -12,7 +12,7 @@ PN="develop-smartnavlib"
 PN_LIB = "lib${PN}"
 
 # Package version
-PV = "0.1.122"
+PV = "0.1.314"
 
 SRC_URI = "file://Makefile \
 		 file://modules/capture-frame/* \
@@ -21,10 +21,15 @@ SRC_URI = "file://Makefile \
      file://modules/driver/* \
      file://modules/headlights/* \
      file://modules/compass/* \
+     file://modules/mailbox/* \
+     file://modules/position-estimator/* \
+     file://modules/utilities/* \
+     file://modules/decayGraph/* \
+     file://modules/obstacle/* \
      file://SmartNav.hpp \
      file://SmartNav.cpp \
 		  "
-
+DEPENDS += "mailbox"
 DEPENDS += "tensorflowlite-lib" 
 DEPENDS += "opencv"
 DEPENDS += "jsonnlohmann"

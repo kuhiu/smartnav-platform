@@ -10,7 +10,7 @@
 #include <memory>
 #include <sstream>
 
-#define DEBUG_DEMOSAIC 1
+//#define DEBUG_DEMOSAIC 1
 #if defined(DEBUG_DEMOSAIC) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -19,7 +19,7 @@
 #endif
 
 v_demosaic::v_demosaic(uint32_t width, uint32_t height, pixelFormat pixel_format) {
-	printf("ov7670 constructor.\n");
+	printf("v_demosaic constructor.\n");
 	// Clear all v4l2 struct 
 	CLEAR(__format);
 
@@ -28,7 +28,7 @@ v_demosaic::v_demosaic(uint32_t width, uint32_t height, pixelFormat pixel_format
 }
 
 v_demosaic::~v_demosaic() {
-	printf("ov7670 destructor.\n");
+	printf("v_demosaic destructor.\n");
 	__closeDevice();
 }
 

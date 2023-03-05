@@ -69,15 +69,15 @@ std::vector<RecognitionResult> Detector::__postProcess(std::shared_ptr<VirtualIm
   int num_detections = (int)*__output_num_detections->data.f;
   // If the recognition exceed the score threshold is saved 
   for (int i = 0; i < num_detections; ++i) {
+    DEBUG_PRINT("detection_label %d, detection_score: %f\n", (int)detection_classes[i], detection_scores[i]);
     if (detection_scores[i] >= __SCORE_THRESHOLD) {
-      DEBUG_PRINT("detection_score: %f\n", detection_scores[i]);
       RecognitionResult recognition_result;
       recognition_result.score = detection_scores[i];
       recognition_result.label = (int)detection_classes[i];
-      recognition_result.ymin = detection_locations[i * 4] * image->getHeigth();
-      recognition_result.xmin = detection_locations[i * 4 + 1] * image->getWidth();
-      recognition_result.ymax = detection_locations[i * 4 + 2] * image->getHeigth();
-      recognition_result.xmax = detection_locations[i * 4 + 3] * image->getWidth();
+      recognition_result.ymin = detection_locations[i * 4];
+      recognition_result.xmin = detection_locations[i * 4 + 1];
+      recognition_result.ymax = detection_locations[i * 4 + 2];
+      recognition_result.xmax = detection_locations[i * 4 + 3];
       recognitions.push_back(recognition_result);
     }
   }

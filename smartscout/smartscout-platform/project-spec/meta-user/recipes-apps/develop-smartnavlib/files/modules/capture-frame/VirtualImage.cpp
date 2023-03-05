@@ -95,31 +95,49 @@ ColorSpaces VirtualImage::getColorSpace() const { return __color_space; };
 
 // Reference: https://stackoverflow.com/questions/29166804/colorbalance-in-an-image-using-c-and-opencv
 void VirtualImage::colorBalancing(float percent) {
-    assert(__data.channels() == 3);
-    assert(percent > 0 && percent < 100);
+	assert(__data.channels() == 3);
+	assert(percent > 0 && percent < 100);
 
-    float half_percent = percent / 200.0f;
+	float half_percent = percent / 200.0f;
 
-    std::vector<cv::Mat> tmp_split; 
-		split(__data, tmp_split);
-    
-		for(int i=0;i<3;i++) {
-        //find the low and high precentile values (based on the input percentile)
-        cv::Mat flat; 
-				tmp_split[i].reshape(1,1).copyTo(flat);
-        cv::sort(flat, flat, CV_SORT_EVERY_ROW + CV_SORT_ASCENDING);
-        int lowval = flat.at<uchar>(cvFloor(((float)flat.cols) * half_percent));
-        int highval = flat.at<uchar>(cvCeil(((float)flat.cols) * (1.0 - half_percent)));
-        std::cout << lowval << " " << highval << std::endl;
+	std::vector<cv::Mat> tmp_split; 
+	split(__data, tmp_split);
+	
+	for(int i=0;i<3;i++) {
+			//find the low and high precentile values (based on the input percentile)
+			cv::Mat flat; 
+			tmp_split[i].reshape(1,1).copyTo(flat);
+			cv::sort(flat, flat, CV_SORT_EVERY_ROW + CV_SORT_ASCENDING);
+			int lowval = flat.at<uchar>(cvFloor(((float)flat.cols) * half_percent));
+			int highval = flat.at<uchar>(cvCeil(((float)flat.cols) * (1.0 - half_percent)));
+			std::cout << lowval << " " << highval << std::endl;
 
-        //saturate below the low percentile and above the high percentile
-        tmp_split[i].setTo(lowval, tmp_split[i] < lowval);
-        tmp_split[i].setTo(highval, tmp_split[i] > highval);
+			//saturate below the low percentile and above the high percentile
+			tmp_split[i].setTo(lowval, tmp_split[i] < lowval);
+			tmp_split[i].setTo(highval, tmp_split[i] > highval);
 
-        //scale the channel
-        normalize(tmp_split[i], tmp_split[i], 0, 255, cv::NORM_MINMAX);
-    }
-    merge(tmp_split,__data);
+			//scale the channel
+			normalize(tmp_split[i], tmp_split[i], 0, 255, cv::NORM_MINMAX);
+	}
+	merge(tmp_split,__data);
+}
+
+void VirtualImage::increaseSaturation(int value) {
+	cv::Mat hsv;
+
+	cv::cvtColor(__data, hsv, cv::COLOR_RGB2HSV);
+	if (getColorSpace() == ColorSpaces::RGB) {
+		for(int i = 0; i < hsv.rows; i++) {
+			for(int j = 0; j < hsv.cols; j++) {
+				// do something with HSV values...
+				cv::Vec3b hsvPixel = hsv.at<cv::Vec3b>(i, j);
+				hsvPixel[1] = hsvPixel[1] + value;
+				if (hsvPixel[1] > 255) 
+					hsvPixel[1] = 255;
+			}
+		}
+		cv::cvtColor(hsv, __data, cv::COLOR_HSV2RGB);
+	}
 }
 
 void VirtualImage::flip(bool orientation) {
