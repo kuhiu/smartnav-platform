@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Fuzzy\+Rule\+:\nopagebreak
+Collaboration diagram for Fuzzy\+Rule\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=173pt]{classFuzzyRule__coll__graph}
+\includegraphics[width=350pt]{classFuzzyRule__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -27,6 +28,24 @@ void \mbox{\hyperlink{classFuzzyRule_a03285a5e41fe7ade164142a9a8c74cc8}{evaluate
 \item 
 static \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} \mbox{\hyperlink{classFuzzyRule_ae96b49353cd7900ee6a291c8956b6236}{parse}} (const nlohmann\+::json \&rule\+\_\+json)
 \begin{DoxyCompactList}\small\item\em Try to parse rule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classFuzzyRule_a48d2f11fa4587fd74bf36a1fb9eb6fde}{\+\_\+\+\_\+name}}
+\item 
+\mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} \mbox{\hyperlink{classFuzzyRule_abd18acb2c37f78faa14255921792acf4}{\+\_\+\+\_\+fuzzy\+\_\+input\+\_\+condition}}
+\item 
+\mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} \mbox{\hyperlink{classFuzzyRule_afa2e56799b39862b8bc7ec75fbd071a7}{\+\_\+\+\_\+fuzzy\+\_\+output\+\_\+condition}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyRule_a70df2b40936ea15f0cb5c2142d113bec}{\+\_\+\+\_\+\+NAME\+\_\+\+KEY}} \{\char`\"{}name\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyRule_a1ec661d6a9f80aef8904a092555dfff5}{\+\_\+\+\_\+\+INPUT\+\_\+\+COND\+\_\+\+KEY}} \{\char`\"{}input\+\_\+conditions\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyRule_ae276be98f86fc5244274613e8cf8e110}{\+\_\+\+\_\+\+OUTPUT\+\_\+\+COND\+\_\+\+KEY}} \{\char`\"{}output\+\_\+conditions\char`\"{}\}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -81,6 +100,45 @@ Try to parse rule.
 \mbox{\hyperlink{classFuzzyRule}{Fuzzy\+Rule}} 
 \end{DoxyReturn}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuzzyRule_abd18acb2c37f78faa14255921792acf4}\label{classFuzzyRule_abd18acb2c37f78faa14255921792acf4}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_fuzzy\_input\_condition@{\_\_fuzzy\_input\_condition}}
+\index{\_\_fuzzy\_input\_condition@{\_\_fuzzy\_input\_condition}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_input\_condition}{\_\_fuzzy\_input\_condition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} Fuzzy\+Rule\+::\+\_\+\+\_\+fuzzy\+\_\+input\+\_\+condition\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy input condition \mbox{\Hypertarget{classFuzzyRule_afa2e56799b39862b8bc7ec75fbd071a7}\label{classFuzzyRule_afa2e56799b39862b8bc7ec75fbd071a7}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_fuzzy\_output\_condition@{\_\_fuzzy\_output\_condition}}
+\index{\_\_fuzzy\_output\_condition@{\_\_fuzzy\_output\_condition}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_output\_condition}{\_\_fuzzy\_output\_condition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+::\+Fuzzy\+Condition\+Ptr}} Fuzzy\+Rule\+::\+\_\+\+\_\+fuzzy\+\_\+output\+\_\+condition\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy output condition \mbox{\Hypertarget{classFuzzyRule_a1ec661d6a9f80aef8904a092555dfff5}\label{classFuzzyRule_a1ec661d6a9f80aef8904a092555dfff5}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_INPUT\_COND\_KEY@{\_\_INPUT\_COND\_KEY}}
+\index{\_\_INPUT\_COND\_KEY@{\_\_INPUT\_COND\_KEY}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_INPUT\_COND\_KEY}{\_\_INPUT\_COND\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Rule\+::\+\_\+\+\_\+\+INPUT\+\_\+\+COND\+\_\+\+KEY \{\char`\"{}input\+\_\+conditions\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Input condition key \mbox{\Hypertarget{classFuzzyRule_a48d2f11fa4587fd74bf36a1fb9eb6fde}\label{classFuzzyRule_a48d2f11fa4587fd74bf36a1fb9eb6fde}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_name@{\_\_name}}
+\index{\_\_name@{\_\_name}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_name}{\_\_name}}
+{\footnotesize\ttfamily std\+::string Fuzzy\+Rule\+::\+\_\+\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+Rule name \mbox{\Hypertarget{classFuzzyRule_a70df2b40936ea15f0cb5c2142d113bec}\label{classFuzzyRule_a70df2b40936ea15f0cb5c2142d113bec}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_NAME\_KEY@{\_\_NAME\_KEY}}
+\index{\_\_NAME\_KEY@{\_\_NAME\_KEY}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_NAME\_KEY}{\_\_NAME\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Rule\+::\+\_\+\+\_\+\+NAME\+\_\+\+KEY \{\char`\"{}name\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Name key \mbox{\Hypertarget{classFuzzyRule_ae276be98f86fc5244274613e8cf8e110}\label{classFuzzyRule_ae276be98f86fc5244274613e8cf8e110}} 
+\index{FuzzyRule@{FuzzyRule}!\_\_OUTPUT\_COND\_KEY@{\_\_OUTPUT\_COND\_KEY}}
+\index{\_\_OUTPUT\_COND\_KEY@{\_\_OUTPUT\_COND\_KEY}!FuzzyRule@{FuzzyRule}}
+\doxysubsubsection{\texorpdfstring{\_\_OUTPUT\_COND\_KEY}{\_\_OUTPUT\_COND\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Rule\+::\+\_\+\+\_\+\+OUTPUT\+\_\+\+COND\+\_\+\+KEY \{\char`\"{}output\+\_\+conditions\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Output condition key 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

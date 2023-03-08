@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['frame_5fprocessor_393',['frame_processor',['../classCaptureFrame.html#a2fb57fe31378ae6a3f7cbc90cc1f5918',1,'CaptureFrame']]]
+  ['encoder1_5fqueue_827',['encoder1_queue',['../classPositionEstimator.html#a2d5c3ad85771f13cddc37c93cac0f3ca',1,'PositionEstimator']]],
+  ['encoder2_5fqueue_828',['encoder2_queue',['../classPositionEstimator.html#a09bcbd2d07bca0428e3470519821c858',1,'PositionEstimator']]]
 ];

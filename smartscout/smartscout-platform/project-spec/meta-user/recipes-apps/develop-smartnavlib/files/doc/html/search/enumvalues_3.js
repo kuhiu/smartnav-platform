@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none_440',['NONE',['../ColorSpaces_8hpp.html#a7457560896ea730d1ece91ca38f19129ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ColorSpaces.hpp']]]
+  ['info_883',['Info',['../LogLevels_8hpp.html#ac1d82eeec924664c269c54f36da7d67ba4059b0251f66a18cb56f544728796875',1,'LogLevels.hpp']]]
 ];

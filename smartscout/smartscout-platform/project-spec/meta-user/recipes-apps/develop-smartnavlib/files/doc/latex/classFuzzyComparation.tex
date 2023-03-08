@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Fuzzy\+Comparation\+:\nopagebreak
+Inheritance diagram for Fuzzy\+Comparation\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,11 +16,12 @@ Inheritance diagram for Fuzzy\+Comparation\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Fuzzy\+Comparation\+:\nopagebreak
+Collaboration diagram for Fuzzy\+Comparation\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=214pt]{classFuzzyComparation__coll__graph}
+\includegraphics[width=350pt]{classFuzzyComparation__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -38,6 +40,18 @@ virtual void \mbox{\hyperlink{classFuzzyComparation_ab4eb4f8ab68339c8fab515d013f
 \item 
 static \mbox{\hyperlink{classFuzzyCondition_a68962cd8c21c6c374876170b1b1a77ef}{Fuzzy\+Condition\+Ptr}} \mbox{\hyperlink{classFuzzyComparation_a506ae9c1adc651db2cc9917b31ab84b7}{parse}} (const nlohmann\+::json \&comparation\+\_\+json)
 \begin{DoxyCompactList}\small\item\em Try to parse comparation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classFuzzyComparation_a8966d4be1cd9a2a2d0b217a590d0bc8d}{\+\_\+\+\_\+comparation}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyComparation_aa5b6f3f0a83a2e61da942d78de8899ab}{\+\_\+\+\_\+\+IO\+\_\+\+KEY}} \{\char`\"{}io\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classFuzzyComparation_a3392b00ca4d33708229f2d5082667c3e}{\+\_\+\+\_\+\+FUZZY\+\_\+\+VALUE\+\_\+\+KEY}} \{\char`\"{}fuzzy\+\_\+value\char`\"{}\}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -117,6 +131,27 @@ Update system outputs with value.
 Implements \mbox{\hyperlink{classFuzzyCondition_ab8cbf67294f96c78fd2fe5a3e8b0b492}{Fuzzy\+Condition}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFuzzyComparation_a8966d4be1cd9a2a2d0b217a590d0bc8d}\label{classFuzzyComparation_a8966d4be1cd9a2a2d0b217a590d0bc8d}} 
+\index{FuzzyComparation@{FuzzyComparation}!\_\_comparation@{\_\_comparation}}
+\index{\_\_comparation@{\_\_comparation}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{\_\_comparation}{\_\_comparation}}
+{\footnotesize\ttfamily std\+::pair$<$std\+::string, std\+::string$>$ Fuzzy\+Comparation\+::\+\_\+\+\_\+comparation\hspace{0.3cm}{\ttfamily [private]}}
+
+Comparation \mbox{\Hypertarget{classFuzzyComparation_a3392b00ca4d33708229f2d5082667c3e}\label{classFuzzyComparation_a3392b00ca4d33708229f2d5082667c3e}} 
+\index{FuzzyComparation@{FuzzyComparation}!\_\_FUZZY\_VALUE\_KEY@{\_\_FUZZY\_VALUE\_KEY}}
+\index{\_\_FUZZY\_VALUE\_KEY@{\_\_FUZZY\_VALUE\_KEY}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{\_\_FUZZY\_VALUE\_KEY}{\_\_FUZZY\_VALUE\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Comparation\+::\+\_\+\+\_\+\+FUZZY\+\_\+\+VALUE\+\_\+\+KEY \{\char`\"{}fuzzy\+\_\+value\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Fuzzy value key \mbox{\Hypertarget{classFuzzyComparation_aa5b6f3f0a83a2e61da942d78de8899ab}\label{classFuzzyComparation_aa5b6f3f0a83a2e61da942d78de8899ab}} 
+\index{FuzzyComparation@{FuzzyComparation}!\_\_IO\_KEY@{\_\_IO\_KEY}}
+\index{\_\_IO\_KEY@{\_\_IO\_KEY}!FuzzyComparation@{FuzzyComparation}}
+\doxysubsubsection{\texorpdfstring{\_\_IO\_KEY}{\_\_IO\_KEY}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Fuzzy\+Comparation\+::\+\_\+\+\_\+\+IO\+\_\+\+KEY \{\char`\"{}io\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+IO key 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

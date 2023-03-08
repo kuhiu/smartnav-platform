@@ -1,3 +1,32 @@
 <map id="SmartNav" name="SmartNav">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,128,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1971,987,2156,1196"/>
+<area shape="rect" id="node2" href="$classutilities.html" title=" " alt="" coords="5,472,129,579"/>
+<area shape="rect" id="node3" title=" " alt="" coords="27,231,108,309"/>
+<area shape="rect" id="node4" title=" " alt="" coords="195,224,361,316"/>
+<area shape="rect" id="node10" href="$classmailbox.html" title=" " alt="" coords="507,465,657,586"/>
+<area shape="rect" id="node5" title=" " alt="" coords="136,759,287,836"/>
+<area shape="rect" id="node6" href="$classPositionEstimator.html" title=" " alt="" coords="957,685,1145,909"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1254,487,1363,564"/>
+<area shape="rect" id="node8" title=" " alt="" coords="406,231,457,309"/>
+<area shape="rect" id="node13" href="$structCartesianPosition.html" title=" " alt="" coords="321,472,483,579"/>
+<area shape="rect" id="node9" title=" " alt="" coords="787,231,851,309"/>
+<area shape="rect" id="node15" href="$classCompass.html" title=" " alt="" coords="1086,443,1230,608"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1469,5,1508,83"/>
+<area shape="rect" id="node17" href="$structCompass_1_1CalibrationValues.html" title=" " alt="" coords="1097,231,1301,309"/>
+<area shape="rect" id="node20" href="$classDriver.html" title=" " alt="" coords="1972,472,2077,579"/>
+<area shape="rect" id="node23" href="$classDistanceSensors.html" title=" " alt="" coords="2457,457,2624,593"/>
+<area shape="rect" id="node28" href="$classHeadlights.html" title=" " alt="" coords="3029,472,3157,579"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1667,231,1718,309"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1855,231,1919,309"/>
+<area shape="rect" id="node16" title=" " alt="" coords="875,224,1073,316"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2104,231,2263,309"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1326,231,1441,309"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2151,759,2357,836"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2381,759,2492,836"/>
+<area shape="rect" id="node24" title=" " alt="" coords="2505,231,2744,309"/>
+<area shape="rect" id="node25" title=" " alt="" coords="2769,231,2894,309"/>
+<area shape="rect" id="node26" title=" " alt="" coords="2694,759,2907,836"/>
+<area shape="rect" id="node27" title=" " alt="" coords="2932,751,3123,843"/>
+<area shape="rect" id="node29" title=" " alt="" coords="3179,231,3254,309"/>
+<area shape="rect" id="node30" title=" " alt="" coords="3287,759,3410,836"/>
 </map>

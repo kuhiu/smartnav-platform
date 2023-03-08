@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pix_5ffmt_5frgb24_443',['PIX_FMT_RGB24',['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5',1,'CaptureFrame']]]
+  ['none_885',['NONE',['../ColorSpaces_8hpp.html#a7457560896ea730d1ece91ca38f19129ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ColorSpaces.hpp']]]
 ];

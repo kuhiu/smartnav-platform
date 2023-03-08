@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fatal_438',['Fatal',['../LogLevels_8hpp.html#ac1d82eeec924664c269c54f36da7d67ba882384ec38ce8d9582b57e70861730e4',1,'LogLevels.hpp']]]
+  ['encoder_5f1_5fcount_880',['ENCODER_1_COUNT',['../classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629',1,'mailbox']]],
+  ['encoder_5f2_5fcount_881',['ENCODER_2_COUNT',['../classmailbox.html#a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407',1,'mailbox']]]
 ];

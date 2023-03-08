@@ -63,6 +63,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classDistanceSensors-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DistanceSensors Class Reference</div>  </div>
@@ -75,7 +78,12 @@ Collaboration diagram for DistanceSensors:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDistanceSensors__coll__graph.png" border="0" usemap="#aDistanceSensors_coll__map" alt="Collaboration graph"/></div>
 <map name="aDistanceSensors_coll__map" id="aDistanceSensors_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,172,112"/>
+<area shape="rect" title=" " alt="" coords="309,160,476,296"/>
+<area shape="rect" title=" " alt="" coords="5,5,44,83"/>
+<area shape="rect" title=" " alt="" coords="68,5,307,83"/>
+<area shape="rect" title=" " alt="" coords="331,5,489,83"/>
+<area shape="rect" title=" " alt="" coords="530,5,655,83"/>
+<area shape="rect" title=" " alt="" coords="682,5,746,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -88,6 +96,32 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12d27c41161fbe5ad5b25a2814124cf0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a12d27c41161fbe5ad5b25a2814124cf0">getDistances</a> ()</td></tr>
 <tr class="memdesc:a12d27c41161fbe5ad5b25a2814124cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Distances to objects.  <a href="classDistanceSensors.html#a12d27c41161fbe5ad5b25a2814124cf0">More...</a><br /></td></tr>
 <tr class="separator:a12d27c41161fbe5ad5b25a2814124cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a55f5ebaec04c8035c9d0a347ee4aa41b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a55f5ebaec04c8035c9d0a347ee4aa41b">__readDistance</a> ()</td></tr>
+<tr class="separator:a55f5ebaec04c8035c9d0a347ee4aa41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9a7a90a533349f23f852807b6b2b2a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#aae9a7a90a533349f23f852807b6b2b2a">__timeToDistance</a> (float time)</td></tr>
+<tr class="memdesc:aae9a7a90a533349f23f852807b6b2b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time to distance.  <a href="classDistanceSensors.html#aae9a7a90a533349f23f852807b6b2b2a">More...</a><br /></td></tr>
+<tr class="separator:aae9a7a90a533349f23f852807b6b2b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6f4ea68d18ab2316deb2ead379420d76"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classSimpleMovingAverage.html">SimpleMovingAverage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a6f4ea68d18ab2316deb2ead379420d76">__sma_vec</a></td></tr>
+<tr class="separator:a6f4ea68d18ab2316deb2ead379420d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8468baf464d2b32ea149aa0c0236b7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#ab8468baf464d2b32ea149aa0c0236b7d">__fd</a></td></tr>
+<tr class="separator:ab8468baf464d2b32ea149aa0c0236b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e568cbc08e5b01a2cb9dc0cc842e949"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a0e568cbc08e5b01a2cb9dc0cc842e949">__reading_thread</a></td></tr>
+<tr class="separator:a0e568cbc08e5b01a2cb9dc0cc842e949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1e8faae79fa9a1a286fcdfd9498fa89"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#ab1e8faae79fa9a1a286fcdfd9498fa89">__is_running</a></td></tr>
+<tr class="separator:ab1e8faae79fa9a1a286fcdfd9498fa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a152c44d7871b74cfa9db2dd99fe3d7b8"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a152c44d7871b74cfa9db2dd99fe3d7b8">__HC_SR04_DRIVER_DIR</a> = &quot;/dev/hcsr04&quot;</td></tr>
+<tr class="separator:a152c44d7871b74cfa9db2dd99fe3d7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c60f95ebc61ff91f28d7cfef5fa2eba"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistanceSensors.html#a4c60f95ebc61ff91f28d7cfef5fa2eba">__NRO_SENSORS</a> = 3</td></tr>
+<tr class="separator:a4c60f95ebc61ff91f28d7cfef5fa2eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf1374b701b52019dcfeb38dde4041be"></a>
@@ -127,6 +161,67 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a55f5ebaec04c8035c9d0a347ee4aa41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f5ebaec04c8035c9d0a347ee4aa41b">&#9670;&nbsp;</a></span>__readDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DistanceSensors::__readDistance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Read distances from driver </p>
+
+</div>
+</div>
+<a id="aae9a7a90a533349f23f852807b6b2b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae9a7a90a533349f23f852807b6b2b2a">&#9670;&nbsp;</a></span>__timeToDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float DistanceSensors::__timeToDistance </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Time to distance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+
+</div>
+</div>
 <a id="a12d27c41161fbe5ad5b25a2814124cf0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12d27c41161fbe5ad5b25a2814124cf0">&#9670;&nbsp;</a></span>getDistances()</h2>
 
@@ -144,6 +239,145 @@ Public Member Functions</h2></td></tr>
 
 <p>Get the Distances to objects. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;int&gt; </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab8468baf464d2b32ea149aa0c0236b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8468baf464d2b32ea149aa0c0236b7d">&#9670;&nbsp;</a></span>__fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DistanceSensors::__fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classDriver.html">Driver</a> file descriptor </p>
+
+</div>
+</div>
+<a id="a152c44d7871b74cfa9db2dd99fe3d7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152c44d7871b74cfa9db2dd99fe3d7b8">&#9670;&nbsp;</a></span>__HC_SR04_DRIVER_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto DistanceSensors::__HC_SR04_DRIVER_DIR = &quot;/dev/hcsr04&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classDriver.html">Driver</a> directory </p>
+
+</div>
+</div>
+<a id="ab1e8faae79fa9a1a286fcdfd9498fa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e8faae79fa9a1a286fcdfd9498fa89">&#9670;&nbsp;</a></span>__is_running</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; DistanceSensors::__is_running</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Thread status </p>
+
+</div>
+</div>
+<a id="a4c60f95ebc61ff91f28d7cfef5fa2eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c60f95ebc61ff91f28d7cfef5fa2eba">&#9670;&nbsp;</a></span>__NRO_SENSORS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int DistanceSensors::__NRO_SENSORS = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of sensors </p>
+
+</div>
+</div>
+<a id="a0e568cbc08e5b01a2cb9dc0cc842e949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e568cbc08e5b01a2cb9dc0cc842e949">&#9670;&nbsp;</a></span>__reading_thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread DistanceSensors::__reading_thread</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reading distance sensor thread </p>
+
+</div>
+</div>
+<a id="a6f4ea68d18ab2316deb2ead379420d76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f4ea68d18ab2316deb2ead379420d76">&#9670;&nbsp;</a></span>__sma_vec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classSimpleMovingAverage.html">SimpleMovingAverage</a>&gt; DistanceSensors::__sma_vec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>One queue per sensor to calculate the sma </p>
 
 </div>
 </div>

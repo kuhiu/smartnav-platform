@@ -106,26 +106,10 @@ Include dependency graph for v_demosaic.cpp:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a4df77342daa7f25c38aeaac73dedbf2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="v__demosaic_8cpp.html#a4df77342daa7f25c38aeaac73dedbf2d">DEBUG_DEMOSAIC</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a4df77342daa7f25c38aeaac73dedbf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="v__demosaic_8cpp.html#a5f50bfe761aec48e94d11aa3a64e58a4">DEBUG_PRINT</a>(fmt,  args...)</td></tr>
+<tr class="memitem:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="v__demosaic_8cpp.html#a5f50bfe761aec48e94d11aa3a64e58a4">DEBUG_PRINT</a>(fmt,  args...)&#160;&#160;&#160;/* Don't do anything in release builds */</td></tr>
 <tr class="separator:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a4df77342daa7f25c38aeaac73dedbf2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4df77342daa7f25c38aeaac73dedbf2d">&#9670;&nbsp;</a></span>DEBUG_DEMOSAIC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEBUG_DEMOSAIC&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a5f50bfe761aec48e94d11aa3a64e58a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f50bfe761aec48e94d11aa3a64e58a4">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
 
@@ -147,14 +131,11 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td>&#160;&#160;&#160;/* Don't do anything in release builds */</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                                                                        <a class="code" href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">printf</a>( <span class="stringliteral">&quot;DEBUG: %s:%d:%s(): &quot;</span> fmt, \</div>
-<div class="line">                                                                                        __FILE__, __LINE__, __func__, ##args)</div>
-<div class="ttc" id="autilities_8hpp_html_a7fffde3437ed8e9e05f93cdf82ea7235"><div class="ttname"><a href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">printf</a></div><div class="ttdeci">printf(&quot;Time measured: %.3f seconds.\n&quot;, elapsed.count() *1e-9)</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 </div><!-- contents -->

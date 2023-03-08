@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sbggr8_5f1x8_447',['SBGGR8_1X8',['../classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9aa3aed9bf473706ce8f677e6a2b4e8678',1,'ov7670']]]
+  ['pix_5ffmt_5frgb24_888',['PIX_FMT_RGB24',['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5',1,'CaptureFrame']]]
 ];

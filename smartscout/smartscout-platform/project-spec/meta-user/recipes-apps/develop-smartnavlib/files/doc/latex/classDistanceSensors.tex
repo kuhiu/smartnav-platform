@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Distance\+Sensors\+:\nopagebreak
+Collaboration diagram for Distance\+Sensors\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=205pt]{classDistanceSensors__coll__graph}
+\includegraphics[width=350pt]{classDistanceSensors__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -22,6 +23,31 @@ Collaboration diagram for Distance\+Sensors\+:\nopagebreak
 \item 
 std\+::vector$<$ int $>$ \mbox{\hyperlink{classDistanceSensors_a12d27c41161fbe5ad5b25a2814124cf0}{get\+Distances}} ()
 \begin{DoxyCompactList}\small\item\em Get the Distances to objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDistanceSensors_a55f5ebaec04c8035c9d0a347ee4aa41b}{\+\_\+\+\_\+read\+Distance}} ()
+\item 
+float \mbox{\hyperlink{classDistanceSensors_aae9a7a90a533349f23f852807b6b2b2a}{\+\_\+\+\_\+time\+To\+Distance}} (float time)
+\begin{DoxyCompactList}\small\item\em Time to distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classSimpleMovingAverage}{Simple\+Moving\+Average}} $>$ \mbox{\hyperlink{classDistanceSensors_a6f4ea68d18ab2316deb2ead379420d76}{\+\_\+\+\_\+sma\+\_\+vec}}
+\item 
+int \mbox{\hyperlink{classDistanceSensors_ab8468baf464d2b32ea149aa0c0236b7d}{\+\_\+\+\_\+fd}}
+\item 
+std\+::thread \mbox{\hyperlink{classDistanceSensors_a0e568cbc08e5b01a2cb9dc0cc842e949}{\+\_\+\+\_\+reading\+\_\+thread}}
+\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classDistanceSensors_ab1e8faae79fa9a1a286fcdfd9498fa89}{\+\_\+\+\_\+is\+\_\+running}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classDistanceSensors_a152c44d7871b74cfa9db2dd99fe3d7b8}{\+\_\+\+\_\+\+HC\+\_\+\+SR04\+\_\+\+DRIVER\+\_\+\+DIR}} = \char`\"{}/dev/hcsr04\char`\"{}
+\item 
+static const int \mbox{\hyperlink{classDistanceSensors_a4c60f95ebc61ff91f28d7cfef5fa2eba}{\+\_\+\+\_\+\+NRO\+\_\+\+SENSORS}} = 3
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -40,6 +66,30 @@ Distance\+Sensor constructor \mbox{\Hypertarget{classDistanceSensors_aec5c176d62
 Distance\+Sensor destructor 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDistanceSensors_a55f5ebaec04c8035c9d0a347ee4aa41b}\label{classDistanceSensors_a55f5ebaec04c8035c9d0a347ee4aa41b}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_readDistance@{\_\_readDistance}}
+\index{\_\_readDistance@{\_\_readDistance}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_readDistance()}{\_\_readDistance()}}
+{\footnotesize\ttfamily void Distance\+Sensors\+::\+\_\+\+\_\+read\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Read distances from driver \mbox{\Hypertarget{classDistanceSensors_aae9a7a90a533349f23f852807b6b2b2a}\label{classDistanceSensors_aae9a7a90a533349f23f852807b6b2b2a}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_timeToDistance@{\_\_timeToDistance}}
+\index{\_\_timeToDistance@{\_\_timeToDistance}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_timeToDistance()}{\_\_timeToDistance()}}
+{\footnotesize\ttfamily float Distance\+Sensors\+::\+\_\+\+\_\+time\+To\+Distance (\begin{DoxyParamCaption}\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Time to distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classDistanceSensors_a12d27c41161fbe5ad5b25a2814124cf0}\label{classDistanceSensors_a12d27c41161fbe5ad5b25a2814124cf0}} 
 \index{DistanceSensors@{DistanceSensors}!getDistances@{getDistances}}
 \index{getDistances@{getDistances}!DistanceSensors@{DistanceSensors}}
@@ -54,6 +104,45 @@ Get the Distances to objects.
 std\+::vector$<$int$>$ 
 \end{DoxyReturn}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDistanceSensors_ab8468baf464d2b32ea149aa0c0236b7d}\label{classDistanceSensors_ab8468baf464d2b32ea149aa0c0236b7d}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_fd@{\_\_fd}}
+\index{\_\_fd@{\_\_fd}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_fd}{\_\_fd}}
+{\footnotesize\ttfamily int Distance\+Sensors\+::\+\_\+\+\_\+fd\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} file descriptor \mbox{\Hypertarget{classDistanceSensors_a152c44d7871b74cfa9db2dd99fe3d7b8}\label{classDistanceSensors_a152c44d7871b74cfa9db2dd99fe3d7b8}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_HC\_SR04\_DRIVER\_DIR@{\_\_HC\_SR04\_DRIVER\_DIR}}
+\index{\_\_HC\_SR04\_DRIVER\_DIR@{\_\_HC\_SR04\_DRIVER\_DIR}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_HC\_SR04\_DRIVER\_DIR}{\_\_HC\_SR04\_DRIVER\_DIR}}
+{\footnotesize\ttfamily constexpr auto Distance\+Sensors\+::\+\_\+\+\_\+\+HC\+\_\+\+SR04\+\_\+\+DRIVER\+\_\+\+DIR = \char`\"{}/dev/hcsr04\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} directory \mbox{\Hypertarget{classDistanceSensors_ab1e8faae79fa9a1a286fcdfd9498fa89}\label{classDistanceSensors_ab1e8faae79fa9a1a286fcdfd9498fa89}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily std\+::atomic$<$bool$>$ Distance\+Sensors\+::\+\_\+\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classDistanceSensors_a4c60f95ebc61ff91f28d7cfef5fa2eba}\label{classDistanceSensors_a4c60f95ebc61ff91f28d7cfef5fa2eba}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_NRO\_SENSORS@{\_\_NRO\_SENSORS}}
+\index{\_\_NRO\_SENSORS@{\_\_NRO\_SENSORS}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_NRO\_SENSORS}{\_\_NRO\_SENSORS}}
+{\footnotesize\ttfamily const int Distance\+Sensors\+::\+\_\+\+\_\+\+NRO\+\_\+\+SENSORS = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Number of sensors \mbox{\Hypertarget{classDistanceSensors_a0e568cbc08e5b01a2cb9dc0cc842e949}\label{classDistanceSensors_a0e568cbc08e5b01a2cb9dc0cc842e949}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_reading\_thread@{\_\_reading\_thread}}
+\index{\_\_reading\_thread@{\_\_reading\_thread}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_reading\_thread}{\_\_reading\_thread}}
+{\footnotesize\ttfamily std\+::thread Distance\+Sensors\+::\+\_\+\+\_\+reading\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Reading distance sensor thread \mbox{\Hypertarget{classDistanceSensors_a6f4ea68d18ab2316deb2ead379420d76}\label{classDistanceSensors_a6f4ea68d18ab2316deb2ead379420d76}} 
+\index{DistanceSensors@{DistanceSensors}!\_\_sma\_vec@{\_\_sma\_vec}}
+\index{\_\_sma\_vec@{\_\_sma\_vec}!DistanceSensors@{DistanceSensors}}
+\doxysubsubsection{\texorpdfstring{\_\_sma\_vec}{\_\_sma\_vec}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classSimpleMovingAverage}{Simple\+Moving\+Average}}$>$ Distance\+Sensors\+::\+\_\+\+\_\+sma\+\_\+vec\hspace{0.3cm}{\ttfamily [private]}}
+
+One queue per sensor to calculate the sma 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

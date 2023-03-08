@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin_390',['begin',['../utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862',1,'utilities.hpp']]]
+  ['angle_825',['angle',['../structPolarPosition.html#adead34fadbb61b1a72f1d4b218aaee51',1,'PolarPosition']]]
 ];

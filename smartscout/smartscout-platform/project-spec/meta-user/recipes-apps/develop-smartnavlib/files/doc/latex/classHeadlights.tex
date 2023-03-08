@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Headlights\+:\nopagebreak
+Collaboration diagram for Headlights\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=176pt]{classHeadlights__coll__graph}
+\includegraphics[width=350pt]{classHeadlights__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -22,6 +23,26 @@ Collaboration diagram for Headlights\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{classHeadlights_a8c6a5177eef34761844cb5c2125fcd1b}{update}} (uint32\+\_\+t value)
 \begin{DoxyCompactList}\small\item\em Update the headlight value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classHeadlights_ab1681e45020b548b97126f7727eb71d9}{\+\_\+\+\_\+\+MAX\+\_\+\+VALUE}} = 100
+\item 
+const int \mbox{\hyperlink{classHeadlights_a9b2429654a71acff6b8c6705b1c1f229}{\+\_\+\+\_\+\+MIN\+\_\+\+VALUE}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classHeadlights_ab34137833a6d5adec11b3ea709fe682c}{\+\_\+\+\_\+value}}
+\item 
+int \mbox{\hyperlink{classHeadlights_a34b9e7d3c6da37ad68d074f3a42b7fb2}{\+\_\+\+\_\+fd\+\_\+pwm\+\_\+2}}
+\item 
+int \mbox{\hyperlink{classHeadlights_a273e7f085e0aa62dc69c54f57f833b48}{\+\_\+\+\_\+fd\+\_\+pwm\+\_\+3}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classHeadlights_ac1baedb9b635c4ef6a78aa6e5626f7cd}{\+\_\+\+\_\+\+PWM\+\_\+\+DRIVER\+\_\+2}} \{\char`\"{}/dev/axi\+\_\+timer\+\_\+pwm\+\_\+2\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classHeadlights_a94fba6e616e7da6057606a7675706c05}{\+\_\+\+\_\+\+PWM\+\_\+\+DRIVER\+\_\+3}} \{\char`\"{}/dev/axi\+\_\+timer\+\_\+pwm\+\_\+3\char`\"{}\}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -56,6 +77,51 @@ Update the headlight value.
 \hline
 \end{DoxyParams}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classHeadlights_a34b9e7d3c6da37ad68d074f3a42b7fb2}\label{classHeadlights_a34b9e7d3c6da37ad68d074f3a42b7fb2}} 
+\index{Headlights@{Headlights}!\_\_fd\_pwm\_2@{\_\_fd\_pwm\_2}}
+\index{\_\_fd\_pwm\_2@{\_\_fd\_pwm\_2}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_fd\_pwm\_2}{\_\_fd\_pwm\_2}}
+{\footnotesize\ttfamily int Headlights\+::\+\_\+\+\_\+fd\+\_\+pwm\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+File descriptor of AXI Timer driver \mbox{\Hypertarget{classHeadlights_a273e7f085e0aa62dc69c54f57f833b48}\label{classHeadlights_a273e7f085e0aa62dc69c54f57f833b48}} 
+\index{Headlights@{Headlights}!\_\_fd\_pwm\_3@{\_\_fd\_pwm\_3}}
+\index{\_\_fd\_pwm\_3@{\_\_fd\_pwm\_3}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_fd\_pwm\_3}{\_\_fd\_pwm\_3}}
+{\footnotesize\ttfamily int Headlights\+::\+\_\+\+\_\+fd\+\_\+pwm\+\_\+3\hspace{0.3cm}{\ttfamily [private]}}
+
+File descriptor of AXI Timer driver \mbox{\Hypertarget{classHeadlights_ab1681e45020b548b97126f7727eb71d9}\label{classHeadlights_ab1681e45020b548b97126f7727eb71d9}} 
+\index{Headlights@{Headlights}!\_\_MAX\_VALUE@{\_\_MAX\_VALUE}}
+\index{\_\_MAX\_VALUE@{\_\_MAX\_VALUE}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_MAX\_VALUE}{\_\_MAX\_VALUE}}
+{\footnotesize\ttfamily const int Headlights\+::\+\_\+\+\_\+\+MAX\+\_\+\+VALUE = 100\hspace{0.3cm}{\ttfamily [private]}}
+
+Max value \mbox{\Hypertarget{classHeadlights_a9b2429654a71acff6b8c6705b1c1f229}\label{classHeadlights_a9b2429654a71acff6b8c6705b1c1f229}} 
+\index{Headlights@{Headlights}!\_\_MIN\_VALUE@{\_\_MIN\_VALUE}}
+\index{\_\_MIN\_VALUE@{\_\_MIN\_VALUE}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_MIN\_VALUE}{\_\_MIN\_VALUE}}
+{\footnotesize\ttfamily const int Headlights\+::\+\_\+\+\_\+\+MIN\+\_\+\+VALUE = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+Min value \mbox{\Hypertarget{classHeadlights_ac1baedb9b635c4ef6a78aa6e5626f7cd}\label{classHeadlights_ac1baedb9b635c4ef6a78aa6e5626f7cd}} 
+\index{Headlights@{Headlights}!\_\_PWM\_DRIVER\_2@{\_\_PWM\_DRIVER\_2}}
+\index{\_\_PWM\_DRIVER\_2@{\_\_PWM\_DRIVER\_2}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_PWM\_DRIVER\_2}{\_\_PWM\_DRIVER\_2}}
+{\footnotesize\ttfamily constexpr auto Headlights\+::\+\_\+\+\_\+\+PWM\+\_\+\+DRIVER\+\_\+2 \{\char`\"{}/dev/axi\+\_\+timer\+\_\+pwm\+\_\+2\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+AXI Timer driver \mbox{\Hypertarget{classHeadlights_a94fba6e616e7da6057606a7675706c05}\label{classHeadlights_a94fba6e616e7da6057606a7675706c05}} 
+\index{Headlights@{Headlights}!\_\_PWM\_DRIVER\_3@{\_\_PWM\_DRIVER\_3}}
+\index{\_\_PWM\_DRIVER\_3@{\_\_PWM\_DRIVER\_3}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_PWM\_DRIVER\_3}{\_\_PWM\_DRIVER\_3}}
+{\footnotesize\ttfamily constexpr auto Headlights\+::\+\_\+\+\_\+\+PWM\+\_\+\+DRIVER\+\_\+3 \{\char`\"{}/dev/axi\+\_\+timer\+\_\+pwm\+\_\+3\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+AXI Timer driver \mbox{\Hypertarget{classHeadlights_ab34137833a6d5adec11b3ea709fe682c}\label{classHeadlights_ab34137833a6d5adec11b3ea709fe682c}} 
+\index{Headlights@{Headlights}!\_\_value@{\_\_value}}
+\index{\_\_value@{\_\_value}!Headlights@{Headlights}}
+\doxysubsubsection{\texorpdfstring{\_\_value}{\_\_value}}
+{\footnotesize\ttfamily uint32\+\_\+t Headlights\+::\+\_\+\+\_\+value\hspace{0.3cm}{\ttfamily [private]}}
+
+Headlight value (percent) 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

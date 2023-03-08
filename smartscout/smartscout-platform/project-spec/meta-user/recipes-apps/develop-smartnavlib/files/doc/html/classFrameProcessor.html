@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classFrameProcessor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FrameProcessor Class Reference</div>  </div>
@@ -75,7 +76,15 @@ Collaboration diagram for FrameProcessor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFrameProcessor__coll__graph.png" border="0" usemap="#aFrameProcessor_coll__map" alt="Collaboration graph"/></div>
 <map name="aFrameProcessor_coll__map" id="aFrameProcessor_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,168,127"/>
+<area shape="rect" title=" " alt="" coords="420,476,583,597"/>
+<area shape="rect" title=" " alt="" coords="333,299,397,377"/>
+<area shape="rect" href="classDetector.html" title=" " alt="" coords="428,263,561,413"/>
+<area shape="rect" title=" " alt="" coords="5,13,205,90"/>
+<area shape="rect" title=" " alt="" coords="284,13,335,90"/>
+<area shape="rect" title=" " alt="" coords="389,5,539,97"/>
+<area shape="rect" title=" " alt="" coords="563,5,722,97"/>
+<area shape="rect" title=" " alt="" coords="751,5,887,97"/>
+<area shape="rect" title=" " alt="" coords="585,299,796,377"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -91,6 +100,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8162370696c0b5638b7b5ba4ce22d50d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structRecognitionResult.html">RecognitionResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameProcessor.html#a8162370696c0b5638b7b5ba4ce22d50d">getResults</a> ()</td></tr>
 <tr class="memdesc:a8162370696c0b5638b7b5ba4ce22d50d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Results object.  <a href="classFrameProcessor.html#a8162370696c0b5638b7b5ba4ce22d50d">More...</a><br /></td></tr>
 <tr class="separator:a8162370696c0b5638b7b5ba4ce22d50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adf47fc795bbd5eeb9967f89bda9fc6ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDetector.html">Detector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameProcessor.html#adf47fc795bbd5eeb9967f89bda9fc6ee">__detector</a></td></tr>
+<tr class="separator:adf47fc795bbd5eeb9967f89bda9fc6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4ea8cf35ac77b9f12d8c75d8df487a8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structRecognitionResult.html">RecognitionResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameProcessor.html#ae4ea8cf35ac77b9f12d8c75d8df487a8">__results</a></td></tr>
+<tr class="separator:ae4ea8cf35ac77b9f12d8c75d8df487a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e10bb344e3682b3b92667412a787b2"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrameProcessor.html#a59e10bb344e3682b3b92667412a787b2">__result_guard</a></td></tr>
+<tr class="separator:a59e10bb344e3682b3b92667412a787b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a65791fd39b949bb1878bb762069b528c"></a>
@@ -183,6 +201,76 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consume the frame. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="adf47fc795bbd5eeb9967f89bda9fc6ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf47fc795bbd5eeb9967f89bda9fc6ee">&#9670;&nbsp;</a></span>__detector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDetector.html">Detector</a> FrameProcessor::__detector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Neural network detector </p>
+
+</div>
+</div>
+<a id="a59e10bb344e3682b3b92667412a787b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e10bb344e3682b3b92667412a787b2">&#9670;&nbsp;</a></span>__result_guard</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex FrameProcessor::__result_guard</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Result guard </p>
+
+</div>
+</div>
+<a id="ae4ea8cf35ac77b9f12d8c75d8df487a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ea8cf35ac77b9f12d8c75d8df487a8">&#9670;&nbsp;</a></span>__results</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structRecognitionResult.html">RecognitionResult</a>&gt; FrameProcessor::__results</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Results </p>
 
 </div>
 </div>

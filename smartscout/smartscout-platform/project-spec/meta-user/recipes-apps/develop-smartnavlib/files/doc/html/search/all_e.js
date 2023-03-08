@@ -1,17 +1,16 @@
 var searchData=
 [
-  ['qmc5883l_5fchip_5fid_137',['QMC5883L_CHIP_ID',['../namespaceRegisters.html#aa710d1219257c620409c91bf220b2323',1,'Registers']]],
-  ['qmc5883l_5fconfig_138',['QMC5883L_CONFIG',['../namespaceRegisters.html#a8b042e19989eb0b3947dad25ccd9df6f',1,'Registers']]],
-  ['qmc5883l_5fconfig2_139',['QMC5883L_CONFIG2',['../namespaceRegisters.html#a8cd3bbb546acfce3af78f836978a1584',1,'Registers']]],
-  ['qmc5883l_5freserved_140',['QMC5883L_RESERVED',['../namespaceRegisters.html#ad17ca01294b32907405e0a8da7113163',1,'Registers']]],
-  ['qmc5883l_5freset_141',['QMC5883L_RESET',['../namespaceRegisters.html#af37aff9916be9f491e1981d11fb4fb48',1,'Registers']]],
-  ['qmc5883l_5fstatus_142',['QMC5883L_STATUS',['../namespaceRegisters.html#ae5ec6496647504ca3acce552a9847478',1,'Registers']]],
-  ['qmc5883l_5ftemp_5flsb_143',['QMC5883L_TEMP_LSB',['../namespaceRegisters.html#a43a780c21ce56eb70dcbe4746b2bf0ed',1,'Registers']]],
-  ['qmc5883l_5ftemp_5fmsb_144',['QMC5883L_TEMP_MSB',['../namespaceRegisters.html#a6f25e977d715a81212fceb3c62e74485',1,'Registers']]],
-  ['qmc5883l_5fx_5flsb_145',['QMC5883L_X_LSB',['../namespaceRegisters.html#aebdad965aa75c6283b88f6d1affcd289',1,'Registers']]],
-  ['qmc5883l_5fx_5fmsb_146',['QMC5883L_X_MSB',['../namespaceRegisters.html#a9520c7c6604b4322356599a1378ee355',1,'Registers']]],
-  ['qmc5883l_5fy_5flsb_147',['QMC5883L_Y_LSB',['../namespaceRegisters.html#a329fadf59ed351429711083be9a8a893',1,'Registers']]],
-  ['qmc5883l_5fy_5fmsb_148',['QMC5883L_Y_MSB',['../namespaceRegisters.html#a678fabfe0a6dfeb2b05f67b58f40ff3a',1,'Registers']]],
-  ['qmc5883l_5fz_5flsb_149',['QMC5883L_Z_LSB',['../namespaceRegisters.html#a82cfe81689fde864cc9dbce8e90f03b3',1,'Registers']]],
-  ['qmc5883l_5fz_5fmsb_150',['QMC5883L_Z_MSB',['../namespaceRegisters.html#a4279ab10fb3427b4b180d426119d9eca',1,'Registers']]]
+  ['parse_324',['parse',['../classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236',1,'FuzzyRule::parse()'],['../classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e',1,'FuzzyAnd::parse()'],['../classFuzzyComparation.html#a506ae9c1adc651db2cc9917b31ab84b7',1,'FuzzyComparation::parse()'],['../classFuzzyControlSystem.html#afea32fdaf4000bc6ec4f23b4f2175d6d',1,'FuzzyControlSystem::parse()'],['../classFuzzyInput.html#aefd8fde0a50045c19ebb2b53495606cd',1,'FuzzyInput::parse()'],['../classFuzzyMembershipTrapezoidal.html#a2b5fdac952432d9c2064620e80e65a48',1,'FuzzyMembershipTrapezoidal::parse()'],['../classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963',1,'FuzzyOutput::parse()']]],
+  ['pix_5ffmt_5frgb24_325',['PIX_FMT_RGB24',['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5',1,'CaptureFrame']]],
+  ['pixelformat_326',['pixelFormat',['../classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153',1,'v_demosaic::pixelFormat()'],['../classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9',1,'ov7670::pixelFormat()'],['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772',1,'CaptureFrame::pixelFormat()']]],
+  ['planes_327',['planes',['../structCaptureFrame_1_1ImageBuffer.html#a777a58452a4907911d88e8ec54f1432f',1,'CaptureFrame::ImageBuffer']]],
+  ['polarposition_328',['PolarPosition',['../structPolarPosition.html#a2217d544024c482f542f3aa22632d4eb',1,'PolarPosition::PolarPosition()=default'],['../structPolarPosition.html#ad63f38cb542468e86d8b8aa8b9a691c9',1,'PolarPosition::PolarPosition(float angle, float distance)'],['../structPolarPosition.html',1,'PolarPosition']]],
+  ['polarposition_2ehpp_329',['PolarPosition.hpp',['../PolarPosition_8hpp.html',1,'']]],
+  ['polartocartesian_330',['polarToCartesian',['../classPositionEstimator.html#a7c14dceea2aa0d0685e5ded1e304857b',1,'PositionEstimator']]],
+  ['position_331',['position',['../structDriver_1_1position.html',1,'Driver']]],
+  ['positionestimator_332',['PositionEstimator',['../classPositionEstimator.html',1,'PositionEstimator'],['../classPositionEstimator.html#a80c2b25e44e66b53ef67d09dcb1b706c',1,'PositionEstimator::PositionEstimator()']]],
+  ['positionestimator_2ecpp_333',['PositionEstimator.cpp',['../PositionEstimator_8cpp.html',1,'']]],
+  ['positionestimator_2ehpp_334',['PositionEstimator.hpp',['../PositionEstimator_8hpp.html',1,'']]],
+  ['processframe_335',['processFrame',['../classFrameProcessor.html#a00ea88b0524a4e0c4944af7fbd59d77b',1,'FrameProcessor']]],
+  ['push_336',['push',['../classLogger.html#a51da8b6c82066ecf46d5afea7d11b3e0',1,'Logger']]]
 ];

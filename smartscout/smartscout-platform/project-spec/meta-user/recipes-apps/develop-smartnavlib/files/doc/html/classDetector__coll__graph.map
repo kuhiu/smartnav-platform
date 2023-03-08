@@ -1,3 +1,8 @@
 <map id="Detector" name="Detector">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,120,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="428,263,561,413"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,205,90"/>
+<area shape="rect" id="node3" title=" " alt="" coords="284,13,335,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="389,5,539,97"/>
+<area shape="rect" id="node5" title=" " alt="" coords="563,5,722,97"/>
+<area shape="rect" id="node6" title=" " alt="" coords="751,5,887,97"/>
 </map>

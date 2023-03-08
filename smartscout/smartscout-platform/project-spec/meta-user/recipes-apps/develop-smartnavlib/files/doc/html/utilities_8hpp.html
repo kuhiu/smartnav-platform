@@ -66,107 +66,56 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">utilities.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;<a class="el" href="RecognitionResult_8hpp_source.html">RecognitionResult.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Obstacle_8hpp_source.html">Obstacle.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="CartesionPosition_8hpp_source.html">CartesionPosition.hpp</a>&gt;</code><br />
+<code>#include &lt;nlohmann/json.hpp&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for utilities.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="utilities_8hpp__incl.png" border="0" usemap="#amodules_2utilities_2utilities_8hpp" alt=""/></div>
+<map name="amodules_2utilities_2utilities_8hpp" id="amodules_2utilities_2utilities_8hpp">
+<area shape="rect" title=" " alt="" coords="294,5,506,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,85,107"/>
+<area shape="rect" title=" " alt="" coords="110,80,183,107"/>
+<area shape="rect" title=" " alt="" coords="208,80,275,107"/>
+<area shape="rect" title=" " alt="" coords="299,80,362,107"/>
+<area shape="rect" href="RecognitionResult_8hpp.html" title=" " alt="" coords="387,80,555,107"/>
+<area shape="rect" title=" " alt="" coords="519,229,665,256"/>
+<area shape="rect" href="Obstacle_8hpp.html" title=" " alt="" coords="629,80,736,107"/>
+<area shape="rect" href="CartesionPosition_8hpp.html" title=" " alt="" coords="630,155,794,181"/>
+<area shape="rect" title=" " alt="" coords="437,155,504,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="utilities_8hpp__dep__incl.png" border="0" usemap="#amodules_2utilities_2utilities_8hppdep" alt=""/></div>
+<map name="amodules_2utilities_2utilities_8hppdep" id="amodules_2utilities_2utilities_8hppdep">
+<area shape="rect" title=" " alt="" coords="5,5,217,32"/>
+<area shape="rect" href="SmartNav_8hpp.html" title=" " alt="" coords="54,80,169,107"/>
+<area shape="rect" href="SmartNav_8cpp.html" title=" " alt="" coords="55,155,168,181"/>
+</map>
+</div>
+</div>
 <p><a href="utilities_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classutilities.html">utilities</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a7fffde3437ed8e9e05f93cdf82ea7235"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235">printf</a> (&quot;Time measured: %.3f seconds.\n&quot;, elapsed.count() *1e-9)</td></tr>
-<tr class="separator:a7fffde3437ed8e9e05f93cdf82ea7235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a2edb601d67a7b9c69ceb35b7887ed862"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a> = std::chrono::system_clock::now()</td></tr>
-<tr class="separator:a2edb601d67a7b9c69ceb35b7887ed862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6be7d98960df33edf9f3998a9e8b2407"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a> = std::chrono::system_clock::now()</td></tr>
-<tr class="separator:a6be7d98960df33edf9f3998a9e8b2407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa53955121e2d594bceff6fe784bcfbb9"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8hpp.html#aa53955121e2d594bceff6fe784bcfbb9">elapsed</a> = std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(<a class="el" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a> - <a class="el" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a>)</td></tr>
-<tr class="separator:aa53955121e2d594bceff6fe784bcfbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structutilities_1_1metadata.html">utilities::metadata</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a7fffde3437ed8e9e05f93cdf82ea7235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fffde3437ed8e9e05f93cdf82ea7235">&#9670;&nbsp;</a></span>printf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">printf </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Time measured: %.3f seconds.\n&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">elapsed.count() *1e-&#160;</td>
-          <td class="paramname"><em>9</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a2edb601d67a7b9c69ceb35b7887ed862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2edb601d67a7b9c69ceb35b7887ed862">&#9670;&nbsp;</a></span>begin</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto begin = std::chrono::system_clock::now()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa53955121e2d594bceff6fe784bcfbb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa53955121e2d594bceff6fe784bcfbb9">&#9670;&nbsp;</a></span>elapsed</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto elapsed = std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(<a class="el" href="utilities_8hpp.html#a6be7d98960df33edf9f3998a9e8b2407">end</a> - <a class="el" href="utilities_8hpp.html#a2edb601d67a7b9c69ceb35b7887ed862">begin</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6be7d98960df33edf9f3998a9e8b2407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6be7d98960df33edf9f3998a9e8b2407">&#9670;&nbsp;</a></span>end</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto end = std::chrono::system_clock::now()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

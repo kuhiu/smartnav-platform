@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classFuzzyRule-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FuzzyRule Class Reference</div>  </div>
@@ -76,7 +78,10 @@ Collaboration diagram for FuzzyRule:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFuzzyRule__coll__graph.png" border="0" usemap="#aFuzzyRule_coll__map" alt="Collaboration graph"/></div>
 <map name="aFuzzyRule_coll__map" id="aFuzzyRule_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,129,127"/>
+<area shape="rect" title=" " alt="" coords="255,175,379,296"/>
+<area shape="rect" title=" " alt="" coords="5,5,225,83"/>
+<area shape="rect" title=" " alt="" coords="287,5,346,83"/>
+<area shape="rect" title=" " alt="" coords="371,5,529,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -95,6 +100,24 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae96b49353cd7900ee6a291c8956b6236"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFuzzyRule.html">FuzzyRule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236">parse</a> (const nlohmann::json &amp;rule_json)</td></tr>
 <tr class="memdesc:ae96b49353cd7900ee6a291c8956b6236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to parse rule.  <a href="classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236">More...</a><br /></td></tr>
 <tr class="separator:ae96b49353cd7900ee6a291c8956b6236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a48d2f11fa4587fd74bf36a1fb9eb6fde"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#a48d2f11fa4587fd74bf36a1fb9eb6fde">__name</a></td></tr>
+<tr class="separator:a48d2f11fa4587fd74bf36a1fb9eb6fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd18acb2c37f78faa14255921792acf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyCondition::FuzzyConditionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#abd18acb2c37f78faa14255921792acf4">__fuzzy_input_condition</a></td></tr>
+<tr class="separator:abd18acb2c37f78faa14255921792acf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2e56799b39862b8bc7ec75fbd071a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyCondition::FuzzyConditionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#afa2e56799b39862b8bc7ec75fbd071a7">__fuzzy_output_condition</a></td></tr>
+<tr class="separator:afa2e56799b39862b8bc7ec75fbd071a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a70df2b40936ea15f0cb5c2142d113bec"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#a70df2b40936ea15f0cb5c2142d113bec">__NAME_KEY</a> {&quot;name&quot;}</td></tr>
+<tr class="separator:a70df2b40936ea15f0cb5c2142d113bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec661d6a9f80aef8904a092555dfff5"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#a1ec661d6a9f80aef8904a092555dfff5">__INPUT_COND_KEY</a> {&quot;input_conditions&quot;}</td></tr>
+<tr class="separator:a1ec661d6a9f80aef8904a092555dfff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae276be98f86fc5244274613e8cf8e110"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyRule.html#ae276be98f86fc5244274613e8cf8e110">__OUTPUT_COND_KEY</a> {&quot;output_conditions&quot;}</td></tr>
+<tr class="separator:ae276be98f86fc5244274613e8cf8e110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="add8921575a553dd3584e2459fbe8bf81"></a>
@@ -236,6 +259,145 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classFuzzyRule.html">FuzzyRule</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abd18acb2c37f78faa14255921792acf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd18acb2c37f78faa14255921792acf4">&#9670;&nbsp;</a></span>__fuzzy_input_condition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyCondition::FuzzyConditionPtr</a> FuzzyRule::__fuzzy_input_condition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Fuzzy input condition </p>
+
+</div>
+</div>
+<a id="afa2e56799b39862b8bc7ec75fbd071a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2e56799b39862b8bc7ec75fbd071a7">&#9670;&nbsp;</a></span>__fuzzy_output_condition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyCondition::FuzzyConditionPtr</a> FuzzyRule::__fuzzy_output_condition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Fuzzy output condition </p>
+
+</div>
+</div>
+<a id="a1ec661d6a9f80aef8904a092555dfff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec661d6a9f80aef8904a092555dfff5">&#9670;&nbsp;</a></span>__INPUT_COND_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyRule::__INPUT_COND_KEY {&quot;input_conditions&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Input condition key </p>
+
+</div>
+</div>
+<a id="a48d2f11fa4587fd74bf36a1fb9eb6fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d2f11fa4587fd74bf36a1fb9eb6fde">&#9670;&nbsp;</a></span>__name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FuzzyRule::__name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Rule name </p>
+
+</div>
+</div>
+<a id="a70df2b40936ea15f0cb5c2142d113bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70df2b40936ea15f0cb5c2142d113bec">&#9670;&nbsp;</a></span>__NAME_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyRule::__NAME_KEY {&quot;name&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Name key </p>
+
+</div>
+</div>
+<a id="ae276be98f86fc5244274613e8cf8e110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae276be98f86fc5244274613e8cf8e110">&#9670;&nbsp;</a></span>__OUTPUT_COND_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyRule::__OUTPUT_COND_KEY {&quot;output_conditions&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Output condition key </p>
 
 </div>
 </div>

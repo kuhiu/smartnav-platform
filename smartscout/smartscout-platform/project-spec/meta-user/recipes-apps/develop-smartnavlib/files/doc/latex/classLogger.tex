@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Logger\+:\nopagebreak
+Collaboration diagram for Logger\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=165pt]{classLogger__coll__graph}
+\includegraphics[width=350pt]{classLogger__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -27,18 +28,87 @@ void \mbox{\hyperlink{classLogger_a51da8b6c82066ecf46d5afea7d11b3e0}{push}} (std
 \item 
 static \mbox{\hyperlink{classLogStream}{Log\+Stream}} \mbox{\hyperlink{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}{log}} (\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67b}{Log\+Levels}} level=\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67ba4059b0251f66a18cb56f544728796875}{Log\+Levels\+::\+Info}})
 \begin{DoxyCompactList}\small\item\em This create \mbox{\hyperlink{classLogger}{Logger}} object and return a \mbox{\hyperlink{classLogStream}{Log\+Stream}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}} ()
+\item 
+\mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger}} ()
+\item 
+bool \mbox{\hyperlink{classLogger_a1ea4ba0ea8d27dac4272828aa66ad8a6}{\+\_\+\+\_\+is\+Queue\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Return queue state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLogger_a271a270e2d2342d295f5f02573490d12}{\+\_\+\+\_\+print\+Routine}} (\mbox{\hyperlink{classLogger}{Logger}} $\ast$instance, std\+::chrono\+::duration$<$ double, std\+::milli $>$ interval)
+\begin{DoxyCompactList}\small\item\em Print routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::thread \mbox{\hyperlink{classLogger_a8f2c8b3427e4218434c629a702fefacb}{\+\_\+\+\_\+print\+\_\+thread}}
+\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classLogger_a27a44fb6ebffecb652efbf21b4f1e215}{\+\_\+\+\_\+is\+\_\+running}}
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classLogger_a17559180ae3bb0138aa07c0b72842db0}{\+\_\+\+\_\+msgs\+\_\+queue}}
+\item 
+std\+::mutex \mbox{\hyperlink{classLogger_a4d877f7897e2fb4e773b539e8c688f2b}{\+\_\+\+\_\+queue\+\_\+guard}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classLogger_a0d21ab21689125fbb5e91584e4f37baa}\label{classLogger_a0d21ab21689125fbb5e91584e4f37baa}} 
 \index{Logger@{Logger}!Logger@{Logger}}
 \index{Logger@{Logger}!Logger@{Logger}}
-\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-Delete copy constructor 
+Delete copy constructor \mbox{\Hypertarget{classLogger_abc41bfb031d896170c7675fa96a6b30c}\label{classLogger_abc41bfb031d896170c7675fa96a6b30c}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classLogger}{Logger}} constructor \mbox{\Hypertarget{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}\label{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}} 
+\index{Logger@{Logger}!````~Logger@{$\sim$Logger}}
+\index{````~Logger@{$\sim$Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Logger()}{~Logger()}}
+{\footnotesize\ttfamily Logger\+::$\sim$\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classLogger}{Logger}} destructor 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogger_a1ea4ba0ea8d27dac4272828aa66ad8a6}\label{classLogger_a1ea4ba0ea8d27dac4272828aa66ad8a6}} 
+\index{Logger@{Logger}!\_\_isQueueEmpty@{\_\_isQueueEmpty}}
+\index{\_\_isQueueEmpty@{\_\_isQueueEmpty}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_isQueueEmpty()}{\_\_isQueueEmpty()}}
+{\footnotesize\ttfamily bool Logger\+::\+\_\+\+\_\+is\+Queue\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Return queue state. 
+
+\begin{DoxyReturn}{Returns}
+true If queue is empty 
+
+false If queue is not empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogger_a271a270e2d2342d295f5f02573490d12}\label{classLogger_a271a270e2d2342d295f5f02573490d12}} 
+\index{Logger@{Logger}!\_\_printRoutine@{\_\_printRoutine}}
+\index{\_\_printRoutine@{\_\_printRoutine}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_printRoutine()}{\_\_printRoutine()}}
+{\footnotesize\ttfamily void Logger\+::\+\_\+\+\_\+print\+Routine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{instance,  }\item[{std\+::chrono\+::duration$<$ double, std\+::milli $>$}]{interval }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Print routine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & \mbox{\hyperlink{classLogger}{Logger}} instance \\
+\hline
+{\em interval} & Time between printing \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}\label{classLogger_a61ea3cdc4ae6732558e58b2b9ca6d7d3}} 
 \index{Logger@{Logger}!log@{log}}
 \index{log@{log}!Logger@{Logger}}
@@ -79,6 +149,33 @@ Push a new msg into the queue.
 \hline
 \end{DoxyParams}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLogger_a27a44fb6ebffecb652efbf21b4f1e215}\label{classLogger_a27a44fb6ebffecb652efbf21b4f1e215}} 
+\index{Logger@{Logger}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily std\+::atomic$<$bool$>$ Logger\+::\+\_\+\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread state \mbox{\Hypertarget{classLogger_a17559180ae3bb0138aa07c0b72842db0}\label{classLogger_a17559180ae3bb0138aa07c0b72842db0}} 
+\index{Logger@{Logger}!\_\_msgs\_queue@{\_\_msgs\_queue}}
+\index{\_\_msgs\_queue@{\_\_msgs\_queue}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_msgs\_queue}{\_\_msgs\_queue}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::string$>$ Logger\+::\+\_\+\+\_\+msgs\+\_\+queue\hspace{0.3cm}{\ttfamily [private]}}
+
+Message queue \mbox{\Hypertarget{classLogger_a8f2c8b3427e4218434c629a702fefacb}\label{classLogger_a8f2c8b3427e4218434c629a702fefacb}} 
+\index{Logger@{Logger}!\_\_print\_thread@{\_\_print\_thread}}
+\index{\_\_print\_thread@{\_\_print\_thread}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_print\_thread}{\_\_print\_thread}}
+{\footnotesize\ttfamily std\+::thread Logger\+::\+\_\+\+\_\+print\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Printer thread \mbox{\Hypertarget{classLogger_a4d877f7897e2fb4e773b539e8c688f2b}\label{classLogger_a4d877f7897e2fb4e773b539e8c688f2b}} 
+\index{Logger@{Logger}!\_\_queue\_guard@{\_\_queue\_guard}}
+\index{\_\_queue\_guard@{\_\_queue\_guard}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{\_\_queue\_guard}{\_\_queue\_guard}}
+{\footnotesize\ttfamily std\+::mutex Logger\+::\+\_\+\+\_\+queue\+\_\+guard\hspace{0.3cm}{\ttfamily [private]}}
+
+Message queue guard 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

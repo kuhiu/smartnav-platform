@@ -6,37 +6,346 @@
 
 
 
-Collaboration diagram for Smart\+Nav\+:\nopagebreak
+Collaboration diagram for Smart\+Nav\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=172pt]{classSmartNav__coll__graph}
+\includegraphics[width=350pt]{classSmartNav__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classSmartNav_aa18911a296b47a1ea6f612e05df09f73}{Smart\+Nav}} ()
+\mbox{\hyperlink{classSmartNav_a8ec87e49c0adde821c12a38a7f53b0ca}{Smart\+Nav}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} where\+\_\+we\+\_\+go)
 \item 
 \mbox{\hyperlink{classSmartNav_a3a6c97017924bff17e6576dca0ac8a37}{$\sim$\+Smart\+Nav}} ()
+\item 
+bool \mbox{\hyperlink{classSmartNav_a129cf8db85a48ff75483470c693b4372}{is\+Running}} () const
+\begin{DoxyCompactList}\small\item\em The thread is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSmartNav_afe2778a228c7c05437f5c211b7b27afb}{\+\_\+\+\_\+navigation}} ()
+\begin{DoxyCompactList}\small\item\em Navigate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSmartNav_aec637ccfecb81b787191c6b2c3660d97}{\+\_\+\+\_\+arrivation}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Check if the destination is reached. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classSmartNav_a2ee804b6a6a453167b498d4bf1075d3d}{\+\_\+\+\_\+get\+Destination}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Get the distance and the angle of the target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classSmartNav_ae9e5b481e329e57fd917b89d3b4f12bd}{\+\_\+\+\_\+get\+Obstacle\+Position}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} curr\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Get the current obstacle position. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmartNav_a04a5bddd562bd502c861bde4f3cacf24}{where\+Have\+To\+Go}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} destination)
+\begin{DoxyCompactList}\small\item\em Get the angle where i have to go to reach my destination. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmartNav_acc61ef6db002f4f28072d4d35ddab2a7}{\+\_\+\+\_\+get\+Difference}} (float b1, float b2)
+\begin{DoxyCompactList}\small\item\em Get the difference between two bearings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSmartNav_a22ae95055f0110b6e91c728ef8c68134}{\+\_\+\+\_\+frame\+\_\+callback}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} $>$ img, void $\ast$ctx)
+\begin{DoxyCompactList}\small\item\em Frame callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classSmartNav_adc7a1dc2563f51bc3be45a2e5785dd00}{\+\_\+\+\_\+\+ARRIVAL\+\_\+\+AREA}} = 10.\+0
+\item 
+bool \mbox{\hyperlink{classSmartNav_a9e0cfdfcf214d6a667efed7e64527a92}{\+\_\+\+\_\+is\+\_\+running}}
+\item 
+std\+::thread \mbox{\hyperlink{classSmartNav_ae03eae2c294c50292977db55c28e31d0}{\+\_\+\+\_\+navigation\+\_\+thread}}
+\item 
+\mbox{\hyperlink{classDriver}{Driver}} \mbox{\hyperlink{classSmartNav_a501cb96c4008a180117a4b9455a73e0c}{\+\_\+\+\_\+driver}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}} $>$ \mbox{\hyperlink{classSmartNav_a153ab6dd7541c342ce5aebbc97522e38}{\+\_\+\+\_\+capture\+\_\+frame}}
+\item 
+\mbox{\hyperlink{classHeadlights}{Headlights}} \mbox{\hyperlink{classSmartNav_a7a4d7dc5ceb35930d1e86756c17e6116}{\+\_\+\+\_\+headlights}}
+\item 
+\mbox{\hyperlink{classDistanceSensors}{Distance\+Sensors}} \mbox{\hyperlink{classSmartNav_a3ed64f8be761c0e1b50636947304927e}{\+\_\+\+\_\+distance\+\_\+sensor}}
+\item 
+\mbox{\hyperlink{classPositionEstimator}{Position\+Estimator}} \mbox{\hyperlink{classSmartNav_a90f69f757a824420f8be703acc95e44e}{\+\_\+\+\_\+position\+\_\+estimator}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}} $>$ \mbox{\hyperlink{classSmartNav_a045985f9d1f2e1de1448c654f65d4541}{\+\_\+\+\_\+fuzzy\+\_\+system}}
+\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classSmartNav_ab5232b59bf64ad22e67e2918b7651480}{\+\_\+\+\_\+arrival\+\_\+point}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} $>$ \mbox{\hyperlink{classSmartNav_a9fe278bc440578058206defb0f0ca116}{\+\_\+\+\_\+position\+\_\+history}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} $>$ \mbox{\hyperlink{classSmartNav_a7cb733f77a199001365ffc01d18dd723}{\+\_\+\+\_\+arrival\+\_\+point\+\_\+history}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classObstacle}{Obstacle}} $>$ \mbox{\hyperlink{classSmartNav_abe6f398d122ce20138795c977fad2efb}{\+\_\+\+\_\+obstacles}}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classSmartNav_a0ad5d27ece2e6be30582c534f4ef6c7a}{\+\_\+\+\_\+angle\+\_\+history}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classSmartNav_a9b0218bbd6e8dfc4f480989a14fffc26}{\+\_\+\+\_\+timestamp}}
+\item 
+\mbox{\hyperlink{classutilities}{utilities}} \mbox{\hyperlink{classSmartNav_a7d4831899e4da78841a87365807f1d3f}{\+\_\+\+\_\+utilities}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classSmartNav_a1fcd702c08f2bbdb00e7e4f47972fb0f}{\+\_\+\+\_\+\+FUZZY\+\_\+\+JSON}} \{\char`\"{}/usr/bin/fuzzy\+\_\+system\+\_\+v4.\+json\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classSmartNav_aa18911a296b47a1ea6f612e05df09f73}\label{classSmartNav_aa18911a296b47a1ea6f612e05df09f73}} 
+\mbox{\Hypertarget{classSmartNav_a8ec87e49c0adde821c12a38a7f53b0ca}\label{classSmartNav_a8ec87e49c0adde821c12a38a7f53b0ca}} 
 \index{SmartNav@{SmartNav}!SmartNav@{SmartNav}}
 \index{SmartNav@{SmartNav}!SmartNav@{SmartNav}}
 \doxysubsubsection{\texorpdfstring{SmartNav()}{SmartNav()}}
-{\footnotesize\ttfamily Smart\+Nav\+::\+Smart\+Nav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Smart\+Nav\+::\+Smart\+Nav (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{where\+\_\+we\+\_\+go }\end{DoxyParamCaption})}
 
 Smartnav constructor \mbox{\Hypertarget{classSmartNav_a3a6c97017924bff17e6576dca0ac8a37}\label{classSmartNav_a3a6c97017924bff17e6576dca0ac8a37}} 
 \index{SmartNav@{SmartNav}!````~SmartNav@{$\sim$SmartNav}}
 \index{````~SmartNav@{$\sim$SmartNav}!SmartNav@{SmartNav}}
 \doxysubsubsection{\texorpdfstring{$\sim$SmartNav()}{~SmartNav()}}
-{\footnotesize\ttfamily Smart\+Nav\+::$\sim$\+Smart\+Nav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Smart\+Nav\+::$\sim$\+Smart\+Nav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Smartnav destructor 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSmartNav_aec637ccfecb81b787191c6b2c3660d97}\label{classSmartNav_aec637ccfecb81b787191c6b2c3660d97}} 
+\index{SmartNav@{SmartNav}!\_\_arrivation@{\_\_arrivation}}
+\index{\_\_arrivation@{\_\_arrivation}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_arrivation()}{\_\_arrivation()}}
+{\footnotesize\ttfamily bool Smart\+Nav\+::\+\_\+\+\_\+arrivation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Check if the destination is reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartNav_a22ae95055f0110b6e91c728ef8c68134}\label{classSmartNav_a22ae95055f0110b6e91c728ef8c68134}} 
+\index{SmartNav@{SmartNav}!\_\_frame\_callback@{\_\_frame\_callback}}
+\index{\_\_frame\_callback@{\_\_frame\_callback}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_frame\_callback()}{\_\_frame\_callback()}}
+{\footnotesize\ttfamily void Smart\+Nav\+::\+\_\+\+\_\+frame\+\_\+callback (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} $>$}]{img,  }\item[{void $\ast$}]{ctx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Frame callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+{\em ctx} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSmartNav_a2ee804b6a6a453167b498d4bf1075d3d}\label{classSmartNav_a2ee804b6a6a453167b498d4bf1075d3d}} 
+\index{SmartNav@{SmartNav}!\_\_getDestination@{\_\_getDestination}}
+\index{\_\_getDestination@{\_\_getDestination}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_getDestination()}{\_\_getDestination()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Smart\+Nav\+::\+\_\+\+\_\+get\+Destination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the distance and the angle of the target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartNav_acc61ef6db002f4f28072d4d35ddab2a7}\label{classSmartNav_acc61ef6db002f4f28072d4d35ddab2a7}} 
+\index{SmartNav@{SmartNav}!\_\_getDifference@{\_\_getDifference}}
+\index{\_\_getDifference@{\_\_getDifference}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_getDifference()}{\_\_getDifference()}}
+{\footnotesize\ttfamily float Smart\+Nav\+::\+\_\+\+\_\+get\+Difference (\begin{DoxyParamCaption}\item[{float}]{b1,  }\item[{float}]{b2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the difference between two bearings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b1} & \\
+\hline
+{\em b2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartNav_ae9e5b481e329e57fd917b89d3b4f12bd}\label{classSmartNav_ae9e5b481e329e57fd917b89d3b4f12bd}} 
+\index{SmartNav@{SmartNav}!\_\_getObstaclePosition@{\_\_getObstaclePosition}}
+\index{\_\_getObstaclePosition@{\_\_getObstaclePosition}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_getObstaclePosition()}{\_\_getObstaclePosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Smart\+Nav\+::\+\_\+\+\_\+get\+Obstacle\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{curr\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the current obstacle position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartNav_afe2778a228c7c05437f5c211b7b27afb}\label{classSmartNav_afe2778a228c7c05437f5c211b7b27afb}} 
+\index{SmartNav@{SmartNav}!\_\_navigation@{\_\_navigation}}
+\index{\_\_navigation@{\_\_navigation}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_navigation()}{\_\_navigation()}}
+{\footnotesize\ttfamily void Smart\+Nav\+::\+\_\+\+\_\+navigation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Navigate. 
+
+\mbox{\Hypertarget{classSmartNav_a129cf8db85a48ff75483470c693b4372}\label{classSmartNav_a129cf8db85a48ff75483470c693b4372}} 
+\index{SmartNav@{SmartNav}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{isRunning()}{isRunning()}}
+{\footnotesize\ttfamily bool Smart\+Nav\+::is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The thread is running. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSmartNav_a04a5bddd562bd502c861bde4f3cacf24}\label{classSmartNav_a04a5bddd562bd502c861bde4f3cacf24}} 
+\index{SmartNav@{SmartNav}!whereHaveToGo@{whereHaveToGo}}
+\index{whereHaveToGo@{whereHaveToGo}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{whereHaveToGo()}{whereHaveToGo()}}
+{\footnotesize\ttfamily float Smart\+Nav\+::where\+Have\+To\+Go (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the angle where i have to go to reach my destination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float\+: Angle where i have to go. left \mbox{[}0\+:180\mbox{]}, right \mbox{[}0\+:-\/180\mbox{]} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSmartNav_a0ad5d27ece2e6be30582c534f4ef6c7a}\label{classSmartNav_a0ad5d27ece2e6be30582c534f4ef6c7a}} 
+\index{SmartNav@{SmartNav}!\_\_angle\_history@{\_\_angle\_history}}
+\index{\_\_angle\_history@{\_\_angle\_history}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_angle\_history}{\_\_angle\_history}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Smart\+Nav\+::\+\_\+\+\_\+angle\+\_\+history\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmartNav_adc7a1dc2563f51bc3be45a2e5785dd00}\label{classSmartNav_adc7a1dc2563f51bc3be45a2e5785dd00}} 
+\index{SmartNav@{SmartNav}!\_\_ARRIVAL\_AREA@{\_\_ARRIVAL\_AREA}}
+\index{\_\_ARRIVAL\_AREA@{\_\_ARRIVAL\_AREA}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_ARRIVAL\_AREA}{\_\_ARRIVAL\_AREA}}
+{\footnotesize\ttfamily float Smart\+Nav\+::\+\_\+\+\_\+\+ARRIVAL\+\_\+\+AREA = 10.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+Arrival area \mbox{[}cm\mbox{]} \mbox{\Hypertarget{classSmartNav_ab5232b59bf64ad22e67e2918b7651480}\label{classSmartNav_ab5232b59bf64ad22e67e2918b7651480}} 
+\index{SmartNav@{SmartNav}!\_\_arrival\_point@{\_\_arrival\_point}}
+\index{\_\_arrival\_point@{\_\_arrival\_point}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_arrival\_point}{\_\_arrival\_point}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Smart\+Nav\+::\+\_\+\+\_\+arrival\+\_\+point\hspace{0.3cm}{\ttfamily [private]}}
+
+Travel destination \mbox{\Hypertarget{classSmartNav_a7cb733f77a199001365ffc01d18dd723}\label{classSmartNav_a7cb733f77a199001365ffc01d18dd723}} 
+\index{SmartNav@{SmartNav}!\_\_arrival\_point\_history@{\_\_arrival\_point\_history}}
+\index{\_\_arrival\_point\_history@{\_\_arrival\_point\_history}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_arrival\_point\_history}{\_\_arrival\_point\_history}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}$>$ Smart\+Nav\+::\+\_\+\+\_\+arrival\+\_\+point\+\_\+history\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmartNav_a153ab6dd7541c342ce5aebbc97522e38}\label{classSmartNav_a153ab6dd7541c342ce5aebbc97522e38}} 
+\index{SmartNav@{SmartNav}!\_\_capture\_frame@{\_\_capture\_frame}}
+\index{\_\_capture\_frame@{\_\_capture\_frame}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_capture\_frame}{\_\_capture\_frame}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}}$>$ Smart\+Nav\+::\+\_\+\+\_\+capture\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}
+
+Capture frame object \mbox{\Hypertarget{classSmartNav_a3ed64f8be761c0e1b50636947304927e}\label{classSmartNav_a3ed64f8be761c0e1b50636947304927e}} 
+\index{SmartNav@{SmartNav}!\_\_distance\_sensor@{\_\_distance\_sensor}}
+\index{\_\_distance\_sensor@{\_\_distance\_sensor}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_distance\_sensor}{\_\_distance\_sensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDistanceSensors}{Distance\+Sensors}} Smart\+Nav\+::\+\_\+\+\_\+distance\+\_\+sensor\hspace{0.3cm}{\ttfamily [private]}}
+
+Distance sensor object \mbox{\Hypertarget{classSmartNav_a501cb96c4008a180117a4b9455a73e0c}\label{classSmartNav_a501cb96c4008a180117a4b9455a73e0c}} 
+\index{SmartNav@{SmartNav}!\_\_driver@{\_\_driver}}
+\index{\_\_driver@{\_\_driver}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_driver}{\_\_driver}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDriver}{Driver}} Smart\+Nav\+::\+\_\+\+\_\+driver\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} object ~\newline
+ \mbox{\Hypertarget{classSmartNav_a1fcd702c08f2bbdb00e7e4f47972fb0f}\label{classSmartNav_a1fcd702c08f2bbdb00e7e4f47972fb0f}} 
+\index{SmartNav@{SmartNav}!\_\_FUZZY\_JSON@{\_\_FUZZY\_JSON}}
+\index{\_\_FUZZY\_JSON@{\_\_FUZZY\_JSON}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_FUZZY\_JSON}{\_\_FUZZY\_JSON}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Smart\+Nav\+::\+\_\+\+\_\+\+FUZZY\+\_\+\+JSON \{\char`\"{}/usr/bin/fuzzy\+\_\+system\+\_\+v4.\+json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+JSON file which describes the fuzzy system \mbox{\Hypertarget{classSmartNav_a045985f9d1f2e1de1448c654f65d4541}\label{classSmartNav_a045985f9d1f2e1de1448c654f65d4541}} 
+\index{SmartNav@{SmartNav}!\_\_fuzzy\_system@{\_\_fuzzy\_system}}
+\index{\_\_fuzzy\_system@{\_\_fuzzy\_system}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_fuzzy\_system}{\_\_fuzzy\_system}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classFuzzyControlSystem}{Fuzzy\+Control\+System}}$>$ Smart\+Nav\+::\+\_\+\+\_\+fuzzy\+\_\+system\hspace{0.3cm}{\ttfamily [private]}}
+
+Fuzzy control system object \mbox{\Hypertarget{classSmartNav_a7a4d7dc5ceb35930d1e86756c17e6116}\label{classSmartNav_a7a4d7dc5ceb35930d1e86756c17e6116}} 
+\index{SmartNav@{SmartNav}!\_\_headlights@{\_\_headlights}}
+\index{\_\_headlights@{\_\_headlights}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_headlights}{\_\_headlights}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHeadlights}{Headlights}} Smart\+Nav\+::\+\_\+\+\_\+headlights\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classHeadlights}{Headlights}} object \mbox{\Hypertarget{classSmartNav_a9e0cfdfcf214d6a667efed7e64527a92}\label{classSmartNav_a9e0cfdfcf214d6a667efed7e64527a92}} 
+\index{SmartNav@{SmartNav}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily bool Smart\+Nav\+::\+\_\+\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classSmartNav_ae03eae2c294c50292977db55c28e31d0}\label{classSmartNav_ae03eae2c294c50292977db55c28e31d0}} 
+\index{SmartNav@{SmartNav}!\_\_navigation\_thread@{\_\_navigation\_thread}}
+\index{\_\_navigation\_thread@{\_\_navigation\_thread}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_navigation\_thread}{\_\_navigation\_thread}}
+{\footnotesize\ttfamily std\+::thread Smart\+Nav\+::\+\_\+\+\_\+navigation\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread navigation \mbox{\Hypertarget{classSmartNav_abe6f398d122ce20138795c977fad2efb}\label{classSmartNav_abe6f398d122ce20138795c977fad2efb}} 
+\index{SmartNav@{SmartNav}!\_\_obstacles@{\_\_obstacles}}
+\index{\_\_obstacles@{\_\_obstacles}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_obstacles}{\_\_obstacles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classObstacle}{Obstacle}}$>$ Smart\+Nav\+::\+\_\+\+\_\+obstacles\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmartNav_a90f69f757a824420f8be703acc95e44e}\label{classSmartNav_a90f69f757a824420f8be703acc95e44e}} 
+\index{SmartNav@{SmartNav}!\_\_position\_estimator@{\_\_position\_estimator}}
+\index{\_\_position\_estimator@{\_\_position\_estimator}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_position\_estimator}{\_\_position\_estimator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPositionEstimator}{Position\+Estimator}} Smart\+Nav\+::\+\_\+\+\_\+position\+\_\+estimator\hspace{0.3cm}{\ttfamily [private]}}
+
+Position estimator object \mbox{\Hypertarget{classSmartNav_a9fe278bc440578058206defb0f0ca116}\label{classSmartNav_a9fe278bc440578058206defb0f0ca116}} 
+\index{SmartNav@{SmartNav}!\_\_position\_history@{\_\_position\_history}}
+\index{\_\_position\_history@{\_\_position\_history}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_position\_history}{\_\_position\_history}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}$>$ Smart\+Nav\+::\+\_\+\+\_\+position\+\_\+history\hspace{0.3cm}{\ttfamily [private]}}
+
+Decay graph History points \mbox{\Hypertarget{classSmartNav_a9b0218bbd6e8dfc4f480989a14fffc26}\label{classSmartNav_a9b0218bbd6e8dfc4f480989a14fffc26}} 
+\index{SmartNav@{SmartNav}!\_\_timestamp@{\_\_timestamp}}
+\index{\_\_timestamp@{\_\_timestamp}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_timestamp}{\_\_timestamp}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Smart\+Nav\+::\+\_\+\+\_\+timestamp\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmartNav_a7d4831899e4da78841a87365807f1d3f}\label{classSmartNav_a7d4831899e4da78841a87365807f1d3f}} 
+\index{SmartNav@{SmartNav}!\_\_utilities@{\_\_utilities}}
+\index{\_\_utilities@{\_\_utilities}!SmartNav@{SmartNav}}
+\doxysubsubsection{\texorpdfstring{\_\_utilities}{\_\_utilities}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classutilities}{utilities}} Smart\+Nav\+::\+\_\+\+\_\+utilities\hspace{0.3cm}{\ttfamily [private]}}
+
+Utilities 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{SmartNav_8hpp}{Smart\+Nav.\+hpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{SmartNav_8hpp}{Smart\+Nav.\+hpp}}\item 
+\mbox{\hyperlink{SmartNav_8cpp}{Smart\+Nav.\+cpp}}\end{DoxyCompactItemize}

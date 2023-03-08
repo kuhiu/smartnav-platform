@@ -64,6 +64,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classFuzzyOutput-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FuzzyOutput Class Reference</div>  </div>
@@ -76,8 +77,8 @@ Inheritance diagram for FuzzyOutput:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFuzzyOutput__inherit__graph.png" border="0" usemap="#aFuzzyOutput_inherit__map" alt="Inheritance graph"/></div>
 <map name="aFuzzyOutput_inherit__map" id="aFuzzyOutput_inherit__map">
-<area shape="rect" title=" " alt="" coords="42,204,185,325"/>
-<area shape="rect" href="classFuzzyIO.html" title=" " alt="" coords="5,5,221,156"/>
+<area shape="rect" title=" " alt="" coords="5,204,263,340"/>
+<area shape="rect" href="classFuzzyIO.html" title=" " alt="" coords="26,5,242,156"/>
 </map>
 </div>
 <div class="dynheader">
@@ -85,10 +86,11 @@ Collaboration diagram for FuzzyOutput:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFuzzyOutput__coll__graph.png" border="0" usemap="#aFuzzyOutput_coll__map" alt="Collaboration graph"/></div>
 <map name="aFuzzyOutput_coll__map" id="aFuzzyOutput_coll__map">
-<area shape="rect" title=" " alt="" coords="118,345,261,467"/>
+<area shape="rect" title=" " alt="" coords="223,388,366,509"/>
 <area shape="rect" href="classFuzzyIO.html" title=" " alt="" coords="81,160,297,296"/>
 <area shape="rect" title=" " alt="" coords="5,5,216,97"/>
 <area shape="rect" title=" " alt="" coords="240,13,299,90"/>
+<area shape="rect" title=" " alt="" coords="322,189,481,267"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -121,6 +123,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8968a467738307b93babadf4f61a7963"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFuzzyOutput.html">FuzzyOutput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963">parse</a> (const nlohmann::json &amp;output_json)</td></tr>
 <tr class="memdesc:a8968a467738307b93babadf4f61a7963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to parse output.  <a href="classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963">More...</a><br /></td></tr>
 <tr class="separator:a8968a467738307b93babadf4f61a7963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a84582ea47be9060379c2b113ca135af5"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyOutput.html#a84582ea47be9060379c2b113ca135af5">__MEMBERSHIPS_FUNCTIONS_KEY</a> {&quot;membership_functions&quot;}</td></tr>
+<tr class="separator:a84582ea47be9060379c2b113ca135af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd90e9e44052dca074f948bd4e31ae5f"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyOutput.html#acd90e9e44052dca074f948bd4e31ae5f">__NAME_KEY</a> {&quot;name&quot;}</td></tr>
+<tr class="separator:acd90e9e44052dca074f948bd4e31ae5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -247,6 +256,53 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classFuzzyInput.html">FuzzyInput</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a84582ea47be9060379c2b113ca135af5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84582ea47be9060379c2b113ca135af5">&#9670;&nbsp;</a></span>__MEMBERSHIPS_FUNCTIONS_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyOutput::__MEMBERSHIPS_FUNCTIONS_KEY {&quot;membership_functions&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Membership function key </p>
+
+</div>
+</div>
+<a id="acd90e9e44052dca074f948bd4e31ae5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd90e9e44052dca074f948bd4e31ae5f">&#9670;&nbsp;</a></span>__NAME_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyOutput::__NAME_KEY {&quot;name&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Name key </p>
 
 </div>
 </div>

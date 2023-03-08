@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['simplemovingaverage_246',['SimpleMovingAverage',['../classSimpleMovingAverage.html',1,'']]],
-  ['smartnav_247',['SmartNav',['../classSmartNav.html',1,'']]]
+  ['polarposition_469',['PolarPosition',['../structPolarPosition.html',1,'']]],
+  ['position_470',['position',['../structDriver_1_1position.html',1,'Driver']]],
+  ['positionestimator_471',['PositionEstimator',['../classPositionEstimator.html',1,'']]]
 ];

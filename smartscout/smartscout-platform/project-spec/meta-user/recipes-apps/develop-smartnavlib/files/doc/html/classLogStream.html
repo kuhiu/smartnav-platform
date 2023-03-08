@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classLogStream-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LogStream Class Reference</div>  </div>
@@ -75,8 +76,8 @@ Inheritance diagram for LogStream:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogStream__inherit__graph.png" border="0" usemap="#aLogStream_inherit__map" alt="Inheritance graph"/></div>
 <map name="aLogStream_inherit__map" id="aLogStream_inherit__map">
-<area shape="rect" title=" " alt="" coords="11,131,141,237"/>
-<area shape="rect" title=" " alt="" coords="5,5,147,83"/>
+<area shape="rect" title=" " alt="" coords="5,131,153,252"/>
+<area shape="rect" title=" " alt="" coords="9,5,150,83"/>
 </map>
 </div>
 <div class="dynheader">
@@ -84,8 +85,14 @@ Collaboration diagram for LogStream:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogStream__coll__graph.png" border="0" usemap="#aLogStream_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogStream_coll__map" id="aLogStream_coll__map">
-<area shape="rect" title=" " alt="" coords="11,131,141,237"/>
-<area shape="rect" title=" " alt="" coords="5,5,147,83"/>
+<area shape="rect" title=" " alt="" coords="149,388,280,495"/>
+<area shape="rect" title=" " alt="" coords="5,197,147,274"/>
+<area shape="rect" title=" " alt="" coords="171,197,258,274"/>
+<area shape="rect" href="classLogger.html" title=" " alt="" coords="282,145,433,325"/>
+<area shape="rect" title=" " alt="" coords="107,5,171,83"/>
+<area shape="rect" title=" " alt="" coords="196,5,353,83"/>
+<area shape="rect" title=" " alt="" coords="377,5,503,83"/>
+<area shape="rect" title=" " alt="" coords="528,5,592,83"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -98,6 +105,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6e7dfbe0040b7495b266f5501ecbc43e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogStream.html#a6e7dfbe0040b7495b266f5501ecbc43e">levelToString</a> ()</td></tr>
 <tr class="memdesc:a6e7dfbe0040b7495b266f5501ecbc43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string of the level.  <a href="classLogStream.html#a6e7dfbe0040b7495b266f5501ecbc43e">More...</a><br /></td></tr>
 <tr class="separator:a6e7dfbe0040b7495b266f5501ecbc43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a332700ab1e062d97f3aacc0869ab88be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogStream.html#a332700ab1e062d97f3aacc0869ab88be">__logger_instance</a></td></tr>
+<tr class="separator:a332700ab1e062d97f3aacc0869ab88be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af589a6376975b47d003e9b4573e18579"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LogLevels_8hpp.html#ac1d82eeec924664c269c54f36da7d67b">LogLevels</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogStream.html#af589a6376975b47d003e9b4573e18579">__log_level</a></td></tr>
+<tr class="separator:af589a6376975b47d003e9b4573e18579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3d58fa63bbe99689d2fee507f955be2a"></a>
@@ -165,6 +179,53 @@ Public Member Functions</h2></td></tr>
 
 <p>Get the string of the level. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af589a6376975b47d003e9b4573e18579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af589a6376975b47d003e9b4573e18579">&#9670;&nbsp;</a></span>__log_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="LogLevels_8hpp.html#ac1d82eeec924664c269c54f36da7d67b">LogLevels</a> LogStream::__log_level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Log level </p>
+
+</div>
+</div>
+<a id="a332700ab1e062d97f3aacc0869ab88be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a332700ab1e062d97f3aacc0869ab88be">&#9670;&nbsp;</a></span>__logger_instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLogger.html">Logger</a>&amp; LogStream::__logger_instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classLogger.html">Logger</a> instance </p>
 
 </div>
 </div>

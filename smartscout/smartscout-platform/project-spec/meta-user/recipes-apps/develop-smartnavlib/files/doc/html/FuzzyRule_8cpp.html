@@ -101,14 +101,12 @@ Include dependency graph for FuzzyRule.cpp:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3a84eaf6c4683cdaa33ae6ffe43a74ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FuzzyRule_8cpp.html#a3a84eaf6c4683cdaa33ae6ffe43a74ac">DEBUG_RULE</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a3a84eaf6c4683cdaa33ae6ffe43a74ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed581de90eb37c5e3a311b1936e7f0d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FuzzyRule_8cpp.html#aed581de90eb37c5e3a311b1936e7f0d6">DEBUG_PRINT</a>(fmt, ...)&#160;&#160;&#160;fprintf(stderr, fmt, __VA_ARGS__)</td></tr>
-<tr class="separator:aed581de90eb37c5e3a311b1936e7f0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FuzzyRule_8cpp.html#a5f50bfe761aec48e94d11aa3a64e58a4">DEBUG_PRINT</a>(fmt,  args...)&#160;&#160;&#160;/* Don't do anything in release builds */</td></tr>
+<tr class="separator:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aed581de90eb37c5e3a311b1936e7f0d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed581de90eb37c5e3a311b1936e7f0d6">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
+<a id="a5f50bfe761aec48e94d11aa3a64e58a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f50bfe761aec48e94d11aa3a64e58a4">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,26 +121,12 @@ Macros</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramname">args...&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;fprintf(stderr, fmt, __VA_ARGS__)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3a84eaf6c4683cdaa33ae6ffe43a74ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a84eaf6c4683cdaa33ae6ffe43a74ac">&#9670;&nbsp;</a></span>DEBUG_RULE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEBUG_RULE&#160;&#160;&#160;1</td>
+          <td></td><td>&#160;&#160;&#160;/* Don't do anything in release builds */</td>
         </tr>
       </table>
 </div><div class="memdoc">
