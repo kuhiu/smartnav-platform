@@ -22,9 +22,14 @@ void siginthandler(int param) {
 }
 
 int main(void) {
-	PositionEstimator::cartesianPosition where_we_go(100, 0);
+	/** Sigint setup */
+	signal(SIGINT, siginthandler);
+	
+	CartesianPosition where_we_go(100, 0);
 	SmartNav smart_nav(where_we_go);
 
-	signal(SIGINT, siginthandler);
+	while (is_running && smart_nav.isRunning())
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	
 	return 0;
 }
