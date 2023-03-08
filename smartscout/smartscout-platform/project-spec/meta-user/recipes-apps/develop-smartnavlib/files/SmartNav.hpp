@@ -18,13 +18,22 @@
 #include <DecayGraph.hpp>
 #include <FrameProcessor.hpp>
 #include <Obstacle.hpp>
+#include <CartesionPosition.hpp>
+#include <PolarPosition.hpp>
 
 class SmartNav {
 public:
   /** Smartnav constructor */
-  SmartNav(PositionEstimator::cartesianPosition where_we_go);
+  SmartNav(CartesianPosition where_we_go);
   /** Smartnav destructor */
   ~SmartNav();
+  /**
+   * @brief The thread is running 
+   * 
+   * @return true 
+   * @return false 
+   */
+  bool isRunning() const { return __is_running; };
 
 private:
   /** JSON file which describes the fuzzy system */
@@ -48,12 +57,12 @@ private:
   /** Fuzzy control system object */
   std::shared_ptr<FuzzyControlSystem> __fuzzy_system;
   /** Travel destination */
-  PositionEstimator::cartesianPosition __arrival_point;
+  CartesianPosition __arrival_point;
   /** Decay graph */
   //DecayGraph __decay_graph;
   /** History points */
-  std::vector<PositionEstimator::cartesianPosition> __position_history;
-  std::vector<PositionEstimator::cartesianPosition> __arrival_point_history;
+  std::vector<CartesianPosition> __position_history;
+  std::vector<CartesianPosition> __arrival_point_history;
   std::vector<Obstacle> __obstacles;
   std::vector<float> __angle_history;
   std::vector<int> __timestamp;
@@ -78,7 +87,7 @@ private:
    * @return true 
    * @return false 
    */
-  bool __arrivation(PositionEstimator::cartesianPosition curr_position) {
+  bool __arrivation(CartesianPosition curr_position) {
     bool ret;
     float dx = std::fabs(curr_position.x - __arrival_point.x);
     float dy = std::fabs(curr_position.y - __arrival_point.y);
@@ -92,10 +101,10 @@ private:
    * @brief Get the distance and the angle of the target.
    * 
    * @param curr_position 
-   * @return PositionEstimator::cartesianPosition 
+   * @return CartesianPosition 
    */
-  PositionEstimator::cartesianPosition __getDestination (PositionEstimator::cartesianPosition curr_position) {
-    PositionEstimator::cartesianPosition ret;
+  CartesianPosition __getDestination (CartesianPosition curr_position) {
+    CartesianPosition ret;
 
     ret.x = __arrival_point.x - curr_position.x;
     ret.y = __arrival_point.y - curr_position.y;
@@ -105,10 +114,10 @@ private:
    * @brief Get the current obstacle position 
    * 
    * @param curr_position 
-   * @return PositionEstimator::cartesianPosition 
+   * @return CartesianPosition 
    */
-  PositionEstimator::cartesianPosition __getObstaclePosition(PositionEstimator::cartesianPosition curr_position) {
-    PositionEstimator::cartesianPosition ret;
+  CartesianPosition __getObstaclePosition(CartesianPosition curr_position) {
+    CartesianPosition ret;
 
     ret.x = __obstacles[0].getPosition().x - curr_position.x;
     ret.y = __obstacles[0].getPosition().y - curr_position.y;
@@ -121,7 +130,7 @@ private:
    * @param destination 
    * @return float: Angle where i have to go. left [0:180], right [0:-180]
    */
-  float whereHaveToGo(PositionEstimator::cartesianPosition destination) {
+  float whereHaveToGo(CartesianPosition destination) {
     //ret.distance = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
     float angle = atan2(destination.y, destination.x) * 180.0 / M_PI;
     if (angle > 180.0)
