@@ -284,7 +284,6 @@ bool CaptureFrame::__readFrame(int frame_number) {
 		__brightness = rgb_image->getBrightness();
 	}
 	// Callback
-	DEBUG_PRINT("Ejecuto la callback. \n");
 	__cb(rgb_image, this);
 	// Deallocate image
 	rgb_image = nullptr;
