@@ -10,48 +10,13 @@
 
 #include <Compass.hpp>
 #include <mailbox.hpp>
-#include <SimpleMovingAverage.hpp>
+#include <CartesionPosition.hpp>
+#include <PolarPosition.hpp>
 
 #include <nlohmann/json.hpp>
 
 class PositionEstimator {
 public:
-  /** cartesianPosition struct */
-  struct cartesianPosition {
-    /** X estimation [cm] */
-    float x;
-    /** Y estimation [cm] */
-    float y;
-    /** cartesianPosition constructor */
-    cartesianPosition() = default;
-    /** cartesianPosition constructor */
-    cartesianPosition(float x, float y) : x(x), y(y) {};
-    /**
-     * @brief Convert the cartesian position to json
-     * 
-     * @return nlohmann::json 
-     */
-    nlohmann::json toJson() const {
-      nlohmann::json json {
-        {"x", x}, 
-        {"y", y}
-      };
-      return json;
-    };
-
-  };
-  /** polarPosition struct */
-  struct polarPosition {
-    /** angle estimation [degree] */
-    float angle;
-    /** distance estimation [cm] */
-    float distance;
-    /** polarPosition constructor */
-    polarPosition() = default;
-    /** polarPosition constructor */
-    polarPosition(float angle, float distance) : angle(angle), distance(distance) {};
-  
-  };
   /** PositionEstimator constructor */
   PositionEstimator();
   /** PositionEstimator destructor */
@@ -59,9 +24,9 @@ public:
   /**
    * @brief Get the Current Position object
    * 
-   * @return polarPosition 
+   * @return PolarPosition 
    */
-  cartesianPosition getCurrentPosition();
+  CartesianPosition getCurrentPosition();
   /**
    * @brief Get the Current Angle object
    * 
@@ -72,10 +37,10 @@ public:
    * @brief Axies rotation
    * 
    * @param point 
-   * @return cartesianPosition 
+   * @return CartesianPosition 
    */
-  cartesianPosition relativizePoint(cartesianPosition point) {
-    cartesianPosition ret;
+  CartesianPosition relativizePoint(CartesianPosition point) {
+    CartesianPosition ret;
     float angle = __compass.getValue();
     
     angle = angle * M_PI / 180.0;
@@ -87,10 +52,10 @@ public:
    * @brief Convert the cartesian position to the polar position
    * 
    * @param cartesian 
-   * @return polarPosition 
+   * @return PolarPosition 
    */
-  polarPosition cartensianToPolar(cartesianPosition cartesian) {
-    polarPosition ret;
+  PolarPosition cartensianToPolar(CartesianPosition cartesian) {
+    PolarPosition ret;
 
     ret.angle = atan2(cartesian.y, cartesian.x) * 180.0 / M_PI; 
     ret.distance = std::sqrt(std::pow(cartesian.x, 2) + std::pow(cartesian.y, 2));
@@ -100,10 +65,10 @@ public:
    * @brief Conver the polar position to the cartesian position 
    * 
    * @param polar 
-   * @return cartesianPosition 
+   * @return CartesianPosition 
    */
-  cartesianPosition polarToCartesian(polarPosition polar) {
-    cartesianPosition ret;
+  CartesianPosition polarToCartesian(PolarPosition polar) {
+    CartesianPosition ret;
 
     ret.x = polar.distance*cos(__degrees_to_radians(polar.angle));
     ret.y = polar.distance*sin(__degrees_to_radians(polar.angle));
@@ -130,7 +95,7 @@ private:
   /** Encoders thread */
   std::thread __encoders_thread; 
   /** Current position */
-  cartesianPosition __curr_position;
+  CartesianPosition __curr_position;
   /**
    * @brief Read encoders
    * 
