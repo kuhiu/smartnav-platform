@@ -16,7 +16,7 @@
 #define HCSR04_IOC_NMAGICO 'c'
 #define HCSR04_IOC_TRIGGER _IO(HCSR04_IOC_NMAGICO, 1)
 
-//#define DEBUG_DISTANCE 1
+#define DEBUG_DISTANCE 1
 #ifdef DEBUG_DISTANCE
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
