@@ -81,6 +81,15 @@ private:
    */
   void __navigation();
   /**
+   * @brief Wait for the image processing module to recognize and 
+   * create the obstacle object
+   * 
+   * @param curr_robot_angle 
+   * @param distance_to_obstacle 
+   * @param curr_position 
+   */
+  std::vector<RecognitionResult> __visualization(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position);
+  /**
    * @brief Check if the destination is reached
    * 
    * @param curr_position 
@@ -111,16 +120,61 @@ private:
     return ret;
   };
   /**
-   * @brief Get the current obstacle position 
+   * @brief Get the closest obstacle point relative to the current position
    * 
    * @param curr_position 
-   * @return CartesianPosition 
+   * @return PolarPosition 
    */
-  CartesianPosition __getObstaclePosition(CartesianPosition curr_position) {
-    CartesianPosition ret;
+  PolarPosition __getClosestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
+    PolarPosition ret;
+    PolarPosition polar;
+    CartesianPosition cartesian;
 
-    ret.x = __obstacles[0].getPosition().x - curr_position.x;
-    ret.y = __obstacles[0].getPosition().y - curr_position.y;
+    cartesian.x = obstacle.getPosition().x - curr_position.x;
+    cartesian.y = obstacle.getPosition().y - curr_position.y;
+    ret = __position_estimator.cartensianToPolar(cartesian);
+
+    cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
+    cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
+    polar = __position_estimator.cartensianToPolar(cartesian);
+    if (polar.distance < ret.distance)
+      ret = polar;
+    
+    cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
+    cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
+    polar = __position_estimator.cartensianToPolar(cartesian);
+    if (polar.distance < ret.distance)
+      ret = polar;
+
+    return ret;
+  };
+  /**
+   * @brief Get the furthes obstacle point relative to the current position
+   * 
+   * @param curr_position 
+   * @return PolarPosition 
+   */
+  PolarPosition __getFurthestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
+    PolarPosition ret;
+    PolarPosition polar;
+    CartesianPosition cartesian;
+
+    cartesian.x = obstacle.getPosition().x - curr_position.x;
+    cartesian.y = obstacle.getPosition().y - curr_position.y;
+    ret = __position_estimator.cartensianToPolar(cartesian);
+
+    cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
+    cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
+    polar = __position_estimator.cartensianToPolar(cartesian);
+    if (polar.distance > ret.distance)
+      ret = polar;
+    
+    cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
+    cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
+    polar = __position_estimator.cartensianToPolar(cartesian);
+    if (polar.distance > ret.distance)
+      ret = polar;
+
     return ret;
   };
   /**
@@ -152,6 +206,17 @@ private:
       r -= 360.0;
   	return r;
   }
+
+  PolarPosition getClosestPosition(Obstacle obstacle) {
+    PolarPosition closest;
+    PolarPosition obstacle_center = __position_estimator.cartensianToPolar(obstacle.getPosition());
+    PolarPosition obstacle_leftmost = __position_estimator.cartensianToPolar(obstacle.getLeftmostPoint());
+    PolarPosition obstacle_rightmost = __position_estimator.cartensianToPolar(obstacle.getRightmostPoint());
+    
+    closest = obstacle_center;
+    if (obstacle_leftmost.distance < closest.distance)
+    return closest;
+  }; 
 
 };
 
