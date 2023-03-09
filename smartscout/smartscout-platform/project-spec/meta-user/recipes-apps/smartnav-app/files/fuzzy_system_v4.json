@@ -15,9 +15,8 @@
         "name": "theta",
         "membership_functions": 
         [
-          { "name": "LEFT", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.1}, {"left_slope": 0.1}] },
-          { "name": "CENTER", "trapezoidal": [{"x1": -10}, {"x2": 10}, {"right_slope": 0.1}, {"left_slope": 0.1}] },
-          { "name": "RIGHT",  "trapezoidal": [{"x1": -360}, {"x2": 0}, {"right_slope": 0.1}, {"left_slope": 0.1}] } 
+          { "name": "LOW", "trapezoidal": [{"x1": -45}, {"x2": 45}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] },
+          { "name": "HIGH", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] }
         ]
       },
       { 
@@ -57,38 +56,26 @@
       { 
         "name": "rule_0", 
         "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "FAR" }, 
-                                        { "io": "theta", "fuzzy_value": "LEFT" } ] }], 
+                                        { "io": "theta", "fuzzy_value": "HIGH" } ] }], 
         "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
       },
       { 
         "name": "rule_1", 
         "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "NEAR" }, 
-                                        { "io": "theta", "fuzzy_value": "LEFT" } ] }], 
+                                        { "io": "theta", "fuzzy_value": "HIGH" } ] }], 
         "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
       },
       { 
         "name": "rule_2", 
         "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "FAR" }, 
-                                        { "io": "theta", "fuzzy_value": "RIGHT" } ] }], 
+                                        { "io": "theta", "fuzzy_value": "LOW" } ] }], 
         "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
       },
       { 
         "name": "rule_3", 
         "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "NEAR" }, 
-                                        { "io": "theta", "fuzzy_value": "RIGHT" } ] }], 
-        "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
-      },
-      { 
-        "name": "rule_4", 
-        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "FAR" }, 
-                                        { "io": "theta", "fuzzy_value": "CENTER" } ] }], 
+                                        { "io": "theta", "fuzzy_value": "LOW" } ] }], 
         "output_conditions": [ { "io": "w", "fuzzy_value": "HIGH" } ] 
-      },
-      { 
-        "name": "rule_5", 
-        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "NEAR" }, 
-                                        { "io": "theta", "fuzzy_value": "CENTER" } ] }], 
-        "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
       },
       { 
         "name": "rule_6",
