@@ -54,7 +54,7 @@ public:
    * @param cartesian 
    * @return PolarPosition 
    */
-  PolarPosition cartensianToPolar(CartesianPosition cartesian) {
+  static PolarPosition cartensianToPolar(CartesianPosition cartesian) {
     PolarPosition ret;
 
     ret.angle = atan2(cartesian.y, cartesian.x) * 180.0 / M_PI; 
@@ -67,7 +67,7 @@ public:
    * @param polar 
    * @return CartesianPosition 
    */
-  CartesianPosition polarToCartesian(PolarPosition polar) {
+  static CartesianPosition polarToCartesian(PolarPosition polar) {
     CartesianPosition ret;
 
     ret.x = polar.distance*cos(__degrees_to_radians(polar.angle));
@@ -127,7 +127,7 @@ private:
    * @param degrees 
    * @return float 
    */
-  float __degrees_to_radians(float degrees) { return degrees * (M_PI / 180); }
+  static float __degrees_to_radians(float degrees) { return degrees * (M_PI / 180); }
 
 };
 
