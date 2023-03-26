@@ -80,7 +80,7 @@ private:
   /** Driver name */
   static constexpr auto __DRIVER{"/dev/i2c-0"}; 
   /** File to save calibration values */
-  static constexpr auto __CALIB_FILE{"/tmp/calibration.json"}; 
+  static constexpr auto __CALIB_FILE{"/home/root/calibration.json"}; 
   /** SMA length */
   const int __SMA_LEN = 3;
   /** Driver file descriptor */

@@ -34,7 +34,8 @@ public:
    */
   float getCurrentAngle() { return __compass.getValue(); };
   /**
-   * @brief Axies rotation
+   * @brief Relativize the point to the current 
+   * angle direction (Axies rotation)
    * 
    * @param point 
    * @return CartesianPosition 

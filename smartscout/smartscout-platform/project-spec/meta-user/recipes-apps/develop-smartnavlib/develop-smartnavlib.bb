@@ -12,12 +12,12 @@ PN="develop-smartnavlib"
 PN_LIB = "lib${PN}"
 
 # Package version
-PV = "0.1.314"
+PV = "0.2.105"
 
 SRC_URI = "file://Makefile \
 		 file://modules/capture-frame/* \
 		 file://modules/fuzzy-control-system/* \
-		 file://modules/hc-sr04/* \
+		 file://modules/distance-sensors/* \
      file://modules/driver/* \
      file://modules/headlights/* \
      file://modules/compass/* \
@@ -26,10 +26,16 @@ SRC_URI = "file://Makefile \
      file://modules/utilities/* \
      file://modules/decayGraph/* \
      file://modules/obstacle/* \
+     file://modules/buttons/* \
+     file://modules/tracker/* \
+     file://modules/reporter/* \
+     file://SmartEvasion/* \
+     file://SmartLights/* \
      file://SmartNav.hpp \
      file://SmartNav.cpp \
 		  "
 DEPENDS += "mailbox"
+DEPENDS += "buttons"
 DEPENDS += "tensorflowlite-lib" 
 DEPENDS += "opencv"
 DEPENDS += "jsonnlohmann"
@@ -59,13 +65,18 @@ do_compile() {
 do_install() {
     install -d ${D}${libdir}
 		install -d ${D}${includedir}
+    install -d ${D}${bindir}
 
     install -m 0644 ${S}/modules/*/*.hpp ${D}${includedir}
+    install -m 0644 ${S}/SmartEvasion/*.hpp ${D}${includedir}
+    install -m 0644 ${S}/SmartLights/*.hpp ${D}${includedir}
     install -m 0644 ${S}/SmartNav.hpp ${D}${includedir}
     ln -s -r ${S}/${PN_LIB}.so.${PV} ${D}/${libdir}/${PN_LIB}.so
 
-    install -d ${D}${bindir}
     install -m 0755 ${S}/modules/capture-frame/lite-model_efficientdet_lite0_detection_default_1.tflite ${D}${bindir}
+		install -m 0755 ${S}/SmartEvasion/SmartEvasion-stage-1.json ${D}${bindir}
+    install -m 0755 ${S}/SmartEvasion/SmartEvasion-stage-2.json ${D}${bindir}
+    install -m 0755 ${S}/SmartLights/SmartLights-stage-1.json ${D}${bindir}
 
     # install the prebuilt library in /usr/lib with default permissions
     oe_soinstall ${S}/${PN_LIB}.so.${PV} ${D}${libdir}

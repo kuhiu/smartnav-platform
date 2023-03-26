@@ -74,6 +74,28 @@ public:
     close(__fd_l298n);
   };
   /**
+   * @brief Update the pwms that control both motors
+   * 
+   * @param pwm0
+   * @param pwm1 
+   */
+  void update_pwm(int pwm0, int pwm1) {
+    int ret;
+
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm1, AXI_TIMER_IOC_T_ON, pwm0);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm2, AXI_TIMER_IOC_T_ON, pwm1);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Go forward
+    ret = ioctl(__fd_l298n, L298N_IOC_FORWARD);
+    if ( ret == -1) 
+      throw std::runtime_error("Error stopping l298n");
+  }
+  /**
    * @brief Update the speed and yaw for driving the car
    * 
    * @param operation_mode 

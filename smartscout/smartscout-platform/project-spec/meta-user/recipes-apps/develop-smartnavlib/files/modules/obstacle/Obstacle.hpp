@@ -3,6 +3,11 @@
 
 #include <CartesionPosition.hpp>
 #include <RecognitionResult.hpp>
+#include <PolarPosition.hpp>
+#include <PositionEstimator.hpp>
+
+#include <nlohmann/json.hpp>
+
 class Obstacle {
 public:
   /** Obstacle constructor */
@@ -45,6 +50,21 @@ public:
    * @return Dimensions 
    */
   CartesianPosition getRightmostPoint() const { return __rightmost_point; };
+  /**
+   * @brief Convert the obstacle object to JSON
+   * 
+   * @param obstacle_num 
+   * @return nlohmann::json 
+   */
+  nlohmann::json toJson(int obstacle_num) const {
+    nlohmann::json ret;
+
+    std::string name = "obstacle_n" + std::to_string(obstacle_num);
+    ret[name]["position"] = __position.toJson();
+    ret[name]["leftmost"] = __leftmost_point.toJson();
+    ret[name]["rightmost"] = __rightmost_point.toJson();
+    return ret;
+  }
 
 private:
   /** Obstacle's position */

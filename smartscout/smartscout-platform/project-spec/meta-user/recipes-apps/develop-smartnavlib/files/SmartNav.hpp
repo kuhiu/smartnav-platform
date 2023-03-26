@@ -20,11 +20,16 @@
 #include <Obstacle.hpp>
 #include <CartesionPosition.hpp>
 #include <PolarPosition.hpp>
+#include <Buttons.hpp>
+#include <SmartEvasion.hpp>
+#include <SmartLights.hpp>
+#include <Tracker.hpp>
+#include <Reporter.hpp>
 
 class SmartNav {
 public:
   /** Smartnav constructor */
-  SmartNav(CartesianPosition where_we_go);
+  SmartNav();
   /** Smartnav destructor */
   ~SmartNav();
   /**
@@ -34,10 +39,21 @@ public:
    * @return false 
    */
   bool isRunning() const { return __is_running; };
+  /**
+   * @brief Stop the robot
+   * 
+   */
+  void stop() { __is_running = true; };
+  /**
+   * @brief Add a new target 
+   * 
+   * @param arrival_point 
+   */
+  void newTarget(CartesianPosition arrival_point) {
+    __tracker->addTarget(__position_estimator.relativizePoint(arrival_point));
+  };
 
 private:
-  /** JSON file which describes the fuzzy system */
-  static constexpr auto __FUZZY_JSON{"/usr/bin/fuzzy_system_v4.json"};
   /** Arrival area [cm] */
   float __ARRIVAL_AREA = 10.0;
   /** Thread status */
@@ -54,20 +70,18 @@ private:
 	DistanceSensors __distance_sensor;
   /** Position estimator object */
   PositionEstimator __position_estimator;
-  /** Fuzzy control system object */
-  std::shared_ptr<FuzzyControlSystem> __fuzzy_system;
-  /** Travel destination */
-  CartesianPosition __arrival_point;
-  /** Decay graph */
-  //DecayGraph __decay_graph;
-  /** History points */
-  std::vector<CartesianPosition> __position_history;
-  std::vector<CartesianPosition> __arrival_point_history;
+  /** Tracker object */
+  std::shared_ptr<Tracker> __tracker;
+  /** Evasion object */
+  SmartEvasion __evader;
+  /** Recognized obstacles */
   std::vector<Obstacle> __obstacles;
-  std::vector<float> __angle_history;
-  std::vector<int> __timestamp;
   /** Utilities */
   utilities __utilities;
+  /** Lights control */
+  SmartLights __smart_lights;
+  /** Reporter object */
+  std::shared_ptr<Reporter> __reporter;
   /**
    * @brief Frame callback
    * 
@@ -88,7 +102,7 @@ private:
    * @param distance_to_obstacle 
    * @param curr_position 
    */
-  std::vector<RecognitionResult> __visualization(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position);
+  void __visualization(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position);
   /**
    * @brief Check if the destination is reached
    * 
@@ -96,10 +110,10 @@ private:
    * @return true 
    * @return false 
    */
-  bool __arrivation(CartesianPosition curr_position) {
+  bool __arrivation(CartesianPosition curr_position, CartesianPosition current_target_position) {
     bool ret;
-    float dx = std::fabs(curr_position.x - __arrival_point.x);
-    float dy = std::fabs(curr_position.y - __arrival_point.y);
+    float dx = std::fabs(curr_position.x - current_target_position.x);
+    float dy = std::fabs(curr_position.y - current_target_position.y);
     if (dx < __ARRIVAL_AREA && dy < __ARRIVAL_AREA)
       ret = true;
     else 
@@ -107,116 +121,32 @@ private:
     return ret;
   };
   /**
-   * @brief Get the distance and the angle of the target.
+   * @brief Get the distance to the target.
    * 
    * @param curr_position 
-   * @return CartesianPosition 
+   * @return CartesianPosition : Relative target position to the current position
    */
-  CartesianPosition __getDestination (CartesianPosition curr_position) {
+  CartesianPosition __getRelativeTargetPos (CartesianPosition curr_position, CartesianPosition current_target_position) {
     CartesianPosition ret;
 
-    ret.x = __arrival_point.x - curr_position.x;
-    ret.y = __arrival_point.y - curr_position.y;
-    return ret;
-  };
-  /**
-   * @brief Get the closest obstacle point relative to the current position
-   * 
-   * @param curr_position 
-   * @return PolarPosition 
-   */
-  PolarPosition __getClosestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
-    PolarPosition ret;
-    PolarPosition polar;
-    CartesianPosition cartesian;
-
-    cartesian.x = obstacle.getPosition().x - curr_position.x;
-    cartesian.y = obstacle.getPosition().y - curr_position.y;
-    ret = __position_estimator.cartensianToPolar(cartesian);
-
-    cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
-    cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
-    polar = __position_estimator.cartensianToPolar(cartesian);
-    if (polar.distance < ret.distance)
-      ret = polar;
-    
-    cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
-    cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
-    polar = __position_estimator.cartensianToPolar(cartesian);
-    if (polar.distance < ret.distance)
-      ret = polar;
-
-    return ret;
-  };
-  /**
-   * @brief Get the furthes obstacle point relative to the current position
-   * 
-   * @param curr_position 
-   * @return PolarPosition 
-   */
-  PolarPosition __getFurthestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
-    PolarPosition ret;
-    PolarPosition polar;
-    CartesianPosition cartesian;
-
-    cartesian.x = obstacle.getPosition().x - curr_position.x;
-    cartesian.y = obstacle.getPosition().y - curr_position.y;
-    ret = __position_estimator.cartensianToPolar(cartesian);
-
-    cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
-    cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
-    polar = __position_estimator.cartensianToPolar(cartesian);
-    if (polar.distance > ret.distance)
-      ret = polar;
-    
-    cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
-    cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
-    polar = __position_estimator.cartensianToPolar(cartesian);
-    if (polar.distance > ret.distance)
-      ret = polar;
-
+    ret.x = current_target_position.x - curr_position.x;
+    ret.y = current_target_position.y - curr_position.y;
     return ret;
   };
   /**
    * @brief Get the angle where i have to go to reach
    * my destination.
    * 
-   * @param destination 
+   * @param rel_target_from_curr_pos Relative target position to the current position 
    * @return float: Angle where i have to go. left [0:180], right [0:-180]
    */
-  float whereHaveToGo(CartesianPosition destination) {
+  float __whereHaveToGo(CartesianPosition rel_target_from_curr_pos) {
     //ret.distance = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
-    float angle = atan2(destination.y, destination.x) * 180.0 / M_PI;
+    float angle = atan2(rel_target_from_curr_pos.y, rel_target_from_curr_pos.x) * 180.0 / M_PI;
     if (angle > 180.0)
       angle = angle - 360;
     return angle;
   };
-  /**
-   * @brief Get the difference between two bearings
-   * 
-   * @param b1 
-   * @param b2 
-   * @return float 
-   */
-  float __getDifference(float b1, float b2) {
-    float r = fmod(b2 - b1, 360.0);
-    if (r < -180.0)
-      r += 360.0;
-    if (r >= 180.0)
-      r -= 360.0;
-  	return r;
-  }
-
-  PolarPosition getClosestPosition(Obstacle obstacle) {
-    PolarPosition closest;
-    PolarPosition obstacle_center = __position_estimator.cartensianToPolar(obstacle.getPosition());
-    PolarPosition obstacle_leftmost = __position_estimator.cartensianToPolar(obstacle.getLeftmostPoint());
-    PolarPosition obstacle_rightmost = __position_estimator.cartensianToPolar(obstacle.getRightmostPoint());
-    
-    closest = obstacle_center;
-    if (obstacle_leftmost.distance < closest.distance)
-    return closest;
-  }; 
 
 };
 

@@ -1,0 +1,49 @@
+{
+  "fuzzy_system": {
+
+    "inputs": 
+    [
+      { 
+        "name": "lighting",
+        "membership_functions": 
+        [
+          { "name": "HIGH", "trapezoidal": [{"x1": 50}, {"x2": 150}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "MEDIUM", "trapezoidal": [{"x1": 0}, {"x2": 100}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "LOW", "trapezoidal": [{"x1": -50}, {"x2": 50}, {"right_slope": 0.02}, {"left_slope": 0.02}] }
+        ]
+      }
+    ], 
+
+    "outputs": 
+    [
+      {
+        "name": "car_headlights",
+        "membership_functions": 
+        [
+          { "name": "HIGH", "trapezoidal": [{"x1": 50}, {"x2": 150}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "MEDIUM", "trapezoidal": [{"x1": 0}, {"x2": 100}, {"right_slope": 0.02}, {"left_slope": 0.02}] },
+          { "name": "LOW", "trapezoidal": [{"x1": -50}, {"x2": 50}, {"right_slope": 0.02}, {"left_slope": 0.02}] }
+        ]
+      }
+    ],
+
+    "rules": 
+    [
+      { 
+        "name": "rule_0",
+        "input_conditions": [ { "io": "lighting", "fuzzy_value": "LOW" }], 
+        "output_conditions": [ { "io": "car_headlights", "fuzzy_value": "HIGH" } ] 
+      },
+      { 
+        "name": "rule_1",
+        "input_conditions": [ { "io": "lighting", "fuzzy_value": "MEDIUM" }], 
+        "output_conditions": [ { "io": "car_headlights", "fuzzy_value": "MEDIUM" } ] 
+      },
+      { 
+        "name": "rule_2",
+        "input_conditions": [ { "io": "lighting", "fuzzy_value": "HIGH" }], 
+        "output_conditions": [ { "io": "car_headlights", "fuzzy_value": "LOW" } ] 
+      }
+    ]
+  } 
+}

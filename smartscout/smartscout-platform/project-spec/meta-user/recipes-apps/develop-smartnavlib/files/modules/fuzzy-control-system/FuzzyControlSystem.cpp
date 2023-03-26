@@ -106,7 +106,7 @@ std::vector<FuzzyOutput> FuzzyControlSystem::evaluate(std::vector<std::pair<std:
     }
     if (found == false) {
       std::stringstream err;
-      err << "Input not defined in the fuzzy system.";
+      err << "Input: " << system_input.getName() << " not defined in the fuzzy system.";
       throw std::runtime_error(err.str().c_str());
     }
   }
