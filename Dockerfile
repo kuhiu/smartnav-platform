@@ -1,161 +1,181 @@
+# SPDX-FileCopyrightText: 2020, Carles Fernandez-Prades <carles.fernandez@cttc.es>
+# SPDX-License-Identifier: MIT
+
 FROM ubuntu:18.04
+LABEL version="2.0" description="PetaLinux and Vivado image" maintainer="carles.fernandez@cttc.es"
 
-# Project was forked from github.com/z4yx/petalinux-docker
-MAINTAINER Bolshevikov <bolshevikov.igor@gmail.com>
+RUN dpkg --add-architecture i386 && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  autoconf \
+  bc \
+  bison \
+  build-essential \
+  chrpath \
+  cpio \
+  diffstat \
+  dos2unix \
+  expect \
+  fakeroot \
+  flex \
+  gawk \
+  gcc-7 \
+  gcc-multilib \
+  git \
+  gnupg \
+  gzip \
+  iproute2 \
+  less \
+  libglib2.0-dev \
+  libgtk2.0-0 \
+  libgtk2.0-dev \
+  libncurses5-dev \
+  libsdl1.2-dev \
+  libselinux1 \
+  libssl-dev \
+  libtool \
+  libtool-bin \
+  locales \
+  lsb-release \
+  make \
+  nano \
+  net-tools \
+  pax \
+  python3-gi \
+  python3.6 \
+  rsync \
+  screen \
+  socat \
+  software-properties-common \
+  sudo \
+  tar \
+  texinfo \
+  tftpd-hpa \
+  tofrodos \
+  unzip \
+  update-inetd \
+  vim \
+  wget \
+  xorg \
+  xterm \
+  xvfb \
+  zlib1g-dev \
+  zlib1g-dev:i386 \
+  && update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2 \
+  && add-apt-repository ppa:deadsnakes/ppa && apt update \
+  && apt-get install -y python3.6 && update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1 \
+  && apt-get autoremove --purge && apt-get autoclean && update-alternatives --auto python
 
-RUN apt-get update &&  DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
-    apt-utils           \
-    autoconf            \
-    automake            \
-    bc                  \
-    bison               \
-    build-essential     \
-    chrpath             \
-    cpio                \
-    default-jre         \
-    diffstat            \
-    expect              \
-    flex                \
-    gawk                \
-    gcc-multilib        \
-    git                 \
-    git-gui             \
-    glib2.0             \
-    gnupg               \
-    gzip                \
-    iproute2            \
-    kmod                \
-    lib32z1             \
-    lib32z1-dev         \
-    libglib2.0-dev      \
-    libgtk2.0-0         \
-    libncurses5-dev     \
-    libsdl1.2-dev       \
-    libsdl-dev          \
-    libselinux1         \
-    libssl-dev          \
-    libtool             \
-    libtool-bin         \
-    locales             \
-    lsb-release         \
-    make                \
-    mc                  \
-    net-tools           \
-    pax                 \
-    python3             \
-    rsync               \
-    screen              \
-    socat               \
-    sudo                \
-    tar                 \
-    texinfo             \
-    tftpd               \
-    tofrodos            \
-    u-boot-tools        \
-    unzip               \
-    update-inetd        \
-    vim                 \
-    wget                \
-    x11-utils           \
-    xterm               \
-    xvfb                \
-    zlib1g-dev          \
-    cmake               \
-    gcc-8               \
-    gdb                 \
-    cgdb                \
-    qtcreator           \
-    ssh                 \
-    iputils-ping        \
-    parted              \
-    xfonts-terminus     \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+# Install the repo tool to handle git submodules (meta layers) comfortably.
+ADD https://storage.googleapis.com/git-repo-downloads/repo /usr/local/bin/
+RUN chmod 755 /usr/local/bin/repo
 
-RUN    dpkg --add-architecture i386                                         \
-    && apt-get update                                                       \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y -q zlib1g:i386     \
-    && apt-get clean                                                        \
-    && rm -rf /var/lib/apt/lists/*
+RUN echo "%sudo ALL=(ALL:ALL) ALL" >> /etc/sudoers \
+  && echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+# Set locale
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
-RUN locale-gen en_US.UTF-8 && update-locale
+# The Xilinx toolchain version
+ARG XILVER=2019.1
 
-# Создаем пользователя
-RUN adduser --disabled-password --gecos '' user   && \
-    usermod -aG sudo user                         && \
-    echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# The PetaLinux base. We expect ${PETALINUX_BASE}-installer.run to be the patched installer.
+# PetaLinux will be installed in /opt/${PETALINX_BASE}
+# File is expected in the "./resources" subdirectory
+ARG PETALINUX_BASE=petalinux-v${XILVER}-final
 
-# Пароль пользователя
-RUN sudo usermod -p $(openssl passwd 1) user
+# Add user 'petalinux' with password 'petalinux' and give it access to install directory /opt
+RUN useradd -m -G dialout,sudo -p '$6$wiu9XEXx$ITRrMySAw1SXesQcP.Bm3Su2CuaByujc6Pb7Ztf4M9ES2ES7laSRwdcbgG96if4slduUxyjqvpEq2I0OhxKCa1' petalinux \
+  && chmod +w /opt \
+  && chown -R petalinux:petalinux /opt \
+  && mkdir /opt/${PETALINUX_BASE} \
+  && chmod 755 /opt/${PETALINUX_BASE} \
+  && chown petalinux:petalinux /opt/${PETALINUX_BASE}
 
-#
-# Установка Petalinux
-#
-ARG PETA_VERSION
-ARG PETA_RUN_FILE
-COPY .accept-eula.sh ${PETA_RUN_FILE} /
+# Set folder for tftp server
+RUN mkdir -p /tftpboot && chmod 666 /tftpboot \
+  && sed -i 's/TFTP\_USERNAME\=\"tftp\"/TFTP\_USERNAME\=\"petalinux\"/g' /etc/default/tftpd-hpa \
+  && sed -i 's/var\/lib\/tftpboot/tftpboot/g' /etc/default/tftpd-hpa \
+  && sed -i 's/secure/secure \-\-create/g' /etc/default/tftpd-hpa
 
-# run the install
-RUN chmod a+rx /${PETA_RUN_FILE} && \
-    chmod a+rx /.accept-eula.sh  && \
-    mkdir -p /opt/Xilinx         && \
-    chmod 777 /tmp /opt/Xilinx   && \
-    cd /tmp                      && \
-    sudo -u user -i /.accept-eula.sh /${PETA_RUN_FILE} /opt/Xilinx/petalinux && \
-    rm -f /${PETA_RUN_FILE} /.accept-eula.sh
-
-# Petalinux хочет bash, поэтому сделаем симлинки
+# set bash as default shell
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
-RUN sudo ln -fs /bin/bash /bin/sh
 
-USER user
-ENV HOME /home/user
-ENV LANG en_US.UTF-8
+# not really necessary, just to make it easier to install packages on the run...
+RUN echo "root:petalinux" | chpasswd
 
-#
-# Установка дополнительного софта и конфигурационных файлов
-#
-WORKDIR ${HOME}
-COPY ./soft_for_container ./soft_for_container
-# конфигурация mc
-RUN  cat ./soft_for_container/bash/bashrc_extend >> ~/.bashrc
-# конфигурация mc
-RUN  mkdir -p ~/.config/; cp -r ./soft_for_container/mc ~/.config/
-RUN  sudo mkdir -p /root/.config/; sudo cp -r ./soft_for_container/mc /root/.config/
-# почистим за собой
-RUN  sudo rm -rf ./soft_for_container
+# Install under /opt, with user petalinux
+WORKDIR /opt
+USER petalinux
 
-# создадим директорию в которую будем монтировать проект
-RUN mkdir /home/user/project
+# The HTTP server to retrieve the files from.
+ARG HTTP_SERV=http://172.17.0.1:8000/resources
 
-WORKDIR   /home/user/project
+# The PetaLinux runnable installer
+ARG PETALINUX_INSTALLER=${PETALINUX_BASE}-installer.run
+
+# Install PetaLinux
+RUN echo "" | sudo -S chown -R petalinux:petalinux . \
+  && wget -q ${HTTP_SERV}/${PETALINUX_INSTALLER} \
+  && chmod a+x ${PETALINUX_INSTALLER} \
+  && SKIP_LICENSE=y ./${PETALINUX_FILE}${PETALINUX_INSTALLER} /opt/${PETALINUX_BASE} \
+  && rm -f ./${PETALINUX_INSTALLER} \
+  && rm -f petalinux_installation_log
+
+# The Vivado build number
+ARG XXXX_XXXX=0524_1430
+
+# Install Vivado
+# Files are expected in the "./resources" subdirectory
+ENV XLNX_VIVADO_OFFLINE_INSTALLER=Xilinx_Vivado_SDK_${XILVER}_${XXXX_XXXX}.tar.gz
+ENV XLNX_VIVADO_BATCH_CONFIG_FILE=install_config.txt
+RUN mkdir -p /opt/Xilinx/tmp \
+  && cd /opt/Xilinx/tmp \
+  && wget -q ${HTTP_SERV}/$XLNX_VIVADO_BATCH_CONFIG_FILE \
+  && wget -q ${HTTP_SERV}/$XLNX_VIVADO_OFFLINE_INSTALLER \
+  && cat $XLNX_VIVADO_BATCH_CONFIG_FILE \
+  && tar -zxf $XLNX_VIVADO_OFFLINE_INSTALLER && ls -al \
+  && mv $XLNX_VIVADO_BATCH_CONFIG_FILE Xilinx_Vivado_SDK_${XILVER}_${XXXX_XXXX}/ \
+  && cd Xilinx_Vivado_SDK_${XILVER}_${XXXX_XXXX} \
+  && chmod a+x xsetup \
+  && ./xsetup \
+    --agree XilinxEULA,3rdPartyEULA,WebTalkTerms \
+    --config $XLNX_VIVADO_BATCH_CONFIG_FILE \
+    --batch INSTALL \
+  && cd $HOME_DIR \
+  && rm -rf /opt/Xilinx/tmp
+
+# Source settings at login
+USER root
+RUN echo "/usr/sbin/in.tftpd --foreground --listen --address [::]:69 --secure /tftpboot" >> /etc/profile \
+  && echo ". /opt/${PETALINUX_BASE}/settings.sh" >> /etc/profile \
+  && echo ". /opt/Xilinx/Vivado/${XILVER}/settings64.sh" >> /etc/profile \
+  && echo ". /etc/profile" >> /root/.profile
+
+# Apply perf patch
+RUN if [ "$XILVER" = "2018.3" ] || [ "$XILVER" = "2019.1" ] || [ "$XILVER" = "2019.2" ]; then \
+  sed -i 's/virtual\/kernel\:do\_patch/virtual\/kernel\:do\_shared\_workdir/g' /opt/petalinux-v${XILVER}-final/components/yocto/source/arm/layers/core/meta/classes/kernelsrc.bbclass \
+  && sed -i 's/virtual\/kernel\:do\_patch/virtual\/kernel\:do\_shared\_workdir/g' /opt/petalinux-v${XILVER}-final/components/yocto/source/aarch64/layers/core/meta/classes/kernelsrc.bbclass ; \
+  fi
+
+EXPOSE 69/udp
+ENV SHELL /bin/bash
+USER petalinux
+
+RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/Xilinx/Vivado/${XILVER}/lib/lnx64.o/
+
+# incorporate Vivado license file or ENV LM_LICENSE_SERVER=portNum@ipAddrOfLicenseServer
+
+# Patch Vivado 2019.1
+WORKDIR /opt/Xilinx
+ADD ./SmartScout/smartnav-vivado/y2k22_patch ./y2k22_patch
+CMD [ "python3", "./y2k22_patch/patch.py" ] 
+
+ENTRYPOINT ["/bin/bash", "-l"]
 
 
-#
-# Настройка bashrc
-#
-# добавим конфиги Petalinux в bashrc
-RUN echo 'echo "Run petaLinux SDK"'                 >> ~/.bashrc
-RUN echo "source /opt/Xilinx/petalinux/settings.sh" >> /home/user/.bashrc
 
-# Установим python3 дефолтным питоном (required by petalinux)
-RUN echo 'alias python=python3' >> ~/.bashrc
-RUN echo 'export LANG=en_US.UTF-8' >> ~/.bashrc
-# копируем bashrc в root, чтоб оттуда тоже можно было работать
-RUN sudo cp ~/.bashrc /root/
 
-#
-# Доп настройки
-#
 
-# какая-то магия которую я нашел в сети Интернет
-RUN sudo ln -fs /usr/lib/x86_64-linux-gnu/libpcre16.so.3 /usr/lib/x86_64-linux-gnu/libpcre16.so.0 # neded by QT5 uuic ...
-
-# установим московский часовой пояс
-RUN if [[ -f /etc/localtime ]]; then sudo rm /etc/localtime; fi
-RUN sudo ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-
-# запустим демон ssh
-ENTRYPOINT sudo service ssh start && /bin/bash
