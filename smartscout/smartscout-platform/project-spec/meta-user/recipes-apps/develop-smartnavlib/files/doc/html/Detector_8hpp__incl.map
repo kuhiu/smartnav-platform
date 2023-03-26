@@ -1,14 +1,15 @@
 <map id="modules/capture&#45;frame/Detector.hpp" name="modules/capture&#45;frame/Detector.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="419,5,594,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="149,184,227,211"/>
-<area shape="rect" id="node3" href="$RecognitionResult_8hpp.html" title=" " alt="" coords="5,102,173,129"/>
-<area shape="rect" id="node5" href="$VirtualImage_8hpp.html" title=" " alt="" coords="249,102,383,129"/>
-<area shape="rect" id="node9" title=" " alt="" coords="407,102,606,129"/>
-<area shape="rect" id="node10" title=" " alt="" coords="630,95,797,136"/>
-<area shape="rect" id="node11" title=" " alt="" coords="821,102,993,129"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1017,95,1189,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="56,184,123,211"/>
-<area shape="rect" id="node6" title=" " alt="" coords="406,184,477,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="501,184,656,211"/>
-<area shape="rect" id="node8" href="$ColorSpaces_8hpp.html" title=" " alt="" coords="251,184,381,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="510,5,685,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="267,184,344,211"/>
+<area shape="rect" id="node3" href="$RecognitionResult_8hpp.html" title=" " alt="" coords="85,102,253,129"/>
+<area shape="rect" id="node6" href="$VirtualImage_8hpp.html" title=" " alt="" coords="339,102,474,129"/>
+<area shape="rect" id="node10" title=" " alt="" coords="498,102,697,129"/>
+<area shape="rect" id="node11" title=" " alt="" coords="721,95,887,136"/>
+<area shape="rect" id="node12" title=" " alt="" coords="911,102,1083,129"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1107,95,1279,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,184,72,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="96,184,243,211"/>
+<area shape="rect" id="node7" title=" " alt="" coords="369,184,439,211"/>
+<area shape="rect" id="node8" title=" " alt="" coords="464,184,619,211"/>
+<area shape="rect" id="node9" href="$ColorSpaces_8hpp.html" title=" " alt="" coords="643,184,773,211"/>
 </map>

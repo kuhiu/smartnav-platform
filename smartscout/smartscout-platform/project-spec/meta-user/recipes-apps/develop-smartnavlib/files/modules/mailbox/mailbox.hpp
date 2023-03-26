@@ -22,7 +22,6 @@ public:
     LED_CTRL = 3,
 
   };
-  
   /** Mailbox constructor */
   mailbox() {
     __fd = open(__DRIVER, O_RDWR);

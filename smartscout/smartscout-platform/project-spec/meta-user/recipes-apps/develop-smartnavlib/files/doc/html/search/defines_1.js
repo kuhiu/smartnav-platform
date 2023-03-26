@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['clear_454',['CLEAR',['../CaptureFrame_8hpp.html#ab0ba4dd6e237b96132c0a66be2fb3bc2',1,'CLEAR():&#160;CaptureFrame.hpp'],['../ov7670_8hpp.html#ab0ba4dd6e237b96132c0a66be2fb3bc2',1,'CLEAR():&#160;ov7670.hpp'],['../v__demosaic_8hpp.html#ab0ba4dd6e237b96132c0a66be2fb3bc2',1,'CLEAR():&#160;v_demosaic.hpp']]]
+  ['axi_5ftimer_5fioc_5fnmagico_898',['AXI_TIMER_IOC_NMAGICO',['../Driver_8hpp.html#a85c960288a2de0fd01fb4fa19ebdc751',1,'AXI_TIMER_IOC_NMAGICO():&#160;Driver.hpp'],['../Headlights_8hpp.html#a85c960288a2de0fd01fb4fa19ebdc751',1,'AXI_TIMER_IOC_NMAGICO():&#160;Headlights.hpp']]],
+  ['axi_5ftimer_5fioc_5ft_5fon_899',['AXI_TIMER_IOC_T_ON',['../Driver_8hpp.html#a2d8bf7e7a96ddc4c34afecb5c1ba2d95',1,'AXI_TIMER_IOC_T_ON():&#160;Driver.hpp'],['../Headlights_8hpp.html#a2d8bf7e7a96ddc4c34afecb5c1ba2d95',1,'AXI_TIMER_IOC_T_ON():&#160;Headlights.hpp']]]
 ];

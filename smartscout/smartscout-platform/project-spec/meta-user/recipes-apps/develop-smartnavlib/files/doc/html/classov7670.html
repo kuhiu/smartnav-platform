@@ -64,6 +64,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classov7670-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ov7670 Class Reference</div>  </div>
@@ -76,7 +79,12 @@ Collaboration diagram for ov7670:</div>
 <div class="dyncontent">
 <div class="center"><img src="classov7670__coll__graph.png" border="0" usemap="#aov7670_coll__map" alt="Collaboration graph"/></div>
 <map name="aov7670_coll__map" id="aov7670_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,112,97"/>
+<area shape="rect" title=" " alt="" coords="245,160,387,340"/>
+<area shape="rect" title=" " alt="" coords="5,13,160,90"/>
+<area shape="rect" title=" " alt="" coords="184,13,272,90"/>
+<area shape="rect" title=" " alt="" coords="297,13,335,90"/>
+<area shape="rect" title=" " alt="" coords="359,13,566,90"/>
+<area shape="rect" title=" " alt="" coords="591,5,756,97"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -92,6 +100,38 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a59327d7b9287e7ffd30acad86a685cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74e4a2a38d95e2707686e710d99f9f41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a74e4a2a38d95e2707686e710d99f9f41">~ov7670</a> ()</td></tr>
 <tr class="separator:a74e4a2a38d95e2707686e710d99f9f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6d4f67dfe3d1926214e40fec3e245cc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a6d4f67dfe3d1926214e40fec3e245cc6">__openDevice</a> ()</td></tr>
+<tr class="separator:a6d4f67dfe3d1926214e40fec3e245cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79138b68ae8fd0bc5ca5f748ec6f72c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a79138b68ae8fd0bc5ca5f748ec6f72c2">__closeDevice</a> ()</td></tr>
+<tr class="separator:a79138b68ae8fd0bc5ca5f748ec6f72c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fd308fed67e79d6567bc0d3f42b94b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#ae9fd308fed67e79d6567bc0d3f42b94b">__initDevice</a> (uint32_t width, uint32_t height, <a class="el" href="classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9">pixelFormat</a> pixelformat, uint32_t frame_rate)</td></tr>
+<tr class="separator:ae9fd308fed67e79d6567bc0d3f42b94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7d0b34fadb1963dcec36773ddf9127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#acc7d0b34fadb1963dcec36773ddf9127">__setFramerate</a> (uint32_t frame_rate)</td></tr>
+<tr class="separator:acc7d0b34fadb1963dcec36773ddf9127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087c9481116e1ebe2d2603e256fea6f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a087c9481116e1ebe2d2603e256fea6f3">__setFormat</a> (uint32_t width, uint32_t height, <a class="el" href="classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9">pixelFormat</a> pixelformat)</td></tr>
+<tr class="separator:a087c9481116e1ebe2d2603e256fea6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1f3f147ed32fb22783a52ab1d27763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a2f1f3f147ed32fb22783a52ab1d27763">__xioctl</a> (int fd, int request, void *arg)</td></tr>
+<tr class="memdesc:a2f1f3f147ed32fb22783a52ab1d27763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ioctl wrapper.  <a href="classov7670.html#a2f1f3f147ed32fb22783a52ab1d27763">More...</a><br /></td></tr>
+<tr class="separator:a2f1f3f147ed32fb22783a52ab1d27763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8f53c56a9cc99e3f0c35379b9a6da386"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a8f53c56a9cc99e3f0c35379b9a6da386">__fd</a></td></tr>
+<tr class="separator:a8f53c56a9cc99e3f0c35379b9a6da386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a4f6635bfeeb7d0e7fd688ae4e3216"><td class="memItemLeft" align="right" valign="top">struct stat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#af3a4f6635bfeeb7d0e7fd688ae4e3216">__st</a></td></tr>
+<tr class="separator:af3a4f6635bfeeb7d0e7fd688ae4e3216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a54f2abf997f80229fb300c8675a22"><td class="memItemLeft" align="right" valign="top">v4l2_subdev_frame_interval&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#a71a54f2abf997f80229fb300c8675a22">__frame_interval</a></td></tr>
+<tr class="separator:a71a54f2abf997f80229fb300c8675a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b6075b649a9e23a478d2b0d6de992b"><td class="memItemLeft" align="right" valign="top">v4l2_subdev_format&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#ac4b6075b649a9e23a478d2b0d6de992b">__format</a></td></tr>
+<tr class="separator:ac4b6075b649a9e23a478d2b0d6de992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:aa10c57f6db62df1ea27e8a62cbb79ee7"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classov7670.html#aa10c57f6db62df1ea27e8a62cbb79ee7">__DEVICE</a> = {&quot;/dev/v4l-subdev0&quot;}</td></tr>
+<tr class="separator:aa10c57f6db62df1ea27e8a62cbb79ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="af7ab8d02f25b0b77e708c7e56db7bfe9"></a>
@@ -169,6 +209,344 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><a class="el" href="classov7670.html">ov7670</a> destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a79138b68ae8fd0bc5ca5f748ec6f72c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79138b68ae8fd0bc5ca5f748ec6f72c2">&#9670;&nbsp;</a></span>__closeDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ov7670::__closeDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Close <a class="el" href="classov7670.html">ov7670</a> driver </p>
+
+</div>
+</div>
+<a id="ae9fd308fed67e79d6567bc0d3f42b94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9fd308fed67e79d6567bc0d3f42b94b">&#9670;&nbsp;</a></span>__initDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ov7670::__initDevice </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixelformat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>frame_rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d4f67dfe3d1926214e40fec3e245cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d4f67dfe3d1926214e40fec3e245cc6">&#9670;&nbsp;</a></span>__openDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ov7670::__openDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Open <a class="el" href="classov7670.html">ov7670</a> driver </p>
+
+</div>
+</div>
+<a id="a087c9481116e1ebe2d2603e256fea6f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087c9481116e1ebe2d2603e256fea6f3">&#9670;&nbsp;</a></span>__setFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ov7670::__setFormat </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixelformat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc7d0b34fadb1963dcec36773ddf9127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7d0b34fadb1963dcec36773ddf9127">&#9670;&nbsp;</a></span>__setFramerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ov7670::__setFramerate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>frame_rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f1f3f147ed32fb22783a52ab1d27763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1f3f147ed32fb22783a52ab1d27763">&#9670;&nbsp;</a></span>__xioctl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ov7670::__xioctl </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ioctl wrapper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td></td></tr>
+    <tr><td class="paramname">request</td><td></td></tr>
+    <tr><td class="paramname">arg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa10c57f6db62df1ea27e8a62cbb79ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa10c57f6db62df1ea27e8a62cbb79ee7">&#9670;&nbsp;</a></span>__DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* ov7670::__DEVICE = {&quot;/dev/v4l-subdev0&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device name </p>
+
+</div>
+</div>
+<a id="a8f53c56a9cc99e3f0c35379b9a6da386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f53c56a9cc99e3f0c35379b9a6da386">&#9670;&nbsp;</a></span>__fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ov7670::__fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device file descriptor </p>
+
+</div>
+</div>
+<a id="ac4b6075b649a9e23a478d2b0d6de992b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b6075b649a9e23a478d2b0d6de992b">&#9670;&nbsp;</a></span>__format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_subdev_format ov7670::__format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Format </p>
+
+</div>
+</div>
+<a id="a71a54f2abf997f80229fb300c8675a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a54f2abf997f80229fb300c8675a22">&#9670;&nbsp;</a></span>__frame_interval</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_subdev_frame_interval ov7670::__frame_interval</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Frame interval </p>
+
+</div>
+</div>
+<a id="af3a4f6635bfeeb7d0e7fd688ae4e3216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a4f6635bfeeb7d0e7fd688ae4e3216">&#9670;&nbsp;</a></span>__st</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct stat ov7670::__st</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device driver stats </p>
 
 </div>
 </div>

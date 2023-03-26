@@ -13,18 +13,11 @@
 #include <CaptureFrame.hpp>
 
 //#define DEBUG_CAPTURE 1
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 #if defined(DEBUG_CAPTURE) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
 #else
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
-=======
-#ifdef DEBUG_CAPTURE
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
-#else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 #endif
 
 CaptureFrame::CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count) 
@@ -250,20 +243,13 @@ void CaptureFrame::__startCapturing() {
 		}
 	}
 	DEBUG_PRINT("Video stream on\n");
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 	CLEAR(type);
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
 	int ret = __xioctl(__fd, VIDIOC_STREAMON, &type);
 	while (ret == -1) {
 		ret = __xioctl(__fd, VIDIOC_STREAMON, &type);
 		DEBUG_PRINT("Waitting strem on.\n");
 	}
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
-
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 	DEBUG_PRINT("Video stream on termino ioctl\n");
 }
 
@@ -293,20 +279,12 @@ bool CaptureFrame::__readFrame(int frame_number) {
   rgb_image->resize(320, 320);
   rgb_image->flip(false);
   rgb_image->colorBalancing(1.0);
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 	{ // Thread safe
 		std::lock_guard<std::mutex> lock(__brightness_guard);
 		__brightness = rgb_image->getBrightness();
 	}
 	// Callback
-	DEBUG_PRINT("Ejecuto la callback. \n");
 	__cb(rgb_image, this);
-=======
-	__brightness = rgb_image->getBrightness();
-	// Callback
-	DEBUG_PRINT("Ejecuto la callback. \n");
-	__cb(rgb_image);
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.cpp
 	// Deallocate image
 	rgb_image = nullptr;
 	return 1;

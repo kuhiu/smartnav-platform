@@ -7,5 +7,6 @@ images/linux/
 *.o
 *.jou
 *.log
+tftpboot
 project-spec/meta-plnx-generated/
 /components/plnx_workspace

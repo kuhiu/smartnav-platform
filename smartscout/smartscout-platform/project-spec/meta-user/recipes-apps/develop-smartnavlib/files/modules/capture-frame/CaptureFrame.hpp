@@ -14,20 +14,14 @@
 #include <atomic>
 #include <functional>
 #include <memory>
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
 #include <mutex>
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
 #include <thread>
 #include <vector>
 
 #include <VirtualImage.hpp>
 #include <ov7670.hpp>
 #include <v_demosaic.hpp>
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
 #include <FrameProcessor.hpp>
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
 
 class CaptureFrame {
 public:
@@ -42,11 +36,7 @@ public:
 
   };
   /** Callback of captured frame */
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
   using EventCallback = std::function<void (std::shared_ptr<VirtualImage> img, void* ctx)>;
-=======
-  using EventCallback = std::function<void (std::shared_ptr<VirtualImage> img)>;
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
   /** CaptureFrame constructor */
   CaptureFrame(EventCallback cb, uint32_t width, uint32_t height, pixelFormat pixel_format, uint32_t frame_count = 1);
   /** CaptureFrame destructor */
@@ -56,17 +46,27 @@ public:
    * 
    * @return uint32_t 
    */
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
   uint32_t getBrightness() { 
     std::lock_guard<std::mutex> lock(__brightness_guard);
     return __brightness; 
   };
+  /**
+   * @brief Set the Save Frame object
+   * 
+   * @param state 
+   * @return * void 
+   */
+  void setSaveFrame(bool state) { __save_frame = state; }
+  /**
+   * @brief Get the Save Frame Status object
+   * 
+   * @return true 
+   * @return false 
+   */
+  bool getSaveFrameStatus() { return __save_frame; };
   /** FrameProcessor */
   FrameProcessor frame_processor;
-=======
-  uint32_t getBrightness() const { return __brightness; };
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
-
+  
 private:
   /** Clear vl2d struct */
   #define CLEAR(x) memset(&(x), 0, sizeof(x))
@@ -74,6 +74,8 @@ private:
   static constexpr const char *__DEVICE = {"/dev/video0"};
   /** Device file descriptor */
   int __fd;
+  /** The next frame is saved */
+  bool __save_frame = false;
   /** OV7670 object */
   std::shared_ptr<ov7670> __ov7670;
   /** v_demosaic object */
@@ -143,11 +145,8 @@ private:
   void __init_mmap();
   /** Brightness */
   std::atomic<uint32_t> __brightness;
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
   /** Brightness guard */
   std::mutex __brightness_guard;
-=======
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/capture-frame/CaptureFrame.hpp
 
 };
 

@@ -1,0 +1,152 @@
+\hypertarget{classmailbox}{}\doxysection{mailbox Class Reference}
+\label{classmailbox}\index{mailbox@{mailbox}}
+
+
+{\ttfamily \#include $<$mailbox.\+hpp$>$}
+
+
+
+Collaboration diagram for mailbox\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{classmailbox__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}{command}} \{ \mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629}{ENCODER\+\_\+1\+\_\+\+COUNT}} = 1
+, \mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407}{ENCODER\+\_\+2\+\_\+\+COUNT}} = 2
+, \mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642}{LED\+\_\+\+CTRL}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmailbox_afdab2ad20b68683e0b4f7039d361ff98}{mailbox}} ()
+\item 
+\mbox{\hyperlink{classmailbox_aa973c0e2b804141bc594c65075a2306a}{$\sim$mailbox}} ()
+\item 
+int \mbox{\hyperlink{classmailbox_a47dad576b5b90b9c8e8706370424a4c8}{send\+Blocking}} (\mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}{command}} cmd, int arg)
+\begin{DoxyCompactList}\small\item\em Send a command to the mailbox. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmailbox_a5677461dc3f07ae43105fe95f3e77fd6}{receive\+Blocking}} ()
+\begin{DoxyCompactList}\small\item\em Read a msg from the mailbox. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmailbox_aa39840010b0d222dadb8f2a1fca2321b}{\+\_\+\+\_\+fd}}
+\item 
+const int \mbox{\hyperlink{classmailbox_a2fca2f595284d817b15d3787dfa7c9b6}{\+\_\+\+\_\+\+START\+\_\+\+STREAM}} = 0x\+AA
+\item 
+const int \mbox{\hyperlink{classmailbox_a8d17c7051f1185724acab5dd70805c62}{\+\_\+\+\_\+\+END\+\_\+\+STREAM}} = 0x55
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr const char $\ast$ \mbox{\hyperlink{classmailbox_aed2bbe04a875c5bdca42b32384585c24}{\+\_\+\+\_\+\+DRIVER}} = \{\char`\"{}/dev/axi\+\_\+mailbox\+\_\+0\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}\label{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}} 
+\index{mailbox@{mailbox}!command@{command}}
+\index{command@{command}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}{mailbox\+::command}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENCODER\_1\_COUNT@{ENCODER\_1\_COUNT}!mailbox@{mailbox}}\index{mailbox@{mailbox}!ENCODER\_1\_COUNT@{ENCODER\_1\_COUNT}}}\mbox{\Hypertarget{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629}\label{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a13fa01b2909ff25b44ca8f5435367629}} 
+ENCODER\+\_\+1\+\_\+\+COUNT&Get encoder count \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENCODER\_2\_COUNT@{ENCODER\_2\_COUNT}!mailbox@{mailbox}}\index{mailbox@{mailbox}!ENCODER\_2\_COUNT@{ENCODER\_2\_COUNT}}}\mbox{\Hypertarget{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407}\label{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45a5f316284c2dfbe3b202d8001d899e407}} 
+ENCODER\+\_\+2\+\_\+\+COUNT&Get encoder count \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_CTRL@{LED\_CTRL}!mailbox@{mailbox}}\index{mailbox@{mailbox}!LED\_CTRL@{LED\_CTRL}}}\mbox{\Hypertarget{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642}\label{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45aa5c7757e2c96bfd829e965aa8fd59642}} 
+LED\+\_\+\+CTRL&Led control \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmailbox_afdab2ad20b68683e0b4f7039d361ff98}\label{classmailbox_afdab2ad20b68683e0b4f7039d361ff98}} 
+\index{mailbox@{mailbox}!mailbox@{mailbox}}
+\index{mailbox@{mailbox}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{mailbox()}{mailbox()}}
+{\footnotesize\ttfamily mailbox\+::mailbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Mailbox constructor \mbox{\Hypertarget{classmailbox_aa973c0e2b804141bc594c65075a2306a}\label{classmailbox_aa973c0e2b804141bc594c65075a2306a}} 
+\index{mailbox@{mailbox}!````~mailbox@{$\sim$mailbox}}
+\index{````~mailbox@{$\sim$mailbox}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{$\sim$mailbox()}{~mailbox()}}
+{\footnotesize\ttfamily mailbox\+::$\sim$mailbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Mailbox destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmailbox_a5677461dc3f07ae43105fe95f3e77fd6}\label{classmailbox_a5677461dc3f07ae43105fe95f3e77fd6}} 
+\index{mailbox@{mailbox}!receiveBlocking@{receiveBlocking}}
+\index{receiveBlocking@{receiveBlocking}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{receiveBlocking()}{receiveBlocking()}}
+{\footnotesize\ttfamily int mailbox\+::receive\+Blocking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Read a msg from the mailbox. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmailbox_a47dad576b5b90b9c8e8706370424a4c8}\label{classmailbox_a47dad576b5b90b9c8e8706370424a4c8}} 
+\index{mailbox@{mailbox}!sendBlocking@{sendBlocking}}
+\index{sendBlocking@{sendBlocking}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{sendBlocking()}{sendBlocking()}}
+{\footnotesize\ttfamily int mailbox\+::send\+Blocking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmailbox_a0deda45b7bcb613a62c4b709eda2ba45}{command}}}]{cmd,  }\item[{int}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Send a command to the mailbox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & \\
+\hline
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmailbox_aed2bbe04a875c5bdca42b32384585c24}\label{classmailbox_aed2bbe04a875c5bdca42b32384585c24}} 
+\index{mailbox@{mailbox}!\_\_DRIVER@{\_\_DRIVER}}
+\index{\_\_DRIVER@{\_\_DRIVER}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{\_\_DRIVER}{\_\_DRIVER}}
+{\footnotesize\ttfamily constexpr const char$\ast$ mailbox\+::\+\_\+\+\_\+\+DRIVER = \{\char`\"{}/dev/axi\+\_\+mailbox\+\_\+0\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} \mbox{\Hypertarget{classmailbox_a8d17c7051f1185724acab5dd70805c62}\label{classmailbox_a8d17c7051f1185724acab5dd70805c62}} 
+\index{mailbox@{mailbox}!\_\_END\_STREAM@{\_\_END\_STREAM}}
+\index{\_\_END\_STREAM@{\_\_END\_STREAM}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{\_\_END\_STREAM}{\_\_END\_STREAM}}
+{\footnotesize\ttfamily const int mailbox\+::\+\_\+\+\_\+\+END\+\_\+\+STREAM = 0x55\hspace{0.3cm}{\ttfamily [private]}}
+
+End of the stream protocol \mbox{\Hypertarget{classmailbox_aa39840010b0d222dadb8f2a1fca2321b}\label{classmailbox_aa39840010b0d222dadb8f2a1fca2321b}} 
+\index{mailbox@{mailbox}!\_\_fd@{\_\_fd}}
+\index{\_\_fd@{\_\_fd}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{\_\_fd}{\_\_fd}}
+{\footnotesize\ttfamily int mailbox\+::\+\_\+\+\_\+fd\hspace{0.3cm}{\ttfamily [private]}}
+
+File descriptor \mbox{\Hypertarget{classmailbox_a2fca2f595284d817b15d3787dfa7c9b6}\label{classmailbox_a2fca2f595284d817b15d3787dfa7c9b6}} 
+\index{mailbox@{mailbox}!\_\_START\_STREAM@{\_\_START\_STREAM}}
+\index{\_\_START\_STREAM@{\_\_START\_STREAM}!mailbox@{mailbox}}
+\doxysubsubsection{\texorpdfstring{\_\_START\_STREAM}{\_\_START\_STREAM}}
+{\footnotesize\ttfamily const int mailbox\+::\+\_\+\+\_\+\+START\+\_\+\+STREAM = 0x\+AA\hspace{0.3cm}{\ttfamily [private]}}
+
+Start of the stream protocol 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/mailbox/\mbox{\hyperlink{mailbox_8hpp}{mailbox.\+hpp}}\end{DoxyCompactItemize}

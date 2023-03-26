@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classFuzzyAnd-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FuzzyAnd Class Reference</div>  </div>
@@ -76,7 +78,7 @@ Inheritance diagram for FuzzyAnd:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFuzzyAnd__inherit__graph.png" border="0" usemap="#aFuzzyAnd_inherit__map" alt="Inheritance graph"/></div>
 <map name="aFuzzyAnd_inherit__map" id="aFuzzyAnd_inherit__map">
-<area shape="rect" title=" " alt="" coords="24,175,144,311"/>
+<area shape="rect" title=" " alt="" coords="19,175,149,340"/>
 <area shape="rect" href="classFuzzyCondition.html" title=" " alt="" coords="5,5,163,127"/>
 </map>
 </div>
@@ -85,8 +87,11 @@ Collaboration diagram for FuzzyAnd:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFuzzyAnd__coll__graph.png" border="0" usemap="#aFuzzyAnd_coll__map" alt="Collaboration graph"/></div>
 <map name="aFuzzyAnd_coll__map" id="aFuzzyAnd_coll__map">
-<area shape="rect" title=" " alt="" coords="24,175,144,311"/>
+<area shape="rect" title=" " alt="" coords="307,189,427,325"/>
 <area shape="rect" href="classFuzzyCondition.html" title=" " alt="" coords="5,5,163,127"/>
+<area shape="rect" title=" " alt="" coords="187,27,397,105"/>
+<area shape="rect" title=" " alt="" coords="421,27,472,105"/>
+<area shape="rect" title=" " alt="" coords="502,27,661,105"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -113,6 +118,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a83033b248c9829ddf89a5a90fbef494e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyConditionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e">parse</a> (const nlohmann::json &amp;and_json)</td></tr>
 <tr class="memdesc:a83033b248c9829ddf89a5a90fbef494e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to parse and condition.  <a href="classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e">More...</a><br /></td></tr>
 <tr class="separator:a83033b248c9829ddf89a5a90fbef494e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa5136cc3e7630271986f36bdccf8417f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyAnd.html#aa5136cc3e7630271986f36bdccf8417f">__UPPER_LIMIT</a> = 1.0</td></tr>
+<tr class="separator:aa5136cc3e7630271986f36bdccf8417f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32601e76094675b14bddcc00b4228068"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyConditionPtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyAnd.html#a32601e76094675b14bddcc00b4228068">__conditions</a></td></tr>
+<tr class="separator:a32601e76094675b14bddcc00b4228068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a483ddfa543148f141ad0981e4aa0755a"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuzzyAnd.html#a483ddfa543148f141ad0981e4aa0755a">__AND_KEY</a> {&quot;and&quot;}</td></tr>
+<tr class="separator:a483ddfa543148f141ad0981e4aa0755a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -291,6 +308,76 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classFuzzyCondition.html#ab8cbf67294f96c78fd2fe5a3e8b0b492">FuzzyCondition</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a483ddfa543148f141ad0981e4aa0755a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a483ddfa543148f141ad0981e4aa0755a">&#9670;&nbsp;</a></span>__AND_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * FuzzyAnd::__AND_KEY {&quot;and&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>And key </p>
+
+</div>
+</div>
+<a id="a32601e76094675b14bddcc00b4228068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32601e76094675b14bddcc00b4228068">&#9670;&nbsp;</a></span>__conditions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classFuzzyCondition.html#a68962cd8c21c6c374876170b1b1a77ef">FuzzyConditionPtr</a>&gt; FuzzyAnd::__conditions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Fuzzy conditions </p>
+
+</div>
+</div>
+<a id="aa5136cc3e7630271986f36bdccf8417f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5136cc3e7630271986f36bdccf8417f">&#9670;&nbsp;</a></span>__UPPER_LIMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float FuzzyAnd::__UPPER_LIMIT = 1.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Max evaluate result </p>
 
 </div>
 </div>

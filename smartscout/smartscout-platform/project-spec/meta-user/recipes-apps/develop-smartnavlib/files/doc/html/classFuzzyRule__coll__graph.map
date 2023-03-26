@@ -1,3 +1,6 @@
 <map id="FuzzyRule" name="FuzzyRule">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,129,127"/>
+<area shape="rect" id="node1" title=" " alt="" coords="255,175,379,296"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,225,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="287,5,346,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="371,5,529,83"/>
 </map>

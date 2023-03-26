@@ -64,6 +64,9 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classv__demosaic-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">v_demosaic Class Reference</div>  </div>
@@ -76,7 +79,11 @@ Collaboration diagram for v_demosaic:</div>
 <div class="dyncontent">
 <div class="center"><img src="classv__demosaic__coll__graph.png" border="0" usemap="#av__demosaic_coll__map" alt="Collaboration graph"/></div>
 <map name="av__demosaic_coll__map" id="av__demosaic_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,141,97"/>
+<area shape="rect" title=" " alt="" coords="201,160,343,340"/>
+<area shape="rect" title=" " alt="" coords="5,13,160,90"/>
+<area shape="rect" title=" " alt="" coords="184,13,272,90"/>
+<area shape="rect" title=" " alt="" coords="297,13,335,90"/>
+<area shape="rect" title=" " alt="" coords="360,5,525,97"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -92,6 +99,36 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a23bc874f2ccd792c08fe18ba374da83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0bcb2fa7e57295bd18b7b480e32792d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#aa0bcb2fa7e57295bd18b7b480e32792d">~v_demosaic</a> ()</td></tr>
 <tr class="separator:aa0bcb2fa7e57295bd18b7b480e32792d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a187317ed1f61f72447d39335efe62166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#a187317ed1f61f72447d39335efe62166">__openDevice</a> ()</td></tr>
+<tr class="separator:a187317ed1f61f72447d39335efe62166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4774e6ebb323cfdcedce90f2142a313f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#a4774e6ebb323cfdcedce90f2142a313f">__closeDevice</a> ()</td></tr>
+<tr class="separator:a4774e6ebb323cfdcedce90f2142a313f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb9299c5d735235efd65d536139a673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#accb9299c5d735235efd65d536139a673">__initDevice</a> (uint32_t width, uint32_t height, <a class="el" href="classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153">pixelFormat</a> pixelformat)</td></tr>
+<tr class="separator:accb9299c5d735235efd65d536139a673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaffdaa82fb68d460a6bb91d7b30f1e17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#aaffdaa82fb68d460a6bb91d7b30f1e17">__setFramerate</a> (uint32_t frame_rate)</td></tr>
+<tr class="separator:aaffdaa82fb68d460a6bb91d7b30f1e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2499786a310480ef67f0247fa9a6d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#ac2499786a310480ef67f0247fa9a6d3a">__setFormat</a> (uint32_t width, uint32_t height, <a class="el" href="classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153">pixelFormat</a> pixelformat)</td></tr>
+<tr class="separator:ac2499786a310480ef67f0247fa9a6d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9672db7c1dd309b0e6006168cd53698f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#a9672db7c1dd309b0e6006168cd53698f">__xioctl</a> (int fd, int request, void *arg)</td></tr>
+<tr class="memdesc:a9672db7c1dd309b0e6006168cd53698f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ioctl wrapper.  <a href="classv__demosaic.html#a9672db7c1dd309b0e6006168cd53698f">More...</a><br /></td></tr>
+<tr class="separator:a9672db7c1dd309b0e6006168cd53698f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5d1b70fc53a2b4e6e496ccc0c045c45f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#a5d1b70fc53a2b4e6e496ccc0c045c45f">__fd</a></td></tr>
+<tr class="separator:a5d1b70fc53a2b4e6e496ccc0c045c45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f982c0d764a3042bc373b69ec80867"><td class="memItemLeft" align="right" valign="top">struct stat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#ab1f982c0d764a3042bc373b69ec80867">__st</a></td></tr>
+<tr class="separator:ab1f982c0d764a3042bc373b69ec80867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c7434edfeb110c49cdb6c2712b6f4a"><td class="memItemLeft" align="right" valign="top">v4l2_subdev_format&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#a88c7434edfeb110c49cdb6c2712b6f4a">__format</a></td></tr>
+<tr class="separator:a88c7434edfeb110c49cdb6c2712b6f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:afd400a723585666b23ca96e8f69cc9e1"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classv__demosaic.html#afd400a723585666b23ca96e8f69cc9e1">__DEVICE</a> = {&quot;/dev/v4l-subdev1&quot;}</td></tr>
+<tr class="separator:afd400a723585666b23ca96e8f69cc9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a6f57e6e2f65a6813d46a7c9358aa0153"></a>
@@ -163,6 +200,315 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><a class="el" href="classov7670.html">ov7670</a> destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4774e6ebb323cfdcedce90f2142a313f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4774e6ebb323cfdcedce90f2142a313f">&#9670;&nbsp;</a></span>__closeDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v_demosaic::__closeDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Close <a class="el" href="classov7670.html">ov7670</a> driver </p>
+
+</div>
+</div>
+<a id="accb9299c5d735235efd65d536139a673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb9299c5d735235efd65d536139a673">&#9670;&nbsp;</a></span>__initDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v_demosaic::__initDevice </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixelformat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a187317ed1f61f72447d39335efe62166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a187317ed1f61f72447d39335efe62166">&#9670;&nbsp;</a></span>__openDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v_demosaic::__openDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Open <a class="el" href="classov7670.html">ov7670</a> driver </p>
+
+</div>
+</div>
+<a id="ac2499786a310480ef67f0247fa9a6d3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2499786a310480ef67f0247fa9a6d3a">&#9670;&nbsp;</a></span>__setFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v_demosaic::__setFormat </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixelformat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaffdaa82fb68d460a6bb91d7b30f1e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffdaa82fb68d460a6bb91d7b30f1e17">&#9670;&nbsp;</a></span>__setFramerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void v_demosaic::__setFramerate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>frame_rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9672db7c1dd309b0e6006168cd53698f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9672db7c1dd309b0e6006168cd53698f">&#9670;&nbsp;</a></span>__xioctl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int v_demosaic::__xioctl </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ioctl wrapper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td></td></tr>
+    <tr><td class="paramname">request</td><td></td></tr>
+    <tr><td class="paramname">arg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afd400a723585666b23ca96e8f69cc9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd400a723585666b23ca96e8f69cc9e1">&#9670;&nbsp;</a></span>__DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* v_demosaic::__DEVICE = {&quot;/dev/v4l-subdev1&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device name </p>
+
+</div>
+</div>
+<a id="a5d1b70fc53a2b4e6e496ccc0c045c45f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d1b70fc53a2b4e6e496ccc0c045c45f">&#9670;&nbsp;</a></span>__fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int v_demosaic::__fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device file descriptor </p>
+
+</div>
+</div>
+<a id="a88c7434edfeb110c49cdb6c2712b6f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c7434edfeb110c49cdb6c2712b6f4a">&#9670;&nbsp;</a></span>__format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_subdev_format v_demosaic::__format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Format </p>
+
+</div>
+</div>
+<a id="ab1f982c0d764a3042bc373b69ec80867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f982c0d764a3042bc373b69ec80867">&#9670;&nbsp;</a></span>__st</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct stat v_demosaic::__st</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device driver stats </p>
 
 </div>
 </div>

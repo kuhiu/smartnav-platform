@@ -65,10 +65,6 @@ public:
       throw std::runtime_error("Error stopping l298n");
 
     __current_speed = 0;
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
-=======
-    __current_yaw = 0;
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
   };
   /** Driver destructor */
   ~Driver() {
@@ -77,6 +73,28 @@ public:
     close(__fd_pwm2);
     close(__fd_l298n);
   };
+  /**
+   * @brief Update the pwms that control both motors
+   * 
+   * @param pwm0
+   * @param pwm1 
+   */
+  void update_pwm(int pwm0, int pwm1) {
+    int ret;
+
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm1, AXI_TIMER_IOC_T_ON, pwm0);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Set duty cycle 
+    ret = ioctl(__fd_pwm2, AXI_TIMER_IOC_T_ON, pwm1);
+    if ( ret == -1) 
+      throw std::runtime_error("Error setting duty cycle");
+    // Go forward
+    ret = ioctl(__fd_l298n, L298N_IOC_FORWARD);
+    if ( ret == -1) 
+      throw std::runtime_error("Error stopping l298n");
+  }
   /**
    * @brief Update the speed and yaw for driving the car
    * 
@@ -95,37 +113,21 @@ public:
       throw std::runtime_error("The speed variation was so big");
 
     __current_speed += speed_variation;
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
     // Check for max and min of the yaw 
     if (yaw > __MAX_YAW)
       yaw = __MAX_YAW;
     else if (yaw < __MIN_YAW)
       yaw = __MIN_YAW;
-=======
-    __current_yaw += yaw_variation;
-    // Check for max and min of the yaw 
-    if (__current_yaw > __MAX_YAW)
-      __current_yaw = __MAX_YAW;
-    else if (__current_yaw < __MIN_YAW)
-      __current_yaw = __MIN_YAW;
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
     // Check for max and min of the speed 
     if (__current_speed > __MAX_SPEED)
       __current_speed = __MAX_SPEED;
     else if (__current_speed < __MIN_SPEED)
       __current_speed = __MIN_SPEED;
     
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
     // printf("Current speed %d, Current yaw %d.\n", __current_speed, yaw);
     // Wheel PWM 
     wheel_left = __current_speed - yaw;
     wheel_right = __current_speed + yaw;
-=======
-    printf("Current speed %d, Current yaw %d.\n", __current_speed, __current_yaw);
-    // Wheel PWM 
-    wheel_left = __current_speed + __current_yaw;
-    wheel_right = __current_speed - __current_yaw;
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
     // Check for max of the pwm duty cycle 
     if (wheel_left > __MAX_DUTY) 
       wheel_left = __MAX_DUTY;
@@ -191,15 +193,9 @@ private:
   /** Min duty cycle */
   const int __MIN_DUTY = -100;
   /** Max yaw */
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
   const int __MAX_YAW = 20;
   /** Min yaw */
   const int __MIN_YAW = -20;
-=======
-  const int __MAX_YAW = 25;
-  /** Min yaw */
-  const int __MIN_YAW = -25;
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/driver/Driver.hpp
   /** File descriptor of AXI Timer driver */
   int __fd_pwm1;
   /** File descriptor of AXI Timer driver */

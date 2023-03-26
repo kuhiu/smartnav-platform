@@ -116,12 +116,28 @@ Macros</h2></td></tr>
 <tr class="separator:aaa94d3096e4d86ce233a427b2b2f00e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa89183ab44b3c899216b165d2adffbc2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DistanceSensors_8cpp.html#aa89183ab44b3c899216b165d2adffbc2">HCSR04_IOC_TRIGGER</a>&#160;&#160;&#160;_IO(<a class="el" href="DistanceSensors_8cpp.html#aaa94d3096e4d86ce233a427b2b2f00e7">HCSR04_IOC_NMAGICO</a>, 1)</td></tr>
 <tr class="separator:aa89183ab44b3c899216b165d2adffbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed581de90eb37c5e3a311b1936e7f0d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DistanceSensors_8cpp.html#aed581de90eb37c5e3a311b1936e7f0d6">DEBUG_PRINT</a>(fmt, ...)&#160;&#160;&#160;do {} while (0)</td></tr>
-<tr class="separator:aed581de90eb37c5e3a311b1936e7f0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd122d8a8c0adedf855791e6d626c32f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DistanceSensors_8cpp.html#acd122d8a8c0adedf855791e6d626c32f">DEBUG_DISTANCE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:acd122d8a8c0adedf855791e6d626c32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="DistanceSensors_8cpp.html#a5f50bfe761aec48e94d11aa3a64e58a4">DEBUG_PRINT</a>(fmt,  args...)</td></tr>
+<tr class="separator:a5f50bfe761aec48e94d11aa3a64e58a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aed581de90eb37c5e3a311b1936e7f0d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed581de90eb37c5e3a311b1936e7f0d6">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
+<a id="acd122d8a8c0adedf855791e6d626c32f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd122d8a8c0adedf855791e6d626c32f">&#9670;&nbsp;</a></span>DEBUG_DISTANCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_DISTANCE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f50bfe761aec48e94d11aa3a64e58a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f50bfe761aec48e94d11aa3a64e58a4">&#9670;&nbsp;</a></span>DEBUG_PRINT</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,16 +152,18 @@ Macros</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramname">args...&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do {} while (0)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">                                                                                        printf( <span class="stringliteral">&quot;DEBUG: %s:%d:%s(): &quot;</span> fmt, \</div>
+<div class="line">                                                                                        __FILE__, __LINE__, __func__, ##args)</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aaa94d3096e4d86ce233a427b2b2f00e7"></a>

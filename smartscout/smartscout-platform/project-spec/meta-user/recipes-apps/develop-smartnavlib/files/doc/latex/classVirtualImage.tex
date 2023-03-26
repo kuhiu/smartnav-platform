@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Virtual\+Image\+:\nopagebreak
+Collaboration diagram for Virtual\+Image\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=187pt]{classVirtualImage__coll__graph}
+\includegraphics[width=244pt]{classVirtualImage__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -40,10 +41,24 @@ int \mbox{\hyperlink{classVirtualImage_a48b9c30ba59e63e67da49b606588b9af}{get\+C
 \begin{DoxyCompactList}\small\item\em Get the Color Space object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}{color\+Balancing}} (float percent)
 \begin{DoxyCompactList}\small\item\em Color balancing algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVirtualImage_a701720ff6b6e51e4d744d30ab37fa45c}{increase\+Saturation}} (int value)
+\begin{DoxyCompactList}\small\item\em Increase the saturation of the image. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classVirtualImage_a45d6ce2aea5ce7973bf4282f0918f7b1}{flip}} (bool orientation)
 \begin{DoxyCompactList}\small\item\em Flip image. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{classVirtualImage_a4d0430b87734fa2dadb67c9bc4b7adbb}{get\+Brightness}} () const
 \begin{DoxyCompactList}\small\item\em Get the Brightness object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classVirtualImage_ada373cb2c83c2e8a79c11a6c8328aca0}{\+\_\+\+\_\+get\+Footprint}} ()
+\begin{DoxyCompactList}\small\item\em Get image footprint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cv\+::\+Mat \mbox{\hyperlink{classVirtualImage_afe79f433b4ea5d4229d8cec10329ef6b}{\+\_\+\+\_\+data}}
+\item 
+\mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}} \mbox{\hyperlink{classVirtualImage_ad07bcb6c1a0faf3479724194ca0115f4}{\+\_\+\+\_\+color\+\_\+space}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -68,6 +83,19 @@ uint32\+\_\+t \mbox{\hyperlink{classVirtualImage_a4d0430b87734fa2dadb67c9bc4b7ad
 \mbox{\hyperlink{classVirtualImage}{Virtual\+Image}} destructor 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVirtualImage_ada373cb2c83c2e8a79c11a6c8328aca0}\label{classVirtualImage_ada373cb2c83c2e8a79c11a6c8328aca0}} 
+\index{VirtualImage@{VirtualImage}!\_\_getFootprint@{\_\_getFootprint}}
+\index{\_\_getFootprint@{\_\_getFootprint}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{\_\_getFootprint()}{\_\_getFootprint()}}
+{\footnotesize\ttfamily int Virtual\+Image\+::\+\_\+\+\_\+get\+Footprint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get image footprint. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}\label{classVirtualImage_a3c32fefcb28a448d10cf8977fd24a894}} 
 \index{VirtualImage@{VirtualImage}!colorBalancing@{colorBalancing}}
 \index{colorBalancing@{colorBalancing}!VirtualImage@{VirtualImage}}
@@ -186,6 +214,21 @@ Get the Width object.
 \begin{DoxyReturn}{Returns}
 int 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classVirtualImage_a701720ff6b6e51e4d744d30ab37fa45c}\label{classVirtualImage_a701720ff6b6e51e4d744d30ab37fa45c}} 
+\index{VirtualImage@{VirtualImage}!increaseSaturation@{increaseSaturation}}
+\index{increaseSaturation@{increaseSaturation}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{increaseSaturation()}{increaseSaturation()}}
+{\footnotesize\ttfamily void Virtual\+Image\+::increase\+Saturation (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Increase the saturation of the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classVirtualImage_ad5ff7a4aca9080e99d4669c01c9b2b2f}\label{classVirtualImage_ad5ff7a4aca9080e99d4669c01c9b2b2f}} 
 \index{VirtualImage@{VirtualImage}!resize@{resize}}
 \index{resize@{resize}!VirtualImage@{VirtualImage}}
@@ -222,6 +265,21 @@ Save image as jpeg.
 \hline
 \end{DoxyParams}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classVirtualImage_ad07bcb6c1a0faf3479724194ca0115f4}\label{classVirtualImage_ad07bcb6c1a0faf3479724194ca0115f4}} 
+\index{VirtualImage@{VirtualImage}!\_\_color\_space@{\_\_color\_space}}
+\index{\_\_color\_space@{\_\_color\_space}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{\_\_color\_space}{\_\_color\_space}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ColorSpaces_8hpp_a7457560896ea730d1ece91ca38f19129}{Color\+Spaces}} Virtual\+Image\+::\+\_\+\+\_\+color\+\_\+space\hspace{0.3cm}{\ttfamily [private]}}
+
+Image colorspace \mbox{\Hypertarget{classVirtualImage_afe79f433b4ea5d4229d8cec10329ef6b}\label{classVirtualImage_afe79f433b4ea5d4229d8cec10329ef6b}} 
+\index{VirtualImage@{VirtualImage}!\_\_data@{\_\_data}}
+\index{\_\_data@{\_\_data}!VirtualImage@{VirtualImage}}
+\doxysubsubsection{\texorpdfstring{\_\_data}{\_\_data}}
+{\footnotesize\ttfamily cv\+::\+Mat Virtual\+Image\+::\+\_\+\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+Image data 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

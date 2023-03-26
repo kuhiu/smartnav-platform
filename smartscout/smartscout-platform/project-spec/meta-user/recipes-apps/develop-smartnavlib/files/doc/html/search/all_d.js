@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['parse_130',['parse',['../classFuzzyAnd.html#a83033b248c9829ddf89a5a90fbef494e',1,'FuzzyAnd::parse()'],['../classFuzzyComparation.html#a506ae9c1adc651db2cc9917b31ab84b7',1,'FuzzyComparation::parse()'],['../classFuzzyControlSystem.html#afea32fdaf4000bc6ec4f23b4f2175d6d',1,'FuzzyControlSystem::parse()'],['../classFuzzyInput.html#aefd8fde0a50045c19ebb2b53495606cd',1,'FuzzyInput::parse()'],['../classFuzzyMembershipTrapezoidal.html#a2b5fdac952432d9c2064620e80e65a48',1,'FuzzyMembershipTrapezoidal::parse()'],['../classFuzzyOutput.html#a8968a467738307b93babadf4f61a7963',1,'FuzzyOutput::parse()'],['../classFuzzyRule.html#ae96b49353cd7900ee6a291c8956b6236',1,'FuzzyRule::parse()']]],
-  ['pix_5ffmt_5frgb24_131',['PIX_FMT_RGB24',['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772aee005fd41a5705de3be75eaa19f5e7d5',1,'CaptureFrame']]],
-  ['pixelformat_132',['pixelFormat',['../classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772',1,'CaptureFrame::pixelFormat()'],['../classov7670.html#af7ab8d02f25b0b77e708c7e56db7bfe9',1,'ov7670::pixelFormat()'],['../classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153',1,'v_demosaic::pixelFormat()']]],
-  ['planes_133',['planes',['../structCaptureFrame_1_1ImageBuffer.html#a777a58452a4907911d88e8ec54f1432f',1,'CaptureFrame::ImageBuffer']]],
-  ['printf_134',['printf',['../utilities_8hpp.html#a7fffde3437ed8e9e05f93cdf82ea7235',1,'utilities.hpp']]],
-  ['processframe_135',['processFrame',['../classFrameProcessor.html#a00ea88b0524a4e0c4944af7fbd59d77b',1,'FrameProcessor']]],
-  ['push_136',['push',['../classLogger.html#a51da8b6c82066ecf46d5afea7d11b3e0',1,'Logger']]]
+  ['obstacle_315',['Obstacle',['../classObstacle.html',1,'Obstacle'],['../classObstacle.html#a5dc9a438dd3ca7b4f80ebcaea7d08aef',1,'Obstacle::Obstacle()']]],
+  ['obstacle_2ehpp_316',['Obstacle.hpp',['../Obstacle_8hpp.html',1,'']]],
+  ['op_5fdrive_317',['OP_DRIVE',['../classDriver.html#ab299447bfe867faeac744de7ebfcff1da5be09f84c4337c730bc15302414e72a8',1,'Driver']]],
+  ['op_5fstop_318',['OP_STOP',['../classDriver.html#ab299447bfe867faeac744de7ebfcff1da63ab12be6a140430a62e6854a59820c1',1,'Driver']]],
+  ['operationmode_319',['operationMode',['../classDriver.html#ab299447bfe867faeac744de7ebfcff1d',1,'Driver']]],
+  ['operator_3d_320',['operator=',['../classLogger.html#ae14ecca1071f841760f40b5a1398580c',1,'Logger']]],
+  ['ov7670_321',['ov7670',['../classov7670.html',1,'ov7670'],['../classov7670.html#a59327d7b9287e7ffd30acad86a685cf7',1,'ov7670::ov7670()']]],
+  ['ov7670_2ecpp_322',['ov7670.cpp',['../ov7670_8cpp.html',1,'']]],
+  ['ov7670_2ehpp_323',['ov7670.hpp',['../ov7670_8hpp.html',1,'']]]
 ];

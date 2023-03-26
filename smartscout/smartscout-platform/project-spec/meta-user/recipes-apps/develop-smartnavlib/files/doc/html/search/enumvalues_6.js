@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['rbg888_5f1x24_444',['RBG888_1X24',['../classv__demosaic.html#a6f57e6e2f65a6813d46a7c9358aa0153ab67b767a7c754109866d588ff76e8b96',1,'v_demosaic']]],
-  ['rgb_445',['RGB',['../ColorSpaces_8hpp.html#a7457560896ea730d1ece91ca38f19129a30447e9f6efa4afdd251f9afc1d5fb44',1,'ColorSpaces.hpp']]],
-  ['rgba_446',['RGBA',['../ColorSpaces_8hpp.html#a7457560896ea730d1ece91ca38f19129ae75845ff0980839032f4a78a0d42753c',1,'ColorSpaces.hpp']]]
+  ['op_5fdrive_886',['OP_DRIVE',['../classDriver.html#ab299447bfe867faeac744de7ebfcff1da5be09f84c4337c730bc15302414e72a8',1,'Driver']]],
+  ['op_5fstop_887',['OP_STOP',['../classDriver.html#ab299447bfe867faeac744de7ebfcff1da63ab12be6a140430a62e6854a59820c1',1,'Driver']]]
 ];

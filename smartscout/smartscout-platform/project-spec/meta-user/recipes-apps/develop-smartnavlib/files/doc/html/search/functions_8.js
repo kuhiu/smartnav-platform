@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3d_343',['operator=',['../classLogger.html#ae14ecca1071f841760f40b5a1398580c',1,'Logger']]],
-  ['ov7670_344',['ov7670',['../classov7670.html#a59327d7b9287e7ffd30acad86a685cf7',1,'ov7670']]]
+  ['increasesaturation_620',['increaseSaturation',['../classVirtualImage.html#a701720ff6b6e51e4d744d30ab37fa45c',1,'VirtualImage']]],
+  ['isrunning_621',['isRunning',['../classSmartNav.html#a129cf8db85a48ff75483470c693b4372',1,'SmartNav']]]
 ];

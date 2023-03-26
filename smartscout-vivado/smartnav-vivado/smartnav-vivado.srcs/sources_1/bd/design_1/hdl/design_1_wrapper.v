@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Tue Feb 21 18:08:56 2023
+//Date        : Sat Mar 18 22:51:06 2023
 //Host        : kuhiu-Aspire-A515-51G running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -37,6 +37,10 @@ module design_1_wrapper
     MotorCtrl_1,
     MotorCtrl_2,
     MotorCtrl_3,
+    button_0,
+    button_1,
+    button_2,
+    button_3,
     d,
     href,
     led_pwm_0,
@@ -45,7 +49,6 @@ module design_1_wrapper
     ov7670_powerdown,
     ov7670_reset,
     pclk,
-    pi_action,
     pwm0,
     pwm1,
     vsync,
@@ -80,6 +83,10 @@ module design_1_wrapper
   output [0:0]MotorCtrl_1;
   output [0:0]MotorCtrl_2;
   output [0:0]MotorCtrl_3;
+  input button_0;
+  input button_1;
+  input button_2;
+  input button_3;
   input [7:0]d;
   input href;
   output led_pwm_0;
@@ -88,7 +95,6 @@ module design_1_wrapper
   output [0:0]ov7670_powerdown;
   output [0:0]ov7670_reset;
   input pclk;
-  input [3:0]pi_action;
   output pwm0;
   output pwm1;
   input vsync;
@@ -124,6 +130,10 @@ module design_1_wrapper
   wire [0:0]MotorCtrl_1;
   wire [0:0]MotorCtrl_2;
   wire [0:0]MotorCtrl_3;
+  wire button_0;
+  wire button_1;
+  wire button_2;
+  wire button_3;
   wire [7:0]d;
   wire href;
   wire led_pwm_0;
@@ -132,7 +142,6 @@ module design_1_wrapper
   wire [0:0]ov7670_powerdown;
   wire [0:0]ov7670_reset;
   wire pclk;
-  wire [3:0]pi_action;
   wire pwm0;
   wire pwm1;
   wire vsync;
@@ -169,6 +178,10 @@ module design_1_wrapper
         .MotorCtrl_1(MotorCtrl_1),
         .MotorCtrl_2(MotorCtrl_2),
         .MotorCtrl_3(MotorCtrl_3),
+        .button_0(button_0),
+        .button_1(button_1),
+        .button_2(button_2),
+        .button_3(button_3),
         .d(d),
         .href(href),
         .led_pwm_0(led_pwm_0),
@@ -177,7 +190,6 @@ module design_1_wrapper
         .ov7670_powerdown(ov7670_powerdown),
         .ov7670_reset(ov7670_reset),
         .pclk(pclk),
-        .pi_action(pi_action),
         .pwm0(pwm0),
         .pwm1(pwm1),
         .vsync(vsync),

@@ -8,18 +8,14 @@
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
-constexpr const char *SmartNav::__FUZZY_JSON;
-
-SmartNav::SmartNav(PositionEstimator::cartesianPosition arrival_point) 
-    : __arrival_point(arrival_point) {
+SmartNav::SmartNav() {
   DEBUG_PRINT("Smartnav constructor.\n");
-  // Parse fuzzy system file 
-  std::ifstream fuzzy_system_file(__FUZZY_JSON);
-  const json fuzzy_system_json = json::parse(fuzzy_system_file);
-  // Create fuzzy control system object
-  __fuzzy_system = std::make_shared<FuzzyControlSystem>(FuzzyControlSystem::parse(fuzzy_system_json));
   // Create Capture frame object
   __capture_frame = std::make_shared<CaptureFrame>(__frame_callback, 640, 480, CaptureFrame::pixelFormat::PIX_FMT_RGB24, 1);
+  // Create Tracker object
+  __tracker = std::make_shared<Tracker>();
+  // Create Reporter object
+  __reporter = std::make_shared<Reporter>(__tracker);
   // Create a new thread
   __is_running = true;
   __navigation_thread = std::thread(&SmartNav::__navigation, this);
@@ -28,153 +24,104 @@ SmartNav::SmartNav(PositionEstimator::cartesianPosition arrival_point)
 
 SmartNav::~SmartNav() {
   DEBUG_PRINT("Smartnav destructor.\n");
+  __is_running = false;
   __navigation_thread.join();
 };
 
 void SmartNav::__frame_callback(std::shared_ptr<VirtualImage> img, void* ctx) {
-  CaptureFrame &context = *static_cast<CaptureFrame*> (ctx); 
-  img->colorBalancing(0.5);
-  img->increaseSaturation(50);
-  img->saveAsJpg("/tmp/test.jpg");
-  context.frame_processor.processFrame(img);
+  CaptureFrame* context = static_cast<CaptureFrame*> (ctx); 
+  img->colorBalancing(1);
+  img->increaseSaturation(60);
+  img->flip(1);
+  if (context->getSaveFrameStatus()) {
+    img->saveAsJpg("/home/root/test.jpg");
+    context->setSaveFrame(false);
+  }
+  context->frame_processor.processFrame(img);
 }
 
 void SmartNav::__navigation() {
-  float w = 0;
-  float yaw;
-  float alpha = 0;
-  float theta = 0;
-  int samples = 0;
-  float curr_angle;
-  float speed_variation;
-  float curr_angle_to_go;
-  bool object_found = false; 
-  std::vector<RecognitionResult> results;
+  float curr_angle_to_target;
+  float curr_robot_angle;
+  std::pair<float, float> pwm;
+  CartesianPosition curr_position;
+  // Relative target position to the current position
+  CartesianPosition rel_target_from_curr_pos;
 
-  // Relativize the point to terrestrial north
-  __arrival_point = __position_estimator.relativizePoint(__arrival_point); 
-  DEBUG_PRINT("__arrival_point x: %f, y: %f.\n", __arrival_point.x, __arrival_point.y);
-  // Wait one second before to start the travel
-  sleep(3);
   while(__is_running) {
-    // Estimate the current position
-    PositionEstimator::cartesianPosition curr_position = __position_estimator.getCurrentPosition();    
-    PositionEstimator::cartesianPosition curr_arrival_point = __getDestination(curr_position);
-    // Get the current angle of the robot
-    curr_angle = __position_estimator.getCurrentAngle();
-    // Get the current direction where i've to go to reach my target 
-    curr_angle_to_go = whereHaveToGo(curr_arrival_point);
-    // Get sensors distance
-    std::vector<int> distances = __distance_sensor.getDistances();
-    if (distances.size() != 3)
-      throw std::runtime_error("Not three sensor outputs.");
-    // Check for collision or target arrivation 
-    if (__arrivation(curr_position) || (distances[1] < 10)) 
-      break;
-    // If one obstacle is ahead, stop and wait for the image detector response 
-    if ((distances[1] < 50) && (__obstacles.empty())) {
-      // Stop the robot
-      __driver.update(Driver::operationMode::OP_STOP, 0, 0);
-      // Get the image processor results
-      while(object_found == false) {
-        results = __capture_frame->frame_processor.getResults();
-        for (auto &result : results) {
-          DEBUG_PRINT("Label: %d.\n", result.label);
-          if (result.label == 75) { // Waiting for the PC or TV detection
-            object_found = true;
-            // Creating the obstacle
-            PositionEstimator::polarPosition obstacle_polar(curr_angle, (float)distances[1]);
-            PositionEstimator::cartesianPosition obstacle_cartesian_pos = __position_estimator.polarToCartesian(obstacle_polar);
-            obstacle_cartesian_pos.x = obstacle_cartesian_pos.x + curr_position.x;
-            obstacle_cartesian_pos.y = obstacle_cartesian_pos.y + curr_position.y;
-            // Width of the obstacle to avoid 
-            // Leftmost point of the obstacle's width 
-            PositionEstimator::polarPosition leftmost_obstacle_point_pol((atan2(result.xmax*16, (float)distances[1])*180/M_PI) + curr_angle, 
-                (std::sqrt(std::pow(distances[1], 2) + std::pow(result.xmax*16, 2))) );
-            PositionEstimator::cartesianPosition leftmost_obstacle_point_cart = __position_estimator.polarToCartesian(leftmost_obstacle_point_pol);
-            leftmost_obstacle_point_cart.x = leftmost_obstacle_point_cart.x + curr_position.x;
-            leftmost_obstacle_point_cart.y = leftmost_obstacle_point_cart.y + curr_position.y;
-            // Rightmost point of the obstacle's width 
-            PositionEstimator::polarPosition rightmost_obstacle_point_pol((atan2(-result.xmin*16, (float)distances[1])*180/M_PI) + curr_angle, 
-                std::sqrt(std::pow(distances[1], 2) + std::pow(result.xmin*16, 2)));
-            PositionEstimator::cartesianPosition rightmost_obstacle_point_cart = __position_estimator.polarToCartesian(rightmost_obstacle_point_pol);
-            rightmost_obstacle_point_cart.x = rightmost_obstacle_point_cart.x + curr_position.x;
-            rightmost_obstacle_point_cart.y = rightmost_obstacle_point_cart.y + curr_position.y;
-            // Create the obstacle
-            Obstacle obstacle(obstacle_cartesian_pos, leftmost_obstacle_point_cart, rightmost_obstacle_point_cart);
-            __obstacles.push_back(obstacle);
-          }
-        }
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-      }
-    }
-    DEBUG_PRINT("Brightness: %d.\n", (int)__capture_frame->getBrightness());
-    DEBUG_PRINT("Distances: %d %d %d.\n", distances[0], distances[1], distances[2]);
-    if (!__obstacles.empty()) {
-      auto obstacle = __position_estimator.cartensianToPolar(__getObstaclePosition(curr_position));
-      auto destination = __position_estimator.cartensianToPolar(curr_arrival_point);
-      DEBUG_PRINT("obstacle.distance %f, destination.distance %f.\n", obstacle.distance, destination.distance);
-      DEBUG_PRINT("obstacle.angle %f, destination.angle %f.\n", obstacle.angle, destination.angle);
-      alpha = (obstacle.distance / destination.distance);
-      theta = __getDifference(obstacle.angle, destination.angle);
-    }
-    else {
-      alpha = 0;
-      theta = 0;
-    }
-    DEBUG_PRINT("alpha %f, theta %f.\n", alpha, theta);
-    std::vector<std::pair<std::string, float>> inputs = { {"alpha", alpha},
-                                                          {"theta", theta}, 
-                                                          {"lighting", (float)__capture_frame->getBrightness()}  };
-    // Evaluate fuzzy system
-    auto outputs = __fuzzy_system->evaluate(inputs);
-    // Read outputs 
-    for (FuzzyOutput &output : outputs) {
-      if (output.getName() == "w") 
-        w = output.defuzzification();
-      else if (output.getName() == "car_headlights")
-        __headlights.update((uint32_t)output.defuzzification());
-    }
-    speed_variation = 5;
-    if (!__obstacles.empty()) {
-      float obstacle_angle = __position_estimator.cartensianToPolar(__getObstaclePosition(curr_position)).angle;
-      // Im looking go against the obstacle so..
-      obstacle_angle = (obstacle_angle + 180.0);
-      if (obstacle_angle > 180)
-        obstacle_angle = obstacle_angle - 360; 
-      DEBUG_PRINT("obstacle_angle %f.\n", obstacle_angle);
-      yaw = w * obstacle_angle + (1-w) * curr_angle_to_go;
-    }
-    else {
-      yaw = curr_angle_to_go;
-    }
-    float angle_diff = __getDifference(yaw, curr_angle);
-    DEBUG_PRINT("angle_diff %f.\n", angle_diff);
-    float yaw_pwm;
-    if (angle_diff > 0)
-      yaw_pwm = 10;
-    else 
-      yaw_pwm = -10;
-    DEBUG_PRINT("Speed variation: %f. w: %f. yaw: %f.\n", speed_variation, w, yaw_pwm);
-    __driver.update(Driver::operationMode::OP_DRIVE, (int)speed_variation, (int)yaw_pwm);
+    // Lights control
+    __headlights.update(__smart_lights.evaluate((float)__capture_frame->getBrightness()));
     
-    if ((samples % 1) == 0) {
-      // Save positions
-      std::chrono::steady_clock::time_point time = std::chrono::steady_clock::now();
-      DEBUG_PRINT("Save positions.\n");
-      __position_history.push_back(curr_position);
-      __angle_history.push_back(curr_angle);
-      __arrival_point_history.push_back(curr_arrival_point);
-      __timestamp.push_back(std::chrono::duration_cast<std::chrono::seconds>(time.time_since_epoch()).count());
-    }      
-    samples++;
-    DEBUG_PRINT("curr_position x: %f, y: %f.\n", curr_position.x, curr_position.y);
-    DEBUG_PRINT("curr_arrival_point.x: %f, curr_arrival_point.y: %f.\n", curr_arrival_point.x, curr_arrival_point.y);
-    DEBUG_PRINT("curr_angle: %f.\n", curr_angle);
-    DEBUG_PRINT("whereHaveToGo: %f.\n", curr_angle_to_go);
+    if (!__tracker->isTargetsEmpty()) {
+      DEBUG_PRINT("__arrival_point x: %f, y: %f.\n", 
+          __tracker->getTargetToReach().x, __tracker->getTargetToReach().y);
+      curr_position = __position_estimator.getCurrentPosition();
+      curr_robot_angle = __position_estimator.getCurrentAngle();
+      rel_target_from_curr_pos = __getRelativeTargetPos(curr_position, __tracker->getTargetToReach());
+      auto time = std::chrono::system_clock::now();
+      Tracker::StepsTracker steps_tracker(  std::chrono::duration_cast<std::chrono::seconds>(time.time_since_epoch()).count(),
+                                            curr_robot_angle,
+                                            curr_position,
+                                            rel_target_from_curr_pos);
+      __tracker->addStepsTracker(steps_tracker);
+      // Get the current direction where i've to go to reach my target
+      curr_angle_to_target = __whereHaveToGo(rel_target_from_curr_pos);
+      // Get sensors distance
+      std::vector<int> distances = __distance_sensor.getDistances();
+      if (distances.size() != 3)
+        throw std::runtime_error("Not three sensor outputs."); 
+      // Target reached
+      if (__arrivation(curr_position, __tracker->getTargetToReach())) {
+        __driver.update(Driver::operationMode::OP_STOP, 0, 0);
+        __tracker->targetReached();
+        continue; // Go to start of loop
+      }
+      // If one obstacle is ahead, stop and wait for the image detector response 
+      if (distances[1] < 50) {
+        __visualization(curr_robot_angle, (float)distances[1], curr_position);
+      }
+      // Using SmartEvasion
+      pwm = __evader.evade(curr_position, rel_target_from_curr_pos, 
+          curr_angle_to_target, curr_robot_angle, __obstacles);
+      // Motor control
+      __driver.update_pwm((int)pwm.first, (int)pwm.second);
+      // Debug
+      DEBUG_PRINT("Brightness: %d.\n", (int)__capture_frame->getBrightness());
+      DEBUG_PRINT("Distances: %d %d %d.\n", distances[0], distances[1], distances[2]);
+      DEBUG_PRINT("pwm0 %f, pwm1 %f.\n", pwm.first, pwm.second);
+      DEBUG_PRINT("curr_position x: %f, y: %f.\n", curr_position.x, curr_position.y);
+      DEBUG_PRINT("Current target.x: %f, %f.\n", __tracker->getTargetToReach().x, __tracker->getTargetToReach().y);
+      DEBUG_PRINT("curr_robot_angle: %f.\n", curr_robot_angle);
+      DEBUG_PRINT("whereHaveToGo: %f.\n", curr_angle_to_target);
+    }
+    else
+      std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   __driver.update(Driver::operationMode::OP_STOP, 0, 0);
-  printf("Append to the history file.\n");
-  __utilities.appedToFile(utilities::metadata(__position_history, __angle_history, __arrival_point_history,
-          __timestamp, PositionEstimator::cartesianPosition(0.0, 0.0), __arrival_point, __obstacles));
 };
+
+void SmartNav::__visualization(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position) {
+  bool object_found = false; 
+  std::vector<RecognitionResult> recognized_objects;
+  // Stop the robot
+  __driver.update(Driver::operationMode::OP_STOP, 0, 0);
+  // Get the results of the image processor 
+  while(object_found == false && __is_running) {
+    recognized_objects = __capture_frame->frame_processor.getResults();
+    for (auto &recognized_object : recognized_objects) {
+      DEBUG_PRINT("Label: %d.\n", recognized_object.label);
+      if ((recognized_object.label == 75) || (recognized_object.label == 76)) { // Waiting for the specific class to detect
+        // Save the next frame
+        __capture_frame->setSaveFrame(true);
+        // The object was found, save the CNN outputs
+        object_found = true;  
+        // Add the recognized object to the tracker
+        __tracker->addRecognizedObject(recognized_object);
+        // Create the obstacle
+        Obstacle obstacle(curr_robot_angle, distance_to_obstacle, curr_position, recognized_object);
+        __obstacles.push_back(obstacle);
+      }
+    }
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+}

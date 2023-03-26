@@ -6,20 +6,22 @@
 
 
 
-Inheritance diagram for Log\+Stream\+:\nopagebreak
+Inheritance diagram for Log\+Stream\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{classLogStream__inherit__graph}
+\includegraphics[width=191pt]{classLogStream__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Log\+Stream\+:\nopagebreak
+Collaboration diagram for Log\+Stream\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{classLogStream__coll__graph}
+\includegraphics[width=350pt]{classLogStream__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -31,6 +33,13 @@ Collaboration diagram for Log\+Stream\+:\nopagebreak
 \item 
 std\+::string \mbox{\hyperlink{classLogStream_a6e7dfbe0040b7495b266f5501ecbc43e}{level\+To\+String}} ()
 \begin{DoxyCompactList}\small\item\em Get the string of the level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger}{Logger}} \& \mbox{\hyperlink{classLogStream_a332700ab1e062d97f3aacc0869ab88be}{\+\_\+\+\_\+logger\+\_\+instance}}
+\item 
+\mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67b}{Log\+Levels}} \mbox{\hyperlink{classLogStream_af589a6376975b47d003e9b4573e18579}{\+\_\+\+\_\+log\+\_\+level}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -63,6 +72,21 @@ Get the string of the level.
 std\+::string 
 \end{DoxyReturn}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLogStream_af589a6376975b47d003e9b4573e18579}\label{classLogStream_af589a6376975b47d003e9b4573e18579}} 
+\index{LogStream@{LogStream}!\_\_log\_level@{\_\_log\_level}}
+\index{\_\_log\_level@{\_\_log\_level}!LogStream@{LogStream}}
+\doxysubsubsection{\texorpdfstring{\_\_log\_level}{\_\_log\_level}}
+{\footnotesize\ttfamily \mbox{\hyperlink{LogLevels_8hpp_ac1d82eeec924664c269c54f36da7d67b}{Log\+Levels}} Log\+Stream\+::\+\_\+\+\_\+log\+\_\+level\hspace{0.3cm}{\ttfamily [private]}}
+
+Log level \mbox{\Hypertarget{classLogStream_a332700ab1e062d97f3aacc0869ab88be}\label{classLogStream_a332700ab1e062d97f3aacc0869ab88be}} 
+\index{LogStream@{LogStream}!\_\_logger\_instance@{\_\_logger\_instance}}
+\index{\_\_logger\_instance@{\_\_logger\_instance}!LogStream@{LogStream}}
+\doxysubsubsection{\texorpdfstring{\_\_logger\_instance}{\_\_logger\_instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}\& Log\+Stream\+::\+\_\+\+\_\+logger\+\_\+instance\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classLogger}{Logger}} instance 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -13,22 +13,14 @@ Include dependency graph for Fuzzy\+Output.\+cpp\+:\nopagebreak
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{FuzzyOutput_8cpp_a2b1da0cb514f35f2dad5f19754377274}{DEBUG\+\_\+\+OUTPUT}}~1
-\item 
-\#define \mbox{\hyperlink{FuzzyOutput_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}{DEBUG\+\_\+\+PRINT}}(fmt, ...)~fprintf(stderr, fmt, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\#define \mbox{\hyperlink{FuzzyOutput_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}{DEBUG\+\_\+\+PRINT}}(fmt,  args...)~/$\ast$ Don\textquotesingle{}t do anything in release builds $\ast$/
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{FuzzyOutput_8cpp_a2b1da0cb514f35f2dad5f19754377274}\label{FuzzyOutput_8cpp_a2b1da0cb514f35f2dad5f19754377274}} 
-\index{FuzzyOutput.cpp@{FuzzyOutput.cpp}!DEBUG\_OUTPUT@{DEBUG\_OUTPUT}}
-\index{DEBUG\_OUTPUT@{DEBUG\_OUTPUT}!FuzzyOutput.cpp@{FuzzyOutput.cpp}}
-\doxysubsubsection{\texorpdfstring{DEBUG\_OUTPUT}{DEBUG\_OUTPUT}}
-{\footnotesize\ttfamily \#define DEBUG\+\_\+\+OUTPUT~1}
-
-\mbox{\Hypertarget{FuzzyOutput_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}\label{FuzzyOutput_8cpp_aed581de90eb37c5e3a311b1936e7f0d6}} 
+\mbox{\Hypertarget{FuzzyOutput_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}\label{FuzzyOutput_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}} 
 \index{FuzzyOutput.cpp@{FuzzyOutput.cpp}!DEBUG\_PRINT@{DEBUG\_PRINT}}
 \index{DEBUG\_PRINT@{DEBUG\_PRINT}!FuzzyOutput.cpp@{FuzzyOutput.cpp}}
 \doxysubsubsection{\texorpdfstring{DEBUG\_PRINT}{DEBUG\_PRINT}}
-{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})~fprintf(stderr, fmt, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{args... }\end{DoxyParamCaption})~/$\ast$ Don\textquotesingle{}t do anything in release builds $\ast$/}
 

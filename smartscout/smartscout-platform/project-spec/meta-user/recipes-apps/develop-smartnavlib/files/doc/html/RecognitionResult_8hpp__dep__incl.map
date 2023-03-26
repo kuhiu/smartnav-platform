@@ -1,10 +1,12 @@
 <map id="modules/capture&#45;frame/RecognitionResult.hpp" name="modules/capture&#45;frame/RecognitionResult.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="104,5,279,47"/>
-<area shape="rect" id="node2" href="$Detector_8hpp.html" title=" " alt="" coords="104,95,279,136"/>
+<area shape="rect" id="node1" title=" " alt="" coords="312,5,487,47"/>
+<area shape="rect" id="node2" href="$Detector_8hpp.html" title=" " alt="" coords="204,95,379,136"/>
+<area shape="rect" id="node10" href="$utilities_8hpp.html" title=" " alt="" coords="419,102,631,129"/>
 <area shape="rect" id="node3" href="$Detector_8cpp.html" title=" " alt="" coords="5,184,180,225"/>
 <area shape="rect" id="node4" href="$FrameProcessor_8hpp.html" title=" " alt="" coords="204,184,379,225"/>
-<area shape="rect" id="node5" href="$CaptureFrame_8hpp.html" title=" " alt="" coords="104,273,279,315"/>
-<area shape="rect" id="node8" href="$FrameProcessor_8cpp.html" title=" " alt="" coords="303,273,477,315"/>
-<area shape="rect" id="node6" href="$CaptureFrame_8cpp.html" title=" " alt="" coords="20,363,195,404"/>
-<area shape="rect" id="node7" href="$SmartNav_8hpp.html" title=" " alt="" coords="219,370,334,397"/>
+<area shape="rect" id="node5" href="$CaptureFrame_8hpp.html" title=" " alt="" coords="71,273,245,315"/>
+<area shape="rect" id="node7" href="$SmartNav_8hpp.html" title=" " alt="" coords="249,370,363,397"/>
+<area shape="rect" id="node9" href="$FrameProcessor_8cpp.html" title=" " alt="" coords="321,273,496,315"/>
+<area shape="rect" id="node6" href="$CaptureFrame_8cpp.html" title=" " alt="" coords="49,363,224,404"/>
+<area shape="rect" id="node8" href="$SmartNav_8cpp.html" title=" " alt="" coords="249,452,363,479"/>
 </map>

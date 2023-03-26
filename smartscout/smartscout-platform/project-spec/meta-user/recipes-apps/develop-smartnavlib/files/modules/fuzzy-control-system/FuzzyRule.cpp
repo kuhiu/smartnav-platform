@@ -6,7 +6,6 @@ constexpr const char *FuzzyRule::__NAME_KEY;
 constexpr const char *FuzzyRule::__INPUT_COND_KEY;
 constexpr const char *FuzzyRule::__OUTPUT_COND_KEY;
 
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyRule.cpp
 //#define DEBUG_RULE 1
 #ifdef DEBUG_RULE
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
@@ -14,15 +13,6 @@ constexpr const char *FuzzyRule::__OUTPUT_COND_KEY;
 #else
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
-=======
-#define DEBUG_RULE 1
-#ifdef DEBUG_RULE
-#define DEBUG_PRINT(fmt, ...) fprintf(stderr, fmt, __VA_ARGS__)
-#else
-#define DEBUG_PRINT(fmt, ...) do {} while (0)
-#endif
-
->>>>>>> master:smartscout/smartnav-platform/project-spec/meta-user/recipes-apps/develop-smartnavlib/files/modules/fuzzy-control-system/FuzzyRule.cpp
 void FuzzyRule::evaluate(std::vector<FuzzyInput> &system_input, std::vector<FuzzyOutput> &system_output) { 
   float rule_strength = __fuzzy_input_condition->evaluate(system_input); 
   DEBUG_PRINT("Rule name %s Rule strenght = %f.\n", __name.c_str(), rule_strength);

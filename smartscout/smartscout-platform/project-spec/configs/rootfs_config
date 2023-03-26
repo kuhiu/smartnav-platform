@@ -3944,6 +3944,7 @@ CONFIG_develop-smartnavlib=y
 CONFIG_jsonnlohmann=y
 # CONFIG_peekpoke is not set
 CONFIG_smartnav-app=y
+CONFIG_smartnav-app-init=y
 # CONFIG_smartnavsys-lib is not set
 CONFIG_tensorflowlite-lib=y
 CONFIG_testing-mailbox=y
@@ -3952,16 +3953,12 @@ CONFIG_testing-mailbox=y
 # modules 
 #
 CONFIG_axi-timer=y
-<<<<<<< HEAD:smartscout/smartscout-platform/project-spec/configs/rootfs_config
+CONFIG_buttons=y
 # CONFIG_encorder is not set
 CONFIG_hcsr04=y
 CONFIG_hmc5883l=y
 CONFIG_l298n=y
 CONFIG_mailbox=y
-=======
-CONFIG_hcsr04=y
-CONFIG_l298n=y
->>>>>>> master:smartscout/smartnav-platform/project-spec/configs/rootfs_config
 
 #
 # user packages 

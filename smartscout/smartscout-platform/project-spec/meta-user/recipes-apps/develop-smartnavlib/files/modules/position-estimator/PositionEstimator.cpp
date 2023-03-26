@@ -24,8 +24,8 @@ PositionEstimator::~PositionEstimator() {
   __encoders_thread.join();
 };
 
-PositionEstimator::cartesianPosition PositionEstimator::getCurrentPosition () {
-  cartesianPosition ret;
+CartesianPosition PositionEstimator::getCurrentPosition () {
+  CartesianPosition ret;
 
   { // thread safe
     std::lock_guard<std::mutex> lock(__m);
@@ -35,7 +35,7 @@ PositionEstimator::cartesianPosition PositionEstimator::getCurrentPosition () {
 };
 
 void PositionEstimator::__readEncoders() {
-  polarPosition polar;
+  PolarPosition polar;
 
   while (__is_running) {
     // Ask to microblaze the encoder count and save value

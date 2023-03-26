@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_5faxis_450',['Y_AXIS',['../classCompass.html#ab46d1c5e005fe40bdbc50389cd263654a9280735d434f2880096239272173eb70',1,'Compass']]]
+  ['warning_893',['Warning',['../LogLevels_8hpp.html#ac1d82eeec924664c269c54f36da7d67ba0eaadb4fcb48a0a0ed7bc9868be9fbaa',1,'LogLevels.hpp']]]
 ];

@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Capture\+Frame\+:\nopagebreak
+Collaboration diagram for Capture\+Frame\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=235pt]{classCaptureFrame__coll__graph}
+\includegraphics[width=350pt]{classCaptureFrame__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Classes}
@@ -33,12 +34,91 @@ using \mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Even
 \item 
 \mbox{\hyperlink{classCaptureFrame_a16d6e39dcc60e44ff0f7c749b5bde78a}{$\sim$\+Capture\+Frame}} ()
 \item 
-uint32\+\_\+t \mbox{\hyperlink{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}{get\+Brightness}} () const
-\begin{DoxyCompactList}\small\item\em Return brightness. \end{DoxyCompactList}\end{DoxyCompactItemize}
+uint32\+\_\+t \mbox{\hyperlink{classCaptureFrame_a22adfcaedbfbd25cf3ed8b34df8e6d20}{get\+Brightness}} ()
+\begin{DoxyCompactList}\small\item\em Return brightness. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCaptureFrame_ac3bb151a26d6c5235972ef1d258459d3}{set\+Save\+Frame}} (bool state)
+\begin{DoxyCompactList}\small\item\em Set the Save Frame object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCaptureFrame_a459c962d97a82fc67191a697d17d22e4}{get\+Save\+Frame\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Get the Save Frame Status object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classFrameProcessor}{Frame\+Processor}} \mbox{\hyperlink{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}{frame\+\_\+processor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCaptureFrame_ac846f61398b2ffe29e3c55a005396529}{\+\_\+\+\_\+open\+Device}} ()
+\item 
+void \mbox{\hyperlink{classCaptureFrame_a5708b63a60733c6f28461ffdc448c02f}{\+\_\+\+\_\+close\+Device}} ()
+\item 
+void \mbox{\hyperlink{classCaptureFrame_a8c9a2281267dc31e38fe117709544dbe}{\+\_\+\+\_\+init\+Device}} (uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}} pixelformat)
+\item 
+void \mbox{\hyperlink{classCaptureFrame_a136690154fd1a1422ca67148211a436b}{\+\_\+\+\_\+uninit\+Device}} ()
+\item 
+void \mbox{\hyperlink{classCaptureFrame_aabf278e58064af3db0cd0498d215d126}{\+\_\+\+\_\+set\+Format}} (uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}} pixel\+\_\+format)
+\item 
+void \mbox{\hyperlink{classCaptureFrame_a8c80852c3b58edba1c80fe5dd1e3bafe}{\+\_\+\+\_\+get\+Format}} ()
+\item 
+void \mbox{\hyperlink{classCaptureFrame_a05b45038c2bc06c514c6490a1d7edcf7}{\+\_\+\+\_\+set\+Framerate}} ()
+\item 
+void \mbox{\hyperlink{classCaptureFrame_acd6361513d22266ba6c54d6d6228e116}{\+\_\+\+\_\+set\+Field}} (v4l2\+\_\+pix\+\_\+format\+\_\+mplane \&field, uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}} pixel\+\_\+format)
+\begin{DoxyCompactList}\small\item\em Initialize fields. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCaptureFrame_a839c5e6c0bb9eec5fac07efb9269d544}{\+\_\+\+\_\+start\+Capturing}} ()
+\item 
+bool \mbox{\hyperlink{classCaptureFrame_a68c49d0e23e01ee1d90616c608c04fc9}{\+\_\+\+\_\+read\+Frame}} (int frame\+\_\+number)
+\item 
+void \mbox{\hyperlink{classCaptureFrame_af169cda892f218de2054c776e9a33f35}{\+\_\+\+\_\+capture}} ()
+\item 
+int \mbox{\hyperlink{classCaptureFrame_a6f1d2744e366fabfea5cfd904df9ab5b}{\+\_\+\+\_\+xioctl}} (int fd, int request, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em ioctl wrapper \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCaptureFrame_a0be1ff25748e9989b44dff6c042fdf18}{\+\_\+\+\_\+init\+\_\+mmap}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCaptureFrame_a2b8d8abc2680be9f37413b07a8336e91}{\+\_\+\+\_\+fd}}
+\item 
+bool \mbox{\hyperlink{classCaptureFrame_a233eb7fb46f4ba9f68f68d99f3e5a25c}{\+\_\+\+\_\+save\+\_\+frame}} = false
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classov7670}{ov7670}} $>$ \mbox{\hyperlink{classCaptureFrame_a0f451809ab0b719cdcd5f6c3861c227e}{\+\_\+\+\_\+ov7670}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classv__demosaic}{v\+\_\+demosaic}} $>$ \mbox{\hyperlink{classCaptureFrame_a23b3bfcbcaa6ce62d5aee323298ab22e}{\+\_\+\+\_\+v\+\_\+demosaic}}
+\item 
+struct stat \mbox{\hyperlink{classCaptureFrame_aacb536af3f6e8d30b32399266308fb7c}{\+\_\+\+\_\+st}}
+\item 
+v4l2\+\_\+capability \mbox{\hyperlink{classCaptureFrame_adeeb4ad1bd34974792caa965bc712f57}{\+\_\+\+\_\+capability}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCaptureFrame_1_1ImageBuffer}{Image\+Buffer}} $>$ \mbox{\hyperlink{classCaptureFrame_ac585159908bc9733a210d932edc22056}{\+\_\+\+\_\+image\+\_\+buffers}}
+\item 
+v4l2\+\_\+format \mbox{\hyperlink{classCaptureFrame_ab8e125404f4a06275e93250e4443ae36}{\+\_\+\+\_\+format}}
+\item 
+const int \mbox{\hyperlink{classCaptureFrame_aeb6994b64212675f88a98e69e8f8dd5b}{\+\_\+\+\_\+num\+\_\+planes}} = 3
+\item 
+int \mbox{\hyperlink{classCaptureFrame_aa435f21f9bedaf8c370305ccc4c00a19}{\+\_\+\+\_\+driver\+\_\+type}}
+\item 
+int \mbox{\hyperlink{classCaptureFrame_aac0319a506584fd1878efca2a95ac7b7}{\+\_\+\+\_\+buffer\+\_\+type}}
+\item 
+v4l2\+\_\+streamparm \mbox{\hyperlink{classCaptureFrame_a5c6a1aa2a8845ef6b55b1ce6af42b2d2}{\+\_\+\+\_\+parm}}
+\item 
+v4l2\+\_\+requestbuffers \mbox{\hyperlink{classCaptureFrame_a7a1bf34092937ec6f54f1cf1bb0cf7eb}{\+\_\+\+\_\+req}}
+\item 
+const \mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Event\+Callback}} \mbox{\hyperlink{classCaptureFrame_a829ed3fd4776e64369b26fc7af9f6c12}{\+\_\+\+\_\+cb}}
+\item 
+bool \mbox{\hyperlink{classCaptureFrame_ad64ee36b5410a963cb74ec062b6a2cd6}{\+\_\+\+\_\+capture\+\_\+frame\+\_\+is\+\_\+running}}
+\item 
+std\+::thread \mbox{\hyperlink{classCaptureFrame_a7c414f3f97794097c06c1c4e7b50fe39}{\+\_\+\+\_\+capture\+\_\+thread}}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classCaptureFrame_ade937cf51aab06fed7fe185c7f0dce96}{\+\_\+\+\_\+frame\+\_\+count}}
+\item 
+std\+::atomic$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classCaptureFrame_a80a5c2461ece61cf6242f4326c8f48c5}{\+\_\+\+\_\+brightness}}
+\item 
+std\+::mutex \mbox{\hyperlink{classCaptureFrame_a808a1964516267ea3440492a7ee5650a}{\+\_\+\+\_\+brightness\+\_\+guard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr const char $\ast$ \mbox{\hyperlink{classCaptureFrame_ad3a2e6ee65876dcc5a8df060394cf156}{\+\_\+\+\_\+\+DEVICE}} = \{\char`\"{}/dev/video0\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
@@ -85,11 +165,114 @@ PIX\+\_\+\+FMT\+\_\+\+RGB24&\\
 \mbox{\hyperlink{classCaptureFrame}{Capture\+Frame}} destructor 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}\label{classCaptureFrame_aa77dbafb29e4aee47244ff4cf2f0b59f}} 
+\mbox{\Hypertarget{classCaptureFrame_af169cda892f218de2054c776e9a33f35}\label{classCaptureFrame_af169cda892f218de2054c776e9a33f35}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_capture@{\_\_capture}}
+\index{\_\_capture@{\_\_capture}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_capture()}{\_\_capture()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+capture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Capture frame \mbox{\Hypertarget{classCaptureFrame_a5708b63a60733c6f28461ffdc448c02f}\label{classCaptureFrame_a5708b63a60733c6f28461ffdc448c02f}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_closeDevice@{\_\_closeDevice}}
+\index{\_\_closeDevice@{\_\_closeDevice}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_closeDevice()}{\_\_closeDevice()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+close\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Close device driver \mbox{\Hypertarget{classCaptureFrame_a8c80852c3b58edba1c80fe5dd1e3bafe}\label{classCaptureFrame_a8c80852c3b58edba1c80fe5dd1e3bafe}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_getFormat@{\_\_getFormat}}
+\index{\_\_getFormat@{\_\_getFormat}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_getFormat()}{\_\_getFormat()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+get\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Get format \mbox{\Hypertarget{classCaptureFrame_a0be1ff25748e9989b44dff6c042fdf18}\label{classCaptureFrame_a0be1ff25748e9989b44dff6c042fdf18}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_init\_mmap@{\_\_init\_mmap}}
+\index{\_\_init\_mmap@{\_\_init\_mmap}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_mmap()}{\_\_init\_mmap()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+init\+\_\+mmap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Init mmap \mbox{\Hypertarget{classCaptureFrame_a8c9a2281267dc31e38fe117709544dbe}\label{classCaptureFrame_a8c9a2281267dc31e38fe117709544dbe}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_initDevice@{\_\_initDevice}}
+\index{\_\_initDevice@{\_\_initDevice}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_initDevice()}{\_\_initDevice()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+init\+Device (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}}}]{pixelformat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Init device \mbox{\Hypertarget{classCaptureFrame_ac846f61398b2ffe29e3c55a005396529}\label{classCaptureFrame_ac846f61398b2ffe29e3c55a005396529}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_openDevice@{\_\_openDevice}}
+\index{\_\_openDevice@{\_\_openDevice}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_openDevice()}{\_\_openDevice()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+open\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Open device driver \mbox{\Hypertarget{classCaptureFrame_a68c49d0e23e01ee1d90616c608c04fc9}\label{classCaptureFrame_a68c49d0e23e01ee1d90616c608c04fc9}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_readFrame@{\_\_readFrame}}
+\index{\_\_readFrame@{\_\_readFrame}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_readFrame()}{\_\_readFrame()}}
+{\footnotesize\ttfamily bool Capture\+Frame\+::\+\_\+\+\_\+read\+Frame (\begin{DoxyParamCaption}\item[{int}]{frame\+\_\+number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Read frame \mbox{\Hypertarget{classCaptureFrame_acd6361513d22266ba6c54d6d6228e116}\label{classCaptureFrame_acd6361513d22266ba6c54d6d6228e116}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_setField@{\_\_setField}}
+\index{\_\_setField@{\_\_setField}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_setField()}{\_\_setField()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+set\+Field (\begin{DoxyParamCaption}\item[{v4l2\+\_\+pix\+\_\+format\+\_\+mplane \&}]{field,  }\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}}}]{pixel\+\_\+format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & Field to be initialized \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCaptureFrame_aabf278e58064af3db0cd0498d215d126}\label{classCaptureFrame_aabf278e58064af3db0cd0498d215d126}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_setFormat@{\_\_setFormat}}
+\index{\_\_setFormat@{\_\_setFormat}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_setFormat()}{\_\_setFormat()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+set\+Format (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classCaptureFrame_a37832000d52bc3fa81c8e556a77b0772}{pixel\+Format}}}]{pixel\+\_\+format }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Set format \mbox{\Hypertarget{classCaptureFrame_a05b45038c2bc06c514c6490a1d7edcf7}\label{classCaptureFrame_a05b45038c2bc06c514c6490a1d7edcf7}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_setFramerate@{\_\_setFramerate}}
+\index{\_\_setFramerate@{\_\_setFramerate}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_setFramerate()}{\_\_setFramerate()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+set\+Framerate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Set the framerate \mbox{\Hypertarget{classCaptureFrame_a839c5e6c0bb9eec5fac07efb9269d544}\label{classCaptureFrame_a839c5e6c0bb9eec5fac07efb9269d544}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_startCapturing@{\_\_startCapturing}}
+\index{\_\_startCapturing@{\_\_startCapturing}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_startCapturing()}{\_\_startCapturing()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+start\+Capturing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Start capturing frames \mbox{\Hypertarget{classCaptureFrame_a136690154fd1a1422ca67148211a436b}\label{classCaptureFrame_a136690154fd1a1422ca67148211a436b}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_uninitDevice@{\_\_uninitDevice}}
+\index{\_\_uninitDevice@{\_\_uninitDevice}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_uninitDevice()}{\_\_uninitDevice()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::\+\_\+\+\_\+uninit\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Uninit device \mbox{\Hypertarget{classCaptureFrame_a6f1d2744e366fabfea5cfd904df9ab5b}\label{classCaptureFrame_a6f1d2744e366fabfea5cfd904df9ab5b}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_xioctl@{\_\_xioctl}}
+\index{\_\_xioctl@{\_\_xioctl}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_xioctl()}{\_\_xioctl()}}
+{\footnotesize\ttfamily int Capture\+Frame\+::\+\_\+\+\_\+xioctl (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{int}]{request,  }\item[{void $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ioctl wrapper 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & File descriptor \\
+\hline
+{\em request} & ioctl request \\
+\hline
+{\em arg} & arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCaptureFrame_a22adfcaedbfbd25cf3ed8b34df8e6d20}\label{classCaptureFrame_a22adfcaedbfbd25cf3ed8b34df8e6d20}} 
 \index{CaptureFrame@{CaptureFrame}!getBrightness@{getBrightness}}
 \index{getBrightness@{getBrightness}!CaptureFrame@{CaptureFrame}}
 \doxysubsubsection{\texorpdfstring{getBrightness()}{getBrightness()}}
-{\footnotesize\ttfamily uint32\+\_\+t Capture\+Frame\+::get\+Brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily uint32\+\_\+t Capture\+Frame\+::get\+Brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -98,10 +281,163 @@ Return brightness.
 \begin{DoxyReturn}{Returns}
 uint32\+\_\+t 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCaptureFrame_a459c962d97a82fc67191a697d17d22e4}\label{classCaptureFrame_a459c962d97a82fc67191a697d17d22e4}} 
+\index{CaptureFrame@{CaptureFrame}!getSaveFrameStatus@{getSaveFrameStatus}}
+\index{getSaveFrameStatus@{getSaveFrameStatus}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{getSaveFrameStatus()}{getSaveFrameStatus()}}
+{\footnotesize\ttfamily bool Capture\+Frame\+::get\+Save\+Frame\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Save Frame Status object. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCaptureFrame_ac3bb151a26d6c5235972ef1d258459d3}\label{classCaptureFrame_ac3bb151a26d6c5235972ef1d258459d3}} 
+\index{CaptureFrame@{CaptureFrame}!setSaveFrame@{setSaveFrame}}
+\index{setSaveFrame@{setSaveFrame}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{setSaveFrame()}{setSaveFrame()}}
+{\footnotesize\ttfamily void Capture\+Frame\+::set\+Save\+Frame (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Save Frame object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$ void 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}\label{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}} 
+\mbox{\Hypertarget{classCaptureFrame_a80a5c2461ece61cf6242f4326c8f48c5}\label{classCaptureFrame_a80a5c2461ece61cf6242f4326c8f48c5}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_brightness@{\_\_brightness}}
+\index{\_\_brightness@{\_\_brightness}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_brightness}{\_\_brightness}}
+{\footnotesize\ttfamily std\+::atomic$<$uint32\+\_\+t$>$ Capture\+Frame\+::\+\_\+\+\_\+brightness\hspace{0.3cm}{\ttfamily [private]}}
+
+Brightness \mbox{\Hypertarget{classCaptureFrame_a808a1964516267ea3440492a7ee5650a}\label{classCaptureFrame_a808a1964516267ea3440492a7ee5650a}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_brightness\_guard@{\_\_brightness\_guard}}
+\index{\_\_brightness\_guard@{\_\_brightness\_guard}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_brightness\_guard}{\_\_brightness\_guard}}
+{\footnotesize\ttfamily std\+::mutex Capture\+Frame\+::\+\_\+\+\_\+brightness\+\_\+guard\hspace{0.3cm}{\ttfamily [private]}}
+
+Brightness guard \mbox{\Hypertarget{classCaptureFrame_aac0319a506584fd1878efca2a95ac7b7}\label{classCaptureFrame_aac0319a506584fd1878efca2a95ac7b7}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_buffer\_type@{\_\_buffer\_type}}
+\index{\_\_buffer\_type@{\_\_buffer\_type}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_buffer\_type}{\_\_buffer\_type}}
+{\footnotesize\ttfamily int Capture\+Frame\+::\+\_\+\+\_\+buffer\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+Buffer type \mbox{\Hypertarget{classCaptureFrame_adeeb4ad1bd34974792caa965bc712f57}\label{classCaptureFrame_adeeb4ad1bd34974792caa965bc712f57}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_capability@{\_\_capability}}
+\index{\_\_capability@{\_\_capability}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_capability}{\_\_capability}}
+{\footnotesize\ttfamily v4l2\+\_\+capability Capture\+Frame\+::\+\_\+\+\_\+capability\hspace{0.3cm}{\ttfamily [private]}}
+
+Device capabilities \mbox{\Hypertarget{classCaptureFrame_ad64ee36b5410a963cb74ec062b6a2cd6}\label{classCaptureFrame_ad64ee36b5410a963cb74ec062b6a2cd6}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_capture\_frame\_is\_running@{\_\_capture\_frame\_is\_running}}
+\index{\_\_capture\_frame\_is\_running@{\_\_capture\_frame\_is\_running}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_capture\_frame\_is\_running}{\_\_capture\_frame\_is\_running}}
+{\footnotesize\ttfamily bool Capture\+Frame\+::\+\_\+\+\_\+capture\+\_\+frame\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classCaptureFrame_a7c414f3f97794097c06c1c4e7b50fe39}\label{classCaptureFrame_a7c414f3f97794097c06c1c4e7b50fe39}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_capture\_thread@{\_\_capture\_thread}}
+\index{\_\_capture\_thread@{\_\_capture\_thread}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_capture\_thread}{\_\_capture\_thread}}
+{\footnotesize\ttfamily std\+::thread Capture\+Frame\+::\+\_\+\+\_\+capture\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Execution thread for captures \mbox{\Hypertarget{classCaptureFrame_a829ed3fd4776e64369b26fc7af9f6c12}\label{classCaptureFrame_a829ed3fd4776e64369b26fc7af9f6c12}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_cb@{\_\_cb}}
+\index{\_\_cb@{\_\_cb}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_cb}{\_\_cb}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCaptureFrame_ab691022abe63477690da8525bbbdae45}{Event\+Callback}} Capture\+Frame\+::\+\_\+\+\_\+cb\hspace{0.3cm}{\ttfamily [private]}}
+
+Capture Callback \mbox{\Hypertarget{classCaptureFrame_ad3a2e6ee65876dcc5a8df060394cf156}\label{classCaptureFrame_ad3a2e6ee65876dcc5a8df060394cf156}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_DEVICE@{\_\_DEVICE}}
+\index{\_\_DEVICE@{\_\_DEVICE}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_DEVICE}{\_\_DEVICE}}
+{\footnotesize\ttfamily constexpr const char$\ast$ Capture\+Frame\+::\+\_\+\+\_\+\+DEVICE = \{\char`\"{}/dev/video0\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Device name \mbox{\Hypertarget{classCaptureFrame_aa435f21f9bedaf8c370305ccc4c00a19}\label{classCaptureFrame_aa435f21f9bedaf8c370305ccc4c00a19}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_driver\_type@{\_\_driver\_type}}
+\index{\_\_driver\_type@{\_\_driver\_type}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_driver\_type}{\_\_driver\_type}}
+{\footnotesize\ttfamily int Capture\+Frame\+::\+\_\+\+\_\+driver\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} type \mbox{\Hypertarget{classCaptureFrame_a2b8d8abc2680be9f37413b07a8336e91}\label{classCaptureFrame_a2b8d8abc2680be9f37413b07a8336e91}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_fd@{\_\_fd}}
+\index{\_\_fd@{\_\_fd}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_fd}{\_\_fd}}
+{\footnotesize\ttfamily int Capture\+Frame\+::\+\_\+\+\_\+fd\hspace{0.3cm}{\ttfamily [private]}}
+
+Device file descriptor \mbox{\Hypertarget{classCaptureFrame_ab8e125404f4a06275e93250e4443ae36}\label{classCaptureFrame_ab8e125404f4a06275e93250e4443ae36}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_format@{\_\_format}}
+\index{\_\_format@{\_\_format}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_format}{\_\_format}}
+{\footnotesize\ttfamily v4l2\+\_\+format Capture\+Frame\+::\+\_\+\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+Format \mbox{\Hypertarget{classCaptureFrame_ade937cf51aab06fed7fe185c7f0dce96}\label{classCaptureFrame_ade937cf51aab06fed7fe185c7f0dce96}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_frame\_count@{\_\_frame\_count}}
+\index{\_\_frame\_count@{\_\_frame\_count}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_frame\_count}{\_\_frame\_count}}
+{\footnotesize\ttfamily const uint32\+\_\+t Capture\+Frame\+::\+\_\+\+\_\+frame\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+Frame count to capture \mbox{\Hypertarget{classCaptureFrame_ac585159908bc9733a210d932edc22056}\label{classCaptureFrame_ac585159908bc9733a210d932edc22056}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_image\_buffers@{\_\_image\_buffers}}
+\index{\_\_image\_buffers@{\_\_image\_buffers}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_image\_buffers}{\_\_image\_buffers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structCaptureFrame_1_1ImageBuffer}{Image\+Buffer}}$>$ Capture\+Frame\+::\+\_\+\+\_\+image\+\_\+buffers\hspace{0.3cm}{\ttfamily [private]}}
+
+Image buffers \mbox{\Hypertarget{classCaptureFrame_aeb6994b64212675f88a98e69e8f8dd5b}\label{classCaptureFrame_aeb6994b64212675f88a98e69e8f8dd5b}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_num\_planes@{\_\_num\_planes}}
+\index{\_\_num\_planes@{\_\_num\_planes}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_num\_planes}{\_\_num\_planes}}
+{\footnotesize\ttfamily const int Capture\+Frame\+::\+\_\+\+\_\+num\+\_\+planes = 3\hspace{0.3cm}{\ttfamily [private]}}
+
+Numbers of planes for image buffer \mbox{\Hypertarget{classCaptureFrame_a0f451809ab0b719cdcd5f6c3861c227e}\label{classCaptureFrame_a0f451809ab0b719cdcd5f6c3861c227e}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_ov7670@{\_\_ov7670}}
+\index{\_\_ov7670@{\_\_ov7670}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_ov7670}{\_\_ov7670}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classov7670}{ov7670}}$>$ Capture\+Frame\+::\+\_\+\+\_\+ov7670\hspace{0.3cm}{\ttfamily [private]}}
+
+OV7670 object \mbox{\Hypertarget{classCaptureFrame_a5c6a1aa2a8845ef6b55b1ce6af42b2d2}\label{classCaptureFrame_a5c6a1aa2a8845ef6b55b1ce6af42b2d2}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_parm@{\_\_parm}}
+\index{\_\_parm@{\_\_parm}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_parm}{\_\_parm}}
+{\footnotesize\ttfamily v4l2\+\_\+streamparm Capture\+Frame\+::\+\_\+\+\_\+parm\hspace{0.3cm}{\ttfamily [private]}}
+
+V4\+L2 stream parameter \mbox{\Hypertarget{classCaptureFrame_a7a1bf34092937ec6f54f1cf1bb0cf7eb}\label{classCaptureFrame_a7a1bf34092937ec6f54f1cf1bb0cf7eb}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_req@{\_\_req}}
+\index{\_\_req@{\_\_req}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_req}{\_\_req}}
+{\footnotesize\ttfamily v4l2\+\_\+requestbuffers Capture\+Frame\+::\+\_\+\+\_\+req\hspace{0.3cm}{\ttfamily [private]}}
+
+V4\+L2 request buffers \mbox{\Hypertarget{classCaptureFrame_a233eb7fb46f4ba9f68f68d99f3e5a25c}\label{classCaptureFrame_a233eb7fb46f4ba9f68f68d99f3e5a25c}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_save\_frame@{\_\_save\_frame}}
+\index{\_\_save\_frame@{\_\_save\_frame}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_save\_frame}{\_\_save\_frame}}
+{\footnotesize\ttfamily bool Capture\+Frame\+::\+\_\+\+\_\+save\+\_\+frame = false\hspace{0.3cm}{\ttfamily [private]}}
+
+The next frame is saved \mbox{\Hypertarget{classCaptureFrame_aacb536af3f6e8d30b32399266308fb7c}\label{classCaptureFrame_aacb536af3f6e8d30b32399266308fb7c}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_st@{\_\_st}}
+\index{\_\_st@{\_\_st}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_st}{\_\_st}}
+{\footnotesize\ttfamily struct stat Capture\+Frame\+::\+\_\+\+\_\+st\hspace{0.3cm}{\ttfamily [private]}}
+
+Device driver stats \mbox{\Hypertarget{classCaptureFrame_a23b3bfcbcaa6ce62d5aee323298ab22e}\label{classCaptureFrame_a23b3bfcbcaa6ce62d5aee323298ab22e}} 
+\index{CaptureFrame@{CaptureFrame}!\_\_v\_demosaic@{\_\_v\_demosaic}}
+\index{\_\_v\_demosaic@{\_\_v\_demosaic}!CaptureFrame@{CaptureFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_v\_demosaic}{\_\_v\_demosaic}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classv__demosaic}{v\+\_\+demosaic}}$>$ Capture\+Frame\+::\+\_\+\+\_\+v\+\_\+demosaic\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classv__demosaic}{v\+\_\+demosaic}} object \mbox{\Hypertarget{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}\label{classCaptureFrame_a2fb57fe31378ae6a3f7cbc90cc1f5918}} 
 \index{CaptureFrame@{CaptureFrame}!frame\_processor@{frame\_processor}}
 \index{frame\_processor@{frame\_processor}!CaptureFrame@{CaptureFrame}}
 \doxysubsubsection{\texorpdfstring{frame\_processor}{frame\_processor}}

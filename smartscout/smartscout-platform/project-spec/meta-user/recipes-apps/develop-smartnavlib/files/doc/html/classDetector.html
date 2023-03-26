@@ -63,6 +63,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classDetector-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Detector Class Reference</div>  </div>
@@ -75,7 +78,12 @@ Collaboration diagram for Detector:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDetector__coll__graph.png" border="0" usemap="#aDetector_coll__map" alt="Collaboration graph"/></div>
 <map name="aDetector_coll__map" id="aDetector_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,120,112"/>
+<area shape="rect" title=" " alt="" coords="428,263,561,413"/>
+<area shape="rect" title=" " alt="" coords="5,13,205,90"/>
+<area shape="rect" title=" " alt="" coords="284,13,335,90"/>
+<area shape="rect" title=" " alt="" coords="389,5,539,97"/>
+<area shape="rect" title=" " alt="" coords="563,5,722,97"/>
+<area shape="rect" title=" " alt="" coords="751,5,887,97"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -88,6 +96,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ecf7676c54c6c242bd878ef20128e51"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structRecognitionResult.html">RecognitionResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a3ecf7676c54c6c242bd878ef20128e51">detect</a> (std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt; image)</td></tr>
 <tr class="memdesc:a3ecf7676c54c6c242bd878ef20128e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a new frame.  <a href="classDetector.html#a3ecf7676c54c6c242bd878ef20128e51">More...</a><br /></td></tr>
 <tr class="separator:a3ecf7676c54c6c242bd878ef20128e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af9e03245a7f6ad7dfe7c8531c1c0eb41"><td class="memItemLeft" align="right" valign="top">TfLiteStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#af9e03245a7f6ad7dfe7c8531c1c0eb41">__fillInput</a> (uint32_t image_width, uint32_t image_height, uint32_t channels, std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt; image)</td></tr>
+<tr class="separator:af9e03245a7f6ad7dfe7c8531c1c0eb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae898b12a5a0b83398c5f7a69931f05fe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structRecognitionResult.html">RecognitionResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#ae898b12a5a0b83398c5f7a69931f05fe">__postProcess</a> (std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt; image)</td></tr>
+<tr class="separator:ae898b12a5a0b83398c5f7a69931f05fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a172e73b58fa1503cec3ec22fa77fd350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a172e73b58fa1503cec3ec22fa77fd350">__preProcess</a> (std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt; image)</td></tr>
+<tr class="separator:a172e73b58fa1503cec3ec22fa77fd350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9434d50cb13306e0105c64de3b291f36"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a9434d50cb13306e0105c64de3b291f36">__SCORE_THRESHOLD</a> = 0.5</td></tr>
+<tr class="separator:a9434d50cb13306e0105c64de3b291f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bda6ce8fa2ffe223b9fe8de0dfb9e95"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; tflite::FlatBufferModel &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a2bda6ce8fa2ffe223b9fe8de0dfb9e95">__model</a></td></tr>
+<tr class="separator:a2bda6ce8fa2ffe223b9fe8de0dfb9e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af591bc94b0f8a75d9f7a7d52c6627d07"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; tflite::Interpreter &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#af591bc94b0f8a75d9f7a7d52c6627d07">__interpreter</a></td></tr>
+<tr class="separator:af591bc94b0f8a75d9f7a7d52c6627d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a4c30af13ce2046fb6de5206e2f8e47"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TfLiteTensor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a4a4c30af13ce2046fb6de5206e2f8e47">__input</a></td></tr>
+<tr class="separator:a4a4c30af13ce2046fb6de5206e2f8e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36f18735e28ffc637c22b178f858e908"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TfLiteTensor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a36f18735e28ffc637c22b178f858e908">__output_detection_locations</a></td></tr>
+<tr class="separator:a36f18735e28ffc637c22b178f858e908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe2e8bcfd938fc2f25130c7f7b69fd2"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TfLiteTensor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#afbe2e8bcfd938fc2f25130c7f7b69fd2">__output_detection_classes</a></td></tr>
+<tr class="separator:afbe2e8bcfd938fc2f25130c7f7b69fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6452c1b8c5bcb6e4671c575850148159"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TfLiteTensor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a6452c1b8c5bcb6e4671c575850148159">__output_detection_scores</a></td></tr>
+<tr class="separator:a6452c1b8c5bcb6e4671c575850148159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab020154ed31ed746a2ee8d5c6c02ddec"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TfLiteTensor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#ab020154ed31ed746a2ee8d5c6c02ddec">__output_num_detections</a></td></tr>
+<tr class="separator:ab020154ed31ed746a2ee8d5c6c02ddec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a92b4919ce6d6312e5c5c03477a00d78b"><td class="memItemLeft" align="right" valign="top">static constexpr char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector.html#a92b4919ce6d6312e5c5c03477a00d78b">__MODEL_FILE_NAME</a> = {&quot;/usr/bin/lite-model_efficientdet_lite0_detection_default_1.tflite&quot;}</td></tr>
+<tr class="separator:a92b4919ce6d6312e5c5c03477a00d78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa43b3d7bbd4b225855b4bcc93f70b225"></a>
@@ -135,6 +176,109 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af9e03245a7f6ad7dfe7c8531c1c0eb41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e03245a7f6ad7dfe7c8531c1c0eb41">&#9670;&nbsp;</a></span>__fillInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TfLiteStatus Detector::__fillInput </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>image_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>image_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>channels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt;&#160;</td>
+          <td class="paramname"><em>image</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Fill tensorflow input </p>
+
+</div>
+</div>
+<a id="ae898b12a5a0b83398c5f7a69931f05fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae898b12a5a0b83398c5f7a69931f05fe">&#9670;&nbsp;</a></span>__postProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structRecognitionResult.html">RecognitionResult</a> &gt; Detector::__postProcess </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt;&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Neural network post processing </p>
+
+</div>
+</div>
+<a id="a172e73b58fa1503cec3ec22fa77fd350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172e73b58fa1503cec3ec22fa77fd350">&#9670;&nbsp;</a></span>__preProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Detector::__preProcess </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classVirtualImage.html">VirtualImage</a> &gt;&#160;</td>
+          <td class="paramname"><em>image</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Neural network pre processing </p>
+
+</div>
+</div>
 <a id="a3ecf7676c54c6c242bd878ef20128e51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ecf7676c54c6c242bd878ef20128e51">&#9670;&nbsp;</a></span>detect()</h2>
 
@@ -158,6 +302,211 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4a4c30af13ce2046fb6de5206e2f8e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a4c30af13ce2046fb6de5206e2f8e47">&#9670;&nbsp;</a></span>__input</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;TfLiteTensor&gt; Detector::__input</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tflite i/o </p>
+
+</div>
+</div>
+<a id="af591bc94b0f8a75d9f7a7d52c6627d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af591bc94b0f8a75d9f7a7d52c6627d07">&#9670;&nbsp;</a></span>__interpreter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;tflite::Interpreter&gt; Detector::__interpreter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tflite interpreter </p>
+
+</div>
+</div>
+<a id="a2bda6ce8fa2ffe223b9fe8de0dfb9e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bda6ce8fa2ffe223b9fe8de0dfb9e95">&#9670;&nbsp;</a></span>__model</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;tflite::FlatBufferModel&gt; Detector::__model</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tflite model </p>
+
+</div>
+</div>
+<a id="a92b4919ce6d6312e5c5c03477a00d78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b4919ce6d6312e5c5c03477a00d78b">&#9670;&nbsp;</a></span>__MODEL_FILE_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char const* Detector::__MODEL_FILE_NAME = {&quot;/usr/bin/lite-model_efficientdet_lite0_detection_default_1.tflite&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Model file name </p>
+
+</div>
+</div>
+<a id="afbe2e8bcfd938fc2f25130c7f7b69fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe2e8bcfd938fc2f25130c7f7b69fd2">&#9670;&nbsp;</a></span>__output_detection_classes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;TfLiteTensor&gt; Detector::__output_detection_classes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36f18735e28ffc637c22b178f858e908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f18735e28ffc637c22b178f858e908">&#9670;&nbsp;</a></span>__output_detection_locations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;TfLiteTensor&gt; Detector::__output_detection_locations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6452c1b8c5bcb6e4671c575850148159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6452c1b8c5bcb6e4671c575850148159">&#9670;&nbsp;</a></span>__output_detection_scores</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;TfLiteTensor&gt; Detector::__output_detection_scores</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab020154ed31ed746a2ee8d5c6c02ddec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab020154ed31ed746a2ee8d5c6c02ddec">&#9670;&nbsp;</a></span>__output_num_detections</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;TfLiteTensor&gt; Detector::__output_num_detections</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9434d50cb13306e0105c64de3b291f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9434d50cb13306e0105c64de3b291f36">&#9670;&nbsp;</a></span>__SCORE_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Detector::__SCORE_THRESHOLD = 0.5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Score threshold needed to be recognized <br  />
+ </p>
 
 </div>
 </div>

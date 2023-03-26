@@ -85,9 +85,9 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  std::vector&lt;RecognitionResult&gt; <a class="code" href="classFrameProcessor.html#a8162370696c0b5638b7b5ba4ce22d50d">getResults</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classDetector.html">Detector</a> __detector;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  std::vector&lt;RecognitionResult&gt; __results;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::mutex __result_guard;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classFrameProcessor.html#adf47fc795bbd5eeb9967f89bda9fc6ee">   29</a></span>&#160;  <a class="code" href="classDetector.html">Detector</a> <a class="code" href="classFrameProcessor.html#adf47fc795bbd5eeb9967f89bda9fc6ee">__detector</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classFrameProcessor.html#ae4ea8cf35ac77b9f12d8c75d8df487a8">   31</a></span>&#160;  std::vector&lt;RecognitionResult&gt; <a class="code" href="classFrameProcessor.html#ae4ea8cf35ac77b9f12d8c75d8df487a8">__results</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classFrameProcessor.html#a59e10bb344e3682b3b92667412a787b2">   33</a></span>&#160;  std::mutex <a class="code" href="classFrameProcessor.html#a59e10bb344e3682b3b92667412a787b2">__result_guard</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
@@ -98,8 +98,11 @@ $(function() {
 <div class="ttc" id="aclassFrameProcessor_html"><div class="ttname"><a href="classFrameProcessor.html">FrameProcessor</a></div><div class="ttdef"><b>Definition:</b> FrameProcessor.hpp:9</div></div>
 <div class="ttc" id="aclassFrameProcessor_html_a00ea88b0524a4e0c4944af7fbd59d77b"><div class="ttname"><a href="classFrameProcessor.html#a00ea88b0524a4e0c4944af7fbd59d77b">FrameProcessor::processFrame</a></div><div class="ttdeci">void processFrame(std::shared_ptr&lt; VirtualImage &gt; frame)</div><div class="ttdoc">Consume the frame.</div><div class="ttdef"><b>Definition:</b> FrameProcessor.cpp:6</div></div>
 <div class="ttc" id="aclassFrameProcessor_html_a47a692246d232d44bb6a80a7047c4b2c"><div class="ttname"><a href="classFrameProcessor.html#a47a692246d232d44bb6a80a7047c4b2c">FrameProcessor::~FrameProcessor</a></div><div class="ttdeci">~FrameProcessor()=default</div></div>
+<div class="ttc" id="aclassFrameProcessor_html_a59e10bb344e3682b3b92667412a787b2"><div class="ttname"><a href="classFrameProcessor.html#a59e10bb344e3682b3b92667412a787b2">FrameProcessor::__result_guard</a></div><div class="ttdeci">std::mutex __result_guard</div><div class="ttdef"><b>Definition:</b> FrameProcessor.hpp:33</div></div>
 <div class="ttc" id="aclassFrameProcessor_html_a65791fd39b949bb1878bb762069b528c"><div class="ttname"><a href="classFrameProcessor.html#a65791fd39b949bb1878bb762069b528c">FrameProcessor::FrameProcessor</a></div><div class="ttdeci">FrameProcessor()=default</div></div>
 <div class="ttc" id="aclassFrameProcessor_html_a8162370696c0b5638b7b5ba4ce22d50d"><div class="ttname"><a href="classFrameProcessor.html#a8162370696c0b5638b7b5ba4ce22d50d">FrameProcessor::getResults</a></div><div class="ttdeci">std::vector&lt; RecognitionResult &gt; getResults()</div><div class="ttdoc">Get the Results object.</div><div class="ttdef"><b>Definition:</b> FrameProcessor.cpp:22</div></div>
+<div class="ttc" id="aclassFrameProcessor_html_adf47fc795bbd5eeb9967f89bda9fc6ee"><div class="ttname"><a href="classFrameProcessor.html#adf47fc795bbd5eeb9967f89bda9fc6ee">FrameProcessor::__detector</a></div><div class="ttdeci">Detector __detector</div><div class="ttdef"><b>Definition:</b> FrameProcessor.hpp:29</div></div>
+<div class="ttc" id="aclassFrameProcessor_html_ae4ea8cf35ac77b9f12d8c75d8df487a8"><div class="ttname"><a href="classFrameProcessor.html#ae4ea8cf35ac77b9f12d8c75d8df487a8">FrameProcessor::__results</a></div><div class="ttdeci">std::vector&lt; RecognitionResult &gt; __results</div><div class="ttdef"><b>Definition:</b> FrameProcessor.hpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

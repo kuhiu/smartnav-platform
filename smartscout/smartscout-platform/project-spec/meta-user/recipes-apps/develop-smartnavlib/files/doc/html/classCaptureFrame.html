@@ -66,6 +66,9 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classCaptureFrame-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CaptureFrame Class Reference</div>  </div>
@@ -78,8 +81,31 @@ Collaboration diagram for CaptureFrame:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCaptureFrame__coll__graph.png" border="0" usemap="#aCaptureFrame_coll__map" alt="Collaboration graph"/></div>
 <map name="aCaptureFrame_coll__map" id="aCaptureFrame_coll__map">
-<area shape="rect" title=" " alt="" coords="11,189,162,296"/>
-<area shape="rect" href="classFrameProcessor.html" title=" " alt="" coords="5,5,168,127"/>
+<area shape="rect" title=" " alt="" coords="1285,704,1467,1031"/>
+<area shape="rect" title=" " alt="" coords="5,498,160,575"/>
+<area shape="rect" title=" " alt="" coords="185,498,335,575"/>
+<area shape="rect" title=" " alt="" coords="360,498,461,575"/>
+<area shape="rect" href="classFrameProcessor.html" title=" " alt="" coords="669,476,832,597"/>
+<area shape="rect" title=" " alt="" coords="492,299,556,377"/>
+<area shape="rect" href="classDetector.html" title=" " alt="" coords="588,263,721,413"/>
+<area shape="rect" title=" " alt="" coords="165,13,365,90"/>
+<area shape="rect" title=" " alt="" coords="444,13,495,90"/>
+<area shape="rect" title=" " alt="" coords="549,5,699,97"/>
+<area shape="rect" title=" " alt="" coords="723,5,882,97"/>
+<area shape="rect" title=" " alt="" coords="911,5,1047,97"/>
+<area shape="rect" title=" " alt="" coords="745,299,956,377"/>
+<area shape="rect" title=" " alt="" coords="857,498,1026,575"/>
+<area shape="rect" title=" " alt="" coords="1051,498,1139,575"/>
+<area shape="rect" title=" " alt="" coords="1163,498,1301,575"/>
+<area shape="rect" title=" " alt="" coords="1325,491,1496,583"/>
+<area shape="rect" title=" " alt="" coords="1521,498,1642,575"/>
+<area shape="rect" title=" " alt="" coords="1666,498,1705,575"/>
+<area shape="rect" title=" " alt="" coords="1729,498,1844,575"/>
+<area shape="rect" title=" " alt="" coords="1883,498,1933,575"/>
+<area shape="rect" title=" " alt="" coords="1958,498,2109,575"/>
+<area shape="rect" title=" " alt="" coords="2133,498,2331,575"/>
+<area shape="rect" title=" " alt="" coords="2355,498,2419,575"/>
+<area shape="rect" title=" " alt="" coords="2449,491,2615,583"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -102,14 +128,97 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aca5bdb25df5813c8fe02e30c3b8c52c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16d6e39dcc60e44ff0f7c749b5bde78a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a16d6e39dcc60e44ff0f7c749b5bde78a">~CaptureFrame</a> ()</td></tr>
 <tr class="separator:a16d6e39dcc60e44ff0f7c749b5bde78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa77dbafb29e4aee47244ff4cf2f0b59f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aa77dbafb29e4aee47244ff4cf2f0b59f">getBrightness</a> () const</td></tr>
-<tr class="memdesc:aa77dbafb29e4aee47244ff4cf2f0b59f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return brightness.  <a href="classCaptureFrame.html#aa77dbafb29e4aee47244ff4cf2f0b59f">More...</a><br /></td></tr>
-<tr class="separator:aa77dbafb29e4aee47244ff4cf2f0b59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22adfcaedbfbd25cf3ed8b34df8e6d20"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a22adfcaedbfbd25cf3ed8b34df8e6d20">getBrightness</a> ()</td></tr>
+<tr class="memdesc:a22adfcaedbfbd25cf3ed8b34df8e6d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return brightness.  <a href="classCaptureFrame.html#a22adfcaedbfbd25cf3ed8b34df8e6d20">More...</a><br /></td></tr>
+<tr class="separator:a22adfcaedbfbd25cf3ed8b34df8e6d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3bb151a26d6c5235972ef1d258459d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ac3bb151a26d6c5235972ef1d258459d3">setSaveFrame</a> (bool state)</td></tr>
+<tr class="memdesc:ac3bb151a26d6c5235972ef1d258459d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Save Frame object.  <a href="classCaptureFrame.html#ac3bb151a26d6c5235972ef1d258459d3">More...</a><br /></td></tr>
+<tr class="separator:ac3bb151a26d6c5235972ef1d258459d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459c962d97a82fc67191a697d17d22e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a459c962d97a82fc67191a697d17d22e4">getSaveFrameStatus</a> ()</td></tr>
+<tr class="memdesc:a459c962d97a82fc67191a697d17d22e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Save Frame Status object.  <a href="classCaptureFrame.html#a459c962d97a82fc67191a697d17d22e4">More...</a><br /></td></tr>
+<tr class="separator:a459c962d97a82fc67191a697d17d22e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2fb57fe31378ae6a3f7cbc90cc1f5918"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFrameProcessor.html">FrameProcessor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a2fb57fe31378ae6a3f7cbc90cc1f5918">frame_processor</a></td></tr>
 <tr class="separator:a2fb57fe31378ae6a3f7cbc90cc1f5918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac846f61398b2ffe29e3c55a005396529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ac846f61398b2ffe29e3c55a005396529">__openDevice</a> ()</td></tr>
+<tr class="separator:ac846f61398b2ffe29e3c55a005396529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5708b63a60733c6f28461ffdc448c02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a5708b63a60733c6f28461ffdc448c02f">__closeDevice</a> ()</td></tr>
+<tr class="separator:a5708b63a60733c6f28461ffdc448c02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9a2281267dc31e38fe117709544dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a8c9a2281267dc31e38fe117709544dbe">__initDevice</a> (uint32_t width, uint32_t height, <a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a> pixelformat)</td></tr>
+<tr class="separator:a8c9a2281267dc31e38fe117709544dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136690154fd1a1422ca67148211a436b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a136690154fd1a1422ca67148211a436b">__uninitDevice</a> ()</td></tr>
+<tr class="separator:a136690154fd1a1422ca67148211a436b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf278e58064af3db0cd0498d215d126"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aabf278e58064af3db0cd0498d215d126">__setFormat</a> (uint32_t width, uint32_t height, <a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a> pixel_format)</td></tr>
+<tr class="separator:aabf278e58064af3db0cd0498d215d126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c80852c3b58edba1c80fe5dd1e3bafe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a8c80852c3b58edba1c80fe5dd1e3bafe">__getFormat</a> ()</td></tr>
+<tr class="separator:a8c80852c3b58edba1c80fe5dd1e3bafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b45038c2bc06c514c6490a1d7edcf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a05b45038c2bc06c514c6490a1d7edcf7">__setFramerate</a> ()</td></tr>
+<tr class="separator:a05b45038c2bc06c514c6490a1d7edcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd6361513d22266ba6c54d6d6228e116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#acd6361513d22266ba6c54d6d6228e116">__setField</a> (v4l2_pix_format_mplane &amp;field, uint32_t width, uint32_t height, <a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a> pixel_format)</td></tr>
+<tr class="memdesc:acd6361513d22266ba6c54d6d6228e116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize fields.  <a href="classCaptureFrame.html#acd6361513d22266ba6c54d6d6228e116">More...</a><br /></td></tr>
+<tr class="separator:acd6361513d22266ba6c54d6d6228e116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a839c5e6c0bb9eec5fac07efb9269d544"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a839c5e6c0bb9eec5fac07efb9269d544">__startCapturing</a> ()</td></tr>
+<tr class="separator:a839c5e6c0bb9eec5fac07efb9269d544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c49d0e23e01ee1d90616c608c04fc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a68c49d0e23e01ee1d90616c608c04fc9">__readFrame</a> (int frame_number)</td></tr>
+<tr class="separator:a68c49d0e23e01ee1d90616c608c04fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af169cda892f218de2054c776e9a33f35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#af169cda892f218de2054c776e9a33f35">__capture</a> ()</td></tr>
+<tr class="separator:af169cda892f218de2054c776e9a33f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f1d2744e366fabfea5cfd904df9ab5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a6f1d2744e366fabfea5cfd904df9ab5b">__xioctl</a> (int fd, int request, void *arg)</td></tr>
+<tr class="memdesc:a6f1d2744e366fabfea5cfd904df9ab5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ioctl wrapper  <a href="classCaptureFrame.html#a6f1d2744e366fabfea5cfd904df9ab5b">More...</a><br /></td></tr>
+<tr class="separator:a6f1d2744e366fabfea5cfd904df9ab5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be1ff25748e9989b44dff6c042fdf18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a0be1ff25748e9989b44dff6c042fdf18">__init_mmap</a> ()</td></tr>
+<tr class="separator:a0be1ff25748e9989b44dff6c042fdf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2b8d8abc2680be9f37413b07a8336e91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a2b8d8abc2680be9f37413b07a8336e91">__fd</a></td></tr>
+<tr class="separator:a2b8d8abc2680be9f37413b07a8336e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233eb7fb46f4ba9f68f68d99f3e5a25c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a233eb7fb46f4ba9f68f68d99f3e5a25c">__save_frame</a> = false</td></tr>
+<tr class="separator:a233eb7fb46f4ba9f68f68d99f3e5a25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f451809ab0b719cdcd5f6c3861c227e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classov7670.html">ov7670</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a0f451809ab0b719cdcd5f6c3861c227e">__ov7670</a></td></tr>
+<tr class="separator:a0f451809ab0b719cdcd5f6c3861c227e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b3bfcbcaa6ce62d5aee323298ab22e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classv__demosaic.html">v_demosaic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a23b3bfcbcaa6ce62d5aee323298ab22e">__v_demosaic</a></td></tr>
+<tr class="separator:a23b3bfcbcaa6ce62d5aee323298ab22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb536af3f6e8d30b32399266308fb7c"><td class="memItemLeft" align="right" valign="top">struct stat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aacb536af3f6e8d30b32399266308fb7c">__st</a></td></tr>
+<tr class="separator:aacb536af3f6e8d30b32399266308fb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeeb4ad1bd34974792caa965bc712f57"><td class="memItemLeft" align="right" valign="top">v4l2_capability&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#adeeb4ad1bd34974792caa965bc712f57">__capability</a></td></tr>
+<tr class="separator:adeeb4ad1bd34974792caa965bc712f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac585159908bc9733a210d932edc22056"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structCaptureFrame_1_1ImageBuffer.html">ImageBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ac585159908bc9733a210d932edc22056">__image_buffers</a></td></tr>
+<tr class="separator:ac585159908bc9733a210d932edc22056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8e125404f4a06275e93250e4443ae36"><td class="memItemLeft" align="right" valign="top">v4l2_format&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ab8e125404f4a06275e93250e4443ae36">__format</a></td></tr>
+<tr class="separator:ab8e125404f4a06275e93250e4443ae36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6994b64212675f88a98e69e8f8dd5b"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aeb6994b64212675f88a98e69e8f8dd5b">__num_planes</a> = 3</td></tr>
+<tr class="separator:aeb6994b64212675f88a98e69e8f8dd5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa435f21f9bedaf8c370305ccc4c00a19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aa435f21f9bedaf8c370305ccc4c00a19">__driver_type</a></td></tr>
+<tr class="separator:aa435f21f9bedaf8c370305ccc4c00a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac0319a506584fd1878efca2a95ac7b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#aac0319a506584fd1878efca2a95ac7b7">__buffer_type</a></td></tr>
+<tr class="separator:aac0319a506584fd1878efca2a95ac7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6a1aa2a8845ef6b55b1ce6af42b2d2"><td class="memItemLeft" align="right" valign="top">v4l2_streamparm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a5c6a1aa2a8845ef6b55b1ce6af42b2d2">__parm</a></td></tr>
+<tr class="separator:a5c6a1aa2a8845ef6b55b1ce6af42b2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a1bf34092937ec6f54f1cf1bb0cf7eb"><td class="memItemLeft" align="right" valign="top">v4l2_requestbuffers&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a7a1bf34092937ec6f54f1cf1bb0cf7eb">__req</a></td></tr>
+<tr class="separator:a7a1bf34092937ec6f54f1cf1bb0cf7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829ed3fd4776e64369b26fc7af9f6c12"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCaptureFrame.html#ab691022abe63477690da8525bbbdae45">EventCallback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a829ed3fd4776e64369b26fc7af9f6c12">__cb</a></td></tr>
+<tr class="separator:a829ed3fd4776e64369b26fc7af9f6c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64ee36b5410a963cb74ec062b6a2cd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ad64ee36b5410a963cb74ec062b6a2cd6">__capture_frame_is_running</a></td></tr>
+<tr class="separator:ad64ee36b5410a963cb74ec062b6a2cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c414f3f97794097c06c1c4e7b50fe39"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a7c414f3f97794097c06c1c4e7b50fe39">__capture_thread</a></td></tr>
+<tr class="separator:a7c414f3f97794097c06c1c4e7b50fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade937cf51aab06fed7fe185c7f0dce96"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ade937cf51aab06fed7fe185c7f0dce96">__frame_count</a></td></tr>
+<tr class="separator:ade937cf51aab06fed7fe185c7f0dce96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a5c2461ece61cf6242f4326c8f48c5"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a80a5c2461ece61cf6242f4326c8f48c5">__brightness</a></td></tr>
+<tr class="separator:a80a5c2461ece61cf6242f4326c8f48c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808a1964516267ea3440492a7ee5650a"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#a808a1964516267ea3440492a7ee5650a">__brightness_guard</a></td></tr>
+<tr class="separator:a808a1964516267ea3440492a7ee5650a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:ad3a2e6ee65876dcc5a8df060394cf156"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCaptureFrame.html#ad3a2e6ee65876dcc5a8df060394cf156">__DEVICE</a> = {&quot;/dev/video0&quot;}</td></tr>
+<tr class="separator:ad3a2e6ee65876dcc5a8df060394cf156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module is responsable of open, init, and use a v4l2 device driver author: Fuschetto Martin email: <a href="#" onclick="location.href='mai'+'lto:'+'mar'+'fu'+'s@h'+'ot'+'mai'+'l.'+'es'; return false;">marfu<span style="display: none;">.nosp@m.</span>s@ho<span style="display: none;">.nosp@m.</span>tmail<span style="display: none;">.nosp@m.</span>.es</a> date: 15/11/22 version: 0.0 </p>
@@ -214,8 +323,438 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa77dbafb29e4aee47244ff4cf2f0b59f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa77dbafb29e4aee47244ff4cf2f0b59f">&#9670;&nbsp;</a></span>getBrightness()</h2>
+<a id="af169cda892f218de2054c776e9a33f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af169cda892f218de2054c776e9a33f35">&#9670;&nbsp;</a></span>__capture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__capture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Capture frame </p>
+
+</div>
+</div>
+<a id="a5708b63a60733c6f28461ffdc448c02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5708b63a60733c6f28461ffdc448c02f">&#9670;&nbsp;</a></span>__closeDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__closeDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Close device driver </p>
+
+</div>
+</div>
+<a id="a8c80852c3b58edba1c80fe5dd1e3bafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c80852c3b58edba1c80fe5dd1e3bafe">&#9670;&nbsp;</a></span>__getFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__getFormat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get format </p>
+
+</div>
+</div>
+<a id="a0be1ff25748e9989b44dff6c042fdf18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be1ff25748e9989b44dff6c042fdf18">&#9670;&nbsp;</a></span>__init_mmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__init_mmap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Init mmap </p>
+
+</div>
+</div>
+<a id="a8c9a2281267dc31e38fe117709544dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9a2281267dc31e38fe117709544dbe">&#9670;&nbsp;</a></span>__initDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__initDevice </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixelformat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Init device </p>
+
+</div>
+</div>
+<a id="ac846f61398b2ffe29e3c55a005396529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac846f61398b2ffe29e3c55a005396529">&#9670;&nbsp;</a></span>__openDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__openDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Open device driver </p>
+
+</div>
+</div>
+<a id="a68c49d0e23e01ee1d90616c608c04fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c49d0e23e01ee1d90616c608c04fc9">&#9670;&nbsp;</a></span>__readFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CaptureFrame::__readFrame </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frame_number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Read frame </p>
+
+</div>
+</div>
+<a id="acd6361513d22266ba6c54d6d6228e116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6361513d22266ba6c54d6d6228e116">&#9670;&nbsp;</a></span>__setField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__setField </td>
+          <td>(</td>
+          <td class="paramtype">v4l2_pix_format_mplane &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixel_format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize fields. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td>Field to be initialized </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabf278e58064af3db0cd0498d215d126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf278e58064af3db0cd0498d215d126">&#9670;&nbsp;</a></span>__setFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__setFormat </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCaptureFrame.html#a37832000d52bc3fa81c8e556a77b0772">pixelFormat</a>&#160;</td>
+          <td class="paramname"><em>pixel_format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set format </p>
+
+</div>
+</div>
+<a id="a05b45038c2bc06c514c6490a1d7edcf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b45038c2bc06c514c6490a1d7edcf7">&#9670;&nbsp;</a></span>__setFramerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__setFramerate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the framerate </p>
+
+</div>
+</div>
+<a id="a839c5e6c0bb9eec5fac07efb9269d544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a839c5e6c0bb9eec5fac07efb9269d544">&#9670;&nbsp;</a></span>__startCapturing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__startCapturing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Start capturing frames </p>
+
+</div>
+</div>
+<a id="a136690154fd1a1422ca67148211a436b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136690154fd1a1422ca67148211a436b">&#9670;&nbsp;</a></span>__uninitDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::__uninitDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Uninit device </p>
+
+</div>
+</div>
+<a id="a6f1d2744e366fabfea5cfd904df9ab5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f1d2744e366fabfea5cfd904df9ab5b">&#9670;&nbsp;</a></span>__xioctl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CaptureFrame::__xioctl </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ioctl wrapper </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>File descriptor </td></tr>
+    <tr><td class="paramname">request</td><td>ioctl request </td></tr>
+    <tr><td class="paramname">arg</td><td>arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a22adfcaedbfbd25cf3ed8b34df8e6d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22adfcaedbfbd25cf3ed8b34df8e6d20">&#9670;&nbsp;</a></span>getBrightness()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +766,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">uint32_t CaptureFrame::getBrightness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -242,7 +781,532 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a459c962d97a82fc67191a697d17d22e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459c962d97a82fc67191a697d17d22e4">&#9670;&nbsp;</a></span>getSaveFrameStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CaptureFrame::getSaveFrameStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Save Frame Status object. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="ac3bb151a26d6c5235972ef1d258459d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3bb151a26d6c5235972ef1d258459d3">&#9670;&nbsp;</a></span>setSaveFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CaptureFrame::setSaveFrame </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the Save Frame object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>* void </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a80a5c2461ece61cf6242f4326c8f48c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80a5c2461ece61cf6242f4326c8f48c5">&#9670;&nbsp;</a></span>__brightness</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;uint32_t&gt; CaptureFrame::__brightness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Brightness </p>
+
+</div>
+</div>
+<a id="a808a1964516267ea3440492a7ee5650a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808a1964516267ea3440492a7ee5650a">&#9670;&nbsp;</a></span>__brightness_guard</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex CaptureFrame::__brightness_guard</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Brightness guard </p>
+
+</div>
+</div>
+<a id="aac0319a506584fd1878efca2a95ac7b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac0319a506584fd1878efca2a95ac7b7">&#9670;&nbsp;</a></span>__buffer_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CaptureFrame::__buffer_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Buffer type </p>
+
+</div>
+</div>
+<a id="adeeb4ad1bd34974792caa965bc712f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeeb4ad1bd34974792caa965bc712f57">&#9670;&nbsp;</a></span>__capability</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_capability CaptureFrame::__capability</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device capabilities </p>
+
+</div>
+</div>
+<a id="ad64ee36b5410a963cb74ec062b6a2cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64ee36b5410a963cb74ec062b6a2cd6">&#9670;&nbsp;</a></span>__capture_frame_is_running</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CaptureFrame::__capture_frame_is_running</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Thread status </p>
+
+</div>
+</div>
+<a id="a7c414f3f97794097c06c1c4e7b50fe39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c414f3f97794097c06c1c4e7b50fe39">&#9670;&nbsp;</a></span>__capture_thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread CaptureFrame::__capture_thread</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Execution thread for captures </p>
+
+</div>
+</div>
+<a id="a829ed3fd4776e64369b26fc7af9f6c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829ed3fd4776e64369b26fc7af9f6c12">&#9670;&nbsp;</a></span>__cb</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCaptureFrame.html#ab691022abe63477690da8525bbbdae45">EventCallback</a> CaptureFrame::__cb</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Capture Callback </p>
+
+</div>
+</div>
+<a id="ad3a2e6ee65876dcc5a8df060394cf156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a2e6ee65876dcc5a8df060394cf156">&#9670;&nbsp;</a></span>__DEVICE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* CaptureFrame::__DEVICE = {&quot;/dev/video0&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device name </p>
+
+</div>
+</div>
+<a id="aa435f21f9bedaf8c370305ccc4c00a19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa435f21f9bedaf8c370305ccc4c00a19">&#9670;&nbsp;</a></span>__driver_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CaptureFrame::__driver_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classDriver.html">Driver</a> type </p>
+
+</div>
+</div>
+<a id="a2b8d8abc2680be9f37413b07a8336e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8d8abc2680be9f37413b07a8336e91">&#9670;&nbsp;</a></span>__fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CaptureFrame::__fd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device file descriptor </p>
+
+</div>
+</div>
+<a id="ab8e125404f4a06275e93250e4443ae36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8e125404f4a06275e93250e4443ae36">&#9670;&nbsp;</a></span>__format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_format CaptureFrame::__format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Format </p>
+
+</div>
+</div>
+<a id="ade937cf51aab06fed7fe185c7f0dce96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade937cf51aab06fed7fe185c7f0dce96">&#9670;&nbsp;</a></span>__frame_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t CaptureFrame::__frame_count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Frame count to capture </p>
+
+</div>
+</div>
+<a id="ac585159908bc9733a210d932edc22056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac585159908bc9733a210d932edc22056">&#9670;&nbsp;</a></span>__image_buffers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structCaptureFrame_1_1ImageBuffer.html">ImageBuffer</a>&gt; CaptureFrame::__image_buffers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Image buffers </p>
+
+</div>
+</div>
+<a id="aeb6994b64212675f88a98e69e8f8dd5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6994b64212675f88a98e69e8f8dd5b">&#9670;&nbsp;</a></span>__num_planes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int CaptureFrame::__num_planes = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Numbers of planes for image buffer </p>
+
+</div>
+</div>
+<a id="a0f451809ab0b719cdcd5f6c3861c227e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f451809ab0b719cdcd5f6c3861c227e">&#9670;&nbsp;</a></span>__ov7670</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classov7670.html">ov7670</a>&gt; CaptureFrame::__ov7670</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>OV7670 object </p>
+
+</div>
+</div>
+<a id="a5c6a1aa2a8845ef6b55b1ce6af42b2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6a1aa2a8845ef6b55b1ce6af42b2d2">&#9670;&nbsp;</a></span>__parm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_streamparm CaptureFrame::__parm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>V4L2 stream parameter </p>
+
+</div>
+</div>
+<a id="a7a1bf34092937ec6f54f1cf1bb0cf7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a1bf34092937ec6f54f1cf1bb0cf7eb">&#9670;&nbsp;</a></span>__req</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">v4l2_requestbuffers CaptureFrame::__req</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>V4L2 request buffers </p>
+
+</div>
+</div>
+<a id="a233eb7fb46f4ba9f68f68d99f3e5a25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a233eb7fb46f4ba9f68f68d99f3e5a25c">&#9670;&nbsp;</a></span>__save_frame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CaptureFrame::__save_frame = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The next frame is saved </p>
+
+</div>
+</div>
+<a id="aacb536af3f6e8d30b32399266308fb7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb536af3f6e8d30b32399266308fb7c">&#9670;&nbsp;</a></span>__st</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct stat CaptureFrame::__st</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Device driver stats </p>
+
+</div>
+</div>
+<a id="a23b3bfcbcaa6ce62d5aee323298ab22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b3bfcbcaa6ce62d5aee323298ab22e">&#9670;&nbsp;</a></span>__v_demosaic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classv__demosaic.html">v_demosaic</a>&gt; CaptureFrame::__v_demosaic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classv__demosaic.html">v_demosaic</a> object </p>
+
+</div>
+</div>
 <a id="a2fb57fe31378ae6a3f7cbc90cc1f5918"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fb57fe31378ae6a3f7cbc90cc1f5918">&#9670;&nbsp;</a></span>frame_processor</h2>
 

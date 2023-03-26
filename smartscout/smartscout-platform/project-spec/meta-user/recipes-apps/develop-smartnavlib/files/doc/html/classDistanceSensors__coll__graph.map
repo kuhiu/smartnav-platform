@@ -1,3 +1,8 @@
 <map id="DistanceSensors" name="DistanceSensors">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,172,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="309,160,476,296"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,44,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="68,5,307,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="331,5,489,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="530,5,655,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="682,5,746,83"/>
 </map>

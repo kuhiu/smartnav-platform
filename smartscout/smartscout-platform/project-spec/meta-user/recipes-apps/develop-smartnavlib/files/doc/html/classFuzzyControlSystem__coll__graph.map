@@ -1,3 +1,7 @@
 <map id="FuzzyControlSystem" name="FuzzyControlSystem">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,196,127"/>
+<area shape="rect" id="node1" title=" " alt="" coords="271,189,462,311"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,168,83"/>
+<area shape="rect" id="node3" title=" " alt="" coords="193,5,351,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="375,5,550,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="574,5,733,83"/>
 </map>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['none_122',['NONE',['../ColorSpaces_8hpp.html#a7457560896ea730d1ece91ca38f19129ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'ColorSpaces.hpp']]]
+  ['mailbox_311',['mailbox',['../classmailbox.html',1,'mailbox'],['../classmailbox.html#afdab2ad20b68683e0b4f7039d361ff98',1,'mailbox::mailbox()']]],
+  ['mailbox_2ehpp_312',['mailbox.hpp',['../mailbox_8hpp.html',1,'']]],
+  ['metadata_313',['metadata',['../structutilities_1_1metadata.html#a69abc2927168a9a578129a001347295f',1,'utilities::metadata::metadata()'],['../structutilities_1_1metadata.html',1,'utilities::metadata']]]
 ];
