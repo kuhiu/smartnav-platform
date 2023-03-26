@@ -6,7 +6,7 @@
 #include <SmartNav.hpp>
 #include <nlohmann/json.hpp>
 
-//#define DEBUG_MAIN 1
+#define DEBUG_MAIN 1
 #if defined(DEBUG_MAIN) 
  	#define DEBUG_PRINT(fmt, args...) printf( "DEBUG: %s:%d:%s(): " fmt, \
 																						__FILE__, __LINE__, __func__, ##args)
@@ -16,20 +16,47 @@
 
 static std::atomic<bool> is_running{true};	
 
-void siginthandler(int param) {
-  DEBUG_PRINT("User pressed Ctrl+C\n");
- 	is_running = false;
-}
+void siginthandler(int param) { is_running = false; }
 
 int main(void) {
 	/** Sigint setup */
 	signal(SIGINT, siginthandler);
-	
-	CartesianPosition where_we_go(100, 0);
-	SmartNav smart_nav(where_we_go);
+	Buttons buttons;
+	SmartNav smart_nav;
 
-	while (is_running && smart_nav.isRunning())
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	
+	while (is_running) {
+		DEBUG_PRINT("Reading buttons!!...\n");
+		// Read buttons of zybo board (blocking) 
+		ButtonNum ret = buttons.read();
+		DEBUG_PRINT("Button: %d.\n", ret);
+		switch (ret) {
+		case ButtonNum::BUTTON_0:
+		{
+			CartesianPosition target(100, 0);
+			smart_nav.newTarget(target);
+		}
+			break;
+		case ButtonNum::BUTTON_1:
+		{
+			CartesianPosition target(100, 100);
+			smart_nav.newTarget(target);
+		}
+			break;
+		case ButtonNum::BUTTON_2:
+		{
+			CartesianPosition target(100, -100);
+			smart_nav.newTarget(target);
+		}
+			break;
+		case ButtonNum::BUTTON_3:
+		{
+			CartesianPosition target(-100, 0);
+			smart_nav.newTarget(target);
+		}
+			break;
+		default:
+			break;
+		}
+	}	
 	return 0;
 }
