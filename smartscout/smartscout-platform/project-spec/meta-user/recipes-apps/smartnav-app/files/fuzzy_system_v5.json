@@ -1,0 +1,61 @@
+{
+  "fuzzy_system": {
+
+    "inputs": 
+    [
+      {
+        "name": "where_have_to_go",
+        "membership_functions": 
+        [
+          { "name": "RIGHT", "trapezoidal": [{"x1":-360}, {"x2": 0}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] },
+          { "name": "CENTER",  "trapezoidal": [{"x1": -45}, {"x2":45}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] }, 
+          { "name": "LEFT",  "trapezoidal": [{"x1": 0}, {"x2": 360}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] } 
+        ]
+      }
+    ], 
+
+    "outputs": 
+    [
+      {
+        "name": "pwm0",
+        "membership_functions": 
+        [
+          { "name": "LOW", "trapezoidal": [{"x1": -15}, {"x2": 15}, {"right_slope": 0.05}, {"left_slope": 0.05}] },
+          { "name": "MEDIUM", "trapezoidal": [{"x1": 0}, {"x2": 30}, {"right_slope": 0.05}, {"left_slope": 0.05}] },
+          { "name": "HIGH", "trapezoidal": [{"x1": 15}, {"x2": 45}, {"right_slope": 0.05}, {"left_slope": 0.05}] }
+        ]
+      },
+      {
+        "name": "pwm1",
+        "membership_functions": 
+        [
+          { "name": "LOW", "trapezoidal": [{"x1": -15}, {"x2": 15}, {"right_slope": 0.05}, {"left_slope": 0.05}] },
+          { "name": "MEDIUM", "trapezoidal": [{"x1": 0}, {"x2": 30}, {"right_slope": 0.05}, {"left_slope": 0.05}] },
+          { "name": "HIGH", "trapezoidal": [{"x1": 15}, {"x2": 45}, {"right_slope": 0.05}, {"left_slope": 0.05}] }
+        ]
+      }
+    ],
+
+    "rules": 
+    [
+      { 
+        "name": "rule_0", 
+        "input_conditions": [ { "io": "where_have_to_go", "fuzzy_value": "LEFT" }],
+        "output_conditions": [{ "and": [ { "io": "pwm0", "fuzzy_value": "LOW" }, 
+                                         { "io": "pwm1", "fuzzy_value": "HIGH"} ] }] 
+      },
+      { 
+        "name": "rule_1", 
+        "input_conditions": [ { "io": "where_have_to_go", "fuzzy_value": "CENTER" }],
+        "output_conditions": [{ "and": [ { "io": "pwm0", "fuzzy_value": "MEDIUM" }, 
+                                         { "io": "pwm1", "fuzzy_value": "MEDIUM"} ] }] 
+      },
+      { 
+        "name": "rule_2", 
+        "input_conditions": [ { "io": "where_have_to_go", "fuzzy_value": "RIGHT" }],
+        "output_conditions": [{ "and": [ { "io": "pwm0", "fuzzy_value": "HIGH" }, 
+                                         { "io": "pwm1", "fuzzy_value": "LOW"} ] }] 
+      }
+    ]
+  } 
+}
