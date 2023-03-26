@@ -10,7 +10,8 @@ This is the platform of the smartnav project.
 
 Hardware description software
 
-<img src="./smartscout-vivado/smartnav-vivado/design_2.jpg"  width="800" height="400">
+<img src="./smartscout-vivado/smartnav-vivado/design_1.png"  width="800" height="400">
+<img src="./smartscout-vivado/smartnav-vivado/design_2.png"  width="800" height="400">
 
 # Pictures
 
@@ -27,10 +28,27 @@ Hardware description software
     <img src="./doc/state9.jpeg" width="190" />
 </p>
 
-# Docker: How to use platform
+# Docker: 
 
-./run-container.sh ./smartscout/
+From the root of this repository:
 
-# Docker: How to use vivado
++ Running Vivado: 
+  ```
+  sh run_vivado.sh
+  ```
++ Basic build process (check Petalinux Documentation): 
+  ```
+  sh run_build.sh
+  ```
++ Fully build process: 
+  ```
+  sh run_build_from_scratch.sh
+  ```
++ Any command: 
+  ```
+  ./etc/petalin.sh "cd ./smartscout/smartscout-platform && petalinux-create -t apps --template install -n smartnav-app-init --enable"
+  ```
 
-./run-container.sh ./smartscout-vivado/smartnav-vivado
+# Acknowledgment
+
+The base docker image was taken from this site: https://github.com/carlesfernandez/docker-petalinux (MIT LICENSE). I am fully grateful.
