@@ -1,8 +1,8 @@
 open_project design_1_v_frmbuf_wr_0_0
 set_top v_frmbuf_wr
-add_files -cflags " -I /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr_config.h
-add_files -cflags " -I /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr.cpp
-add_files -cflags " -I /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /home/user/project/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr.h
+add_files -cflags " -I /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr_config.h
+add_files -cflags " -I /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr.cpp
+add_files -cflags " -I /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src " /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/sources_1/bd/design_1/ip/design_1_v_frmbuf_wr_0_0/src/v_frmbuf_wr.h
 
 open_solution "prj"
 set_part {xc7z010clg400-1}

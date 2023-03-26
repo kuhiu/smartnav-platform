@@ -1,12 +1,12 @@
-set_property SRC_FILE_INFO {cfile:/home/user/project/smartnav-vivado.srcs/constrs_1/new/board.xdc rfile:../../../smartnav-vivado.srcs/constrs_1/new/board.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.srcs/constrs_1/new/board.xdc rfile:../../../smartnav-vivado.srcs/constrs_1/new/board.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:23 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { pi_action[0] }];  #IO_L20N_T3_34 Sch=BTN0
+set_property -dict { PACKAGE_PIN K18   IOSTANDARD LVCMOS33 } [get_ports { button_0 }];  #IO_L20N_T3_34 Sch=BTN0
 set_property src_info {type:XDC file:1 line:24 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN P16   IOSTANDARD LVCMOS33 } [get_ports { pi_action[1] }];  #IO_L24N_T3_34 Sch=BTN1
+set_property -dict { PACKAGE_PIN P16   IOSTANDARD LVCMOS33 } [get_ports { button_1 }];  #IO_L24N_T3_34 Sch=BTN1
 set_property src_info {type:XDC file:1 line:25 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN K19   IOSTANDARD LVCMOS33 } [get_ports { pi_action[2] }];  #IO_L10P_T1_AD11P_35 Sch=btn[2]
+set_property -dict { PACKAGE_PIN K19   IOSTANDARD LVCMOS33 } [get_ports { button_2 }];  #IO_L10P_T1_AD11P_35 Sch=btn[2]
 set_property src_info {type:XDC file:1 line:26 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { pi_action[3] }];  #IO_L7P_T1_34 Sch=btn[3]
+set_property -dict { PACKAGE_PIN Y16   IOSTANDARD LVCMOS33 } [get_ports { button_3 }];  #IO_L7P_T1_34 Sch=btn[3]
 set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports zybo_led_0]; #IO_L23P_T3_35 Sch=LED0
 set_property src_info {type:XDC file:1 line:37 export:INPUT save:INPUT read:READ} [current_design]

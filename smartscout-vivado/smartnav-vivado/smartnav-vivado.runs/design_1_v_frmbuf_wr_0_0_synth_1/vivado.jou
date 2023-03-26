@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Feb 21 20:37:27 2023
-# Process ID: 463070
-# Current directory: /home/user/project/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1
+# Start of session at: Mon Mar 20 20:12:59 2023
+# Process ID: 822
+# Current directory: /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1
 # Command line: vivado -log design_1_v_frmbuf_wr_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_v_frmbuf_wr_0_0.tcl
-# Log file: /home/user/project/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1/design_1_v_frmbuf_wr_0_0.vds
-# Journal file: /home/user/project/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1/vivado.jou
+# Log file: /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1/design_1_v_frmbuf_wr_0_0.vds
+# Journal file: /media/kuhiu/5e8324a1-752c-4afa-961c-05d693d0ddc6/SmartNavSys/docker-for-petalinux/smartscout-vivado/smartnav-vivado/smartnav-vivado.runs/design_1_v_frmbuf_wr_0_0_synth_1/vivado.jou
 #-----------------------------------------------------------
 source design_1_v_frmbuf_wr_0_0.tcl -notrace
