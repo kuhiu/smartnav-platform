@@ -88,7 +88,7 @@
 			compatible = "axi_mailbox";
 			interrupt-names = "interrupt";
 			interrupt-parent = <0x04>;
-			interrupts = <0 33 4>;
+			interrupts = <0 32 4>;
 		};
 		
 		axi_video_cap {
@@ -127,6 +127,13 @@
 			trig_hcsr04_3-gpios = <&gpio0 0 0>;
 		};
 
+		buttons {
+			compatible = "buttons";
+			interrupt-names = "interrupt";
+			interrupt-parent = <0x04>;
+			interrupts = <0 33 4>, <0 34 4>, <0 35 4>, <0 36 4>;
+		};
+		
 		i2c@e0004000 {
 			status = "okay";
 			clock-frequency = <100000>;
