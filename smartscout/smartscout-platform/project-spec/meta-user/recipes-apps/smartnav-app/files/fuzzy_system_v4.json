@@ -15,8 +15,8 @@
         "name": "theta",
         "membership_functions": 
         [
-          { "name": "LOW", "trapezoidal": [{"x1": -45}, {"x2": 45}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] },
-          { "name": "HIGH", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.02222}, {"left_slope": 0.02222}] }
+          { "name": "LOW", "trapezoidal": [{"x1": -30}, {"x2": 30}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] },
+          { "name": "HIGH", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] }
         ]
       },
       { 
