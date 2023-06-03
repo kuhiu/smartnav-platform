@@ -8,6 +8,7 @@
 *
 !*/
 !.gitignore
+!*.png
 #########
 #Files needed 
 #to build the 
@@ -18,3 +19,4 @@
 !smartnav-vivado.sdk/led_blinky/Release/led_blinky.elf
 !smartnav-vivado.sdk/encoder/Debug/encoder.elf
 !smartnav-vivado.srcs/constrs_1/new/board.xdc
+
