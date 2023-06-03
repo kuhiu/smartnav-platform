@@ -2,9 +2,13 @@
 
 This is the platform of the smartnav project.
 
-# Architecture 
+# Software architecture 
 
-<img src="./doc/arch_full.png"  width="800" height="400">
+<img src="./doc/software_architecture.png"  width="800" height="400">
+
+# Hardware architecture
+
+<img src="./doc/hardware_architecture.png"  width="800" height="400">
 
 # HDF 
 
