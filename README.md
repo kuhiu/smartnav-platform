@@ -30,6 +30,8 @@ Hardware description software
     <img src="./doc/state7.jpeg" width="227" />
     <img src="./doc/state8.jpeg" width="150" />
     <img src="./doc/state9.jpeg" width="190" />
+    <img src="./doc/state10.jpeg" width="150" />
+    <img src="./doc/state11.jpeg" width="150" />
 </p>
 
 # Docker: 
