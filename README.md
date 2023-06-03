@@ -4,11 +4,11 @@ This is the platform of the smartnav project.
 
 # Software architecture 
 
-<img src="./doc/software_architecture.png"  width="800" height="400">
+<img src="./doc/software_architecture.png" >
 
 # Hardware architecture
 
-<img src="./doc/hardware_architecture.png"  width="800" height="400">
+<img src="./doc/hardware_architecture.png" >
 
 # HDF 
 
