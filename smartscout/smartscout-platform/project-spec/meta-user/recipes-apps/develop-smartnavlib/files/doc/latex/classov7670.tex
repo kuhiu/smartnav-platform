@@ -1,0 +1,184 @@
+\hypertarget{classov7670}{}\doxysection{ov7670 Class Reference}
+\label{classov7670}\index{ov7670@{ov7670}}
+
+
+{\ttfamily \#include $<$ov7670.\+hpp$>$}
+
+
+
+Collaboration diagram for ov7670\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classov7670__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}} \{ \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9aa3aed9bf473706ce8f677e6a2b4e8678}{SBGGR8\+\_\+1\+X8}} = 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classov7670_a59327d7b9287e7ffd30acad86a685cf7}{ov7670}} (uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}} pixel\+\_\+format, uint32\+\_\+t frame\+\_\+rate)
+\item 
+\mbox{\hyperlink{classov7670_a74e4a2a38d95e2707686e710d99f9f41}{$\sim$ov7670}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classov7670_a6d4f67dfe3d1926214e40fec3e245cc6}{\+\_\+\+\_\+open\+Device}} ()
+\item 
+void \mbox{\hyperlink{classov7670_a79138b68ae8fd0bc5ca5f748ec6f72c2}{\+\_\+\+\_\+close\+Device}} ()
+\item 
+void \mbox{\hyperlink{classov7670_ae9fd308fed67e79d6567bc0d3f42b94b}{\+\_\+\+\_\+init\+Device}} (uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}} pixelformat, uint32\+\_\+t frame\+\_\+rate)
+\item 
+void \mbox{\hyperlink{classov7670_acc7d0b34fadb1963dcec36773ddf9127}{\+\_\+\+\_\+set\+Framerate}} (uint32\+\_\+t frame\+\_\+rate)
+\item 
+void \mbox{\hyperlink{classov7670_a087c9481116e1ebe2d2603e256fea6f3}{\+\_\+\+\_\+set\+Format}} (uint32\+\_\+t width, uint32\+\_\+t height, \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}} pixelformat)
+\item 
+int \mbox{\hyperlink{classov7670_a2f1f3f147ed32fb22783a52ab1d27763}{\+\_\+\+\_\+xioctl}} (int fd, int request, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Ioctl wrapper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classov7670_a8f53c56a9cc99e3f0c35379b9a6da386}{\+\_\+\+\_\+fd}}
+\item 
+struct stat \mbox{\hyperlink{classov7670_af3a4f6635bfeeb7d0e7fd688ae4e3216}{\+\_\+\+\_\+st}}
+\item 
+v4l2\+\_\+subdev\+\_\+frame\+\_\+interval \mbox{\hyperlink{classov7670_a71a54f2abf997f80229fb300c8675a22}{\+\_\+\+\_\+frame\+\_\+interval}}
+\item 
+v4l2\+\_\+subdev\+\_\+format \mbox{\hyperlink{classov7670_ac4b6075b649a9e23a478d2b0d6de992b}{\+\_\+\+\_\+format}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr const char $\ast$ \mbox{\hyperlink{classov7670_aa10c57f6db62df1ea27e8a62cbb79ee7}{\+\_\+\+\_\+\+DEVICE}} = \{\char`\"{}/dev/v4l-\/subdev0\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}\label{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}} 
+\index{ov7670@{ov7670}!pixelFormat@{pixelFormat}}
+\index{pixelFormat@{pixelFormat}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{pixelFormat}{pixelFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{ov7670\+::pixel\+Format}}}
+
+Pixel formats supported \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SBGGR8\_1X8@{SBGGR8\_1X8}!ov7670@{ov7670}}\index{ov7670@{ov7670}!SBGGR8\_1X8@{SBGGR8\_1X8}}}\mbox{\Hypertarget{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9aa3aed9bf473706ce8f677e6a2b4e8678}\label{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9aa3aed9bf473706ce8f677e6a2b4e8678}} 
+SBGGR8\+\_\+1\+X8&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classov7670_a59327d7b9287e7ffd30acad86a685cf7}\label{classov7670_a59327d7b9287e7ffd30acad86a685cf7}} 
+\index{ov7670@{ov7670}!ov7670@{ov7670}}
+\index{ov7670@{ov7670}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{ov7670()}{ov7670()}}
+{\footnotesize\ttfamily ov7670\+::ov7670 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}}}]{pixel\+\_\+format,  }\item[{uint32\+\_\+t}]{frame\+\_\+rate }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classov7670}{ov7670}} constructor \mbox{\Hypertarget{classov7670_a74e4a2a38d95e2707686e710d99f9f41}\label{classov7670_a74e4a2a38d95e2707686e710d99f9f41}} 
+\index{ov7670@{ov7670}!````~ov7670@{$\sim$ov7670}}
+\index{````~ov7670@{$\sim$ov7670}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{$\sim$ov7670()}{~ov7670()}}
+{\footnotesize\ttfamily ov7670\+::$\sim$ov7670 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classov7670}{ov7670}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classov7670_a79138b68ae8fd0bc5ca5f748ec6f72c2}\label{classov7670_a79138b68ae8fd0bc5ca5f748ec6f72c2}} 
+\index{ov7670@{ov7670}!\_\_closeDevice@{\_\_closeDevice}}
+\index{\_\_closeDevice@{\_\_closeDevice}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_closeDevice()}{\_\_closeDevice()}}
+{\footnotesize\ttfamily void ov7670\+::\+\_\+\+\_\+close\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Close \mbox{\hyperlink{classov7670}{ov7670}} driver \mbox{\Hypertarget{classov7670_ae9fd308fed67e79d6567bc0d3f42b94b}\label{classov7670_ae9fd308fed67e79d6567bc0d3f42b94b}} 
+\index{ov7670@{ov7670}!\_\_initDevice@{\_\_initDevice}}
+\index{\_\_initDevice@{\_\_initDevice}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_initDevice()}{\_\_initDevice()}}
+{\footnotesize\ttfamily void ov7670\+::\+\_\+\+\_\+init\+Device (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}}}]{pixelformat,  }\item[{uint32\+\_\+t}]{frame\+\_\+rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classov7670_a6d4f67dfe3d1926214e40fec3e245cc6}\label{classov7670_a6d4f67dfe3d1926214e40fec3e245cc6}} 
+\index{ov7670@{ov7670}!\_\_openDevice@{\_\_openDevice}}
+\index{\_\_openDevice@{\_\_openDevice}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_openDevice()}{\_\_openDevice()}}
+{\footnotesize\ttfamily void ov7670\+::\+\_\+\+\_\+open\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Open \mbox{\hyperlink{classov7670}{ov7670}} driver \mbox{\Hypertarget{classov7670_a087c9481116e1ebe2d2603e256fea6f3}\label{classov7670_a087c9481116e1ebe2d2603e256fea6f3}} 
+\index{ov7670@{ov7670}!\_\_setFormat@{\_\_setFormat}}
+\index{\_\_setFormat@{\_\_setFormat}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_setFormat()}{\_\_setFormat()}}
+{\footnotesize\ttfamily void ov7670\+::\+\_\+\+\_\+set\+Format (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{width,  }\item[{uint32\+\_\+t}]{height,  }\item[{\mbox{\hyperlink{classov7670_af7ab8d02f25b0b77e708c7e56db7bfe9}{pixel\+Format}}}]{pixelformat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classov7670_acc7d0b34fadb1963dcec36773ddf9127}\label{classov7670_acc7d0b34fadb1963dcec36773ddf9127}} 
+\index{ov7670@{ov7670}!\_\_setFramerate@{\_\_setFramerate}}
+\index{\_\_setFramerate@{\_\_setFramerate}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_setFramerate()}{\_\_setFramerate()}}
+{\footnotesize\ttfamily void ov7670\+::\+\_\+\+\_\+set\+Framerate (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{frame\+\_\+rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classov7670_a2f1f3f147ed32fb22783a52ab1d27763}\label{classov7670_a2f1f3f147ed32fb22783a52ab1d27763}} 
+\index{ov7670@{ov7670}!\_\_xioctl@{\_\_xioctl}}
+\index{\_\_xioctl@{\_\_xioctl}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_xioctl()}{\_\_xioctl()}}
+{\footnotesize\ttfamily int ov7670\+::\+\_\+\+\_\+xioctl (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{int}]{request,  }\item[{void $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Ioctl wrapper. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & \\
+\hline
+{\em request} & \\
+\hline
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classov7670_aa10c57f6db62df1ea27e8a62cbb79ee7}\label{classov7670_aa10c57f6db62df1ea27e8a62cbb79ee7}} 
+\index{ov7670@{ov7670}!\_\_DEVICE@{\_\_DEVICE}}
+\index{\_\_DEVICE@{\_\_DEVICE}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_DEVICE}{\_\_DEVICE}}
+{\footnotesize\ttfamily constexpr const char$\ast$ ov7670\+::\+\_\+\+\_\+\+DEVICE = \{\char`\"{}/dev/v4l-\/subdev0\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+Device name \mbox{\Hypertarget{classov7670_a8f53c56a9cc99e3f0c35379b9a6da386}\label{classov7670_a8f53c56a9cc99e3f0c35379b9a6da386}} 
+\index{ov7670@{ov7670}!\_\_fd@{\_\_fd}}
+\index{\_\_fd@{\_\_fd}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_fd}{\_\_fd}}
+{\footnotesize\ttfamily int ov7670\+::\+\_\+\+\_\+fd\hspace{0.3cm}{\ttfamily [private]}}
+
+Device file descriptor \mbox{\Hypertarget{classov7670_ac4b6075b649a9e23a478d2b0d6de992b}\label{classov7670_ac4b6075b649a9e23a478d2b0d6de992b}} 
+\index{ov7670@{ov7670}!\_\_format@{\_\_format}}
+\index{\_\_format@{\_\_format}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_format}{\_\_format}}
+{\footnotesize\ttfamily v4l2\+\_\+subdev\+\_\+format ov7670\+::\+\_\+\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+Format \mbox{\Hypertarget{classov7670_a71a54f2abf997f80229fb300c8675a22}\label{classov7670_a71a54f2abf997f80229fb300c8675a22}} 
+\index{ov7670@{ov7670}!\_\_frame\_interval@{\_\_frame\_interval}}
+\index{\_\_frame\_interval@{\_\_frame\_interval}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_frame\_interval}{\_\_frame\_interval}}
+{\footnotesize\ttfamily v4l2\+\_\+subdev\+\_\+frame\+\_\+interval ov7670\+::\+\_\+\+\_\+frame\+\_\+interval\hspace{0.3cm}{\ttfamily [private]}}
+
+Frame interval \mbox{\Hypertarget{classov7670_af3a4f6635bfeeb7d0e7fd688ae4e3216}\label{classov7670_af3a4f6635bfeeb7d0e7fd688ae4e3216}} 
+\index{ov7670@{ov7670}!\_\_st@{\_\_st}}
+\index{\_\_st@{\_\_st}!ov7670@{ov7670}}
+\doxysubsubsection{\texorpdfstring{\_\_st}{\_\_st}}
+{\footnotesize\ttfamily struct stat ov7670\+::\+\_\+\+\_\+st\hspace{0.3cm}{\ttfamily [private]}}
+
+Device driver stats 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/capture-\/frame/\mbox{\hyperlink{ov7670_8hpp}{ov7670.\+hpp}}\item 
+modules/capture-\/frame/\mbox{\hyperlink{ov7670_8cpp}{ov7670.\+cpp}}\end{DoxyCompactItemize}

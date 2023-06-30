@@ -1,0 +1,46 @@
+\hypertarget{CaptureFrame_8cpp}{}\doxysection{modules/capture-\/frame/\+Capture\+Frame.cpp File Reference}
+\label{CaptureFrame_8cpp}\index{modules/capture-\/frame/CaptureFrame.cpp@{modules/capture-\/frame/CaptureFrame.cpp}}
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$Capture\+Frame.\+hpp$>$}\newline
+Include dependency graph for Capture\+Frame.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{CaptureFrame_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{CaptureFrame_8cpp_a43b8be7e7b65112f16f3fd26afbd11ca}{DEBUG\+\_\+\+CAPTURE}}~1
+\item 
+\#define \mbox{\hyperlink{CaptureFrame_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}{DEBUG\+\_\+\+PRINT}}(fmt,  args...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{CaptureFrame_8cpp_a43b8be7e7b65112f16f3fd26afbd11ca}\label{CaptureFrame_8cpp_a43b8be7e7b65112f16f3fd26afbd11ca}} 
+\index{CaptureFrame.cpp@{CaptureFrame.cpp}!DEBUG\_CAPTURE@{DEBUG\_CAPTURE}}
+\index{DEBUG\_CAPTURE@{DEBUG\_CAPTURE}!CaptureFrame.cpp@{CaptureFrame.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_CAPTURE}{DEBUG\_CAPTURE}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+CAPTURE~1}
+
+\mbox{\Hypertarget{CaptureFrame_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}\label{CaptureFrame_8cpp_a5f50bfe761aec48e94d11aa3a64e58a4}} 
+\index{CaptureFrame.cpp@{CaptureFrame.cpp}!DEBUG\_PRINT@{DEBUG\_PRINT}}
+\index{DEBUG\_PRINT@{DEBUG\_PRINT}!CaptureFrame.cpp@{CaptureFrame.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PRINT}{DEBUG\_PRINT}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PRINT(\begin{DoxyParamCaption}\item[{}]{fmt,  }\item[{}]{args... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                                                                        printf( \textcolor{stringliteral}{"{}DEBUG: \%s:\%d:\%s(): "{}} fmt, \(\backslash\)}
+\DoxyCodeLine{                                                                                        \_\_FILE\_\_, \_\_LINE\_\_, \_\_func\_\_, \#\#args)}
+
+\end{DoxyCode}

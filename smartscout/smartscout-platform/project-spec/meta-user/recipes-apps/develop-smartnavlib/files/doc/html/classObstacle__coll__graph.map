@@ -1,0 +1,5 @@
+<map id="Obstacle" name="Obstacle">
+<area shape="rect" id="node1" title=" " alt="" coords="5,359,173,495"/>
+<area shape="rect" id="node2" href="$structCartesianPosition.html" title=" " alt="" coords="9,160,170,267"/>
+<area shape="rect" id="node3" title=" " alt="" coords="64,5,115,83"/>
+</map>

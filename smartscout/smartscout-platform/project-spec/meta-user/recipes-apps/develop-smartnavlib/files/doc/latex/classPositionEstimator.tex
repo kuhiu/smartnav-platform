@@ -1,0 +1,293 @@
+\hypertarget{classPositionEstimator}{}\doxysection{Position\+Estimator Class Reference}
+\label{classPositionEstimator}\index{PositionEstimator@{PositionEstimator}}
+
+
+{\ttfamily \#include $<$Position\+Estimator.\+hpp$>$}
+
+
+
+Collaboration diagram for Position\+Estimator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPositionEstimator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPositionEstimator_a80c2b25e44e66b53ef67d09dcb1b706c}{Position\+Estimator}} ()
+\item 
+\mbox{\hyperlink{classPositionEstimator_ae7f10c229d55e7d78178c60252971ce9}{$\sim$\+Position\+Estimator}} ()
+\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a0160dfadb131438066dff29835ae49c2}{get\+Current\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get the Current Position object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPositionEstimator_ae11a4131b7a3338cadb789cacb1585c2}{get\+Current\+Angle}} ()
+\begin{DoxyCompactList}\small\item\em Get the Current Angle object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a27b5ccdede2436a643ff399363fee7a5}{relativize\+Point}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} point)
+\begin{DoxyCompactList}\small\item\em Axies rotation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} \mbox{\hyperlink{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}{cartensian\+To\+Polar}} (\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} cartesian)
+\begin{DoxyCompactList}\small\item\em Convert the cartesian position to the polar position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}{polar\+To\+Cartesian}} (\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} polar)
+\begin{DoxyCompactList}\small\item\em Conver the polar position to the cartesian position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPositionEstimator_a7dc5ad5c2579a314eaa2779346e0af79}{\+\_\+\+\_\+read\+Encoders}} ()
+\begin{DoxyCompactList}\small\item\em Read encoders. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPositionEstimator_a9a232eaf3787af693a54893874205eee}{\+\_\+\+\_\+get\+Traveled\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Get traveled distance value (thread safe) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPositionEstimator_a0a7356b7fd89fd152dd0923b00b15d7f}{\+\_\+\+\_\+count\+To\+Distance}} (int count)
+\begin{DoxyCompactList}\small\item\em Encoder count to distance \mbox{[}cm\mbox{]}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}{\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians}} (float degrees)
+\begin{DoxyCompactList}\small\item\em Degree to radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classPositionEstimator_ac8555529bf694b507449ae1c87cf1182}{\+\_\+\+\_\+\+QUEUE\+\_\+\+LEN}} = 2
+\item 
+bool \mbox{\hyperlink{classPositionEstimator_ad95ba87f37123d84c21cf20692715456}{\+\_\+\+\_\+is\+\_\+running}}
+\item 
+\mbox{\hyperlink{classmailbox}{mailbox}} \mbox{\hyperlink{classPositionEstimator_a500fbd9016fa416ba8612d13aff0b10e}{\+\_\+\+\_\+mailbox}}
+\item 
+\mbox{\hyperlink{classCompass}{Compass}} \mbox{\hyperlink{classPositionEstimator_a8ac1f87e9b5e7470779dcc03f566527d}{\+\_\+\+\_\+compass}}
+\item 
+std\+::queue$<$ int $>$ \mbox{\hyperlink{classPositionEstimator_a2d5c3ad85771f13cddc37c93cac0f3ca}{encoder1\+\_\+queue}}
+\item 
+std\+::queue$<$ int $>$ \mbox{\hyperlink{classPositionEstimator_a09bcbd2d07bca0428e3470519821c858}{encoder2\+\_\+queue}}
+\item 
+float \mbox{\hyperlink{classPositionEstimator_afc726ee4b80b46c7a9d4ebde93301f2c}{\+\_\+\+\_\+traveled\+\_\+distance}}
+\item 
+std\+::mutex \mbox{\hyperlink{classPositionEstimator_a333866f410b61ad0ba95f9f65d8beb85}{\+\_\+\+\_\+m}}
+\item 
+std\+::thread \mbox{\hyperlink{classPositionEstimator_a006ea3302a9e5e49ed8aba23c1dd236b}{\+\_\+\+\_\+encoders\+\_\+thread}}
+\item 
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} \mbox{\hyperlink{classPositionEstimator_a4bb513205e46d8c42d57090d4464dd08}{\+\_\+\+\_\+curr\+\_\+position}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPositionEstimator_a80c2b25e44e66b53ef67d09dcb1b706c}\label{classPositionEstimator_a80c2b25e44e66b53ef67d09dcb1b706c}} 
+\index{PositionEstimator@{PositionEstimator}!PositionEstimator@{PositionEstimator}}
+\index{PositionEstimator@{PositionEstimator}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{PositionEstimator()}{PositionEstimator()}}
+{\footnotesize\ttfamily Position\+Estimator\+::\+Position\+Estimator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classPositionEstimator}{Position\+Estimator}} constructor \mbox{\Hypertarget{classPositionEstimator_ae7f10c229d55e7d78178c60252971ce9}\label{classPositionEstimator_ae7f10c229d55e7d78178c60252971ce9}} 
+\index{PositionEstimator@{PositionEstimator}!````~PositionEstimator@{$\sim$PositionEstimator}}
+\index{````~PositionEstimator@{$\sim$PositionEstimator}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{$\sim$PositionEstimator()}{~PositionEstimator()}}
+{\footnotesize\ttfamily Position\+Estimator\+::$\sim$\+Position\+Estimator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classPositionEstimator}{Position\+Estimator}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPositionEstimator_a0a7356b7fd89fd152dd0923b00b15d7f}\label{classPositionEstimator_a0a7356b7fd89fd152dd0923b00b15d7f}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_countToDistance@{\_\_countToDistance}}
+\index{\_\_countToDistance@{\_\_countToDistance}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_countToDistance()}{\_\_countToDistance()}}
+{\footnotesize\ttfamily float Position\+Estimator\+::\+\_\+\+\_\+count\+To\+Distance (\begin{DoxyParamCaption}\item[{int}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Encoder count to distance \mbox{[}cm\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}\label{classPositionEstimator_a4207d22b21a8289af821899cf0c269a1}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_degrees\_to\_radians@{\_\_degrees\_to\_radians}}
+\index{\_\_degrees\_to\_radians@{\_\_degrees\_to\_radians}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_degrees\_to\_radians()}{\_\_degrees\_to\_radians()}}
+{\footnotesize\ttfamily float Position\+Estimator\+::\+\_\+\+\_\+degrees\+\_\+to\+\_\+radians (\begin{DoxyParamCaption}\item[{float}]{degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Degree to radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a9a232eaf3787af693a54893874205eee}\label{classPositionEstimator_a9a232eaf3787af693a54893874205eee}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_getTraveledDistance@{\_\_getTraveledDistance}}
+\index{\_\_getTraveledDistance@{\_\_getTraveledDistance}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_getTraveledDistance()}{\_\_getTraveledDistance()}}
+{\footnotesize\ttfamily float Position\+Estimator\+::\+\_\+\+\_\+get\+Traveled\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get traveled distance value (thread safe) 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a7dc5ad5c2579a314eaa2779346e0af79}\label{classPositionEstimator_a7dc5ad5c2579a314eaa2779346e0af79}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_readEncoders@{\_\_readEncoders}}
+\index{\_\_readEncoders@{\_\_readEncoders}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_readEncoders()}{\_\_readEncoders()}}
+{\footnotesize\ttfamily void Position\+Estimator\+::\+\_\+\+\_\+read\+Encoders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Read encoders. 
+
+\mbox{\Hypertarget{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}\label{classPositionEstimator_a1bddee826a0e9a282b9f473d6b9a3bdb}} 
+\index{PositionEstimator@{PositionEstimator}!cartensianToPolar@{cartensianToPolar}}
+\index{cartensianToPolar@{cartensianToPolar}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{cartensianToPolar()}{cartensianToPolar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPolarPosition}{Polar\+Position}} Position\+Estimator\+::cartensian\+To\+Polar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{cartesian }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert the cartesian position to the polar position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cartesian} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_ae11a4131b7a3338cadb789cacb1585c2}\label{classPositionEstimator_ae11a4131b7a3338cadb789cacb1585c2}} 
+\index{PositionEstimator@{PositionEstimator}!getCurrentAngle@{getCurrentAngle}}
+\index{getCurrentAngle@{getCurrentAngle}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{getCurrentAngle()}{getCurrentAngle()}}
+{\footnotesize\ttfamily float Position\+Estimator\+::get\+Current\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Current Angle object. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a0160dfadb131438066dff29835ae49c2}\label{classPositionEstimator_a0160dfadb131438066dff29835ae49c2}} 
+\index{PositionEstimator@{PositionEstimator}!getCurrentPosition@{getCurrentPosition}}
+\index{getCurrentPosition@{getCurrentPosition}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{getCurrentPosition()}{getCurrentPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::get\+Current\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Current Position object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPolarPosition}{Polar\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}\label{classPositionEstimator_a7c14dceea2aa0d0685e5ded1e304857b}} 
+\index{PositionEstimator@{PositionEstimator}!polarToCartesian@{polarToCartesian}}
+\index{polarToCartesian@{polarToCartesian}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{polarToCartesian()}{polarToCartesian()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::polar\+To\+Cartesian (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPolarPosition}{Polar\+Position}}}]{polar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conver the polar position to the cartesian position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em polar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPositionEstimator_a27b5ccdede2436a643ff399363fee7a5}\label{classPositionEstimator_a27b5ccdede2436a643ff399363fee7a5}} 
+\index{PositionEstimator@{PositionEstimator}!relativizePoint@{relativizePoint}}
+\index{relativizePoint@{relativizePoint}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{relativizePoint()}{relativizePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::relativize\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}}}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Axies rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPositionEstimator_a8ac1f87e9b5e7470779dcc03f566527d}\label{classPositionEstimator_a8ac1f87e9b5e7470779dcc03f566527d}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_compass@{\_\_compass}}
+\index{\_\_compass@{\_\_compass}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_compass}{\_\_compass}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCompass}{Compass}} Position\+Estimator\+::\+\_\+\+\_\+compass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classCompass}{Compass}} object \mbox{\Hypertarget{classPositionEstimator_a4bb513205e46d8c42d57090d4464dd08}\label{classPositionEstimator_a4bb513205e46d8c42d57090d4464dd08}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_curr\_position@{\_\_curr\_position}}
+\index{\_\_curr\_position@{\_\_curr\_position}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_curr\_position}{\_\_curr\_position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCartesianPosition}{Cartesian\+Position}} Position\+Estimator\+::\+\_\+\+\_\+curr\+\_\+position\hspace{0.3cm}{\ttfamily [private]}}
+
+Current position \mbox{\Hypertarget{classPositionEstimator_a006ea3302a9e5e49ed8aba23c1dd236b}\label{classPositionEstimator_a006ea3302a9e5e49ed8aba23c1dd236b}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_encoders\_thread@{\_\_encoders\_thread}}
+\index{\_\_encoders\_thread@{\_\_encoders\_thread}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_encoders\_thread}{\_\_encoders\_thread}}
+{\footnotesize\ttfamily std\+::thread Position\+Estimator\+::\+\_\+\+\_\+encoders\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+Encoders thread \mbox{\Hypertarget{classPositionEstimator_ad95ba87f37123d84c21cf20692715456}\label{classPositionEstimator_ad95ba87f37123d84c21cf20692715456}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily bool Position\+Estimator\+::\+\_\+\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classPositionEstimator_a333866f410b61ad0ba95f9f65d8beb85}\label{classPositionEstimator_a333866f410b61ad0ba95f9f65d8beb85}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_m@{\_\_m}}
+\index{\_\_m@{\_\_m}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_m}{\_\_m}}
+{\footnotesize\ttfamily std\+::mutex Position\+Estimator\+::\+\_\+\+\_\+m\hspace{0.3cm}{\ttfamily [private]}}
+
+SMA guard \mbox{\Hypertarget{classPositionEstimator_a500fbd9016fa416ba8612d13aff0b10e}\label{classPositionEstimator_a500fbd9016fa416ba8612d13aff0b10e}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_mailbox@{\_\_mailbox}}
+\index{\_\_mailbox@{\_\_mailbox}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_mailbox}{\_\_mailbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmailbox}{mailbox}} Position\+Estimator\+::\+\_\+\+\_\+mailbox\hspace{0.3cm}{\ttfamily [private]}}
+
+Mailbox object \mbox{\Hypertarget{classPositionEstimator_ac8555529bf694b507449ae1c87cf1182}\label{classPositionEstimator_ac8555529bf694b507449ae1c87cf1182}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_QUEUE\_LEN@{\_\_QUEUE\_LEN}}
+\index{\_\_QUEUE\_LEN@{\_\_QUEUE\_LEN}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_QUEUE\_LEN}{\_\_QUEUE\_LEN}}
+{\footnotesize\ttfamily const int Position\+Estimator\+::\+\_\+\+\_\+\+QUEUE\+\_\+\+LEN = 2\hspace{0.3cm}{\ttfamily [private]}}
+
+SMA length \mbox{\Hypertarget{classPositionEstimator_afc726ee4b80b46c7a9d4ebde93301f2c}\label{classPositionEstimator_afc726ee4b80b46c7a9d4ebde93301f2c}} 
+\index{PositionEstimator@{PositionEstimator}!\_\_traveled\_distance@{\_\_traveled\_distance}}
+\index{\_\_traveled\_distance@{\_\_traveled\_distance}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{\_\_traveled\_distance}{\_\_traveled\_distance}}
+{\footnotesize\ttfamily float Position\+Estimator\+::\+\_\+\+\_\+traveled\+\_\+distance\hspace{0.3cm}{\ttfamily [private]}}
+
+Traveled distance \mbox{\Hypertarget{classPositionEstimator_a2d5c3ad85771f13cddc37c93cac0f3ca}\label{classPositionEstimator_a2d5c3ad85771f13cddc37c93cac0f3ca}} 
+\index{PositionEstimator@{PositionEstimator}!encoder1\_queue@{encoder1\_queue}}
+\index{encoder1\_queue@{encoder1\_queue}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{encoder1\_queue}{encoder1\_queue}}
+{\footnotesize\ttfamily std\+::queue$<$int$>$ Position\+Estimator\+::encoder1\+\_\+queue\hspace{0.3cm}{\ttfamily [private]}}
+
+Queue for encoder 1 counts \mbox{\Hypertarget{classPositionEstimator_a09bcbd2d07bca0428e3470519821c858}\label{classPositionEstimator_a09bcbd2d07bca0428e3470519821c858}} 
+\index{PositionEstimator@{PositionEstimator}!encoder2\_queue@{encoder2\_queue}}
+\index{encoder2\_queue@{encoder2\_queue}!PositionEstimator@{PositionEstimator}}
+\doxysubsubsection{\texorpdfstring{encoder2\_queue}{encoder2\_queue}}
+{\footnotesize\ttfamily std\+::queue$<$int$>$ Position\+Estimator\+::encoder2\+\_\+queue\hspace{0.3cm}{\ttfamily [private]}}
+
+Queue for encoder 2 counts 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/position-\/estimator/\mbox{\hyperlink{PositionEstimator_8hpp}{Position\+Estimator.\+hpp}}\item 
+modules/position-\/estimator/\mbox{\hyperlink{PositionEstimator_8cpp}{Position\+Estimator.\+cpp}}\end{DoxyCompactItemize}

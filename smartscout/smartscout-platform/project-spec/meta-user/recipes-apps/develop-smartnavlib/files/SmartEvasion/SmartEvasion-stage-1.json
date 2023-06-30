@@ -1,0 +1,64 @@
+{
+  "fuzzy_system": {
+
+    "inputs": 
+    [
+      {
+        "name": "alpha",
+        "membership_functions": 
+        [
+          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 20}, {"right_slope": 1}, {"left_slope": 1}] },
+          { "name": "NEAR",  "trapezoidal": [{"x1": -1}, {"x2": 1}, {"right_slope": 1}, {"left_slope": 1}] } 
+        ]
+      },
+      {
+        "name": "theta",
+        "membership_functions": 
+        [
+          { "name": "LOW", "trapezoidal": [{"x1": -30}, {"x2": 30}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] },
+          { "name": "HIGH", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] }
+        ]
+      }
+    ], 
+
+    "outputs": 
+    [
+      {
+        "name": "w",
+        "membership_functions": 
+        [
+          { "name": "LOW", "trapezoidal": [{"x1": -1}, {"x2": 1}, {"right_slope": 1}, {"left_slope": 1}] },
+          { "name": "HIGH", "trapezoidal": [{"x1": 0}, {"x2": 2}, {"right_slope": 1}, {"left_slope": 1}] }
+        ]
+      }
+    ],
+
+    "rules": 
+    [
+      { 
+        "name": "rule_0", 
+        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "FAR" }, 
+                                        { "io": "theta", "fuzzy_value": "HIGH" } ] }], 
+        "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
+      },
+      { 
+        "name": "rule_1", 
+        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "NEAR" }, 
+                                        { "io": "theta", "fuzzy_value": "HIGH" } ] }], 
+        "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
+      },
+      { 
+        "name": "rule_2", 
+        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "FAR" }, 
+                                        { "io": "theta", "fuzzy_value": "LOW" } ] }], 
+        "output_conditions": [ { "io": "w", "fuzzy_value": "LOW" } ] 
+      },
+      { 
+        "name": "rule_3", 
+        "input_conditions": [{ "and": [ { "io": "alpha", "fuzzy_value": "NEAR" }, 
+                                        { "io": "theta", "fuzzy_value": "LOW" } ] }], 
+        "output_conditions": [ { "io": "w", "fuzzy_value": "HIGH" } ] 
+      }
+    ]
+  } 
+}

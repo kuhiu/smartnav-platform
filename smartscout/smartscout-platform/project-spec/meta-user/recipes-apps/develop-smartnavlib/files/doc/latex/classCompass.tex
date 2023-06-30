@@ -1,0 +1,262 @@
+\hypertarget{classCompass}{}\doxysection{Compass Class Reference}
+\label{classCompass}\index{Compass@{Compass}}
+
+
+{\ttfamily \#include $<$Compass.\+hpp$>$}
+
+
+
+Collaboration diagram for Compass\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCompass__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCompass_1_1CalibrationValues}{Calibration\+Values}}
+\item 
+struct \mbox{\hyperlink{structCompass_1_1CompassValues}{Compass\+Values}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654}{Axes}} \{ \mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654a7dbf484f459c0a3299ed5432cd2515da}{X\+\_\+\+AXIS}} = 0
+, \mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654a9280735d434f2880096239272173eb70}{Y\+\_\+\+AXIS}}
+, \mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654a4371cc7d291c0091517aa9d10c59416a}{Z\+\_\+\+AXIS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCompass_a68bd2a073cc0d461b2b46529aae04765}{Compass}} ()
+\item 
+\mbox{\hyperlink{classCompass_a26c27c9b7bba5b3107f1c671bd6f31c9}{$\sim$\+Compass}} ()
+\item 
+float \mbox{\hyperlink{classCompass_a7161a107c7f74e40287e5a31bda45c13}{get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Get compass value (thread safe) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCompass_aa98bb3edd363698fa105502e93529d09}{\+\_\+\+\_\+calibrate}} ()
+\begin{DoxyCompactList}\small\item\em Calibrate the compass. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCompass_a5f61930f26f0db66748c9d6cfd63fbc7}{\+\_\+\+\_\+read\+Compass}} ()
+\begin{DoxyCompactList}\small\item\em Read compass thread function. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCompass_1_1CompassValues}{Compass\+::\+Compass\+Values}} $>$ \mbox{\hyperlink{classCompass_adc22d2da23d949df3ffe32f25791b1e4}{\+\_\+\+\_\+read\+Sample}} ()
+\begin{DoxyCompactList}\small\item\em Read samples from the compass. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCompass_aac5698830e94842de0709f9196a6fb5f}{\+\_\+\+\_\+get\+Raw\+Value}} (\mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654}{Axes}} axis)
+\begin{DoxyCompactList}\small\item\em Get raw axis value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{classCompass_a7045544d19b1892aa6f4270f2efaee72}{\+\_\+\+\_\+\+SAMPLES\+\_\+\+TO\+\_\+\+CALIB}} = 100
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classCompass_a29074c892cd3363ea181fbfae024b866}{\+\_\+\+\_\+\+COMPASS\+\_\+\+ADDR}} = 0x0D
+\item 
+const int \mbox{\hyperlink{classCompass_aeaa62bdd1cac89121707dcea10352e2f}{\+\_\+\+\_\+\+SMA\+\_\+\+LEN}} = 3
+\item 
+int \mbox{\hyperlink{classCompass_a98ee2020b36d0f93d0da006258a13191}{\+\_\+\+\_\+fd}}
+\item 
+\mbox{\hyperlink{structCompass_1_1CalibrationValues}{Calibration\+Values}} \mbox{\hyperlink{classCompass_a8155e6ea8e11957bc51ebb8d7f13f930}{\+\_\+\+\_\+calibration\+\_\+values}}
+\item 
+std\+::thread \mbox{\hyperlink{classCompass_acd6df8f04687f567b2dd22d54de4f0c1}{\+\_\+\+\_\+compass\+\_\+thread}}
+\item 
+bool \mbox{\hyperlink{classCompass_a69dee469e5d8b32ea44ea266ec5994e6}{\+\_\+\+\_\+is\+\_\+running}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSimpleMovingAverage}{Simple\+Moving\+Average}} $>$ \mbox{\hyperlink{classCompass_a7045e5c414aca918409c5b44943a3c04}{\+\_\+\+\_\+sma}}
+\item 
+std\+::mutex \mbox{\hyperlink{classCompass_aa931e50e9126e217182478d37f7018d6}{\+\_\+\+\_\+m}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classCompass_a342571dcfdcb3626796dfb1034a25104}{\+\_\+\+\_\+\+DRIVER}} \{\char`\"{}/dev/i2c-\/0\char`\"{}\}
+\item 
+static constexpr auto \mbox{\hyperlink{classCompass_a048ce3219b9a1042202f0d073a54897b}{\+\_\+\+\_\+\+CALIB\+\_\+\+FILE}} \{\char`\"{}/tmp/calibration.\+json\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classCompass_ab46d1c5e005fe40bdbc50389cd263654}\label{classCompass_ab46d1c5e005fe40bdbc50389cd263654}} 
+\index{Compass@{Compass}!Axes@{Axes}}
+\index{Axes@{Axes}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{Axes}{Axes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654}{Compass\+::\+Axes}}}
+
+Axes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X\_AXIS@{X\_AXIS}!Compass@{Compass}}\index{Compass@{Compass}!X\_AXIS@{X\_AXIS}}}\mbox{\Hypertarget{classCompass_ab46d1c5e005fe40bdbc50389cd263654a7dbf484f459c0a3299ed5432cd2515da}\label{classCompass_ab46d1c5e005fe40bdbc50389cd263654a7dbf484f459c0a3299ed5432cd2515da}} 
+X\+\_\+\+AXIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Y\_AXIS@{Y\_AXIS}!Compass@{Compass}}\index{Compass@{Compass}!Y\_AXIS@{Y\_AXIS}}}\mbox{\Hypertarget{classCompass_ab46d1c5e005fe40bdbc50389cd263654a9280735d434f2880096239272173eb70}\label{classCompass_ab46d1c5e005fe40bdbc50389cd263654a9280735d434f2880096239272173eb70}} 
+Y\+\_\+\+AXIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Z\_AXIS@{Z\_AXIS}!Compass@{Compass}}\index{Compass@{Compass}!Z\_AXIS@{Z\_AXIS}}}\mbox{\Hypertarget{classCompass_ab46d1c5e005fe40bdbc50389cd263654a4371cc7d291c0091517aa9d10c59416a}\label{classCompass_ab46d1c5e005fe40bdbc50389cd263654a4371cc7d291c0091517aa9d10c59416a}} 
+Z\+\_\+\+AXIS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCompass_a68bd2a073cc0d461b2b46529aae04765}\label{classCompass_a68bd2a073cc0d461b2b46529aae04765}} 
+\index{Compass@{Compass}!Compass@{Compass}}
+\index{Compass@{Compass}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{Compass()}{Compass()}}
+{\footnotesize\ttfamily Compass\+::\+Compass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classCompass}{Compass}} constructor \mbox{\Hypertarget{classCompass_a26c27c9b7bba5b3107f1c671bd6f31c9}\label{classCompass_a26c27c9b7bba5b3107f1c671bd6f31c9}} 
+\index{Compass@{Compass}!````~Compass@{$\sim$Compass}}
+\index{````~Compass@{$\sim$Compass}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{$\sim$Compass()}{~Compass()}}
+{\footnotesize\ttfamily Compass\+::$\sim$\+Compass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classCompass}{Compass}} destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompass_aa98bb3edd363698fa105502e93529d09}\label{classCompass_aa98bb3edd363698fa105502e93529d09}} 
+\index{Compass@{Compass}!\_\_calibrate@{\_\_calibrate}}
+\index{\_\_calibrate@{\_\_calibrate}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_calibrate()}{\_\_calibrate()}}
+{\footnotesize\ttfamily void Compass\+::\+\_\+\+\_\+calibrate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calibrate the compass. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structCompass_1_1CalibrationValues}{Calibration\+Values}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCompass_aac5698830e94842de0709f9196a6fb5f}\label{classCompass_aac5698830e94842de0709f9196a6fb5f}} 
+\index{Compass@{Compass}!\_\_getRawValue@{\_\_getRawValue}}
+\index{\_\_getRawValue@{\_\_getRawValue}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_getRawValue()}{\_\_getRawValue()}}
+{\footnotesize\ttfamily int Compass\+::\+\_\+\+\_\+get\+Raw\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCompass_ab46d1c5e005fe40bdbc50389cd263654}{Axes}}}]{axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get raw axis value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCompass_a5f61930f26f0db66748c9d6cfd63fbc7}\label{classCompass_a5f61930f26f0db66748c9d6cfd63fbc7}} 
+\index{Compass@{Compass}!\_\_readCompass@{\_\_readCompass}}
+\index{\_\_readCompass@{\_\_readCompass}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_readCompass()}{\_\_readCompass()}}
+{\footnotesize\ttfamily void Compass\+::\+\_\+\+\_\+read\+Compass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Read compass thread function. 
+
+\mbox{\Hypertarget{classCompass_adc22d2da23d949df3ffe32f25791b1e4}\label{classCompass_adc22d2da23d949df3ffe32f25791b1e4}} 
+\index{Compass@{Compass}!\_\_readSample@{\_\_readSample}}
+\index{\_\_readSample@{\_\_readSample}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_readSample()}{\_\_readSample()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structCompass_1_1CompassValues}{Compass\+::\+Compass\+Values}} $>$ Compass\+::\+\_\+\+\_\+read\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Read samples from the compass. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Compass\+::\+Compass\+Values$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCompass_a7161a107c7f74e40287e5a31bda45c13}\label{classCompass_a7161a107c7f74e40287e5a31bda45c13}} 
+\index{Compass@{Compass}!getValue@{getValue}}
+\index{getValue@{getValue}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily float Compass\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get compass value (thread safe) 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCompass_a048ce3219b9a1042202f0d073a54897b}\label{classCompass_a048ce3219b9a1042202f0d073a54897b}} 
+\index{Compass@{Compass}!\_\_CALIB\_FILE@{\_\_CALIB\_FILE}}
+\index{\_\_CALIB\_FILE@{\_\_CALIB\_FILE}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_CALIB\_FILE}{\_\_CALIB\_FILE}}
+{\footnotesize\ttfamily constexpr auto Compass\+::\+\_\+\+\_\+\+CALIB\+\_\+\+FILE \{\char`\"{}/tmp/calibration.\+json\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+File to save calibration values \mbox{\Hypertarget{classCompass_a8155e6ea8e11957bc51ebb8d7f13f930}\label{classCompass_a8155e6ea8e11957bc51ebb8d7f13f930}} 
+\index{Compass@{Compass}!\_\_calibration\_values@{\_\_calibration\_values}}
+\index{\_\_calibration\_values@{\_\_calibration\_values}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_calibration\_values}{\_\_calibration\_values}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCompass_1_1CalibrationValues}{Calibration\+Values}} Compass\+::\+\_\+\+\_\+calibration\+\_\+values\hspace{0.3cm}{\ttfamily [private]}}
+
+Calibration values \mbox{\Hypertarget{classCompass_a29074c892cd3363ea181fbfae024b866}\label{classCompass_a29074c892cd3363ea181fbfae024b866}} 
+\index{Compass@{Compass}!\_\_COMPASS\_ADDR@{\_\_COMPASS\_ADDR}}
+\index{\_\_COMPASS\_ADDR@{\_\_COMPASS\_ADDR}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_COMPASS\_ADDR}{\_\_COMPASS\_ADDR}}
+{\footnotesize\ttfamily const uint32\+\_\+t Compass\+::\+\_\+\+\_\+\+COMPASS\+\_\+\+ADDR = 0x0D\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classCompass}{Compass}} i2c address \mbox{\Hypertarget{classCompass_acd6df8f04687f567b2dd22d54de4f0c1}\label{classCompass_acd6df8f04687f567b2dd22d54de4f0c1}} 
+\index{Compass@{Compass}!\_\_compass\_thread@{\_\_compass\_thread}}
+\index{\_\_compass\_thread@{\_\_compass\_thread}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_compass\_thread}{\_\_compass\_thread}}
+{\footnotesize\ttfamily std\+::thread Compass\+::\+\_\+\+\_\+compass\+\_\+thread\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classCompass}{Compass}} thread \mbox{\Hypertarget{classCompass_a342571dcfdcb3626796dfb1034a25104}\label{classCompass_a342571dcfdcb3626796dfb1034a25104}} 
+\index{Compass@{Compass}!\_\_DRIVER@{\_\_DRIVER}}
+\index{\_\_DRIVER@{\_\_DRIVER}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_DRIVER}{\_\_DRIVER}}
+{\footnotesize\ttfamily constexpr const char $\ast$ Compass\+::\+\_\+\+\_\+\+DRIVER \{\char`\"{}/dev/i2c-\/0\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} name \mbox{\Hypertarget{classCompass_a98ee2020b36d0f93d0da006258a13191}\label{classCompass_a98ee2020b36d0f93d0da006258a13191}} 
+\index{Compass@{Compass}!\_\_fd@{\_\_fd}}
+\index{\_\_fd@{\_\_fd}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_fd}{\_\_fd}}
+{\footnotesize\ttfamily int Compass\+::\+\_\+\+\_\+fd\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classDriver}{Driver}} file descriptor \mbox{\Hypertarget{classCompass_a69dee469e5d8b32ea44ea266ec5994e6}\label{classCompass_a69dee469e5d8b32ea44ea266ec5994e6}} 
+\index{Compass@{Compass}!\_\_is\_running@{\_\_is\_running}}
+\index{\_\_is\_running@{\_\_is\_running}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_is\_running}{\_\_is\_running}}
+{\footnotesize\ttfamily bool Compass\+::\+\_\+\+\_\+is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+Thread status \mbox{\Hypertarget{classCompass_aa931e50e9126e217182478d37f7018d6}\label{classCompass_aa931e50e9126e217182478d37f7018d6}} 
+\index{Compass@{Compass}!\_\_m@{\_\_m}}
+\index{\_\_m@{\_\_m}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_m}{\_\_m}}
+{\footnotesize\ttfamily std\+::mutex Compass\+::\+\_\+\+\_\+m\hspace{0.3cm}{\ttfamily [private]}}
+
+SMA guard \mbox{\Hypertarget{classCompass_a7045544d19b1892aa6f4270f2efaee72}\label{classCompass_a7045544d19b1892aa6f4270f2efaee72}} 
+\index{Compass@{Compass}!\_\_SAMPLES\_TO\_CALIB@{\_\_SAMPLES\_TO\_CALIB}}
+\index{\_\_SAMPLES\_TO\_CALIB@{\_\_SAMPLES\_TO\_CALIB}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_SAMPLES\_TO\_CALIB}{\_\_SAMPLES\_TO\_CALIB}}
+{\footnotesize\ttfamily const int Compass\+::\+\_\+\+\_\+\+SAMPLES\+\_\+\+TO\+\_\+\+CALIB = 100\hspace{0.3cm}{\ttfamily [private]}}
+
+Number of samples to calibrate the compass \mbox{\Hypertarget{classCompass_a7045e5c414aca918409c5b44943a3c04}\label{classCompass_a7045e5c414aca918409c5b44943a3c04}} 
+\index{Compass@{Compass}!\_\_sma@{\_\_sma}}
+\index{\_\_sma@{\_\_sma}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_sma}{\_\_sma}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classSimpleMovingAverage}{Simple\+Moving\+Average}}$>$ Compass\+::\+\_\+\+\_\+sma\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classSimpleMovingAverage}{Simple\+Moving\+Average}} \mbox{\Hypertarget{classCompass_aeaa62bdd1cac89121707dcea10352e2f}\label{classCompass_aeaa62bdd1cac89121707dcea10352e2f}} 
+\index{Compass@{Compass}!\_\_SMA\_LEN@{\_\_SMA\_LEN}}
+\index{\_\_SMA\_LEN@{\_\_SMA\_LEN}!Compass@{Compass}}
+\doxysubsubsection{\texorpdfstring{\_\_SMA\_LEN}{\_\_SMA\_LEN}}
+{\footnotesize\ttfamily const int Compass\+::\+\_\+\+\_\+\+SMA\+\_\+\+LEN = 3\hspace{0.3cm}{\ttfamily [private]}}
+
+SMA length 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/compass/\mbox{\hyperlink{Compass_8hpp}{Compass.\+hpp}}\item 
+modules/compass/\mbox{\hyperlink{Compass_8cpp}{Compass.\+cpp}}\end{DoxyCompactItemize}

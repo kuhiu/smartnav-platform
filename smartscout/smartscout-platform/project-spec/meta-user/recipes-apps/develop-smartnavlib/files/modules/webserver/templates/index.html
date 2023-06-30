@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video and Variables</title>
+    <style>
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+      }
+      
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .comment {
+        margin-top: 10px;
+      }
+    </style>
+</head>
+<body>
+  <div class="row">
+    <div class="column">
+        <div class="video-container">
+            <iframe src="http://192.168.100.130:9003" allowfullscreen></iframe>
+        </div>
+        <div class="comment">
+          <p>Driver</p>
+        </div>
+    </div>
+    <div class="column">
+        <h2>Variables</h2>
+
+        <p>Speed: <span id="speed"></span> %</p>
+        <p>Headlights: <span id="headlights"></span> %</p>
+        <!-- Add more variables if needed -->
+    </div>
+  </div>
+
+    <script>
+      function fetchFeatures() {
+        var url = '/api/realtime/variables';
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            // Check content type
+            const contentType = request.getResponseHeader("Content-Type");
+            if (contentType !== "application/json") {
+              request.abort();
+            }
+            // Parse the JSON response and get the HTML content
+            var data = JSON.parse(request.responseText);
+            // The response is received successfully
+            document.getElementById('speed').innerHTML = data.speed;
+            document.getElementById('headlights').innerHTML = data.headlights;
+          }
+        };
+        request.open('GET', url, false);
+        request.send();
+        request.close();
+      }
+    </script>
+</body>
+</html>
