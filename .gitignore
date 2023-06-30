@@ -1,0 +1,5 @@
+petalinux-*.run
+Xilinx_Vivado_SDK_*
+resources/
+tftpboot
+soft_for_container
