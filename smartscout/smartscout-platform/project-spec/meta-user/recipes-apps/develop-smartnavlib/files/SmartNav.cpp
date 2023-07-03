@@ -20,7 +20,7 @@ SmartNav::SmartNav(int img_width, int img_height, int img_framerate)
   // Create Capture frame object
   __capture_frame = std::make_shared<CaptureFrame>(640, 480, 30);
   // Create Frame sender object
-  __camera_sender = std::make_shared<CameraSender>(img_width, img_height, img_framerate, std::string("192.168.100.103"), std::string("8080"));
+  __camera_sender = std::make_shared<CameraSender>(img_width, img_height, img_framerate, std::string("10.0.0.20"), std::string("8080"));
   //__capture_frame = std::make_shared<CaptureFrame>(__frame_callback, 640, 480, CaptureFrame::pixelFormat::PIX_FMT_RGB24, 1);
   // Create Tracker object
   __tracker = std::make_shared<Tracker>();
@@ -39,16 +39,39 @@ SmartNav::~SmartNav() {
 };
 
 void SmartNav::__navigation() {
-  int left_distance_sensor;
-  int center_distance_sensor;
-  int right_distance_sensor; 
   float curr_robot_angle;
   float curr_angle_to_target;
   std::pair<float, float> pwm;
   CartesianPosition curr_position;
   // Relative target position to the current position
   CartesianPosition rel_target_from_curr_pos;
+  Driver* driver = Driver::getInstance();
   WebServer* web_server = WebServer::getInstance();
+
+  web_server->setSpeedCallback([]() {
+    return Driver::getInstance()->getSpeed();
+  }); 
+  web_server->setManualControlForwardCallback([](int pwm_delta) {
+    Driver::getInstance()->update(Driver::operationMode::OP_DRIVE, pwm_delta, 0);
+  }); 
+  web_server->setManualControlBackCallback([](int pwm_delta) {
+    Driver::getInstance()->update(Driver::operationMode::OP_DRIVE, pwm_delta, 0);
+  }); 
+  web_server->setManualControlLeftCallback([](int pwm_delta) {
+    Driver::getInstance()->update(Driver::operationMode::OP_DRIVE, 0, pwm_delta);
+  }); 
+  web_server->setManualControlRightCallback([](int pwm_delta) {
+    Driver::getInstance()->update(Driver::operationMode::OP_DRIVE, 0, pwm_delta);
+  }); 
+  web_server->setLeftDistanceSensorCallback([]() {
+    return DistanceSensors::getInstance()->getDistances()[0];
+  });
+  web_server->setCenterDistanceSensorCallback([]() {
+    return DistanceSensors::getInstance()->getDistances()[1];
+  });
+  web_server->setRightDistanceSensorCallback([]() {
+    return DistanceSensors::getInstance()->getDistances()[2];
+  });
 
   while(__is_running) {
     auto start = std::chrono::high_resolution_clock::now();
@@ -63,22 +86,9 @@ void SmartNav::__navigation() {
     // Process image
 
     // Get sensors distance
-    std::vector<int> distances = __distance_sensor.getDistances();
+    std::vector<int> distances = DistanceSensors::getInstance()->getDistances();
     if (distances.size() != 3)
       throw std::runtime_error("Not three sensor outputs."); 
-    // Update server data
-    left_distance_sensor = distances[0];
-    center_distance_sensor = distances[1];
-    right_distance_sensor = distances[2];
-    web_server->setLeftDistanceSensorCallback([left_distance_sensor]() {
-      return left_distance_sensor;
-    });
-    web_server->setCenterDistanceSensorCallback([center_distance_sensor]() {
-      return center_distance_sensor;
-    });
-    web_server->setRightDistanceSensorCallback([right_distance_sensor]() {
-      return right_distance_sensor;
-    });
     // Send image to the remote app
     __camera_sender->send(frame);
     // Check if the target frame time was enough
@@ -93,7 +103,7 @@ void SmartNav::__navigation() {
 	}
   std::cout << "While broken" << std::endl;
   // Stop the car
-  __driver.update(Driver::operationMode::OP_STOP, 0, 0);
+  driver->update(Driver::operationMode::OP_STOP, 0, 0);
   // Stop the WebServer
   web_server->stop();
 };

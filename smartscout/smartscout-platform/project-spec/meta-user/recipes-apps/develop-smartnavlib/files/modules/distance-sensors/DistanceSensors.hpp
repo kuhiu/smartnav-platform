@@ -9,10 +9,23 @@
 #include <SimpleMovingAverage.hpp>
 class DistanceSensors {
 public:
-	/** DistanceSensor constructor */
-	DistanceSensors();
-	/** DistanceSensor destructor */
-	~DistanceSensors();
+  /**
+   * @brief Get the Instance of the DistanceSensors
+   * 
+   * @return DistanceSensors* 
+   */
+  static DistanceSensors* getInstance();
+  /**
+   * @brief Deleting copy constructor
+   * 
+   * @param obj 
+   */
+  DistanceSensors(const DistanceSensors& obj) = delete;
+  /**
+   * @brief Singleton should not be assignable
+   * 
+   */
+  void operator=(const DistanceSensors&) = delete;
 	/**
 	 * @brief Get the Distances to objects
 	 * 
@@ -33,6 +46,12 @@ private:
 	std::thread __reading_thread;
 	/** Thread status */
 	std::atomic<bool> __is_running;
+	/** Singleton instance */
+	static DistanceSensors* __instance;
+	/** DistanceSensor constructor */
+	DistanceSensors();
+	/** DistanceSensor destructor */
+	~DistanceSensors();
 	/** Read distances from driver */
 	void __readDistance();
 	/**

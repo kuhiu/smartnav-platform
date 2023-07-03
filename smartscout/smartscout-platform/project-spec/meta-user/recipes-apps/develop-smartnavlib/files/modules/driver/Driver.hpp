@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+#include <atomic>
 #include <cmath>
 #include <sstream>
 #include <stdexcept>
@@ -38,41 +39,29 @@ public:
     int y;
 
   };
-  /** Driver constructor */
-  Driver() {
-    int ret;
-
-    __fd_pwm1 = open(__PWM_DRIVER_1, O_RDWR);
-    if (__fd_pwm1 == -1) {
-      std::stringstream err;
-      err << "Could not open " << __PWM_DRIVER_1;
-      throw std::runtime_error(err.str());
-    }
-    __fd_pwm2 = open(__PWM_DRIVER_2, O_RDWR);
-    if (__fd_pwm2 == -1) {
-      std::stringstream err;
-      err << "Could not open " << __PWM_DRIVER_2;
-      throw std::runtime_error(err.str());
-    }
-    __fd_l298n = open(__L298N_DRIVER, O_RDWR);
-    if (__fd_l298n == -1) {
-      std::stringstream err;
-      err << "Could not open " << __L298N_DRIVER;
-      throw std::runtime_error(err.str());
-    }
-    ret = ioctl(__fd_l298n, L298N_IOC_STOP);
-    if ( ret == -1) 
-      throw std::runtime_error("Error stopping l298n");
-
-    __current_speed = 0;
-  };
-  /** Driver destructor */
-  ~Driver() {
-    ioctl(__fd_l298n, L298N_IOC_STOP);
-    close(__fd_pwm1);
-    close(__fd_pwm2);
-    close(__fd_l298n);
-  };
+  /**
+   * @brief Get the Instance of the Driver
+   * 
+   * @return WebServer* 
+   */
+  static Driver* getInstance();
+  /**
+   * @brief Deleting copy constructor
+   * 
+   * @param obj 
+   */
+  Driver(const Driver& obj) = delete;
+  /**
+   * @brief Singleton should not be assignable
+   * 
+   */
+  void operator=(const Driver&) = delete;
+  /**
+   * @brief Get the Speed 
+   * 
+   * @return int 
+   */
+  int getSpeed() const { return __current_speed.load(); }
   /**
    * @brief Update the pwms that control both motors
    * 
@@ -102,7 +91,7 @@ public:
    * @param speed_variation 
    * @param yaw_variation 
    */
-  void update(operationMode operation_mode, int speed_variation, int yaw) {
+  void update(operationMode operation_mode, int speed_variation, int yaw_variation) {
     int ret;
     int wheel_left;
     int wheel_right;
@@ -112,22 +101,23 @@ public:
     if (speed_variation > 20)
       throw std::runtime_error("The speed variation was so big");
 
-    __current_speed += speed_variation;
+    __current_speed.fetch_add(speed_variation);
+    __current_yaw += yaw_variation;
     // Check for max and min of the yaw 
-    if (yaw > __MAX_YAW)
-      yaw = __MAX_YAW;
-    else if (yaw < __MIN_YAW)
-      yaw = __MIN_YAW;
+    if (__current_yaw > __MAX_YAW)
+      __current_yaw = __MAX_YAW;
+    else if (__current_yaw < __MIN_YAW)
+      __current_yaw = __MIN_YAW;
     // Check for max and min of the speed 
-    if (__current_speed > __MAX_SPEED)
-      __current_speed = __MAX_SPEED;
+    if (__current_speed.load() > __MAX_SPEED)
+      __current_speed.store(__MAX_SPEED);
     else if (__current_speed < __MIN_SPEED)
       __current_speed = __MIN_SPEED;
     
-    // printf("Current speed %d, Current yaw %d.\n", __current_speed, yaw);
+    printf("Current speed %d, Current yaw %d.\n", __current_speed.load(), __current_yaw);
     // Wheel PWM 
-    wheel_left = __current_speed - yaw;
-    wheel_right = __current_speed + yaw;
+    wheel_left = __current_speed.load() - __current_yaw;
+    wheel_right = __current_speed.load() + __current_yaw;
     // Check for max of the pwm duty cycle 
     if (wheel_left > __MAX_DUTY) 
       wheel_left = __MAX_DUTY;
@@ -161,7 +151,7 @@ public:
     switch (operation_mode) {
     case OP_STOP:
       // Reset current speed 
-      __current_speed = 0;
+      __current_speed.store(0);
       ret = ioctl(__fd_l298n, L298N_IOC_STOP);
       if ( ret == -1) 
         throw std::runtime_error("Error stopping l298n");
@@ -203,9 +193,15 @@ private:
   /** File descriptor of L298N driver */
   int __fd_l298n;  
   /** Current speed */
-  int __current_speed;
+  std::atomic<int> __current_speed;
   /** Current yaw */
   int __current_yaw;
+  /** Singleton instance */
+  static Driver* __instance;
+  /** Driver constructor */
+  Driver();
+  /** Driver destructor */
+  ~Driver();
 
 };
 

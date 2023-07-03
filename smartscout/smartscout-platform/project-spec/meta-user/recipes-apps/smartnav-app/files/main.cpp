@@ -30,10 +30,10 @@ int main(int argc, char* argv[]) {
 	int img_width = std::stoi(argv[1]);
 	int img_height = std::stoi(argv[2]);
 	int img_framerate = std::stoi(argv[3]);
-	//Buttons buttons;
 	SmartNav smart_nav(img_width, img_height, img_framerate);
 	while (is_running) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 	}	
+	
 	return 0;
 }

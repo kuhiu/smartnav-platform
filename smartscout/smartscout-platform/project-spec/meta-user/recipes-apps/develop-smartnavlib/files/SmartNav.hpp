@@ -68,16 +68,12 @@ private:
   const int __imgTargetHeight;
   /** Thread navigation */
   std::thread __navigation_thread;
-  /** Driver object  */
-	Driver __driver;
   /** Capture frame object */
   std::shared_ptr<CaptureFrame> __capture_frame;
   /** Send the frame to the remote host */
   std::shared_ptr<CameraSender> __camera_sender;
   /** Headlights object */
   Headlights __headlights;
-	/** Distance sensor object */
-	DistanceSensors __distance_sensor;
   /** Position estimator object */
   PositionEstimator __position_estimator;
   /** Tracker object */

@@ -37,7 +37,7 @@ public:
    * 
    */
   void stop() {
-    __is_running.store(false);
+    __webServer.stop();
     __web_server_thread.join();
     std::cout << "WebServer stopped." << std::endl;
   }
@@ -146,8 +146,6 @@ public:
     static WebServer* __instance;
     /** Webserver port */
     const int __PORT = 18080;
-    /** Thread status */
-    std::atomic<bool> __is_running;
     /** Thread */
     std::thread __web_server_thread;
     /** WebServer object */
@@ -155,12 +153,10 @@ public:
     /** WebServer constructor */
     WebServer() {
       __setEndopoints();
-      __is_running.store(true);
       __web_server_thread = std::thread(&WebServer::__running, this);
     };
     /** WebServer destructor */
     ~WebServer() {
-      __is_running.store(false);
       __web_server_thread.join();
     };
     /** Callbacks for realtime variables */
@@ -203,16 +199,11 @@ public:
      */
     void __running() {
       // ignore all log
-      crow::logger::setLogLevel(crow::LogLevel::Debug);
+      __webServer.loglevel(crow::LogLevel::Warning);
       __webServer.port(__PORT)
                 .server_name("SmartNavWebServer")
                 .multithreaded()
                 .run();
-      while (__is_running.load()) {
-        //std::cout << "The webserver thread is running" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-      }
-      __webServer.stop();
     }    
     /**
      * @brief Get method of the root handler

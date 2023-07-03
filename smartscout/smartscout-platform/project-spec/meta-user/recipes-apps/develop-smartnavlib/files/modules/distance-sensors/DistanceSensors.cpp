@@ -24,6 +24,15 @@
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
+DistanceSensors *DistanceSensors::__instance = nullptr;
+
+DistanceSensors *DistanceSensors::getInstance() {
+  if (__instance == nullptr) {
+    __instance = new DistanceSensors;
+  }
+  return __instance;
+}
+
 DistanceSensors::DistanceSensors() {
 	DEBUG_PRINT("Distance sensor constructor.\n");
 	if ( (__fd = open(__HC_SR04_DRIVER_DIR, O_RDONLY)) == -1){
