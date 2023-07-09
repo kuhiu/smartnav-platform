@@ -1,5 +1,5 @@
 #!/bin/sh
-DAEMON=/usr/bin/smartnav-app
+DAEMON=/usr/bin/smartnav-app 320 240 5
 start ()
 {
         echo " Starting smartnav-app"

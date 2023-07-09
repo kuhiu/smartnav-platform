@@ -74,13 +74,25 @@ crow::response WebServer::__post_smartEvasion_newTarget(const crow::request &req
 }
 
 crow::response WebServer::__post_smartLights_status(const crow::request &req) {
-  crow::json::wvalue ret;
   WebServer *web_server = getInstance();
 
-  if (web_server->__smartLightStatus_cb) {
-    ret["smartLightsStatus"] = web_server->__smartLightStatus_cb();
+  std::cout << "__post_smartLights_status" << std::endl;
+  const std::string content_type = req.get_header_value("Content-Type");
+  if (content_type == "application/json; charset=utf-8") {
+    try {
+      nlohmann::json data = nlohmann::json::parse(req.body);
+      bool smartLightsStatus_data = data["smartLightsStatus"];
+      std::cout << "smartLightsStatus_data: " << smartLightsStatus_data << std::endl;
+      if (web_server->__smartLightStatus_cb) {
+        web_server->__smartLightStatus_cb(smartLightsStatus_data);
+      }
+      return crow::response(200);
+    }
+    catch (const std::exception &e) {
+      return crow::response(400, e.what());
+    }
   }
-  return ret;
+  return crow::response(400, "Invalid Content-Type. Expected application/json; charset=utf-8.");
 }
 
 crow::response WebServer::__post_manualControlForward(const crow::request &req) {
@@ -91,8 +103,7 @@ crow::response WebServer::__post_manualControlForward(const crow::request &req) 
     try {
       nlohmann::json data = nlohmann::json::parse(req.body);
       int manualControlForward_data = data["manualControlForward"];
-      if (web_server->__manualControlForward_cb)
-      {
+      if (web_server->__manualControlForward_cb) {
         web_server->__manualControlForward_cb(manualControlForward_data);
       }
       return crow::response(200);
@@ -146,8 +157,7 @@ crow::response WebServer::__post_manualControlLeft(const crow::request &req) {
   return crow::response(400, "Invalid Content-Type. Expected application/json; charset=utf-8.");
 }
 
-crow::response WebServer::__post_manualControlRight(const crow::request &req)
-{
+crow::response WebServer::__post_manualControlRight(const crow::request &req) {
   crow::json::wvalue ret;
   WebServer *web_server = getInstance();
 
@@ -158,6 +168,27 @@ crow::response WebServer::__post_manualControlRight(const crow::request &req)
       int manualControlRight_data = data["manualControlRight"];
       if (web_server->__manualControlRight_cb) {
         web_server->__manualControlRight_cb(manualControlRight_data);
+      }
+      return crow::response(200);
+    }
+    catch (const std::exception &e) {
+      return crow::response(400, e.what());
+    }
+  }
+  return crow::response(400, "Invalid Content-Type. Expected application/json; charset=utf-8.");
+}
+
+crow::response WebServer::__post_workingMode(const crow::request &req) {
+  crow::json::wvalue ret;
+  WebServer *web_server = getInstance();
+
+  const std::string content_type = req.get_header_value("Content-Type");
+  if (content_type == "application/json; charset=utf-8") {
+    try {
+      nlohmann::json data = nlohmann::json::parse(req.body);
+      WorkingMode workingMode_data = data["workingMode"];
+      if (web_server->__manualControlRight_cb) {
+        web_server->__manualControlRight_cb(workingMode_data);
       }
       return crow::response(200);
     }

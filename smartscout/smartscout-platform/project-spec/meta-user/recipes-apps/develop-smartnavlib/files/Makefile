@@ -1,4 +1,4 @@
-SUBDIR = modules/utilities modules/pixel-magic modules/camera-sender modules/buttons modules/reporter modules/tracker modules/frame-processor modules/obstacle modules/capture-frame modules/distance-sensors modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph modules/webserver SmartEvasion SmartLights
+SUBDIR = modules/utilities modules/pixel-magic modules/camera-sender modules/buttons modules/reporter modules/tracker modules/frame-processor modules/obstacle modules/capture-frame modules/distance-sensors modules/fuzzy-control-system modules/driver modules/headlights modules/compass modules/mailbox modules/position-estimator modules/decayGraph modules/webserver SmartEvasion SmartLights 
 
 OBJECTS_DIR = ./obj
 

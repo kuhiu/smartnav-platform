@@ -114,7 +114,7 @@ public:
     else if (__current_speed < __MIN_SPEED)
       __current_speed = __MIN_SPEED;
     
-    printf("Current speed %d, Current yaw %d.\n", __current_speed.load(), __current_yaw);
+    //printf("Current speed %d, Current yaw %d.\n", __current_speed.load(), __current_yaw);
     // Wheel PWM 
     wheel_left = __current_speed.load() - __current_yaw;
     wheel_right = __current_speed.load() + __current_yaw;
@@ -175,17 +175,17 @@ private:
   /** L298N driver */
   static constexpr auto __L298N_DRIVER {"/dev/l298n"};
   /** Max speed */
-  const int __MAX_SPEED = 20;
+  const int __MAX_SPEED = 85;
   /** Min speed */
-  const int __MIN_SPEED = 0;
+  const int __MIN_SPEED = -85;
   /** Max duty cycle */
   const int __MAX_DUTY = 100;
   /** Min duty cycle */
   const int __MIN_DUTY = -100;
   /** Max yaw */
-  const int __MAX_YAW = 20;
+  const int __MAX_YAW = 15;
   /** Min yaw */
-  const int __MIN_YAW = -20;
+  const int __MIN_YAW = -15;
   /** File descriptor of AXI Timer driver */
   int __fd_pwm1;
   /** File descriptor of AXI Timer driver */

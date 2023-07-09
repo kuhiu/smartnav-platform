@@ -19,6 +19,8 @@ static std::atomic<bool> is_running{true};
 
 void siginthandler(int param) { is_running = false; }
 
+
+
 int main(int argc, char* argv[]) {
 	/** Sigint setup */
 	signal(SIGINT, siginthandler);

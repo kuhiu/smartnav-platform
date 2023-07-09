@@ -27,6 +27,7 @@
 #include <WebServer.hpp>
 #include <PixelMagic.hpp>
 #include <CameraSender.hpp>
+#include <FrameProcessor.hpp>
 
 class SmartNav {
 public:
@@ -56,8 +57,6 @@ public:
   };
 
 private:
-  /** Arrival area [cm] */
-  float __ARRIVAL_AREA = 10.0;
   /** Thread status */
   bool __is_running;
   /** Target frame time */
@@ -66,16 +65,24 @@ private:
   const int __imgTargetWidth;
   /** Target image height */
   const int __imgTargetHeight;
+  /** Working mode */
+  WorkingMode __working_mode = WorkingMode::DEFAULT;
   /** Thread navigation */
   std::thread __navigation_thread;
-  /** Capture frame object */
-  std::shared_ptr<CaptureFrame> __capture_frame;
   /** Send the frame to the remote host */
   std::shared_ptr<CameraSender> __camera_sender;
   /** Headlights object */
   Headlights __headlights;
   /** Position estimator object */
   PositionEstimator __position_estimator;
+  /** CaptureFrame */
+  CaptureFrame* __camera_capture;
+  /** FrameProcessor */
+  std::shared_ptr<FrameProcessor> __frame_processor; 
+  /** WebServer */
+  WebServer* __web_server;
+  /** Driver */
+  Driver* __driver;
   /** Tracker object */
   std::shared_ptr<Tracker> __tracker;
   /** Evasion object */
@@ -88,6 +95,8 @@ private:
   SmartLights __smart_lights;
   /** Reporter object */
   std::shared_ptr<Reporter> __reporter;
+  /** Lights status */
+  std::atomic<bool> __lights_on;
   /**
    * @brief Navigate
    * 
@@ -102,36 +111,6 @@ private:
    * @param curr_position 
    */
   void __visualization(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position);
-  /**
-   * @brief Check if the destination is reached
-   * 
-   * @param curr_position 
-   * @return true 
-   * @return false 
-   */
-  bool __arrivation(CartesianPosition curr_position, CartesianPosition current_target_position) {
-    bool ret;
-    float dx = std::fabs(curr_position.x - current_target_position.x);
-    float dy = std::fabs(curr_position.y - current_target_position.y);
-    if (dx < __ARRIVAL_AREA && dy < __ARRIVAL_AREA)
-      ret = true;
-    else 
-      ret = false;
-    return ret;
-  };
-  /**
-   * @brief Get the distance to the target.
-   * 
-   * @param curr_position 
-   * @return CartesianPosition : Relative target position to the current position
-   */
-  CartesianPosition __getRelativeTargetPos (CartesianPosition curr_position, CartesianPosition current_target_position) {
-    CartesianPosition ret;
-
-    ret.x = current_target_position.x - curr_position.x;
-    ret.y = current_target_position.y - curr_position.y;
-    return ret;
-  };
   /**
    * @brief Get the angle where i have to go to reach
    * my destination.

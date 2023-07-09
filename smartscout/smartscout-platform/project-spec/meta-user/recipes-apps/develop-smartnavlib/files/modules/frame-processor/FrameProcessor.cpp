@@ -7,7 +7,7 @@ void FrameProcessor::processFrame(const cv::Mat& frame) {
   // Start measuring time
   auto begin = std::chrono::high_resolution_clock::now();
 
-  { // Run Person detector 
+  { // Run detector 
     std::lock_guard<std::mutex> lock(__result_guard);
     __results = __detector.detect(frame);
   }

@@ -61,18 +61,19 @@ public:
     __targets.push_back(target); 
   };
   /**
-   * @brief Get the current Target To Reach 
-   * 
-   * @return CartesianPosition 
-   */
-  CartesianPosition getTargetToReach() const { return( __targets.front()); };
-  /**
    * @brief Remove the target reached (thread safe)
    * 
+   * @param curr_position 
+   * @return true 
+   * @return false 
    */
-  void targetReached() { 
-    std::lock_guard<std::mutex> lock(__tracker_guard);
-    __targets.pop_front(); 
+  bool targetReached(CartesianPosition curr_position) { 
+    bool ret = __arrivation(curr_position);
+    if (ret) {
+      std::lock_guard<std::mutex> lock(__tracker_guard);
+      __targets.pop_front(); 
+    }
+    return ret;
   };
   /**
    * @brief Add a new obstacle (thread safe)
@@ -146,8 +147,23 @@ public:
 
     return ret;
   };
+  /**
+   * @brief Get the distance to the target.
+   * 
+   * @param curr_position 
+   * @return CartesianPosition : Relative target position to the current position
+   */
+  CartesianPosition getRelativeTargetPos (CartesianPosition curr_position) {
+    CartesianPosition ret;
+
+    ret.x = __getTargetToReach().x - curr_position.x;
+    ret.y = __getTargetToReach().y - curr_position.y;
+    return ret;
+  };
 
 private:  
+  /** Arrival area [cm] */
+  float __ARRIVAL_AREA = 10.0;
   /** Tracker guard */
   std::mutex __tracker_guard;
   /** Absolute Origin point position */
@@ -160,6 +176,29 @@ private:
   std::vector<RecognitionResult> __recognized_objects;
   /** Steps trackers */
   std::vector<StepsTracker> __steps_trackers;
+  /**
+   * @brief Get the current Target To Reach 
+   * 
+   * @return CartesianPosition 
+   */
+  CartesianPosition __getTargetToReach() const { return( __targets.front()); };
+  /**
+   * @brief Check if the destination is reached
+   * 
+   * @param curr_position 
+   * @return true 
+   * @return false 
+   */
+  bool __arrivation(CartesianPosition curr_position) {
+    bool ret;
+    float dx = std::fabs(curr_position.x - __getTargetToReach().x);
+    float dy = std::fabs(curr_position.y - __getTargetToReach().y);
+    if (dx < __ARRIVAL_AREA && dy < __ARRIVAL_AREA)
+      ret = true;
+    else 
+      ret = false;
+    return ret;
+  };
 
 };
 
