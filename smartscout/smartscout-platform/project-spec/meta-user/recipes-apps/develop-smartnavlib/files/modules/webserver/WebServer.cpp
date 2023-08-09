@@ -54,13 +54,25 @@ crow::json::wvalue WebServer::__get_rightDistanceSensor_handler() {
 }
 
 crow::response WebServer::__post_smartEvasion_status(const crow::request &req) {
-  crow::json::wvalue ret;
   WebServer *web_server = getInstance();
 
-  if (web_server->__smartEvasionStatus_cb) {
-    ret["smartEvasionStatus"] = web_server->__smartEvasionStatus_cb();
+  std::cout << "__post_smartEvasion_status" << std::endl;
+  const std::string content_type = req.get_header_value("Content-Type");
+  if (content_type == "application/json; charset=utf-8") {
+    try {
+      nlohmann::json data = nlohmann::json::parse(req.body);
+      bool smartEvasionStatus_data = data["smartEvasionStatus"];
+      std::cout << "smartEvasionStatus_data: " << smartEvasionStatus_data << std::endl;
+      if (web_server->__smartEvasionStatus_cb) {
+        web_server->__smartEvasionStatus_cb(smartEvasionStatus_data);
+      }
+      return crow::response(200);
+    }
+    catch (const std::exception &e) {
+      return crow::response(400, e.what());
+    }
   }
-  return ret;
+  return crow::response(400, "Invalid Content-Type. Expected application/json; charset=utf-8.");
 }
 
 crow::response WebServer::__post_smartEvasion_newTarget(const crow::request &req) {
@@ -124,6 +136,7 @@ crow::response WebServer::__post_manualControlBack(const crow::request &req) {
     try {
       nlohmann::json data = nlohmann::json::parse(req.body);
       int manualControlBack_data = data["manualControlBack"];
+      std::cout << "__post_manualControlBack: " << manualControlBack_data << std::endl;
       if (web_server->__manualControlBack_cb) {
         web_server->__manualControlBack_cb(manualControlBack_data);
       }
@@ -139,7 +152,7 @@ crow::response WebServer::__post_manualControlBack(const crow::request &req) {
 crow::response WebServer::__post_manualControlLeft(const crow::request &req) {
   crow::json::wvalue ret;
   WebServer *web_server = getInstance();
-
+  
   const std::string content_type = req.get_header_value("Content-Type");
   if (content_type == "application/json; charset=utf-8") {
     try {
@@ -182,13 +195,38 @@ crow::response WebServer::__post_workingMode(const crow::request &req) {
   crow::json::wvalue ret;
   WebServer *web_server = getInstance();
 
+  std::cout << "__post_workingMode" << std::endl;
   const std::string content_type = req.get_header_value("Content-Type");
   if (content_type == "application/json; charset=utf-8") {
     try {
       nlohmann::json data = nlohmann::json::parse(req.body);
       WorkingMode workingMode_data = data["workingMode"];
-      if (web_server->__manualControlRight_cb) {
-        web_server->__manualControlRight_cb(workingMode_data);
+      std::cout << "workingMode_data: " << workingMode_data << std::endl;
+      if (web_server->__workingMode_cb) {
+        web_server->__workingMode_cb(workingMode_data);
+      }
+      return crow::response(200);
+    }
+    catch (const std::exception &e) {
+      return crow::response(400, e.what());
+    }
+  }
+  return crow::response(400, "Invalid Content-Type. Expected application/json; charset=utf-8.");
+}
+
+crow::response WebServer::__post_showCamera(const crow::request &req) {
+  crow::json::wvalue ret;
+  WebServer *web_server = getInstance();
+
+  std::cout << "__post_showCamera" << std::endl;
+  const std::string content_type = req.get_header_value("Content-Type");
+  if (content_type == "application/json; charset=utf-8") {
+    try {
+      nlohmann::json data = nlohmann::json::parse(req.body);
+      bool showCamera_data = data["showCamera"];
+      std::cout << "showCamera_data: " << showCamera_data << std::endl;
+      if (web_server->__showCamera_cb) {
+        web_server->__showCamera_cb(showCamera_data);
       }
       return crow::response(200);
     }

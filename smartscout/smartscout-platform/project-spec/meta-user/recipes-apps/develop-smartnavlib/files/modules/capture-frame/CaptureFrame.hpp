@@ -4,6 +4,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
 class CaptureFrame {
 public:
@@ -28,28 +29,34 @@ public:
    * 
    * @return const cv::Mat& 
    */
-  const cv::Mat getFrame();
+  const cv::Mat& getFrame();
 
 private:  
   /** Singleton instance */
   static CaptureFrame* __instance;
-  /** Camera device number */
-  const int __DEVICE_ID = 1; 
-  /** Device APIs id */
-  const int __API_ID = cv::CAP_V4L2;
-  /** Video capture */
-  cv::VideoCapture __video_capture;
+  /** Image width */
+  const int __IMG_WIDTH;
+  /** Image height */
+  const int __IMG_HEIGHT;
+  /** Image channel */
+  static const int __IMG_CHANNELS{4};
+  /** Physical VDMA dir */
+  static constexpr off_t __READ_OFFSET{0x01000000};
+  static constexpr off_t __WRITE_OFFSET{0x02000000};
+  /** Memory file descriptor */
+  int __memFd;
+  /** Read memory */
+  void *__readBuffer;
+  /** Write memory */
+  void *__writeBuffer;
+  /** Virtual image */
+  cv::Mat __image;
+  /** BRG image */
+  cv::Mat __img_bgr;
   /** CaptureFrame constructor */
-  CaptureFrame(uint32_t width, uint32_t height) {
-    // Init video capture 
-    __video_capture.open(__DEVICE_ID);
-    if(!__video_capture.isOpened()) 
-      throw std::runtime_error("Retry to open the video capture");
-    __video_capture.set(cv::CAP_PROP_FRAME_WIDTH, width);
-    __video_capture.set(cv::CAP_PROP_FRAME_HEIGHT, height);
-  };
+  CaptureFrame(uint32_t width, uint32_t height);
   /** CaptureFrame destructor */
-  ~CaptureFrame() = default; 
+  ~CaptureFrame();
 
 };
 

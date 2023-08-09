@@ -63,8 +63,6 @@ private:
   const int __MAX_VALUE = 100;
   /** Min value */
   const int __MIN_VALUE = 0;
-  /** Headlight value (percent) */
-  uint32_t __value;
   /** File descriptor of AXI Timer driver */
   int __fd_pwm_2;
   /** File descriptor of AXI Timer driver */

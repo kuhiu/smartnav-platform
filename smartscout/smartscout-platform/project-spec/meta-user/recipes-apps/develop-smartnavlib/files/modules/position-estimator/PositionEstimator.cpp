@@ -8,6 +8,11 @@
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
+PositionEstimator& PositionEstimator::getInstance() {
+  static PositionEstimator instance; 
+  return instance;
+}
+
 PositionEstimator::PositionEstimator() {
   // Turn on the led to indicate the microblaze is running
   __mailbox.sendBlocking(mailbox::command::LED_CTRL, 0x01);

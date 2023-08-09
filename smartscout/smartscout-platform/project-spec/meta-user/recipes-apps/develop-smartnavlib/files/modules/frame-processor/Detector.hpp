@@ -29,7 +29,7 @@ private:
   /** Model file name */
   static constexpr char const *__MODEL_FILE_NAME = {"/usr/bin/lite-model_efficientdet_lite0_detection_default_1.tflite"};
   /** Score threshold needed to be recognized  */
-  const float __SCORE_THRESHOLD = 0.5;
+  const float __SCORE_THRESHOLD = 0.4;
 	/** Tflite model */
 	std::unique_ptr<tflite::FlatBufferModel> __model;
 	/** Tflite interpreter */
@@ -45,7 +45,7 @@ private:
   /** Neural network post processing */
   std::vector<RecognitionResult> __postProcess();
   /** Neural network pre processing */
-  void __preProcess(const cv::Mat& image);
+  cv::Mat __preProcess(const cv::Mat& image);
 
 };
 

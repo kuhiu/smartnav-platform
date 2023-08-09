@@ -2204,7 +2204,7 @@ CONFIG_opencv=y
 #
 # cpufrequtils 
 #
-# CONFIG_cpufrequtils is not set
+CONFIG_cpufrequtils=y
 # CONFIG_cpufrequtils-dev is not set
 # CONFIG_cpufrequtils-dbg is not set
 
@@ -3946,7 +3946,7 @@ CONFIG_hostapd=y
 CONFIG_jsonnlohmann=y
 # CONFIG_peekpoke is not set
 CONFIG_smartnav-app=y
-# CONFIG_smartnav-app-init is not set
+CONFIG_smartnav-app-init=y
 # CONFIG_smartnavsys-lib is not set
 CONFIG_tensorflowlite-lib=y
 CONFIG_testing-mailbox=y
@@ -3964,6 +3964,8 @@ CONFIG_hmc5883l=y
 CONFIG_l298n=y
 CONFIG_mailbox=y
 CONFIG_mt7601u-ap=y
+CONFIG_ov7670-i2c=y
+CONFIG_vdma=y
 
 #
 # user packages 

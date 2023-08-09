@@ -1,5 +1,13 @@
 #include <SmartEvasion.hpp>
 
+#include <chrono>
+
+#include <CaptureFrame.hpp>
+#include <DistanceSensors.hpp>
+#include <Driver.hpp>
+#include <Tracker.hpp>
+#include <PixelMagic.hpp>
+
 constexpr const char *SmartEvasion::__FUZZY_S1_JSON;
 constexpr const char *SmartEvasion::__FUZZY_S2_JSON;
 
@@ -11,7 +19,17 @@ constexpr const char *SmartEvasion::__FUZZY_S2_JSON;
 	#define DEBUG_PRINT(fmt, args...) /* Don't do anything in release builds */
 #endif
 
+SmartEvasion *SmartEvasion::__instance = nullptr;
+
+SmartEvasion *SmartEvasion::getInstance() {
+  if (__instance == nullptr) {
+    __instance = new SmartEvasion;
+  }
+  return __instance;
+}
+
 SmartEvasion::SmartEvasion() {
+  DEBUG_PRINT("SmartEvasion constructor.\n");
   // Parse fuzzy system file 
   std::ifstream fuzzy_system_s1_file(__FUZZY_S1_JSON);
   const json fuzzy_system_s1_json = json::parse(fuzzy_system_s1_file);
@@ -20,29 +38,148 @@ SmartEvasion::SmartEvasion() {
   // Create fuzzy control system object
   __fuzzy_system_stage_1 = std::make_shared<FuzzyControlSystem>(FuzzyControlSystem::parse(fuzzy_system_s1_json));
   __fuzzy_system_stage_2 = std::make_shared<FuzzyControlSystem>(FuzzyControlSystem::parse(fuzzy_system_s2_json));
+  // Start thread
+  __is_running.store(true);
+  __evasion_thread = std::thread(&SmartEvasion::__waitNewTarget, this);
+  DEBUG_PRINT("SmartEvasion created.\n");
 };
 
-std::pair<float, float> SmartEvasion::evade(CartesianPosition curr_position, CartesianPosition rel_target_from_curr_pos,
-      float curr_angle_to_target, float curr_robot_angle, std::vector<Obstacle> obstacles) {
+void SmartEvasion::__waitNewTarget() {
+  float curr_robot_angle;
+  std::pair<float, float> pwm;
+  CartesianPosition curr_position;
+  Tracker* tracker = Tracker::getInstance();
+  PositionEstimator& position_estimator = PositionEstimator::getInstance();
+  Driver* driver = Driver::getInstance();
+  FrameProcessor& frame_processor = FrameProcessor::getInstance();
+
+  while (__is_running.load()) {
+    if (!tracker->isTargetsEmpty()) {
+      // Get sensors distance
+      std::vector<int> distances = DistanceSensors::getInstance()->getDistances();
+      if (distances.size() != 3)
+        throw std::runtime_error("Not three sensor outputs."); 
+      // Get the current position of the robot
+      curr_position = position_estimator.getCurrentPosition();
+      // Get the current angle of the robot
+      curr_robot_angle = position_estimator.getCurrentAngle();
+      // Create an step tracker
+      auto time = std::chrono::system_clock::now();
+      Tracker::StepsTracker step_tracker(std::chrono::duration_cast<std::chrono::seconds>(time.time_since_epoch()).count(),
+        curr_robot_angle,
+        curr_position);
+      tracker->updateMap(step_tracker);
+      // Target reached
+      if (tracker->targetReached(curr_position)) {
+        // Stop the rc car
+        driver->update(Driver::operationMode::OP_STOP, 0, 0);
+        __obstacles.clear();
+      }
+      else {
+        // If one obstacle is ahead, stop and wait for the image detector response 
+        if ((distances[1] < 75) && __obstacles.empty() ) {
+          DEBUG_PRINT("New obstacle to avoid.\n");
+          // Stop the robot
+          driver->update(Driver::operationMode::OP_STOP, 0, 0);
+          // Sleep a while
+          std::this_thread::sleep_for(std::chrono::milliseconds(300));
+          // Process frame
+          auto frame = CaptureFrame::getInstance(320, 240)->getFrame();
+          frame_processor.processFrame(frame);
+          auto recognized_objects = frame_processor.getResults();
+          if (!recognized_objects.empty()) {
+            DEBUG_PRINT("New obstacle recognized.\n");
+            // Get dimensions of the obstacle
+            __obstacleDimensionExtractor(recognized_objects, curr_robot_angle, (float)distances[1], curr_position);
+          }
+          else {
+            DEBUG_PRINT("The obstacle was not recognized.\n");
+            tracker->deleteTarget();
+            continue;
+          }
+        }
+        // Wait play
+        DEBUG_PRINT("Wait play.\n");
+        while (!__play_smart_evasion.load()) {
+          // Stop the robot
+          driver->update(Driver::operationMode::OP_STOP, 0, 0);
+          std::this_thread::sleep_for(std::chrono::milliseconds(200)); 
+        }
+        DEBUG_PRINT("Play arrived.\n");
+        frame_processor.clearResults();
+        // Using SmartEvasion
+        pwm = __evade(curr_position, curr_robot_angle, __obstacles);
+        // Motor control
+        driver->update_pwm((int)pwm.first, (int)pwm.second);
+        // Debug
+        DEBUG_PRINT("pwm0 %f, pwm1 %f.\n", pwm.first, pwm.second);
+        DEBUG_PRINT("curr_position: %f, %f.\n", curr_position.x, curr_position.y);
+        DEBUG_PRINT("Current target: %f, %f.\n", tracker->getTargetToReach().x, tracker->getTargetToReach().y);
+        DEBUG_PRINT("curr_robot_angle: %f.\n", curr_robot_angle);
+      }
+    }
+    else {
+      std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
+  }
+}
+
+void SmartEvasion::__obstacleDimensionExtractor(std::vector<RecognitionResult> recognized_objects, 
+        float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position) {
+  bool object_found = false; 
+
+  for (auto &recognized_object : recognized_objects) {
+    // Create the obstacle
+    Obstacle obstacle(curr_robot_angle, distance_to_obstacle, curr_position, recognized_object);
+    __obstacles.push_back(obstacle);
+    DEBUG_PRINT("Obstacle position: %f, %f.\n", obstacle.getPosition().x, obstacle.getPosition().y);
+    DEBUG_PRINT("Obstacle left position: %f, %f.\n", obstacle.getLeftmostPoint().x, obstacle.getLeftmostPoint().y);
+    DEBUG_PRINT("Obstacle right positionn: %f, %f.\n", obstacle.getRightmostPoint().x, obstacle.getRightmostPoint().y);
+    // Get the obstacle points 
+    const CartesianPosition closest_obstacle = __obstacles[0].getClosestPoint();
+    const CartesianPosition furthest_obstacle = __obstacles[0].getFurthestPoint();
+    // Test
+    const PolarPosition closest_obstacle_pol = PositionEstimator::cartensianToPolar(closest_obstacle);
+    const PolarPosition furthest_obstacle_pol = PositionEstimator::cartensianToPolar(furthest_obstacle);
+    DEBUG_PRINT("(0,0) closest_obstacle_point %f y %f.\n", closest_obstacle_pol.distance, closest_obstacle_pol.angle);
+    DEBUG_PRINT("(0,0) furthest_obstacle_point %f y %f.\n", furthest_obstacle_pol.distance, furthest_obstacle_pol.angle);
+  }
+  DEBUG_PRINT("End dimension extractor.\n");
+}
+
+std::pair<float, float> SmartEvasion::__evade(CartesianPosition curr_position, float curr_robot_angle, std::vector<Obstacle> obstacles) {
   float w = 0;
   float alpha = 0;
   float theta = 0;
+  float target_distance;
   float angle_correction;
-  float current_destination_angle;
-  PolarPosition rel_target_from_curr_pos_pol;
-  PolarPosition closest_obstacle_point;
-  PolarPosition furthest_obstacle_point;
+  float target_direction_angle;
+  float closest_obstacle_distance;
+  float furthest_obstacle_angle;
   std::pair<float, float> ret; 
-  std::vector<std::pair<std::string, float>> inputs;
+  float current_destination_angle;
   std::vector<FuzzyOutput> outputs;
+  CartesianPosition target_direction;
+  CartesianPosition evader_direction; 
+  CartesianPosition current_destination;
+  Tracker* tracker = Tracker::getInstance();
+  std::vector<std::pair<std::string, float>> inputs;
+  // Get the target point
+  const CartesianPosition target = tracker->getTargetToReach();
+  // Get the obstacle points 
+  const CartesianPosition closest_obstacle = obstacles[0].getClosestPoint();
+  const CartesianPosition furthest_obstacle = obstacles[0].getFurthestPoint();
 
+  target_direction = target - curr_position;
+  target_direction_angle = PositionEstimator::cartensianToPolar(target_direction).angle;
   // If there are not obstacles
   if (!obstacles.empty()) {
-    closest_obstacle_point = __getClosestObstaclePoint(curr_position, obstacles[0]);
-    furthest_obstacle_point = __getFurthestObstaclePoint(curr_position, obstacles[0]);
-    rel_target_from_curr_pos_pol = PositionEstimator::cartensianToPolar(rel_target_from_curr_pos);
-    alpha = (closest_obstacle_point.distance / rel_target_from_curr_pos_pol.distance);
-    theta = __getDifference(furthest_obstacle_point.angle, rel_target_from_curr_pos_pol.angle);
+    target_distance = PositionEstimator::cartensianToPolar(target - curr_position).distance;
+    closest_obstacle_distance = PositionEstimator::cartensianToPolar(closest_obstacle - curr_position).distance;
+    furthest_obstacle_angle = PositionEstimator::cartensianToPolar(furthest_obstacle - curr_position).angle;
+
+    alpha = (closest_obstacle_distance / target_distance);
+    theta = __subtractAngles(furthest_obstacle_angle, target_direction_angle);
     DEBUG_PRINT("alpha %f, theta %f.\n", alpha, theta);
     // Fuzzy control system: Stage 1 
     inputs = {  {"alpha", alpha},
@@ -55,15 +192,15 @@ std::pair<float, float> SmartEvasion::evade(CartesianPosition curr_position, Car
         w = output.defuzzification();
     }  
     // Im looking go against the obstacle so..
-    furthest_obstacle_point.angle = (furthest_obstacle_point.angle + 180.0);
-    if (furthest_obstacle_point.angle > 180)
-      furthest_obstacle_point.angle = furthest_obstacle_point.angle - 360; 
-    DEBUG_PRINT("obstacle_angle %f.\n", furthest_obstacle_point.angle);
-    current_destination_angle = w * furthest_obstacle_point.angle + (1-w) * curr_angle_to_target;
+    evader_direction = __supplementary(furthest_obstacle - curr_position);
+    DEBUG_PRINT("evader_direction angle %f.\n", PositionEstimator::cartensianToPolar(evader_direction).angle);
+    current_destination = __scalarVectorMult(evader_direction, w) + __scalarVectorMult(target_direction, (1-w));
+    current_destination_angle = PositionEstimator::cartensianToPolar(current_destination).angle;
   }
   else 
-    current_destination_angle = curr_angle_to_target;
-  angle_correction = __getDifference(current_destination_angle, curr_robot_angle);
+    current_destination_angle = target_direction_angle;
+
+  angle_correction = __subtractAngles(curr_robot_angle, current_destination_angle);
   // Fuzzy control system: Stage 2 
   inputs = { {"where_have_to_go", angle_correction} };
   // Evaluate fuzzy system
@@ -75,50 +212,14 @@ std::pair<float, float> SmartEvasion::evade(CartesianPosition curr_position, Car
     else if (output.getName() == "pwm1")
       ret.second = output.defuzzification();
   }
+  DEBUG_PRINT("closest_obstacle_distance %f.\n", closest_obstacle_distance);
+  DEBUG_PRINT("furthest_obstacle_angle %f.\n", furthest_obstacle_angle);
+  DEBUG_PRINT("furthest_obstacle - current position x,y %f,%f.\n", (furthest_obstacle - curr_position).x, (furthest_obstacle - curr_position).y);
+  DEBUG_PRINT("angle_correction %f.\n", angle_correction);
+  DEBUG_PRINT("target_direction %f, target_distance %f.\n", target_direction_angle, target_distance);
+  DEBUG_PRINT("evader_direction %f, %f.\n", evader_direction.x, evader_direction.y);
+  DEBUG_PRINT("w %f.\n", w);
+  DEBUG_PRINT("current_destination_angle %f.\n", current_destination_angle);
   return ret;
 };
 
-PolarPosition SmartEvasion::__getClosestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
-  PolarPosition ret;
-  PolarPosition polar;
-  CartesianPosition cartesian;
-
-  cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
-  cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
-  ret = PositionEstimator::cartensianToPolar(cartesian);
-  
-  cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
-  cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
-  polar = PositionEstimator::cartensianToPolar(cartesian);
-  if (polar.distance < ret.distance)
-    ret = polar;
-
-  return ret;
-};
-
-PolarPosition SmartEvasion::__getFurthestObstaclePoint(CartesianPosition curr_position, Obstacle obstacle) {
-  PolarPosition ret;
-  PolarPosition polar;
-  CartesianPosition cartesian;
-
-  cartesian.x = obstacle.getLeftmostPoint().x - curr_position.x;
-  cartesian.y = obstacle.getLeftmostPoint().y - curr_position.y;
-  ret = PositionEstimator::cartensianToPolar(cartesian);
-  
-  cartesian.x = obstacle.getRightmostPoint().x - curr_position.x;
-  cartesian.y = obstacle.getRightmostPoint().y - curr_position.y;
-  polar = PositionEstimator::cartensianToPolar(cartesian);
-  if (polar.distance > ret.distance)
-    ret = polar;
-
-  return ret;
-};
-
-float SmartEvasion::__getDifference(float b1, float b2) {
-  float r = fmod(b2 - b1, 360.0);
-  if (r < -180.0)
-    r += 360.0;
-  if (r >= 180.0)
-    r -= 360.0;
-  return r;
-}

@@ -26,8 +26,8 @@ Detector::Detector() {
   if (__interpreter->AllocateTensors() != kTfLiteOk)
     throw std::runtime_error("Interpreter not initilizated \n");
 
-  DEBUG_PRINT("=== Pre-invoke Interpreter State ===\n");
-  tflite::PrintInterpreterState(__interpreter.get());
+  //DEBUG_PRINT("=== Pre-invoke Interpreter State ===\n");
+  //tflite::PrintInterpreterState(__interpreter.get());
 
   DEBUG_PRINT("=== Number of input = %d, number of output = %d ===\n", __interpreter->inputs().size(), __interpreter->outputs().size());
 
@@ -43,9 +43,9 @@ Detector::Detector() {
 
 std::vector<RecognitionResult> Detector::detect(const cv::Mat& image) {
   // Pre process
-  __preProcess(image);
+  cv::Mat image_320x320 = __preProcess(image);
   // Fill input
-  if (kTfLiteOk != __fillInput(image)) 
+  if (kTfLiteOk != __fillInput(image_320x320)) 
     throw(std::runtime_error("Image capture failed \n"));
   // Invoke 
   __interpreter->Invoke();
@@ -85,8 +85,12 @@ std::vector<RecognitionResult> Detector::__postProcess() {
   return recognitions;
 }
 
-void Detector::__preProcess(const cv::Mat& image) {
-  if ((image.size().width != 320) || (image.size().height != 320)) {
-    throw std::runtime_error("Detector::__preProcess image size is not 320x320");
-  }
+cv::Mat Detector::__preProcess(const cv::Mat& image) {
+  cv::Mat ret;
+
+  if ((image.size().width != 320) || (image.size().height != 320)) 
+    cv::resize(image, ret, cv::Size(320, 320), cv::INTER_AREA);
+  else
+    ret = image;
+  return ret;
 }

@@ -1,31 +1,40 @@
 #!/bin/sh
-DAEMON=/usr/bin/smartnav-app 320 240 5
-start ()
-{
-        echo " Starting smartnav-app"
-        start-stop-daemon -S -o --background -x $DAEMON
+
+DAEMON=/usr/bin/smartnav-app
+WIDTH=320
+HEIGHT=240
+FPS=5
+
+start () {
+    echo "Starting smartnav-app"
+    start-stop-daemon -S -o --background -x $DAEMON -- $WIDTH $HEIGHT $FPS
 }
-stop ()
-{
-        echo " Stoping smartnav-app"
-        start-stop-daemon -K -x $DAEMON
+
+stop () {
+    echo "Stopping smartnav-app"
+    start-stop-daemon -K -x $DAEMON
 }
-restart()
-{
-        stop
-        start
+
+restart () {
+    stop
+    start
 }
+
 [ -e $DAEMON ] || exit 1
 
-        case "$1" in
-                start)
-                        start; ;;
-                stop)
-                        stop; ;;
-                restart)
-                        restart; ;;
-                *)
-                        echo "Usage: $0 {start|stop|restart}"
-                        exit 1
-        esac
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
 exit $?

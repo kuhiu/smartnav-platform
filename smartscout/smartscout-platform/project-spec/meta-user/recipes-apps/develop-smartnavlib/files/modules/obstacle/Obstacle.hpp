@@ -12,24 +12,41 @@ class Obstacle {
 public:
   /** Obstacle constructor */
   Obstacle(float curr_robot_angle, float distance_to_obstacle, CartesianPosition curr_position, RecognitionResult recognized_object) {
-        PolarPosition obstacle_polar(curr_robot_angle, distance_to_obstacle);
-        __position = PositionEstimator::polarToCartesian(obstacle_polar);
-        __position.x = __position.x + curr_position.x;
-        __position.y = __position.y + curr_position.y;
-        // Width of the obstacle to avoid 
-        // Leftmost point of the obstacle's width 
-        PolarPosition leftmost_obstacle_point_pol((atan2((0.5-recognized_object.xmin)*16, distance_to_obstacle)*180/M_PI) + curr_robot_angle, 
-            (std::sqrt(std::pow(distance_to_obstacle, 2) + std::pow((0.5-recognized_object.xmin)*16, 2))) );
-        __leftmost_point = PositionEstimator::polarToCartesian(leftmost_obstacle_point_pol);
-        __leftmost_point.x = __leftmost_point.x + curr_position.x;
-        __leftmost_point.y = __leftmost_point.y + curr_position.y;
-        // Rightmost point of the obstacle's width 
-        PolarPosition rightmost_obstacle_point_pol((atan2(-(recognized_object.xmax-0.5)*16, distance_to_obstacle)*180/M_PI) + curr_robot_angle, 
-            std::sqrt(std::pow(distance_to_obstacle, 2) + std::pow((recognized_object.xmax-0.5)*16, 2)));
-        __rightmost_point = PositionEstimator::polarToCartesian(rightmost_obstacle_point_pol);
-        __rightmost_point.x = __rightmost_point.x + curr_position.x;
-        __rightmost_point.y = __rightmost_point.y + curr_position.y;
-      };
+    float obj_width_cm = 16;
+    float dy;
+
+    PolarPosition obstacle_polar(curr_robot_angle, distance_to_obstacle);
+    __position = PositionEstimator::polarToCartesian(obstacle_polar);
+    __position = __position + curr_position;
+    // Leftmost point of the obstacle's width 
+    dy = 0.5-recognized_object.xmin;
+    float left_distance = std::sqrt(std::pow(distance_to_obstacle, 2) + std::pow(dy*obj_width_cm, 2));
+    float left_angle = (atan2(dy*obj_width_cm, distance_to_obstacle)*180/M_PI) + curr_robot_angle;
+    // Create most left point
+    PolarPosition leftmost_obstacle_point_pol(left_angle, left_distance);
+    __leftmost_point = PositionEstimator::polarToCartesian(leftmost_obstacle_point_pol);
+    __leftmost_point = __leftmost_point + curr_position;
+
+    // Rightmost point of the obstacle's width 
+    dy = recognized_object.xmax-0.5;
+    float right_distance = std::sqrt(std::pow(distance_to_obstacle, 2) + std::pow(dy*obj_width_cm, 2));
+    float right_angle = atan2(-dy*obj_width_cm, distance_to_obstacle)*180/M_PI + curr_robot_angle;
+    PolarPosition rightmost_obstacle_point_pol(right_angle, right_distance);
+    __rightmost_point = PositionEstimator::polarToCartesian(rightmost_obstacle_point_pol);
+    __rightmost_point = __rightmost_point + curr_position;
+
+    float dtita = rightmost_obstacle_point_pol.angle - obstacle_polar.angle;
+    float dalfa = leftmost_obstacle_point_pol.angle - obstacle_polar.angle;
+    if (std::abs(dtita) > std::abs(dalfa)) {
+      __furthest_point = __rightmost_point; 
+      __closest_point = __leftmost_point;
+    }
+    else {
+      __furthest_point = __leftmost_point; 
+      __closest_point = __rightmost_point;
+    }
+
+  };
   /** Obstacle destructor */
   ~Obstacle() = default;
   /**
@@ -50,6 +67,18 @@ public:
    * @return Dimensions 
    */
   CartesianPosition getRightmostPoint() const { return __rightmost_point; };
+  /**
+   * @brief Get the Closest Point object
+   * 
+   * @return CartesianPosition 
+   */
+  CartesianPosition getClosestPoint() const { return __closest_point; };
+  /**
+   * @brief Get the Furthest Point object
+   * 
+   * @return CartesianPosition 
+   */
+  CartesianPosition getFurthestPoint() const { return __furthest_point; };
   /**
    * @brief Convert the obstacle object to JSON
    * 
@@ -73,7 +102,10 @@ private:
   CartesianPosition __leftmost_point;
   /** Rightmost point of the obstacle's width */
   CartesianPosition __rightmost_point;
-
+  /** Closest point */
+  CartesianPosition __closest_point;
+  /** Furthest point */
+  CartesianPosition __furthest_point;
 };
 
 

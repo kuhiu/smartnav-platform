@@ -3,6 +3,8 @@
 
 #include <opencv2/opencv.hpp>
 
+#include <RecognitionResult.hpp>
+
 namespace PixelMagic {
   /**
    * @brief Resize the image
@@ -22,7 +24,8 @@ namespace PixelMagic {
   cv::Mat simpleWhiteBalance(const cv::Mat& image);
   /**
    * @brief White balancing algorithm
-	 * Reference: https://stackoverflow.com/questions/29166804/colorbalance-in-an-image-using-c-and-opencv
+	 * Reference: 
+   * https://stackoverflow.com/questions/29166804/colorbalance-in-an-image-using-c-and-opencv
    * 
    * @param image 
    * @param percent 
@@ -56,6 +59,14 @@ namespace PixelMagic {
    * @param directory 
    */
   void saveAsJpg(const cv::Mat& image, const char* directory);
+  /**
+   * @brief Draw boundingBoxes into the image
+   * 
+   * @param image 
+   * @param recognitions 
+  */
+  void drawBoundingBox(int img_width, int img_height, const cv::Mat& image, 
+      std::vector<RecognitionResult> recognized_objects);
     
 } // namespace PixelMagic
 

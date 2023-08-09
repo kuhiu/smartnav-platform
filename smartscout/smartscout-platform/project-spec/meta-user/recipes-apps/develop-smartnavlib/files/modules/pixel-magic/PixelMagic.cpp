@@ -5,25 +5,13 @@
 #include <opencv2/xphoto.hpp>
 
 namespace PixelMagic {
-  /**
-   * @brief Resize the image
-   * 
-   * @param image 
-   * @param width 
-   * @param height 
-   * @return cv::Mat 
-   */
+
   cv::Mat resize(const cv::Mat& image, uint32_t width, uint32_t height) {
     cv::Mat ret;
     cv::resize(image, ret, cv::Size(width, height), cv::INTER_AREA);
     return ret;
   }
-  /**
-   * @brief Simple white balancing 
-   * 
-   * @param image 
-   * @return cv::Mat 
-   */
+
   cv::Mat simpleWhiteBalance(const cv::Mat& image) {
     cv::Ptr<cv::xphoto::SimpleWB> wb = cv::xphoto::createSimpleWB();
     cv::Mat ret;
@@ -31,14 +19,7 @@ namespace PixelMagic {
     wb->balanceWhite(image, ret);
     return ret;
   }
-  /**
-   * @brief White balancing algorithm
-	 * Reference: https://stackoverflow.com/questions/29166804/colorbalance-in-an-image-using-c-and-opencv
-   * 
-   * @param image 
-   * @param percent 
-   * @return cv::Mat 
-   */
+
   cv::Mat colorBalancing(const cv::Mat& image, float percent) {
     cv::Mat ret;
 
@@ -64,11 +45,7 @@ namespace PixelMagic {
 
     return ret;
   }
-	/**
-	 * @brief Increase the saturation of the image 
-	 * 
-	 * @param value 
-	 */
+
 	cv::Mat increaseSaturation(const cv::Mat& image, int value) {
     cv::Mat ret;
     cv::Mat hsv;
@@ -87,13 +64,7 @@ namespace PixelMagic {
     cv::cvtColor(hsv, ret, cv::COLOR_HSV2RGB);
     return ret;
   }
-	/**
-	 * @brief Flip image 
-	 * 
-	 * @param image 
-	 * @param orientation 0: vertically, 1: horizontal
-	 * @return cv::Mat 
-	 */
+
 	cv::Mat flip(const cv::Mat& image, bool orientation) {
     cv::Mat ret;
 
@@ -104,11 +75,6 @@ namespace PixelMagic {
     return ret;
   }
 
-	/**
-	 * @brief Get the Brightness object
-	 * 
-	 * @return uint32_t 
-	 */
 	uint32_t getBrightness(const cv::Mat& image) {
 		cv::Mat hsv;
 		cv::Scalar mean;
@@ -122,14 +88,22 @@ namespace PixelMagic {
 		int ret = mean.val[0];
 		return (((ret * 100) / 255));
 	};
-  /**
-   * @brief Save the image as jpg format
-   * 
-   * @param image 
-   * @param directory 
-   */
+
   void saveAsJpg(const cv::Mat& image, const char* directory) {
     cv::imwrite(directory, image);
   };
     
+  void drawBoundingBox(int img_width, int img_height, const cv::Mat& image, std::vector<RecognitionResult> recognized_objects) {
+    for (auto &recognized_object : recognized_objects) {
+      recognized_object.xmin *= img_width;
+      recognized_object.xmax *= img_width;
+      recognized_object.ymin *= img_height;
+      recognized_object.ymax *= img_height;
+      cv::rectangle(image, cv::Point(recognized_object.xmin, recognized_object.ymin), 
+                           cv::Point(recognized_object.xmax, recognized_object.ymax), 
+                           cv::Scalar(0, 0, 0), 3);
+    
+    }
+  };
+
 } // namespace PixelMagic

@@ -7,16 +7,16 @@
         "name": "alpha",
         "membership_functions": 
         [
-          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 20}, {"right_slope": 1}, {"left_slope": 1}] },
-          { "name": "NEAR",  "trapezoidal": [{"x1": -1}, {"x2": 1}, {"right_slope": 1}, {"left_slope": 1}] } 
+          { "name": "FAR", "trapezoidal": [{"x1": 0}, {"x2": 2000}, {"right_slope": 0.5}, {"left_slope": 0.5}] },
+          { "name": "NEAR",  "trapezoidal": [{"x1": -2}, {"x2": 2}, {"right_slope": 0.5}, {"left_slope": 0.5}] } 
         ]
       },
       {
         "name": "theta",
         "membership_functions": 
         [
-          { "name": "LOW", "trapezoidal": [{"x1": -30}, {"x2": 30}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] },
-          { "name": "HIGH", "trapezoidal": [{"x1":0}, {"x2": 360}, {"right_slope": 0.03333}, {"left_slope": 0.03333}] }
+          { "name": "LOW", "trapezoidal": [{"x1": -90}, {"x2": 90}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] },
+          { "name": "HIGH", "trapezoidal": [{"x1": 0}, {"x2": 390}, {"right_slope": 0.0111}, {"left_slope": 0.0111}] }
         ]
       }
     ], 

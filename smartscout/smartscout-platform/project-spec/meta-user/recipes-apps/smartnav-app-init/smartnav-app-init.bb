@@ -12,6 +12,8 @@ SRC_URI = "file://smartnav-app-init \
 
 S = "${WORKDIR}"
 
+DEPENDS += "develop-smartnavlib"
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 inherit update-rc.d

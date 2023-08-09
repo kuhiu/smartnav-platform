@@ -1,1 +1,0 @@
-petalinux-build

@@ -10,6 +10,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI = " file://mt7601u.bin \
             file://udhcpd.conf \
             file://setup \
+            file://wpafile.conf \
             "
 
 S = "${WORKDIR}"
@@ -30,6 +31,8 @@ do_install() {
     install -m 0755 ${S}/setup ${D}${sysconfdir}/init.d/setup
     install -m 0755 ${S}/udhcpd.conf ${D}${sysconfdir}/smartnav/udhcpd.conf
     install -m 0755 ${S}/mt7601u.bin ${D}/lib/firmware/mt7601u.bin
+
+    install -m 0755 ${S}/wpafile.conf ${D}${sysconfdir}/wpafile.conf
 }
 
 FILES_${PN} += "/lib/firmware/mt7601u.bin"

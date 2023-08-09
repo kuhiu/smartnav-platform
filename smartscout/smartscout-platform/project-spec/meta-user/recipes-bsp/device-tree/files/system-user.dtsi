@@ -1,6 +1,26 @@
 /include/ "system-conf.dtsi"
 / {
-	
+
+		memory {
+		device_type = "memory";
+		reg = <0x0 0x20000000>;
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		reservedmemory0: reservedmemory0@0x01000000{
+												no-map;
+												reg = <0x01000000 0x800000>;
+											};
+		reservedmemory1: reservedmemory0@0x02000000{
+												no-map;
+												reg = <0x02000000 0x800000>;
+											};
+	};
+
 	chosen {
 		bootargs = "console=ttyPS0,115200 earlyprintk root=/dev/mmcblk0p2 rw rootwait cma=15M coherent_pool=4M";
 	};
@@ -11,26 +31,6 @@
 		reg = <0xe0002000 0x1000>;
 		view-port = <0x0170>;
 		drv-vbus;
-	};
-
-	memory {
-		device_type = "memory";
-		reg = <0x0 0x20000000>;
-	};
-
-  	reserved-memory {
-	      #address-cells = <1>;
-	      #size-cells = <1>;
-	      ranges;
-	  
-              reservedmemory0: reservedmemory0@0x01000000{
-			no-map;
-			reg = <0x01000000 0x800000>;
-	      };
-              reservedmemory1: reservedmemory0@0x02000000{
-			no-map;
-			reg = <0x02000000 0x800000>;
-	      };
 	};
 
 	cpus {
@@ -47,6 +47,13 @@
 
 &amba_pl {
 
+	dma@43000000 {
+		compatible = "vdma_control_driver";	
+		reg = <0x43000000 0x10000>, <0x01000000 0x800000>;
+		interrupts = <0 31 4>;
+		memory-region = <&reservedmemory0>;
+	};
+	
 	l298n {
 		compatible = "l298n";
 		motor_ctrl_0-gpios = <&gpio0 66 0>;	
@@ -66,65 +73,11 @@
 		pwm-frequency = <500>;
 	};
 
-	v_demosaic@43c10000 {
-		reset-gpios = <&gpio0 55 1>;
-
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
-				xlnx,video-width = <8>;
-
-				demosaic_in: endpoint {
-					remote-endpoint = <&ov7670_0>;
-				};
-			};
-
-			port@1 {
-				reg = <1>;
-				xlnx,video-width = <8>;
-
-				demosaic_out: endpoint {
-					remote-endpoint = <&vcap0_in>;
-				};
-			};
-		};
-	};
-
-
-	v_frmbuf_wr@43c00000 {
-		reset-gpios = <&gpio0 54 1>;
-		xlnx,dma-addr-width = <32>;
-		
-		xlnx,pixels-per-clock = <1>;
-	};
-
 	mailbox@43800000 {
 		compatible = "axi_mailbox";
 		interrupt-names = "interrupt";
 		interrupt-parent = <0x04>;
 		interrupts = <0 32 4>;
-	};
-	
-	axi_video_cap {
-		compatible = "xlnx,video";
-		dmas = <&v_frmbuf_wr_0 0>;
-		dma-names = "port0";
-
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
-				direction = "input";
-				vcap0_in: endpoint {
-					remote-endpoint = <&demosaic_out>;
-				};
-			};
-		};
 	};
 
 };
@@ -155,34 +108,20 @@
 		status = "okay";
 		clock-frequency = <100000>;
 		
-		ov7670: camera@21 {
-			compatible = "ovti,ov7670";
-			reg = <0x21>;
-			clocks = <&clkc 0x11>;
-			clock-names = "xclk";
-
-			pinctrl-names = "default";
-			pinctrl-0 = <&pinctrl_sensor_power &pinctrl_sensor_reset>;
-			reset-gpios = <&gpio0 56 1>;
-			powerdown-gpios = <&gpio0 57 0>;
-
-			/*ov7670,pclk-hb-disable;*/
-			port {
-				ov7670_0: endpoint {
-					hsync-active = <1>;
-					vsync-active = <1>;
-
-					remote-endpoint = <&demosaic_in>;
-				};
+		i2c@0 {
+			reg = <0>;
+			ov7670@0x21 {
+				compatible = "ov7670";
+				reg = <0x21>;
+			};
+			HMC5883L@0x1E {
+				compatible = "HMC5883L";
+				reg = <0x1E>;
 			};
 		};
-		compass: HMC5883L@0x0D {
-			compatible = "HMC5883L";
-			reg = <0x0D>;
-		};
-
 	};
 	
+
 	slcr@f8000000 {
 		pinctrl@700 {
 			pinctrl_sensor_power: sensor_power {

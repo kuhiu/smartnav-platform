@@ -12,7 +12,8 @@
 class Reporter {
 public:
   /** Reporter constructor */
-  Reporter(std::shared_ptr<Tracker> tracker) : __tracker(tracker) {
+  Reporter() {
+    __tracker = Tracker::getInstance();
     __file.open(__FILE, std::ios::trunc | std::ios::out);
     // Start thread
     __is_running = true;
@@ -29,7 +30,7 @@ private:
   /** File name where the history positions are saved */
   static constexpr const char *__FILE = {"/home/root/history.json"};
   /** Tracker object */
-  const std::shared_ptr<Tracker> __tracker;
+  Tracker* __tracker;
   /** File stream */
   std::ofstream __file;
   /** Thread status */

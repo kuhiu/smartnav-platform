@@ -25,7 +25,24 @@ struct CartesianPosition {
     };
     return json;
   };
-
+  /**
+   * @brief Plus operator 
+   * 
+   * @param other 
+   * @return CartesianPosition 
+   */
+  CartesianPosition operator+(const CartesianPosition& other) const {
+      return CartesianPosition(x + other.x, y + other.y);
+  }
+  /**
+   * @brief Minus operator 
+   * 
+   * @param other 
+   * @return CartesianPosition 
+   */
+  CartesianPosition operator-(const CartesianPosition& other) const {
+    return CartesianPosition(x - other.x, y - other.y);
+  }
 };
 
 #endif /* C4E00526_94EA_4FF2_8A5E_9B285CD4E27A */

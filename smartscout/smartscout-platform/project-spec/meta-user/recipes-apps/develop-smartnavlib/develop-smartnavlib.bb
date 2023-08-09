@@ -23,7 +23,6 @@ SRC_URI = "file://Makefile \
      file://modules/compass/* \
      file://modules/mailbox/* \
      file://modules/position-estimator/* \
-     file://modules/utilities/* \
      file://modules/decayGraph/* \
      file://modules/obstacle/* \
      file://modules/buttons/* \
@@ -45,6 +44,8 @@ DEPENDS += "opencv"
 DEPENDS += "jsonnlohmann"
 DEPENDS += "i2c-tools"
 DEPENDS += "crow"
+DEPENDS += "wireless"
+DEPENDS += "wireless-tools"
 
 S = "${WORKDIR}"
 

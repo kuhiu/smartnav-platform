@@ -3,6 +3,11 @@
 #include <chrono>
 #include <mutex>
 
+FrameProcessor& FrameProcessor::getInstance() {
+  static FrameProcessor instance; 
+  return instance;
+}
+
 void FrameProcessor::processFrame(const cv::Mat& frame) {
   // Start measuring time
   auto begin = std::chrono::high_resolution_clock::now();

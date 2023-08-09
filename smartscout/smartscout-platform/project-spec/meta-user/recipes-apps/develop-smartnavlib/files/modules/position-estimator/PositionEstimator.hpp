@@ -17,10 +17,22 @@
 
 class PositionEstimator {
 public:
-  /** PositionEstimator constructor */
-  PositionEstimator();
-  /** PositionEstimator destructor */
-  ~PositionEstimator();
+  /**
+   * @brief Get the Instance of the PositionEstimator
+   * 
+   * @return PositionEstimator& 
+   */
+  static PositionEstimator& getInstance();
+  /**
+   * @brief Deleting copy constructor 
+   * 
+   */
+  PositionEstimator(const PositionEstimator& obj) = delete;
+  /**
+   * @brief Singleton should not be assignable
+   * 
+   */
+  void operator=(const PositionEstimator&) = delete;
   /**
    * @brief Get the Current Position object
    * 
@@ -97,6 +109,10 @@ private:
   std::thread __encoders_thread; 
   /** Current position */
   CartesianPosition __curr_position;
+  /** PositionEstimator constructor */
+  PositionEstimator();
+  /** PositionEstimator destructor */
+  ~PositionEstimator();
   /**
    * @brief Read encoders
    * 

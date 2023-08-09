@@ -20,11 +20,11 @@ enum WorkingMode {
    */
   AUTOMATIC_EVASION,
   /**
-   * @brief REACH_TARGETS, The user can select where to go sending
+   * @brief SET_TARGET, The user can select where to go sending
    * a Cartesian Position relative to the actual position. 
    * 
    */
-  REACH_TARGETS,
+  SET_TARGET,
 
 };
 

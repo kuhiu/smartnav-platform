@@ -20,7 +20,7 @@ public:
   /** Headlight callback */
   using DistanceSensorCallback = std::function<int()>;
   /** SmartEvasionStatus callback */
-  using SmartEvasionStatusCallback = std::function<bool()>;
+  using SmartEvasionStatusCallback = std::function<void(bool)>;
   /** SmartEvasionNewTarget callback*/
   using SmartEvasionNewTargetCallback = std::function<CartesianPosition()>;
   /** SmartLightsStatus callback */
@@ -29,6 +29,8 @@ public:
   using ManualControlCallback = std::function<void(int)>;
   /** WorkingMode callback */
   using WorkingModeCallback = std::function<void(WorkingMode)>;
+  /** showCamera callback */
+  using ShowCameraCallback = std::function<void(bool)>;
   /**
    * @brief Get the Instance of the WebServer
    * 
@@ -151,6 +153,14 @@ public:
   void setWorkingModeCallback(WorkingModeCallback workingMode_cb) {
     __workingMode_cb = workingMode_cb;
   }
+  /**
+   * @brief Set the show camera Mode Callback
+   * 
+   * @param showCamera_cb 
+   */
+  void setShowCameraCallback(ShowCameraCallback showCamera_cb) {
+    __showCamera_cb = showCamera_cb;
+  }
 
   private:
     /** Singleton instance */
@@ -183,6 +193,7 @@ public:
     ManualControlCallback __manualControlLeft_cb;
     ManualControlCallback __manualControlRight_cb;
     WorkingModeCallback __workingMode_cb;
+    ShowCameraCallback __showCamera_cb;
     /**
      * @brief Set the webserver endpoints
      * 
@@ -195,6 +206,7 @@ public:
       CROW_ROUTE(__webServer, "/api/realtime/variables/centerDistanceSensor").methods(crow::HTTPMethod::GET)(&__get_centerDistanceSensor_handler);
       CROW_ROUTE(__webServer, "/api/realtime/variables/rightDistanceSensor").methods(crow::HTTPMethod::GET)(&__get_rightDistanceSensor_handler);
       // POST request
+      CROW_ROUTE(__webServer, "/api/realtime/variables/showCamera").methods(crow::HTTPMethod::POST)(&__post_showCamera);
       CROW_ROUTE(__webServer, "/api/realtime/variables/workingMode").methods(crow::HTTPMethod::POST)(&__post_workingMode);
       CROW_ROUTE(__webServer, "/api/realtime/variables/workingMode/smartEvasion/status").methods(crow::HTTPMethod::POST)(&__post_smartEvasion_status);
       CROW_ROUTE(__webServer, "/api/realtime/variables/workingMode/smartEvasion/newTarget").methods(crow::HTTPMethod::POST)(&__post_smartEvasion_newTarget);
@@ -215,7 +227,6 @@ public:
       __webServer.loglevel(crow::LogLevel::Warning);
       __webServer.port(__PORT)
                 .server_name("SmartNavWebServer")
-                .multithreaded()
                 .run();
     }    
     /**
@@ -308,6 +319,13 @@ public:
      * @return crow::response 
      */
     static crow::response __post_workingMode(const crow::request& req);
+    /**
+     * @brief Post method of the showCamera real-time variable
+     * 
+     * @param req 
+     * @return crow::response 
+     */
+    static crow::response __post_showCamera(const crow::request& req);
 
 };
 
